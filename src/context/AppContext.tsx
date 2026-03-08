@@ -1,19 +1,19 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
-import { planDays } from '../data/planDays';
-import { quizProfileMock } from '../data/quizProfile';
-import { deriveProfile } from '../lib/profileRules';
-import { buildProgressSnapshot } from '../lib/progress';
-import { loadAppState, saveAppState } from '../lib/storage';
-import { getPlanDayByNumber, getTodayDayNumber } from '../lib/planRules';
-import { computeNextStreak, mergeCompletedDays } from '../lib/workoutState';
-import type { PlanDay } from '../types/plan';
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { planDays } from "../data/planDays";
+import { quizProfileMock } from "../data/quizProfile";
+import { deriveProfile } from "../lib/profileRules";
+import { buildProgressSnapshot } from "../lib/progress";
+import { loadAppState, saveAppState } from "../lib/storage";
+import { getPlanDayByNumber, getTodayDayNumber } from "../lib/planRules";
+import { computeNextStreak, mergeCompletedDays } from "../lib/workoutState";
+import type { PlanDay } from "../types/plan";
 import type {
   DerivedProfile,
   OnboardingAdjustments,
   QuizProfileInput,
-} from '../types/profile';
-import type { ProgressSnapshot } from '../types/progress';
-import type { WorkoutFeedback } from '../types/workout';
+} from "../types/profile";
+import type { ProgressSnapshot } from "../types/progress";
+import type { WorkoutFeedback } from "../types/workout";
 
 interface OnboardingState {
   accessGranted: boolean;
@@ -68,7 +68,9 @@ const initialState: AppState = {
 const AppContext = createContext<AppContextValue | undefined>(undefined);
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
-  const [state, setState] = useState<AppState>(() => loadAppState() ?? initialState);
+  const [state, setState] = useState<AppState>(
+    () => loadAppState() ?? initialState,
+  );
 
   useEffect(() => {
     saveAppState(state);
@@ -85,7 +87,12 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const todayPlanDay = getPlanDayByNumber(todayDayNumber);
 
   const progressSnapshot = useMemo(
-    () => buildProgressSnapshot(state.completedDays, state.streak, state.lastCompletedAt),
+    () =>
+      buildProgressSnapshot(
+        state.completedDays,
+        state.streak,
+        state.lastCompletedAt,
+      ),
     [state.completedDays, state.streak, state.lastCompletedAt],
   );
 
@@ -129,8 +136,15 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     const nowIso = new Date().toISOString();
 
     setState((previous) => {
-      const completedDays = mergeCompletedDays(previous.completedDays, dayNumber);
-      const streak = computeNextStreak(previous.streak, previous.lastCompletedAt, new Date(nowIso));
+      const completedDays = mergeCompletedDays(
+        previous.completedDays,
+        dayNumber,
+      );
+      const streak = computeNextStreak(
+        previous.streak,
+        previous.lastCompletedAt,
+        new Date(nowIso),
+      );
 
       return {
         ...previous,
@@ -177,7 +191,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 export const useAppContext = (): AppContextValue => {
   const context = useContext(AppContext);
   if (!context) {
-    throw new Error('useAppContext must be used within AppProvider');
+    throw new Error("useAppContext must be used within AppProvider");
   }
   return context;
 };

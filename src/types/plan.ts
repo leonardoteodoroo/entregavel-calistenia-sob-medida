@@ -1,5 +1,5 @@
-export type PlanPath = 'leve' | 'base' | 'avancar';
-export type PlanDayType = 'treino' | 'mobilidade' | 'recuperacao';
+export type PlanPath = "leve" | "base" | "avancar";
+export type PlanDayType = "treino" | "mobilidade" | "recuperacao";
 
 export interface PlanDay {
   dayNumber: number;

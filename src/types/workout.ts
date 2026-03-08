@@ -1,4 +1,4 @@
-export type WorkoutFeedback = 'leve' | 'ideal' | 'intenso';
+export type WorkoutFeedback = "leve" | "ideal" | "intenso";
 
 export interface WorkoutSessionState {
   dayNumber: number;

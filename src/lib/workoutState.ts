@@ -1,5 +1,7 @@
 const toDateStart = (date: Date): Date =>
-  new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
+  new Date(
+    Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()),
+  );
 
 const diffInDays = (a: Date, b: Date): number => {
   const ms = toDateStart(a).getTime() - toDateStart(b).getTime();
@@ -21,7 +23,10 @@ export const computeNextStreak = (
   return 1;
 };
 
-export const mergeCompletedDays = (completedDays: number[], dayNumber: number): number[] => {
+export const mergeCompletedDays = (
+  completedDays: number[],
+  dayNumber: number,
+): number[] => {
   if (completedDays.includes(dayNumber)) return completedDays;
   return [...completedDays, dayNumber].sort((a, b) => a - b);
 };

@@ -1,21 +1,27 @@
-import { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ExerciseCard } from '../../components/ExerciseCard';
-import { ExerciseDetailModal } from '../../components/ExerciseDetailModal';
-import { ScreenFrame } from '../../components/ScreenFrame';
-import { exercises } from '../../data/exercises';
-import type { Exercise } from '../../types/exercise';
+import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
+import { ExerciseCard } from "../../components/ExerciseCard";
+import { ExerciseDetailModal } from "../../components/ExerciseDetailModal";
+import { ScreenFrame } from "../../components/ScreenFrame";
+import { exercises } from "../../data/exercises";
+import type { Exercise } from "../../types/exercise";
 
-const categories = ['Todos', ...new Set(exercises.map((exercise) => exercise.category))];
+const categories = [
+  "Todos",
+  ...new Set(exercises.map((exercise) => exercise.category)),
+];
 
 export const LibraryScreen = () => {
-  const [search, setSearch] = useState('');
-  const [category, setCategory] = useState('Todos');
-  const [selectedExercise, setSelectedExercise] = useState<Exercise | null>(null);
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("Todos");
+  const [selectedExercise, setSelectedExercise] = useState<Exercise | null>(
+    null,
+  );
 
   const filtered = useMemo(() => {
     return exercises.filter((exercise) => {
-      const categoryMatch = category === 'Todos' || exercise.category === category;
+      const categoryMatch =
+        category === "Todos" || exercise.category === category;
       const text = `${exercise.name} ${exercise.description}`.toLowerCase();
       const searchMatch = text.includes(search.toLowerCase());
       return categoryMatch && searchMatch;
@@ -29,7 +35,7 @@ export const LibraryScreen = () => {
           value={search}
           onChange={(event) => setSearch(event.target.value)}
           placeholder="Buscar exercício"
-          className="w-full rounded-2xl border border-white/10 bg-[color:var(--color-surface)] px-3 py-2 text-sm text-white"
+          className="w-full rounded-md border border-[color:var(--color-border-default)] bg-[color:var(--color-surface-card)] px-3 py-2 text-sm text-[color:var(--color-text-primary)] placeholder:text-[color:var(--color-text-muted)]"
         />
 
         <div className="flex gap-2 overflow-x-auto pb-1">
@@ -40,8 +46,8 @@ export const LibraryScreen = () => {
               onClick={() => setCategory(item)}
               className={`whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-semibold ${
                 category === item
-                  ? 'bg-[color:var(--color-brand)] text-black'
-                  : 'bg-white/10 text-[color:var(--color-muted-text)]'
+                  ? "bg-[color:var(--color-action-primary)] text-[color:var(--color-text-on-brand)]"
+                  : "bg-[color:var(--color-surface-section)] text-[color:var(--color-text-secondary)]"
               }`}
             >
               {item}
@@ -51,18 +57,25 @@ export const LibraryScreen = () => {
 
         <div className="grid gap-3">
           {filtered.map((exercise) => (
-            <ExerciseCard key={exercise.id} exercise={exercise} onOpen={setSelectedExercise} />
+            <ExerciseCard
+              key={exercise.id}
+              exercise={exercise}
+              onOpen={setSelectedExercise}
+            />
           ))}
         </div>
 
         <Link
           to="/app/biblioteca/assistente"
-          className="mt-2 block rounded-2xl border border-[color:var(--color-accent)] bg-[color:rgba(41,201,184,0.12)] px-4 py-3 text-center text-sm font-semibold text-[color:var(--color-accent)]"
+          className="mt-2 block rounded-lg border border-[color:var(--color-action-primary)] bg-[color:var(--color-action-secondary-hover)] px-4 py-3 text-center text-sm font-semibold text-[color:var(--color-action-primary)]"
         >
           Abrir assistente de dúvidas
         </Link>
       </div>
-      <ExerciseDetailModal exercise={selectedExercise} onClose={() => setSelectedExercise(null)} />
+      <ExerciseDetailModal
+        exercise={selectedExercise}
+        onClose={() => setSelectedExercise(null)}
+      />
     </ScreenFrame>
   );
 };

@@ -1,21 +1,77 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600;700;800&display=swap');
-@import 'tailwindcss';
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
 
 @theme {
-  --font-sans: 'Outfit', ui-sans-serif, system-ui;
-  --font-serif: 'Fraunces', ui-serif, Georgia;
+  --font-sans: "Open Sans", ui-sans-serif, system-ui;
+  --font-serif: "Merriweather", ui-serif, Georgia;
 
-  --color-app-bg: #070d16;
-  --color-surface: #0e1623;
-  --color-surface-soft: #162235;
-  --color-brand: #ff7a59;
-  --color-brand-strong: #ff5e36;
-  --color-accent: #29c9b8;
-  --color-muted-text: #91a0b5;
+  --color-text-primary: #2d3748;
+  --color-text-secondary: #4a5568;
+  --color-text-muted: #a0aec0;
+  --color-text-on-dark: #f7fafc;
+  --color-text-on-brand: #ffffff;
+  --color-text-on-strong: #ffffff;
+
+  --color-surface-page: #faf9f6;
+  --color-surface-section: #f3efea;
+  --color-surface-card: #ffffff;
+  --color-surface-subtle: #fdf8f5;
+  --color-surface-elevated: #ffffff;
+  --color-surface-overlay: #f7fafc;
+
+  --color-action-primary: #2c7a7b;
+  --color-action-primary-hover: #285e61;
+  --color-action-primary-active: #234e52;
+  --color-action-primary-disabled: #b2f5ea;
+  --color-action-strong: #d53f8c;
+  --color-action-strong-hover: #b83280;
+  --color-action-strong-active: #97266d;
+  --color-action-strong-disabled: #fed7e2;
+
+  --color-border-default: #e2e8f0;
+  --color-border-subtle: #edf2f7;
+  --color-border-focus: #319795;
+  --color-border-disabled: #cbd5e0;
+
+  --color-status-success: #38a169;
+  --color-status-success-surface: #f0fff4;
+  --color-status-warning: #dd6b20;
+  --color-status-warning-surface: #fffaf0;
+  --color-status-error: #e53e3e;
+  --color-status-error-surface: #fff5f5;
+
+  --color-link-default: #2c7a7b;
+  --color-link-hover: #285e61;
+  --color-highlight: #feebc8;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px #0000000d;
+  --shadow-md: 0 4px 6px -1px #00000014, 0 2px 4px -1px #0000000a;
+  --shadow-lg: 0 10px 15px -3px #00000014, 0 4px 6px -2px #0000000a;
+  --shadow-card: 0 4px 12px #2c7a7b14;
+  --shadow-card-hover: 0 8px 24px #2c7a7b1f;
+  --shadow-cta: 0 8px 20px -4px #d53f8c59;
+
+  --duration-fast: 200ms;
+  --duration-normal: 350ms;
+  --duration-slow: 600ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+
+  --color-overlay-soft: #2d374814;
+  --color-overlay-strong: #2d3748cc;
+  --color-overlay-modal: #2d374866;
+  --color-nav-backdrop: #faf9f6f2;
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 * {
@@ -27,14 +83,27 @@ body {
   min-height: 100vh;
   font-family: var(--font-sans);
   background:
-    radial-gradient(120% 60% at 10% 0%, rgba(255, 122, 89, 0.2), transparent 60%),
-    radial-gradient(120% 80% at 90% 100%, rgba(41, 201, 184, 0.2), transparent 60%),
-    var(--color-app-bg);
-  color: #f7fbff;
+    radial-gradient(120% 60% at 10% 0%, #feebc880, transparent 60%),
+    radial-gradient(120% 80% at 90% 100%, #e6fffa99, transparent 60%),
+    var(--color-surface-page);
+  color: var(--color-text-primary);
 }
 
 #root {
   min-height: 100vh;
+}
+
+a {
+  color: var(--color-link-default);
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
 }
 
 .safe-pb {

@@ -1,5 +1,5 @@
-export type Goal = 'emagrecer' | 'tonificar' | 'consistencia';
-export type ExperienceLevel = 'iniciante' | 'intermediaria';
+export type Goal = "emagrecer" | "tonificar" | "consistencia";
+export type ExperienceLevel = "iniciante" | "intermediaria";
 
 export interface QuizProfileInput {
   name: string;

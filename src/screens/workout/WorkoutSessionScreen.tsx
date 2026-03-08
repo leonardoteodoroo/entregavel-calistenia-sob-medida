@@ -1,10 +1,10 @@
-import { useMemo, useState } from 'react';
-import { CheckCircle2 } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-import { ScreenFrame } from '../../components/ScreenFrame';
-import { exerciseMap } from '../../data/exercises';
-import { useAppContext } from '../../context/AppContext';
-import type { Exercise } from '../../types/exercise';
+import { useMemo, useState } from "react";
+import { CheckCircle2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { ScreenFrame } from "../../components/ScreenFrame";
+import { exerciseMap } from "../../data/exercises";
+import { useAppContext } from "../../context/AppContext";
+import type { Exercise } from "../../types/exercise";
 
 export const WorkoutSessionScreen = () => {
   const navigate = useNavigate();
@@ -28,8 +28,8 @@ export const WorkoutSessionScreen = () => {
       <ScreenFrame title="Treino" subtitle="Nenhum treino disponível hoje">
         <button
           type="button"
-          onClick={() => navigate('/app/hoje')}
-          className="rounded-2xl bg-[color:var(--color-brand)] px-4 py-3 font-semibold text-black"
+          onClick={() => navigate("/app/hoje")}
+          className="rounded-lg bg-[color:var(--color-action-primary)] px-4 py-3 font-semibold text-[color:var(--color-text-on-brand)]"
         >
           Voltar para Hoje
         </button>
@@ -40,13 +40,14 @@ export const WorkoutSessionScreen = () => {
   if (dayAlreadyCompleted) {
     return (
       <ScreenFrame title="Treino do dia" subtitle="Sessão já concluída">
-        <div className="rounded-2xl border border-[color:var(--color-accent)] bg-[color:rgba(41,201,184,0.12)] p-4 text-sm text-white">
-          Você já concluiu o dia {todayPlanDay.dayNumber}. Se quiser, revise os exercícios na biblioteca.
+        <div className="rounded-xl border border-[color:var(--color-status-success)] bg-[color:var(--color-status-success-surface)] p-4 text-sm text-[color:var(--color-text-primary)]">
+          Você já concluiu o dia {todayPlanDay.dayNumber}. Se quiser, revise os
+          exercícios na biblioteca.
         </div>
         <button
           type="button"
-          onClick={() => navigate('/app/progresso')}
-          className="mt-3 rounded-2xl bg-[color:var(--color-brand)] px-4 py-3 font-semibold text-black"
+          onClick={() => navigate("/app/progresso")}
+          className="mt-3 rounded-lg bg-[color:var(--color-action-primary)] px-4 py-3 font-semibold text-[color:var(--color-text-on-brand)]"
         >
           Ver progresso
         </button>
@@ -59,8 +60,8 @@ export const WorkoutSessionScreen = () => {
       <ScreenFrame title="Treino" subtitle="Configuração incompleta">
         <button
           type="button"
-          onClick={() => navigate('/app/hoje')}
-          className="rounded-2xl bg-[color:var(--color-brand)] px-4 py-3 font-semibold text-black"
+          onClick={() => navigate("/app/hoje")}
+          className="rounded-lg bg-[color:var(--color-action-primary)] px-4 py-3 font-semibold text-[color:var(--color-text-on-brand)]"
         >
           Voltar para Hoje
         </button>
@@ -74,13 +75,17 @@ export const WorkoutSessionScreen = () => {
 
   const applyAdaptation = () => {
     setAdaptedExerciseIds((previous) =>
-      previous.includes(currentExercise.id) ? previous : [...previous, currentExercise.id],
+      previous.includes(currentExercise.id)
+        ? previous
+        : [...previous, currentExercise.id],
     );
   };
 
   const goNext = () => {
     if (isLast) {
-      navigate('/app/hoje/conclusao', { state: { dayNumber: todayPlanDay.dayNumber } });
+      navigate("/app/hoje/conclusao", {
+        state: { dayNumber: todayPlanDay.dayNumber },
+      });
       return;
     }
     setCurrentIndex((previous) => previous + 1);
@@ -95,21 +100,33 @@ export const WorkoutSessionScreen = () => {
         <img
           src={currentExercise.image}
           alt={currentExercise.name}
-          className="h-44 w-full rounded-3xl object-cover"
+          className="h-44 w-full rounded-2xl object-cover"
         />
 
-        <div className="rounded-2xl border border-white/10 bg-[color:var(--color-surface)] p-4">
-          <h2 className="font-serif text-2xl text-white">{currentExercise.name}</h2>
-          <p className="mt-1 text-sm text-[color:var(--color-muted-text)]">{currentExercise.description}</p>
+        <div className="rounded-xl border border-[color:var(--color-border-default)] bg-[color:var(--color-surface-card)] p-4">
+          <h2 className="font-serif text-2xl text-[color:var(--color-text-primary)]">
+            {currentExercise.name}
+          </h2>
+          <p className="mt-1 text-sm text-[color:var(--color-text-secondary)]">
+            {currentExercise.description}
+          </p>
 
-          <div className="mt-3 rounded-xl bg-white/5 p-3 text-sm text-white">
+          <div className="mt-3 rounded-xl bg-[color:var(--color-surface-section)] p-3 text-sm text-[color:var(--color-text-primary)]">
             <p className="font-semibold">Execução rápida</p>
-            <p className="mt-1 text-[color:var(--color-muted-text)]">{currentExercise.progressionTips[0]}</p>
+            <p className="mt-1 text-[color:var(--color-text-secondary)]">
+              {currentExercise.progressionTips[0]}
+            </p>
           </div>
 
-          <div className="mt-3 rounded-xl border border-[color:var(--color-accent)] bg-[color:rgba(41,201,184,0.12)] p-3 text-sm">
-            <p className="font-semibold text-[color:var(--color-accent)]">Adaptação acionável</p>
-            <p className="mt-1 text-white">{isAdapted ? currentExercise.adaptation : 'Ative adaptação se sentir dor ou dificuldade.'}</p>
+          <div className="mt-3 rounded-xl border border-[color:var(--color-status-success)] bg-[color:var(--color-status-success-surface)] p-3 text-sm">
+            <p className="font-semibold text-[color:var(--color-status-success)]">
+              Adaptação acionável
+            </p>
+            <p className="mt-1 text-[color:var(--color-text-primary)]">
+              {isAdapted
+                ? currentExercise.adaptation
+                : "Ative adaptação se sentir dor ou dificuldade."}
+            </p>
           </div>
         </div>
 
@@ -117,17 +134,19 @@ export const WorkoutSessionScreen = () => {
           <button
             type="button"
             onClick={applyAdaptation}
-            className="rounded-2xl border border-white/20 px-4 py-3 text-sm font-semibold text-white"
+            className="rounded-lg border border-[color:var(--color-border-default)] bg-[color:var(--color-surface-card)] px-4 py-3 text-sm font-semibold text-[color:var(--color-text-primary)]"
           >
-            {isAdapted ? 'Adaptação aplicada' : 'Aplicar adaptação deste exercício'}
+            {isAdapted
+              ? "Adaptação aplicada"
+              : "Aplicar adaptação deste exercício"}
           </button>
 
           <button
             type="button"
             onClick={goNext}
-            className="flex items-center justify-center gap-2 rounded-2xl bg-[color:var(--color-brand)] px-4 py-3 font-bold text-black"
+            className="flex items-center justify-center gap-2 rounded-lg bg-[color:var(--color-action-primary)] px-4 py-3 font-bold text-[color:var(--color-text-on-brand)]"
           >
-            {isLast ? 'Finalizar treino' : 'Próximo exercício'}
+            {isLast ? "Finalizar treino" : "Próximo exercício"}
             {isLast ? <CheckCircle2 className="h-4 w-4" /> : null}
           </button>
         </div>

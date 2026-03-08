@@ -1,6 +1,6 @@
-import type { AppState } from '../context/AppContext';
+import type { AppState } from "../context/AppContext";
 
-const STORAGE_KEY = 'calistenia-sob-medida:v1';
+const STORAGE_KEY = "calistenia-sob-medida:v1";
 
 export const loadAppState = (): AppState | undefined => {
   try {

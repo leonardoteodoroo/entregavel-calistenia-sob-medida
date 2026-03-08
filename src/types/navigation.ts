@@ -1,1 +1,1 @@
-export type MainTab = 'hoje' | 'plano' | 'biblioteca' | 'progresso' | 'perfil';
+export type MainTab = "hoje" | "plano" | "biblioteca" | "progresso" | "extras";

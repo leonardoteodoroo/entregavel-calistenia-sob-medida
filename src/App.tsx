@@ -1,22 +1,23 @@
-import type { ReactNode } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import { useAppContext } from './context/AppContext';
-import { MainAppLayout } from './layouts/MainAppLayout';
-import { AssistantScreen } from './screens/app/AssistantScreen';
-import { LibraryScreen } from './screens/app/LibraryScreen';
-import { PlanScreen } from './screens/app/PlanScreen';
-import { ProfileScreen } from './screens/app/ProfileScreen';
-import { ProgressScreen } from './screens/app/ProgressScreen';
-import { ReactivationScreen } from './screens/app/ReactivationScreen';
-import { SupportScreen } from './screens/app/SupportScreen';
-import { TodayScreen } from './screens/app/TodayScreen';
-import { OnboardingAdjustmentsScreen } from './screens/onboarding/OnboardingAdjustments';
-import { PlanReason } from './screens/onboarding/PlanReason';
-import { ProfileConfirmation } from './screens/onboarding/ProfileConfirmation';
-import { SplashAccess } from './screens/onboarding/SplashAccess';
-import { Welcome } from './screens/onboarding/Welcome';
-import { WorkoutCompletionScreen } from './screens/workout/WorkoutCompletionScreen';
-import { WorkoutSessionScreen } from './screens/workout/WorkoutSessionScreen';
+import type { ReactNode } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { useAppContext } from "./context/AppContext";
+import { MainAppLayout } from "./layouts/MainAppLayout";
+import { AssistantScreen } from "./screens/app/AssistantScreen";
+import { ExtrasScreen } from "./screens/app/DietScreen";
+import { LibraryScreen } from "./screens/app/LibraryScreen";
+import { PlanScreen } from "./screens/app/PlanScreen";
+import { ProfileScreen } from "./screens/app/ProfileScreen";
+import { ProgressScreen } from "./screens/app/ProgressScreen";
+import { ReactivationScreen } from "./screens/app/ReactivationScreen";
+import { SupportScreen } from "./screens/app/SupportScreen";
+import { TodayScreen } from "./screens/app/TodayScreen";
+import { OnboardingAdjustmentsScreen } from "./screens/onboarding/OnboardingAdjustments";
+import { PlanReason } from "./screens/onboarding/PlanReason";
+import { ProfileConfirmation } from "./screens/onboarding/ProfileConfirmation";
+import { SplashAccess } from "./screens/onboarding/SplashAccess";
+import { Welcome } from "./screens/onboarding/Welcome";
+import { WorkoutCompletionScreen } from "./screens/workout/WorkoutCompletionScreen";
+import { WorkoutSessionScreen } from "./screens/workout/WorkoutSessionScreen";
 
 const RequireAccess = ({ children }: { children: ReactNode }) => {
   const { state } = useAppContext();
@@ -32,7 +33,8 @@ const RequireWelcome = ({ children }: { children: ReactNode }) => {
 
 const RequireProfileConfirmed = ({ children }: { children: ReactNode }) => {
   const { state } = useAppContext();
-  if (!state.onboarding.profileConfirmed) return <Navigate to="/perfil" replace />;
+  if (!state.onboarding.profileConfirmed)
+    return <Navigate to="/perfil" replace />;
   return <>{children}</>;
 };
 
@@ -117,6 +119,8 @@ const App = () => (
       <Route path="plano" element={<PlanScreen />} />
       <Route path="biblioteca" element={<LibraryScreen />} />
       <Route path="biblioteca/assistente" element={<AssistantScreen />} />
+      <Route path="extras" element={<ExtrasScreen />} />
+      <Route path="dieta" element={<Navigate to="/app/extras" replace />} />
       <Route path="progresso" element={<ProgressScreen />} />
       <Route path="perfil" element={<ProfileScreen />} />
       <Route path="perfil/suporte" element={<SupportScreen />} />

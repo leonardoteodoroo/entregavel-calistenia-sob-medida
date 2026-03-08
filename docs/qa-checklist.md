@@ -1,6 +1,7 @@
 # QA Checklist MVP - Calistenia Sob Medida
 
 ## Fluxo principal
+
 - [ ] Entrar no app em `/`
 - [ ] Concluir onboarding (welcome -> perfil -> ajustes -> plano montado)
 - [ ] Acessar `Hoje` e iniciar treino
@@ -11,11 +12,13 @@
 - [ ] Voltar para `Plano` sem perder estado
 
 ## Qualidade técnica
+
 - [ ] `npm run lint`
 - [ ] `npm run test`
 - [ ] `npm run build`
 
 ## Publicação e domínio
+
 - [ ] Workflow `Deploy to GitHub Pages` executa com sucesso
 - [ ] Branch `gh-pages` atualizada com `dist`
 - [ ] Arquivo `CNAME` presente no artefato publicado

@@ -1,13 +1,13 @@
-import { useMemo, useState } from 'react';
-import type { FormEvent } from 'react';
-import { Link } from 'react-router-dom';
-import { ScreenFrame } from '../../components/ScreenFrame';
-import { exerciseMap } from '../../data/exercises';
-import { resolveAssistantIntent } from '../../lib/assistantRules';
+import { useMemo, useState } from "react";
+import type { FormEvent } from "react";
+import { Link } from "react-router-dom";
+import { ScreenFrame } from "../../components/ScreenFrame";
+import { exerciseMap } from "../../data/exercises";
+import { resolveAssistantIntent } from "../../lib/assistantRules";
 
 interface ChatMessage {
   id: string;
-  from: 'aluna' | 'assistente';
+  from: "aluna" | "assistente";
   text: string;
 }
 
@@ -15,17 +15,22 @@ let messageCounter = 0;
 const nextMessageId = () => `message-${messageCounter++}`;
 
 export const AssistantScreen = () => {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
-      id: 'seed',
-      from: 'assistente',
-      text: 'Me diga sua dúvida: substituição, dor no joelho/punho, treino curto ou perdi um dia.',
+      id: "seed",
+      from: "assistente",
+      text: "Me diga sua dúvida: substituição, dor no joelho/punho, treino curto ou perdi um dia.",
     },
   ]);
 
   const quickPrompts = useMemo(
-    () => ['Preciso de substituição', 'Meu joelho dói', 'Hoje tenho só 10 minutos', 'Perdi um dia'],
+    () => [
+      "Preciso de substituição",
+      "Meu joelho dói",
+      "Hoje tenho só 10 minutos",
+      "Perdi um dia",
+    ],
     [],
   );
 
@@ -40,15 +45,15 @@ export const AssistantScreen = () => {
 
     const assistantText =
       suggestions.length > 0
-        ? `${intent.answer}\n\nSugestão agora: ${suggestions.slice(0, 2).join(' • ')}.`
+        ? `${intent.answer}\n\nSugestão agora: ${suggestions.slice(0, 2).join(" • ")}.`
         : intent.answer;
 
     setMessages((previous) => [
       ...previous,
-      { id: nextMessageId(), from: 'aluna', text: trimmed },
-      { id: nextMessageId(), from: 'assistente', text: assistantText },
+      { id: nextMessageId(), from: "aluna", text: trimmed },
+      { id: nextMessageId(), from: "assistente", text: assistantText },
     ]);
-    setInput('');
+    setInput("");
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -57,16 +62,19 @@ export const AssistantScreen = () => {
   };
 
   return (
-    <ScreenFrame title="Assistente" subtitle="Apoio rápido, sem tirar foco do treino">
+    <ScreenFrame
+      title="Assistente"
+      subtitle="Apoio rápido, sem tirar foco do treino"
+    >
       <div className="flex flex-1 flex-col gap-3">
-        <div className="max-h-[55vh] space-y-2 overflow-y-auto rounded-2xl border border-white/10 bg-[color:var(--color-surface)] p-3">
+        <div className="max-h-[55vh] space-y-2 overflow-y-auto rounded-xl border border-[color:var(--color-border-default)] bg-[color:var(--color-surface-card)] p-3">
           {messages.map((message) => (
             <div
               key={message.id}
-              className={`max-w-[88%] rounded-2xl px-3 py-2 text-sm whitespace-pre-line ${
-                message.from === 'assistente'
-                  ? 'bg-white/10 text-white'
-                  : 'ml-auto bg-[color:var(--color-brand)] text-black'
+              className={`max-w-[88%] rounded-xl px-3 py-2 text-sm whitespace-pre-line ${
+                message.from === "assistente"
+                  ? "bg-[color:var(--color-surface-section)] text-[color:var(--color-text-primary)]"
+                  : "ml-auto bg-[color:var(--color-action-primary)] text-[color:var(--color-text-on-brand)]"
               }`}
             >
               {message.text}
@@ -80,7 +88,7 @@ export const AssistantScreen = () => {
               key={prompt}
               type="button"
               onClick={() => sendMessage(prompt)}
-              className="rounded-full bg-white/10 px-3 py-1.5 text-xs text-[color:var(--color-muted-text)]"
+              className="rounded-full bg-[color:var(--color-surface-section)] px-3 py-1.5 text-xs text-[color:var(--color-text-secondary)]"
             >
               {prompt}
             </button>
@@ -92,17 +100,20 @@ export const AssistantScreen = () => {
             value={input}
             onChange={(event) => setInput(event.target.value)}
             placeholder="Digite sua dúvida"
-            className="flex-1 rounded-xl border border-white/10 bg-[color:var(--color-surface)] px-3 py-2 text-sm text-white"
+            className="flex-1 rounded-md border border-[color:var(--color-border-default)] bg-[color:var(--color-surface-card)] px-3 py-2 text-sm text-[color:var(--color-text-primary)] placeholder:text-[color:var(--color-text-muted)]"
           />
           <button
             type="submit"
-            className="rounded-xl bg-[color:var(--color-brand)] px-4 py-2 text-sm font-semibold text-black"
+            className="rounded-lg bg-[color:var(--color-action-primary)] px-4 py-2 text-sm font-semibold text-[color:var(--color-text-on-brand)]"
           >
             Enviar
           </button>
         </form>
 
-        <Link to="/app/biblioteca" className="text-center text-xs text-[color:var(--color-accent)]">
+        <Link
+          to="/app/biblioteca"
+          className="text-center text-xs text-[color:var(--color-link-default)]"
+        >
           Voltar para biblioteca
         </Link>
       </div>
