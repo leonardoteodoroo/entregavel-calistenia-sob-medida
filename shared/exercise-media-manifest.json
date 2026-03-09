@@ -1,0 +1,423 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-03-09T06:24:46.831Z",
+  "source_root": "/home/leonardotl/Área de trabalho/exercicio",
+  "exercises": [
+    {
+      "exercise_id": "agachamento-assistido",
+      "display_name": "Agachamento assistido",
+      "media_type": "video",
+      "public_paths": {
+        "video": "/exercises/agachamento-assistido/video.mp4"
+      },
+      "alt_text": {
+        "video": "Video do exercicio Agachamento assistido"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Agachamento assistido",
+      "selected_files": [
+        "169_horizontal_video_fullbody_static_shot_slight_3_a2d6e9144d.mp4"
+      ],
+      "ignored_files": []
+    },
+    {
+      "exercise_id": "agachamento-parcial",
+      "display_name": "Agachamento parcial",
+      "media_type": "video",
+      "public_paths": {
+        "video": "/exercises/agachamento-parcial/video.mp4"
+      },
+      "alt_text": {
+        "video": "Video do exercicio Agachamento parcial"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Agachamento parcial",
+      "selected_files": [
+        "22.mp4"
+      ],
+      "ignored_files": []
+    },
+    {
+      "exercise_id": "alongamento-de-quadril",
+      "display_name": "Alongamento de quadril",
+      "media_type": "video",
+      "public_paths": {
+        "video": "/exercises/alongamento-de-quadril/video.mp4"
+      },
+      "alt_text": {
+        "video": "Video do exercicio Alongamento de quadril"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Alongamento de quadril",
+      "selected_files": [
+        "Base_dividida_confortvel_p_da_frente_bem_apoiado_p_5b56f0fe99.mp4"
+      ],
+      "ignored_files": []
+    },
+    {
+      "exercise_id": "alongamento-posterior",
+      "display_name": "Alongamento posterior",
+      "media_type": "single_image",
+      "public_paths": {
+        "single_image": "/exercises/alongamento-posterior/single.webp"
+      },
+      "alt_text": {
+        "single_image": "Alongamento posterior com posicoes 1, 2 e 3 na mesma imagem"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Alongamento posterior",
+      "selected_files": [
+        "123.png"
+      ],
+      "ignored_files": [
+        "1.png",
+        "2.png",
+        "3.png"
+      ]
+    },
+    {
+      "exercise_id": "avanco-curto-com-apoio",
+      "display_name": "Avanço curto com apoio",
+      "media_type": "single_image",
+      "public_paths": {
+        "single_image": "/exercises/avanco-curto-com-apoio/single.webp"
+      },
+      "alt_text": {
+        "single_image": "Avanço curto com apoio com posicoes 1, 2 e 3 na mesma imagem"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Avanço curto com apoio",
+      "selected_files": [
+        "123.png"
+      ],
+      "ignored_files": []
+    },
+    {
+      "exercise_id": "bird-dog",
+      "display_name": "Bird dog",
+      "media_type": "single_image",
+      "public_paths": {
+        "single_image": "/exercises/bird-dog/single.webp"
+      },
+      "alt_text": {
+        "single_image": "Bird dog com posicoes 1, 2 e 3 na mesma imagem"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Bird dog",
+      "selected_files": [
+        "123.png"
+      ],
+      "ignored_files": []
+    },
+    {
+      "exercise_id": "dead-bug",
+      "display_name": "Dead bug",
+      "media_type": "single_image",
+      "public_paths": {
+        "single_image": "/exercises/dead-bug/single.webp"
+      },
+      "alt_text": {
+        "single_image": "Dead bug com posicoes 1, 2 e 3 na mesma imagem"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Dead bug",
+      "selected_files": [
+        "123.png"
+      ],
+      "ignored_files": []
+    },
+    {
+      "exercise_id": "elevacao-de-joelhos-leve",
+      "display_name": "Elevação de joelhos leve",
+      "media_type": "single_image",
+      "public_paths": {
+        "single_image": "/exercises/elevacao-de-joelhos-leve/single.webp"
+      },
+      "alt_text": {
+        "single_image": "Elevação de joelhos leve com posicoes 1, 2 e 3 na mesma imagem"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Elevação de joelhos leve",
+      "selected_files": [
+        "123.png"
+      ],
+      "ignored_files": []
+    },
+    {
+      "exercise_id": "elevacao-de-panturrilha",
+      "display_name": "Elevação de panturrilha",
+      "media_type": "single_image",
+      "public_paths": {
+        "single_image": "/exercises/elevacao-de-panturrilha/single.webp"
+      },
+      "alt_text": {
+        "single_image": "Elevação de panturrilha com posicoes 1, 2 e 3 na mesma imagem"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Elevação de panturrilha",
+      "selected_files": [
+        "123.jpeg"
+      ],
+      "ignored_files": []
+    },
+    {
+      "exercise_id": "elevacao-pelvica",
+      "display_name": "Elevação pélvica",
+      "media_type": "single_image",
+      "public_paths": {
+        "single_image": "/exercises/elevacao-pelvica/single.webp"
+      },
+      "alt_text": {
+        "single_image": "Elevação pélvica com posicoes 1, 2 e 3 na mesma imagem"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Elevação pélvica",
+      "selected_files": [
+        "123.png"
+      ],
+      "ignored_files": []
+    },
+    {
+      "exercise_id": "good-morning-sem-peso",
+      "display_name": "Good morning sem peso",
+      "media_type": "single_image",
+      "public_paths": {
+        "single_image": "/exercises/good-morning-sem-peso/single.webp"
+      },
+      "alt_text": {
+        "single_image": "Good morning sem peso com posicoes 1, 2 e 3 na mesma imagem"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Good morning sem peso",
+      "selected_files": [
+        "123.png"
+      ],
+      "ignored_files": []
+    },
+    {
+      "exercise_id": "marcha-parada",
+      "display_name": "Marcha parada",
+      "media_type": "single_image",
+      "public_paths": {
+        "single_image": "/exercises/marcha-parada/single.webp"
+      },
+      "alt_text": {
+        "single_image": "Marcha parada com posicoes 1, 2 e 3 na mesma imagem"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Marcha parada",
+      "selected_files": [
+        "123.png"
+      ],
+      "ignored_files": []
+    },
+    {
+      "exercise_id": "marcha-parada-leve",
+      "display_name": "Marcha parada leve",
+      "media_type": "single_image",
+      "public_paths": {
+        "single_image": "/exercises/marcha-parada-leve/single.webp"
+      },
+      "alt_text": {
+        "single_image": "Marcha parada leve com posicoes 1, 2 e 3 na mesma imagem"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Marcha parada leve",
+      "selected_files": [
+        "123.png"
+      ],
+      "ignored_files": []
+    },
+    {
+      "exercise_id": "mobilidade-de-coluna",
+      "display_name": "Mobilidade de coluna",
+      "media_type": "single_image",
+      "public_paths": {
+        "single_image": "/exercises/mobilidade-de-coluna/single.webp"
+      },
+      "alt_text": {
+        "single_image": "Mobilidade de coluna com posicoes 1, 2 e 3 na mesma imagem"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Mobilidade de coluna",
+      "selected_files": [
+        "123.png"
+      ],
+      "ignored_files": []
+    },
+    {
+      "exercise_id": "mobilidade-de-quadril",
+      "display_name": "Mobilidade de quadril",
+      "media_type": "video",
+      "public_paths": {
+        "video": "/exercises/mobilidade-de-quadril/video.mp4"
+      },
+      "alt_text": {
+        "video": "Video do exercicio Mobilidade de quadril"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Mobilidade de quadril",
+      "selected_files": [
+        "123.mp4"
+      ],
+      "ignored_files": []
+    },
+    {
+      "exercise_id": "polichinelo-sem-salto",
+      "display_name": "Polichinelo sem salto",
+      "media_type": "split_images",
+      "public_paths": {
+        "split_images": {
+          "1": "/exercises/polichinelo-sem-salto/1.webp",
+          "2": "/exercises/polichinelo-sem-salto/2.webp",
+          "3": "/exercises/polichinelo-sem-salto/3.webp"
+        }
+      },
+      "alt_text": {
+        "split_images": {
+          "1": "Polichinelo sem salto - posicao 1",
+          "2": "Polichinelo sem salto - posicao 2",
+          "3": "Polichinelo sem salto - posicao 3"
+        }
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Polichinelo sem salto",
+      "selected_files": [
+        "1.jpeg",
+        "2.jpeg",
+        "3.jpeg"
+      ],
+      "ignored_files": []
+    },
+    {
+      "exercise_id": "ponte-de-gluteos",
+      "display_name": "Ponte de glúteos",
+      "media_type": "single_image",
+      "public_paths": {
+        "single_image": "/exercises/ponte-de-gluteos/single.webp"
+      },
+      "alt_text": {
+        "single_image": "Ponte de glúteos com posicoes 1, 2 e 3 na mesma imagem"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Ponte de glúteos",
+      "selected_files": [
+        "123.png"
+      ],
+      "ignored_files": []
+    },
+    {
+      "exercise_id": "ponte-de-gluteos-com-pausa",
+      "display_name": "Ponte de glúteos com pausa",
+      "media_type": "single_image",
+      "public_paths": {
+        "single_image": "/exercises/ponte-de-gluteos-com-pausa/single.webp"
+      },
+      "alt_text": {
+        "single_image": "Ponte de glúteos com pausa com posicoes 1, 2 e 3 na mesma imagem"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Ponte de glúteos com pausa",
+      "selected_files": [
+        "123.png"
+      ],
+      "ignored_files": []
+    },
+    {
+      "exercise_id": "prancha-adaptada",
+      "display_name": "Prancha adaptada",
+      "media_type": "video",
+      "public_paths": {
+        "video": "/exercises/prancha-adaptada/video.mp4"
+      },
+      "alt_text": {
+        "video": "Video do exercicio Prancha adaptada"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Prancha adaptada",
+      "selected_files": [
+        "Plank_transition_over_8_seconds_delpmaspu_.mp4"
+      ],
+      "ignored_files": []
+    },
+    {
+      "exercise_id": "push-up-inclinada",
+      "display_name": "Push-up inclinada",
+      "media_type": "video",
+      "public_paths": {
+        "video": "/exercises/push-up-inclinada/video.mp4"
+      },
+      "alt_text": {
+        "video": "Video do exercicio Push-up inclinada"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Push-up inclinada",
+      "selected_files": [
+        "Pushup_lowering_transition_delpmaspu_.mp4"
+      ],
+      "ignored_files": []
+    },
+    {
+      "exercise_id": "respiracao-e-mobilidade-leve",
+      "display_name": "Respiração e mobilidade leve",
+      "media_type": "video",
+      "public_paths": {
+        "video": "/exercises/respiracao-e-mobilidade-leve/video.mp4"
+      },
+      "alt_text": {
+        "video": "Video do exercicio Respiração e mobilidade leve"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Respiração e mobilidade leve",
+      "selected_files": [
+        "Flow_delpmaspu_.mp4"
+      ],
+      "ignored_files": []
+    },
+    {
+      "exercise_id": "respiracao-profunda",
+      "display_name": "Respiração profunda",
+      "media_type": "video",
+      "public_paths": {
+        "video": "/exercises/respiracao-profunda/video.mp4"
+      },
+      "alt_text": {
+        "video": "Video do exercicio Respiração profunda"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Respiração profunda",
+      "selected_files": [
+        "Woman_performing_breathing_exercise_delpmaspu_.mp4"
+      ],
+      "ignored_files": [
+        "123.png"
+      ]
+    },
+    {
+      "exercise_id": "step-touch-lateral",
+      "display_name": "Step touch lateral",
+      "media_type": "single_image",
+      "public_paths": {
+        "single_image": "/exercises/step-touch-lateral/single.webp"
+      },
+      "alt_text": {
+        "single_image": "Step touch lateral com posicoes 1, 2 e 3 na mesma imagem"
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Step touch lateral",
+      "selected_files": [
+        "123.png"
+      ],
+      "ignored_files": []
+    },
+    {
+      "exercise_id": "wall-push-up",
+      "display_name": "Wall push-up",
+      "media_type": "split_images",
+      "public_paths": {
+        "split_images": {
+          "1": "/exercises/wall-push-up/1.webp",
+          "2": "/exercises/wall-push-up/2.webp",
+          "3": "/exercises/wall-push-up/3.webp"
+        }
+      },
+      "alt_text": {
+        "split_images": {
+          "1": "Wall push-up - posicao 1",
+          "2": "Wall push-up - posicao 2",
+          "3": "Wall push-up - posicao 3"
+        }
+      },
+      "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Wall push-up",
+      "selected_files": [
+        "1.png",
+        "2.png",
+        "3.png"
+      ],
+      "ignored_files": []
+    }
+  ],
+  "summary": {
+    "total_exercises": 24,
+    "videos": 8,
+    "single_images": 14,
+    "split_images": 2
+  }
+}

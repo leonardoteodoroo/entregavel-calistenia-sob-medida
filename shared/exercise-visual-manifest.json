@@ -1,0 +1,971 @@
+{
+  "version": "1.0.0",
+  "source_of_truth": "client/src/lib/planData.ts",
+  "generated_at": "2026-03-08T17:03:38.770Z",
+  "exercises": [
+    {
+      "exercise_id": "agachamento-assistido",
+      "display_name": "Agachamento assistido",
+      "occurrences": [
+        "S1D1",
+        "S1D5",
+        "S2D8",
+        "S2D12",
+        "S4D28"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "/exercises/agachamento-assistido/inicio.webp",
+        "meio": "/exercises/agachamento-assistido/meio.webp",
+        "fim": "/exercises/agachamento-assistido/fim.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "agachamento-parcial",
+      "display_name": "Agachamento parcial",
+      "occurrences": [
+        "S1D4",
+        "S2D11",
+        "S3D15",
+        "S3D19",
+        "S4D22",
+        "S4D25",
+        "S4D26"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-agachamento-parcial-inicio-mx85WrE4N5zx8Wn3HRdQvx.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-agachamento-parcial-meio-JWH9esU9F9kX6WjDzW3DF9.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-agachamento-parcial-fim-ZwcJZVkwGVfKDjrwutUqMt.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "alongamento-de-quadril",
+      "display_name": "Alongamento de quadril",
+      "occurrences": [
+        "S1D7",
+        "S2D14",
+        "S3D21"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-alongamento-quadril-inicio-g6jdizPxa3B2SBd39NqSZQ.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-alongamento-quadril-meio-ey6ghk9P5TNJ2gjcYJEtUb.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-alongamento-quadril-fim-hxvhbJKTyvbZt9LxH9qoi4.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "alongamento-posterior",
+      "display_name": "Alongamento posterior",
+      "occurrences": [
+        "S1D3",
+        "S1D6",
+        "S2D10",
+        "S2D13",
+        "S3D17",
+        "S3D20",
+        "S4D24",
+        "S4D27"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-alongamento-posterior-inicio-TUbdLpewCBwXYRc9tPABcB.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-alongamento-posterior-meio-QF2RdDRJhYd6Pc9FQamCeg.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-alongamento-posterior-fim-RJBycfHoRwUZgLcNyURMPG.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "avanco-curto-com-apoio",
+      "display_name": "Avanço curto com apoio",
+      "occurrences": [
+        "S1D4",
+        "S2D8",
+        "S2D12",
+        "S3D15",
+        "S4D22",
+        "S4D26"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-avanço-curto-inicio-TY47mBfHLhiBXZB8gAxoim.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-avanço-curto-meio-gvZBSbnLDXby87nSMWgRAU.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-avanço-curto-fim-3BaYK2uMb4WkECkQn4V94o.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "bird-dog",
+      "display_name": "Bird dog",
+      "occurrences": [
+        "S1D2",
+        "S2D9",
+        "S3D16",
+        "S3D18",
+        "S4D23",
+        "S4D26"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-bird-dog-inicio-GQ8JJBJt59XCAh6Y52haYh.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-bird-dog-meio-ZfwVT2ormaUTSDiMY37MLM.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-bird-dog-fim-9ejNyBH56HZHWjH7C7Fwnw.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "dead-bug",
+      "display_name": "Dead bug",
+      "occurrences": [
+        "S1D1",
+        "S1D5",
+        "S2D9",
+        "S2D11",
+        "S3D16",
+        "S3D18",
+        "S3D19",
+        "S4D23",
+        "S4D25",
+        "S4D26",
+        "S4D28"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-dead-bug-inicio-44WEXDf7ViXkDNAoHyvZ4R.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-dead-bug-meio-W9jUCGcFySP5BxjuLKZapS.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-dead-bug-fim-jyqc4Mt3EaxJLGrVXAFzuS.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "elevacao-de-joelhos-leve",
+      "display_name": "Elevação de joelhos leve",
+      "occurrences": [
+        "S1D2",
+        "S2D11",
+        "S3D19",
+        "S4D25"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-elevacao-joelhos-leve-inicio-ji6gbTLyN7X5Dryyj8C2dC.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-elevacao-joelhos-leve-meio-mSpCQ7ZiqPhehVn4hEstSg.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-elevacao-joelhos-leve-fim-E7ptZNnLV6HG7KNnoHYjMK.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "elevacao-de-panturrilha",
+      "display_name": "Elevação de panturrilha",
+      "occurrences": [
+        "S1D1",
+        "S1D4",
+        "S2D8",
+        "S3D15",
+        "S4D22",
+        "S4D26"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-elevacao-panturrilha-inicio-ZdAXCd2SngvDMLiB2ru9MQ.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-elevacao-panturrilha-meio-mWDD6bF3tQMBXsSifc9weA.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-elevacao-panturrilha-fim-NWiYZR6ES6nkoMpfTCRpUP.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "elevacao-pelvica",
+      "display_name": "Elevação pélvica",
+      "occurrences": [
+        "S1D4",
+        "S2D12",
+        "S3D18"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-elevacao-pelvica-inicio-WAcLPwvBpCG39WFsQvp6Hk.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-elevacao-pelvica-meio-V9CXqZbmPJ4vCodxvfRkwR.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-elevacao-pelvica-fim-knGKk3j5VQhXpcQgM5WA5b.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "good-morning-sem-peso",
+      "display_name": "Good morning sem peso",
+      "occurrences": [
+        "S2D8",
+        "S2D12",
+        "S3D15",
+        "S4D22"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-good-morning-inicio-ALin6d69AxYtmokdf9B3Gy.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-good-morning-meio-TqAk3EGdPqr9AVjVM74W8A.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-good-morning-fim-DrManoRYfSTbW5WC7YBsUQ.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "marcha-parada",
+      "display_name": "Marcha parada",
+      "occurrences": [
+        "S1D1",
+        "S1D5",
+        "S4D28"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-marcha-parada-inicio-gs74nU6GmwAnAbKGJwdmgo.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-marcha-parada-meio-DPzr9QdgpB3R5U2Hd73TAR.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-marcha-parada-fim-QC5WkcVdhVoQSJAc89dX9d.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "marcha-parada-leve",
+      "display_name": "Marcha parada leve",
+      "occurrences": [
+        "S1D7",
+        "S2D14",
+        "S3D21"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-marcha-parada-leve-inicio-mntdQMLHUYYCRQgFxxubrK.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-marcha-parada-leve-meio-A7EQHdeNk9F5KPnmZaMg7X.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-marcha-parada-leve-fim-K77mJ4areUGbHEy5GaahKz.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "mobilidade-de-coluna",
+      "display_name": "Mobilidade de coluna",
+      "occurrences": [
+        "S1D2",
+        "S1D3",
+        "S1D6",
+        "S1D7",
+        "S2D9",
+        "S2D10",
+        "S2D13",
+        "S2D14",
+        "S3D16",
+        "S3D17",
+        "S3D20",
+        "S3D21",
+        "S4D23",
+        "S4D24",
+        "S4D27",
+        "S4D28"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-mobilidade-coluna-inicio-g7sXsCjzHe4RFS5reAj68A.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-mobilidade-coluna-meio-PsBghRVfHPYb35i39yKzwK.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-mobilidade-coluna-fim-ZpyYPQy9QvpdrugxU8uDpA.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "mobilidade-de-quadril",
+      "display_name": "Mobilidade de quadril",
+      "occurrences": [
+        "S1D3",
+        "S1D6",
+        "S2D10",
+        "S2D13",
+        "S3D17",
+        "S3D20",
+        "S4D24",
+        "S4D27"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-mobilidade-quadril-inicio-NFL9BNSvgMVLUnUVxkzJ5R.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-mobilidade-quadril-meio-ZPs29RRowdmpo3DEvLqo4C.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-mobilidade-quadril-fim-o5nQrx7rGePfQ6hBFJoN77.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "polichinelo-sem-salto",
+      "display_name": "Polichinelo sem salto",
+      "occurrences": [
+        "S1D5",
+        "S2D11",
+        "S3D15",
+        "S3D19",
+        "S4D22",
+        "S4D25"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-polichinelo-sem-salto-inicio-EwFqAgnQ2aF2k3zfUmwTxF.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-polichinelo-sem-salto-meio-44TyjfGXGcTK5fb5fi9mgV.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-polichinelo-sem-salto-fim-cf67ArZviETNswjmeFytAv.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "ponte-de-gluteos",
+      "display_name": "Ponte de glúteos",
+      "occurrences": [
+        "S1D1",
+        "S1D5",
+        "S2D11",
+        "S3D19",
+        "S4D28"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-ponte-gluteos-inicio-WV4crZawxr8WCHFZFncsyk.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-ponte-gluteos-meio-Ti6XcK2fBzw7equarsqdyZ.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-ponte-gluteos-fim-A3yQ43QPhyL4aATpWBKjt8.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "ponte-de-gluteos-com-pausa",
+      "display_name": "Ponte de glúteos com pausa",
+      "occurrences": [
+        "S1D4",
+        "S2D8",
+        "S2D12",
+        "S3D15",
+        "S3D18",
+        "S4D22",
+        "S4D25",
+        "S4D26"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-ponte-gluteos-pausa-inicio-F74tNrcqfPnrhCPhs3bnSe.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-ponte-gluteos-pausa-meio-UwHyr98fhu8J32QWmoJ6tA.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-ponte-gluteos-pausa-fim-eqWxdm6BCVNnYZi3GLcNrX.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "prancha-adaptada",
+      "display_name": "Prancha adaptada",
+      "occurrences": [
+        "S1D2",
+        "S2D9",
+        "S3D16",
+        "S3D18",
+        "S4D23"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-prancha-adaptada-inicio-C97UK2VcvChDNQERZCxFUo.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-prancha-adaptada-meio-PyfwBAHJDRj7bACCFN2E7Z.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-prancha-adaptada-fim-nmQWfLen2RC7sMacBaepSU.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "push-up-inclinada",
+      "display_name": "Push-up inclinada",
+      "occurrences": [
+        "S2D11",
+        "S3D19",
+        "S4D23",
+        "S4D25"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-pushup-inclinada-inicio-gK2WiLckAL3p5bCPF5JXXE.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-pushup-inclinada-meio-Zt5whvrLF7GrjZdEZbjKCf.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-pushup-inclinada-fim-ACkpsZDJqmsUq2kVKF3wak.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "respiracao-e-mobilidade-leve",
+      "display_name": "Respiração e mobilidade leve",
+      "occurrences": [
+        "S1D3",
+        "S1D6",
+        "S2D10",
+        "S2D13",
+        "S3D17",
+        "S3D20",
+        "S4D24",
+        "S4D27",
+        "S4D28"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-respiracao-mobilidade-leve-inicio-WBv8U8B98KqEzZPxrhU3GT.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-respiracao-mobilidade-leve-meio-bdzHma8F4QJQT3v4rY8Tkj.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-respiracao-mobilidade-leve-fim-Bje2tuvutYpM2gLfLQN32t.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "respiracao-profunda",
+      "display_name": "Respiração profunda",
+      "occurrences": [
+        "S1D7",
+        "S2D14",
+        "S3D21"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-respiracao-profunda-inicio-9nKdZZoLSoYkRxzBYmmGLW.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-respiracao-profunda-meio-MgLzGdJ5ggFmXMDuVY6vfi.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-respiracao-profunda-fim-6xVWEkJyzJemF9SHpesaKD.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "step-touch-lateral",
+      "display_name": "Step touch lateral",
+      "occurrences": [
+        "S1D3",
+        "S1D6",
+        "S2D10",
+        "S2D13",
+        "S3D17",
+        "S3D20",
+        "S4D24",
+        "S4D27"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-step-touch-lateral-inicio-FckL8ghBEUwrE5mLtP7h7c.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-step-touch-lateral-meio-gbCSAGvTMa33mbtCWVaJ5t.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-step-touch-lateral-fim-8GZs79VkpDjthb9sv7FCaD.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    },
+    {
+      "exercise_id": "wall-push-up",
+      "display_name": "Wall push-up",
+      "occurrences": [
+        "S1D2",
+        "S1D5",
+        "S2D9",
+        "S3D16"
+      ],
+      "frames": [
+        "inicio",
+        "meio",
+        "fim"
+      ],
+      "image_refs": {
+        "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-wall-pushup-inicio-mS4LP95d3Dh8irZfEewnEi.webp",
+        "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-wall-pushup-meio-n3n33gt4sGhGBfEgAcKVT8.webp",
+        "fim": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-wall-pushup-fim-89ztHwdbQUgV7SsiVuKFkF.webp"
+      },
+      "prompt_refs": {
+        "inicio": "character_base_inicio",
+        "meio": "character_base_meio",
+        "fim": "character_base_fim"
+      }
+    }
+  ],
+  "day_index": [
+    {
+      "day": 1,
+      "week": 1,
+      "exercise_ids": [
+        "marcha-parada",
+        "agachamento-assistido",
+        "ponte-de-gluteos",
+        "dead-bug",
+        "elevacao-de-panturrilha"
+      ]
+    },
+    {
+      "day": 2,
+      "week": 1,
+      "exercise_ids": [
+        "wall-push-up",
+        "bird-dog",
+        "prancha-adaptada",
+        "mobilidade-de-coluna",
+        "elevacao-de-joelhos-leve"
+      ]
+    },
+    {
+      "day": 3,
+      "week": 1,
+      "exercise_ids": [
+        "mobilidade-de-quadril",
+        "mobilidade-de-coluna",
+        "alongamento-posterior",
+        "respiracao-e-mobilidade-leve",
+        "step-touch-lateral"
+      ]
+    },
+    {
+      "day": 4,
+      "week": 1,
+      "exercise_ids": [
+        "agachamento-parcial",
+        "ponte-de-gluteos-com-pausa",
+        "avanco-curto-com-apoio",
+        "elevacao-pelvica",
+        "elevacao-de-panturrilha"
+      ]
+    },
+    {
+      "day": 5,
+      "week": 1,
+      "exercise_ids": [
+        "marcha-parada",
+        "agachamento-assistido",
+        "wall-push-up",
+        "ponte-de-gluteos",
+        "dead-bug",
+        "polichinelo-sem-salto"
+      ]
+    },
+    {
+      "day": 6,
+      "week": 1,
+      "exercise_ids": [
+        "mobilidade-de-quadril",
+        "mobilidade-de-coluna",
+        "alongamento-posterior",
+        "step-touch-lateral",
+        "respiracao-e-mobilidade-leve"
+      ]
+    },
+    {
+      "day": 7,
+      "week": 1,
+      "exercise_ids": [
+        "respiracao-profunda",
+        "mobilidade-de-coluna",
+        "alongamento-de-quadril",
+        "marcha-parada-leve"
+      ]
+    },
+    {
+      "day": 8,
+      "week": 2,
+      "exercise_ids": [
+        "agachamento-assistido",
+        "ponte-de-gluteos-com-pausa",
+        "avanco-curto-com-apoio",
+        "good-morning-sem-peso",
+        "elevacao-de-panturrilha"
+      ]
+    },
+    {
+      "day": 9,
+      "week": 2,
+      "exercise_ids": [
+        "prancha-adaptada",
+        "dead-bug",
+        "bird-dog",
+        "mobilidade-de-coluna",
+        "wall-push-up"
+      ]
+    },
+    {
+      "day": 10,
+      "week": 2,
+      "exercise_ids": [
+        "respiracao-e-mobilidade-leve",
+        "mobilidade-de-quadril",
+        "mobilidade-de-coluna",
+        "alongamento-posterior",
+        "step-touch-lateral"
+      ]
+    },
+    {
+      "day": 11,
+      "week": 2,
+      "exercise_ids": [
+        "polichinelo-sem-salto",
+        "agachamento-parcial",
+        "push-up-inclinada",
+        "ponte-de-gluteos",
+        "dead-bug",
+        "elevacao-de-joelhos-leve"
+      ]
+    },
+    {
+      "day": 12,
+      "week": 2,
+      "exercise_ids": [
+        "agachamento-assistido",
+        "ponte-de-gluteos-com-pausa",
+        "avanco-curto-com-apoio",
+        "elevacao-pelvica",
+        "good-morning-sem-peso"
+      ]
+    },
+    {
+      "day": 13,
+      "week": 2,
+      "exercise_ids": [
+        "mobilidade-de-quadril",
+        "mobilidade-de-coluna",
+        "alongamento-posterior",
+        "step-touch-lateral",
+        "respiracao-e-mobilidade-leve"
+      ]
+    },
+    {
+      "day": 14,
+      "week": 2,
+      "exercise_ids": [
+        "respiracao-profunda",
+        "mobilidade-de-coluna",
+        "alongamento-de-quadril",
+        "marcha-parada-leve"
+      ]
+    },
+    {
+      "day": 15,
+      "week": 3,
+      "exercise_ids": [
+        "polichinelo-sem-salto",
+        "agachamento-parcial",
+        "avanco-curto-com-apoio",
+        "ponte-de-gluteos-com-pausa",
+        "good-morning-sem-peso",
+        "elevacao-de-panturrilha"
+      ]
+    },
+    {
+      "day": 16,
+      "week": 3,
+      "exercise_ids": [
+        "prancha-adaptada",
+        "dead-bug",
+        "bird-dog",
+        "wall-push-up",
+        "mobilidade-de-coluna"
+      ]
+    },
+    {
+      "day": 17,
+      "week": 3,
+      "exercise_ids": [
+        "respiracao-e-mobilidade-leve",
+        "mobilidade-de-quadril",
+        "mobilidade-de-coluna",
+        "alongamento-posterior",
+        "step-touch-lateral"
+      ]
+    },
+    {
+      "day": 18,
+      "week": 3,
+      "exercise_ids": [
+        "ponte-de-gluteos-com-pausa",
+        "elevacao-pelvica",
+        "dead-bug",
+        "bird-dog",
+        "prancha-adaptada"
+      ]
+    },
+    {
+      "day": 19,
+      "week": 3,
+      "exercise_ids": [
+        "elevacao-de-joelhos-leve",
+        "agachamento-parcial",
+        "push-up-inclinada",
+        "ponte-de-gluteos",
+        "dead-bug",
+        "polichinelo-sem-salto"
+      ]
+    },
+    {
+      "day": 20,
+      "week": 3,
+      "exercise_ids": [
+        "mobilidade-de-quadril",
+        "mobilidade-de-coluna",
+        "alongamento-posterior",
+        "respiracao-e-mobilidade-leve",
+        "step-touch-lateral"
+      ]
+    },
+    {
+      "day": 21,
+      "week": 3,
+      "exercise_ids": [
+        "respiracao-profunda",
+        "mobilidade-de-coluna",
+        "alongamento-de-quadril",
+        "marcha-parada-leve"
+      ]
+    },
+    {
+      "day": 22,
+      "week": 4,
+      "exercise_ids": [
+        "polichinelo-sem-salto",
+        "agachamento-parcial",
+        "avanco-curto-com-apoio",
+        "ponte-de-gluteos-com-pausa",
+        "good-morning-sem-peso",
+        "elevacao-de-panturrilha"
+      ]
+    },
+    {
+      "day": 23,
+      "week": 4,
+      "exercise_ids": [
+        "prancha-adaptada",
+        "dead-bug",
+        "bird-dog",
+        "push-up-inclinada",
+        "mobilidade-de-coluna"
+      ]
+    },
+    {
+      "day": 24,
+      "week": 4,
+      "exercise_ids": [
+        "respiracao-e-mobilidade-leve",
+        "mobilidade-de-quadril",
+        "mobilidade-de-coluna",
+        "alongamento-posterior",
+        "step-touch-lateral"
+      ]
+    },
+    {
+      "day": 25,
+      "week": 4,
+      "exercise_ids": [
+        "elevacao-de-joelhos-leve",
+        "agachamento-parcial",
+        "push-up-inclinada",
+        "ponte-de-gluteos-com-pausa",
+        "dead-bug",
+        "polichinelo-sem-salto"
+      ]
+    },
+    {
+      "day": 26,
+      "week": 4,
+      "exercise_ids": [
+        "agachamento-parcial",
+        "ponte-de-gluteos-com-pausa",
+        "dead-bug",
+        "avanco-curto-com-apoio",
+        "bird-dog",
+        "elevacao-de-panturrilha"
+      ]
+    },
+    {
+      "day": 27,
+      "week": 4,
+      "exercise_ids": [
+        "respiracao-e-mobilidade-leve",
+        "mobilidade-de-quadril",
+        "mobilidade-de-coluna",
+        "alongamento-posterior",
+        "step-touch-lateral"
+      ]
+    },
+    {
+      "day": 28,
+      "week": 4,
+      "exercise_ids": [
+        "marcha-parada",
+        "agachamento-assistido",
+        "ponte-de-gluteos",
+        "dead-bug",
+        "mobilidade-de-coluna",
+        "respiracao-e-mobilidade-leve"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,846 @@
+{
+  "version": "1.1.0",
+  "character_lock_ref": "shared/prompts/character-base-prompts.md",
+  "visual_system_principles": {
+    "goal": "Keep the same project identity while making each exercise immediately legible, biomechanically plausible, and visually consistent across start, middle, and end frames.",
+    "fixed_layers": [
+      "character identity",
+      "project world and room styling",
+      "predictable camera system",
+      "visible biomechanics",
+      "body-to-support relationship",
+      "clear phase distinction",
+      "functional image clarity",
+      "negative constraints"
+    ]
+  },
+  "four_prompt_questions": [
+    "What must stay visible for someone to understand the exercise immediately?",
+    "Which body parts determine whether the execution looks correct?",
+    "Is there external support, and if yes, where is it, how is it touched, and what is it doing?",
+    "What visibly changes between the initial, middle, and final phase?"
+  ],
+  "approval_checklist": [
+    "same character identity",
+    "same project world",
+    "body fully visible when required",
+    "key joints readable",
+    "support visible and coherent",
+    "support height and distance consistent",
+    "phase clearly identifiable",
+    "movement readable in one or two seconds",
+    "no anatomical distortion",
+    "no editorial fitness posing"
+  ],
+  "camera_presets": {
+    "frontal": "front view, eye-level, shoulders square to the camera, movement centered and symmetrical",
+    "frontal_3q": "slight 3/4 front view, eye-level, both sides of the body still readable",
+    "lateral_3q": "slight 3/4 lateral view, eye-level, depth and alignment visible without losing the support object",
+    "lateral": "clean side profile, eye-level, head-to-feet alignment clearly readable",
+    "floor_3q_high": "3/4 view from slightly above the floor, full mat visible, all limbs readable",
+    "floor_lateral": "side view for floor exercise, camera slightly above mat height, full body and full mat visible"
+  },
+  "camera_detail_presets": {
+    "standing_front_cardio": "camera at lower chest height, stable full-body distance, natural lens without wide-angle distortion, level horizon, extra side space for steps and arm swing",
+    "standing_front_mobility": "camera at chest height, full-body distance with calm headroom, natural lens, level horizon, torso rotation or gentle mobility remains readable",
+    "standing_front_reset": "camera at chest height, centered and calm full-body framing, natural lens, level horizon, enough negative space for hands near ribs and breathing focus",
+    "standing_lateral_strength": "camera at hip-to-waist height, side or 3/4 side distance that keeps feet and hips fully visible, natural lens, level horizon, preserve alignment readability",
+    "standing_lateral_support": "camera at hip-to-waist height, 3/4 side distance that keeps both body and support fully visible, natural lens, level horizon, no perspective drift between frames",
+    "standing_lateral_mobility": "camera at waist height, side or 3/4 side distance that keeps pelvis and trunk readable, natural lens, level horizon, avoid dramatic depth distortion",
+    "standing_lateral_balance": "camera at ankle-to-waist friendly side distance, natural lens, level horizon, feet and support edge remain readable without crop",
+    "standing_lateral_push": "camera at mid-torso height, side or 3/4 side distance that shows hand contact, body line, and support surface together, natural lens, level horizon",
+    "floor_high_control": "camera slightly above floor level, 3/4 angle, full mat and full limb reach visible, natural lens, level horizon, preserve left/right limb relationships",
+    "floor_side_alignment": "camera slightly above mat height, clean side view, full body and mat visible, natural lens, level horizon, preserve line from shoulders through hips"
+  },
+  "framing_presets": {
+    "full_body": "full body visible with small headroom and both feet fully visible",
+    "full_body_headroom": "full body visible with extra space above the head and around the limbs",
+    "full_body_side_feet_visible": "full body in side or 3/4 side view with both feet, knees, and hips fully visible",
+    "full_body_support_visible": "full body visible with the support object fully visible and uncropped",
+    "full_body_floor_mat_visible": "full body on the mat with the full mat edges, hands, feet, and limb reach visible"
+  },
+  "support_object_presets": {
+    "none": "no external support object; the body and environment alone must explain the movement",
+    "mat_only": "exercise mat is part of the scene and must stay fully readable when the body is on the floor",
+    "optional_balance_support": "optional stable support may appear only if needed for balance; if present it must look intentional, properly scaled, and consistently placed",
+    "chair_front_balance_both_hands": "standard dining chair centered in front of the character, chair back around lower chest height, both palms resting lightly on the top edge, support used for balance and depth reference only",
+    "chair_front_balance_one_hand": "standard dining chair or stable support placed beside the front hand in a short split stance, one hand touches lightly for balance, support must stay aligned and properly scaled",
+    "elevated_surface_two_hands": "stable elevated surface such as bench, table, or sturdy counter, both palms planted symmetrically, support height remains fixed across the sequence and defines exercise load",
+    "wall_two_hands": "vertical wall plane with both palms clearly contacting it at chest to shoulder height, wall angle and hand spacing stay constant across the sequence"
+  },
+  "frame_strategies": {
+    "1_static": "one unique image is enough; middle and final can reuse the closest valid frame if budget is limited",
+    "2_transition": "initial and final should be unique; middle is optional and can reuse the closest valid frame",
+    "3_motion": "all three frames should be unique because the movement loses clarity without progression"
+  },
+  "exercises": [
+    {
+      "exercise_id": "agachamento-assistido",
+      "display_name": "Agachamento assistido",
+      "camera_preset": "lateral_3q",
+      "camera_detail_preset": "standing_lateral_support",
+      "framing_preset": "full_body_support_visible",
+      "required_points": ["feet", "knees", "hips", "spine", "hands", "gaze"],
+      "support_object_preset": "chair_front_balance_both_hands",
+      "support_object_visibility": "chair back and both hands on the chair must stay fully visible",
+      "frame_strategy": "3_motion",
+      "biomechanics_summary": "Whole foot stays grounded, hips initiate backward, knees track with toes, torso inclines slightly, and the chair stabilizes balance without pulling the body upward.",
+      "phase_delta": {
+        "inicio_to_meio": "hips move back before depth increases, knees bend softly, and chair contact stays light and constant",
+        "meio_to_fim": "depth increases without losing heel contact, chest stays open, and the chair remains centered as balance support"
+      },
+      "clarity_checks": [
+        "the chair contact and support role are readable at a glance",
+        "heel grounding and squat depth are clearly visible",
+        "the image shows that the hips lead the descent, not the knees alone"
+      ],
+      "phase_descriptions": {
+        "inicio": "standing upright, feet hip-width apart, knees extended but relaxed, hips stacked over heels, arms extended lightly holding the chair, neutral spine, gaze forward",
+        "meio": "hips moving back, knees softly bent, torso slightly inclined forward, arms still extended on the chair, heels grounded, neutral spine, gaze forward",
+        "fim": "comfortable squat depth, hips back and lower than in the middle frame, knees bent without collapsing inward, chest open, heels grounded, hands still supporting on the chair, gaze forward"
+      },
+      "negative_constraints": [
+        "do not crop the chair back",
+        "do not turn the movement into a deep athletic squat",
+        "do not hide heel contact",
+        "do not exaggerate lumbar arch"
+      ]
+    },
+    {
+      "exercise_id": "agachamento-parcial",
+      "display_name": "Agachamento parcial",
+      "camera_preset": "lateral_3q",
+      "camera_detail_preset": "standing_lateral_strength",
+      "framing_preset": "full_body_side_feet_visible",
+      "required_points": ["feet", "knees", "hips", "spine", "arms", "gaze"],
+      "support_object_preset": "none",
+      "support_object_visibility": "no support object",
+      "frame_strategy": "3_motion",
+      "biomechanics_summary": "Whole foot stays grounded, hips lead the motion, knees bend only through a conservative range, and the torso stays long and controlled.",
+      "phase_delta": {
+        "inicio_to_meio": "hips shift back first, knees soften, and the torso inclines slightly without changing the exercise into a full squat",
+        "meio_to_fim": "depth increases only enough to show a partial squat, while alignment and heel contact remain clear"
+      },
+      "clarity_checks": [
+        "the movement reads as partial rather than deep",
+        "the knees, hips, and feet remain fully readable",
+        "the image shows a controlled squat pattern without support"
+      ],
+      "phase_descriptions": {
+        "inicio": "standing upright, feet hip-width apart, knees extended but relaxed, arms naturally in front for balance, neutral spine, gaze forward",
+        "meio": "hips slightly back, knees semiflexed, torso slightly inclined forward, arms balancing in front, heels grounded, neutral spine",
+        "fim": "partial squat only, thighs clearly above parallel, hips back, knees aligned with feet, chest open, heels grounded, gaze forward"
+      },
+      "negative_constraints": [
+        "do not show full-depth squat",
+        "do not let knees collapse inward",
+        "do not crop feet or knees",
+        "do not turn this into a jump squat"
+      ]
+    },
+    {
+      "exercise_id": "alongamento-de-quadril",
+      "display_name": "Alongamento de quadril",
+      "camera_preset": "lateral_3q",
+      "camera_detail_preset": "standing_lateral_mobility",
+      "framing_preset": "full_body_side_feet_visible",
+      "required_points": ["feet", "knees", "hips", "pelvis", "spine", "gaze"],
+      "support_object_preset": "optional_balance_support",
+      "support_object_visibility": "no support object unless needed for balance",
+      "frame_strategy": "2_transition",
+      "biomechanics_summary": "A short split stance creates the base, the pelvis glides forward gently, the torso stays tall, and the stretch should read in the front hip rather than the lower back.",
+      "phase_delta": {
+        "inicio_to_meio": "the pelvis shifts forward softly while the front knee bends slightly and the trunk stays upright",
+        "meio_to_fim": "the stretch becomes clearer through the front of the back-leg hip without deepening into an athletic lunge"
+      },
+      "clarity_checks": [
+        "the split stance and front versus back leg roles are obvious",
+        "the trunk stays upright instead of collapsing forward",
+        "the final frame reads as a gentle stretch, not a strength lunge"
+      ],
+      "phase_descriptions": {
+        "inicio": "split stance with short comfortable base, torso upright, both feet grounded, hips square, hands relaxed by the sides",
+        "meio": "gentle forward shift of the pelvis, front knee softly bent, back leg long, torso upright, abdomen engaged, gaze forward",
+        "fim": "clear but gentle hip stretch position, pelvis slightly forward, chest open, neutral spine, no pain expression, steady breathing posture"
+      },
+      "negative_constraints": [
+        "do not force a deep lunge",
+        "do not overarch the lower back",
+        "do not hide pelvic alignment",
+        "do not turn this into an advanced flexibility pose"
+      ]
+    },
+    {
+      "exercise_id": "alongamento-posterior",
+      "display_name": "Alongamento posterior",
+      "camera_preset": "lateral_3q",
+      "camera_detail_preset": "standing_lateral_mobility",
+      "framing_preset": "full_body_side_feet_visible",
+      "required_points": ["feet", "knees", "hips", "spine", "shoulders", "gaze"],
+      "support_object_preset": "none",
+      "support_object_visibility": "no support object",
+      "frame_strategy": "2_transition",
+      "biomechanics_summary": "The hip hinge leads the fold, knees stay soft, the spine remains long, and the stretch should read in the back of the thighs rather than in a collapsed back.",
+      "phase_delta": {
+        "inicio_to_meio": "the hips fold back, the torso inclines, and the hands travel down only as far as alignment stays readable",
+        "meio_to_fim": "the stretch deepens slightly through the posterior chain without locking the knees or collapsing the chest"
+      },
+      "clarity_checks": [
+        "the exercise reads as a hamstring-focused hinge rather than a yoga forward fold",
+        "the knees stay slightly soft and visible",
+        "the spine line remains readable from hips to head"
+      ],
+      "phase_descriptions": {
+        "inicio": "standing upright, feet hip-width apart, knees softly unlocked, arms relaxed, neutral spine, gaze forward",
+        "meio": "hips folding back into a gentle hinge, knees slightly bent, spine long, hands reaching toward thighs or shins without forcing",
+        "fim": "mild hamstring stretch with hips back, torso inclined forward, knees still soft, neck relaxed, spine long rather than rounded hard"
+      },
+      "negative_constraints": [
+        "do not lock the knees aggressively",
+        "do not collapse the chest onto the legs",
+        "do not round the back excessively",
+        "do not turn it into a full yoga fold"
+      ]
+    },
+    {
+      "exercise_id": "avanco-curto-com-apoio",
+      "display_name": "Avanço curto com apoio",
+      "camera_preset": "lateral_3q",
+      "camera_detail_preset": "standing_lateral_support",
+      "framing_preset": "full_body_support_visible",
+      "required_points": ["feet", "knees", "hips", "spine", "hands", "gaze"],
+      "support_object_preset": "chair_front_balance_one_hand",
+      "support_object_visibility": "chair or stable support must stay fully visible near the front hand",
+      "frame_strategy": "3_motion",
+      "biomechanics_summary": "A short split stance controls the load, one light hand contact improves balance, both knees bend through a small range, and the torso stays upright over the base.",
+      "phase_delta": {
+        "inicio_to_meio": "the body lowers only a little, the front and back knees soften, and the support hand remains fixed and readable",
+        "meio_to_fim": "the lunge depth becomes clear but stays short, with the pelvis centered and the support still functioning as balance aid"
+      },
+      "clarity_checks": [
+        "the support position relative to the front hand is obvious",
+        "the movement reads as a short supported lunge, not a long athletic one",
+        "the front knee path and body balance are easy to read"
+      ],
+      "phase_descriptions": {
+        "inicio": "short split stance, torso upright, both feet grounded, one hand lightly on the support, knees extended but relaxed, gaze forward",
+        "meio": "small lowering phase, front and back knees softly bending, pelvis centered, torso upright, support hand still visible",
+        "fim": "short supported lunge depth only, front knee comfortably bent, back heel may be lifted naturally, torso tall, neutral spine, light support on the chair"
+      },
+      "negative_constraints": [
+        "do not show a long athletic lunge",
+        "do not hide the support hand",
+        "do not let the front knee travel excessively forward",
+        "do not twist the torso away from the camera"
+      ]
+    },
+    {
+      "exercise_id": "bird-dog",
+      "display_name": "Bird dog",
+      "camera_preset": "floor_3q_high",
+      "camera_detail_preset": "floor_high_control",
+      "framing_preset": "full_body_floor_mat_visible",
+      "required_points": ["supporting hand", "supporting knee", "extended arm", "extended leg", "spine", "head", "gaze"],
+      "support_object_preset": "mat_only",
+      "support_object_visibility": "no support object; full mat edge should stay visible",
+      "frame_strategy": "3_motion",
+      "biomechanics_summary": "Hands and knees create a stable base, the core resists trunk rotation, opposite arm and leg reach long, and the pelvis stays level throughout the sequence.",
+      "phase_delta": {
+        "inicio_to_meio": "one limb pair starts reaching away while the supporting hand and knee stay rooted and the trunk stays steady",
+        "meio_to_fim": "the reach becomes longer and clearer without opening the hips or arching the lower back"
+      },
+      "clarity_checks": [
+        "all support points and reaching limbs remain visible",
+        "the image shows opposite arm and leg action clearly",
+        "the pelvis and spine look stable instead of twisted"
+      ],
+      "phase_descriptions": {
+        "inicio": "all fours on the mat, hands under shoulders, knees under hips, neutral spine, neck long, gaze down and slightly forward",
+        "meio": "one arm sliding forward and opposite leg extending back, pelvis stable, trunk steady, support points still grounded",
+        "fim": "full bird dog position, opposite arm and leg long, hips level, neutral spine, core engaged, gaze down slightly ahead"
+      },
+      "negative_constraints": [
+        "do not rotate the hips open",
+        "do not overarch the lower back",
+        "do not crop hands, knees, or toes",
+        "do not turn the head sharply upward"
+      ]
+    },
+    {
+      "exercise_id": "dead-bug",
+      "display_name": "Dead bug",
+      "camera_preset": "floor_3q_high",
+      "camera_detail_preset": "floor_high_control",
+      "framing_preset": "full_body_floor_mat_visible",
+      "required_points": ["head", "shoulders", "hands", "lower back", "hips", "knees", "feet"],
+      "support_object_preset": "mat_only",
+      "support_object_visibility": "no support object; mat edges should remain visible",
+      "frame_strategy": "3_motion",
+      "biomechanics_summary": "The back stays supported, ribs stay controlled, opposite arm and leg move away from center, and the lower back must remain visibly stable against the floor.",
+      "phase_delta": {
+        "inicio_to_meio": "one arm and the opposite leg begin extending away while the bent tabletop shape remains readable on the other side",
+        "meio_to_fim": "the extension increases without losing lumbar control, rib position, or neck relaxation"
+      },
+      "clarity_checks": [
+        "the lower-back control is visually believable",
+        "the opposite arm-leg pattern is obvious",
+        "hands, feet, and bent knee angles remain readable"
+      ],
+      "phase_descriptions": {
+        "inicio": "lying on the back on the mat, hips and knees bent around tabletop, arms reaching up over the chest, head relaxed, ribs down",
+        "meio": "one arm moving backward and opposite leg extending away, lower back staying close to the mat, abdomen engaged",
+        "fim": "opposite arm and leg more extended than in the middle frame, core braced, lower back still controlled against the mat, neck relaxed"
+      },
+      "negative_constraints": [
+        "do not arch the lower back off the mat",
+        "do not hide the bent knee angle",
+        "do not crop hands or feet",
+        "do not turn the pose into a dramatic ab crunch"
+      ]
+    },
+    {
+      "exercise_id": "elevacao-de-joelhos-leve",
+      "display_name": "Elevação de joelhos leve",
+      "camera_preset": "frontal",
+      "camera_detail_preset": "standing_front_cardio",
+      "framing_preset": "full_body_headroom",
+      "required_points": ["feet", "knees", "hips", "arms", "spine", "gaze"],
+      "support_object_preset": "none",
+      "support_object_visibility": "no support object",
+      "frame_strategy": "2_transition",
+      "biomechanics_summary": "The trunk stays upright, support alternates foot to foot, knees lift only to a low or medium height, and the landing stays soft with no running posture.",
+      "phase_delta": {
+        "inicio_to_meio": "one knee lifts while the opposite arm swings naturally and the support foot stays fully grounded",
+        "meio_to_fim": "the lifted side changes or reaches its clearest controlled height without creating a sprint or jump look"
+      },
+      "clarity_checks": [
+        "the image reads as low-impact marching rather than running",
+        "the support foot and lifted knee remain fully visible",
+        "the trunk stays vertical and calm"
+      ],
+      "phase_descriptions": {
+        "inicio": "standing upright, both feet on the floor, arms relaxed in marching position, chest open, gaze forward",
+        "meio": "one knee lifting gently to low or medium height, opposite arm naturally swinging, trunk upright, support foot grounded",
+        "fim": "alternate side knee lift or the highest controlled knee raise of the movement, torso upright, no jumping, calm expression"
+      },
+      "negative_constraints": [
+        "do not turn it into a running sprint pose",
+        "do not lift the knee excessively high",
+        "do not crop feet",
+        "do not show airborne jumping"
+      ]
+    },
+    {
+      "exercise_id": "elevacao-de-panturrilha",
+      "display_name": "Elevação de panturrilha",
+      "camera_preset": "lateral_3q",
+      "camera_detail_preset": "standing_lateral_balance",
+      "framing_preset": "full_body_side_feet_visible",
+      "required_points": ["feet", "ankles", "calves", "knees", "hips", "gaze"],
+      "support_object_preset": "optional_balance_support",
+      "support_object_visibility": "support is optional; if used, hands and support edge must remain visible",
+      "frame_strategy": "2_transition",
+      "biomechanics_summary": "Weight transfers from whole foot to forefoot, ankles stay stacked, heels rise together, and the torso remains vertical without leaning into balance support.",
+      "phase_delta": {
+        "inicio_to_meio": "the heels begin to rise while the body stays tall and the ankle line remains readable",
+        "meio_to_fim": "the heels lift higher but the body remains aligned, with no forward lean or collapsed ankles"
+      },
+      "clarity_checks": [
+        "heel lift is clearly visible from side view",
+        "ankle stacking and balance look realistic",
+        "any optional support looks light, not load-bearing"
+      ],
+      "phase_descriptions": {
+        "inicio": "standing upright with both feet flat, knees softly unlocked, arms relaxed or lightly supported, gaze forward",
+        "meio": "heels beginning to rise, weight moving to the balls of the feet, body stacked upright, ankles clearly visible",
+        "fim": "heels lifted higher than in the middle frame, torso tall, legs straight but not locked, controlled balance, gaze forward"
+      },
+      "negative_constraints": [
+        "do not crop heels or toes",
+        "do not turn the pose into tiptoe ballet styling",
+        "do not lean the torso forward",
+        "do not hide ankle position"
+      ]
+    },
+    {
+      "exercise_id": "elevacao-pelvica",
+      "display_name": "Elevação pélvica",
+      "camera_preset": "floor_lateral",
+      "camera_detail_preset": "floor_side_alignment",
+      "framing_preset": "full_body_floor_mat_visible",
+      "required_points": ["feet", "knees", "hips", "pelvis", "spine", "shoulders", "gaze"],
+      "support_object_preset": "mat_only",
+      "support_object_visibility": "no support object; full mat should be visible",
+      "frame_strategy": "2_transition",
+      "biomechanics_summary": "Feet and shoulders create the base, the pelvis initiates a small lift, ribs stay controlled, and the range stays smaller than a full bridge.",
+      "phase_delta": {
+        "inicio_to_meio": "the pelvis lifts off the mat gently while the shoulders stay anchored and the knees keep their line",
+        "meio_to_fim": "the top position becomes clearer without turning into a full high bridge or lumbar arch"
+      },
+      "clarity_checks": [
+        "the movement reads as a short pelvic lift rather than a dramatic bridge",
+        "shoulder anchoring and foot placement remain visible",
+        "the top position stays controlled and realistic"
+      ],
+      "phase_descriptions": {
+        "inicio": "lying on the back, knees bent, feet flat on the mat, arms by the sides, head relaxed, pelvis neutral",
+        "meio": "pelvis lifting gently off the mat, knees still bent, trunk forming a gradual diagonal line, shoulders grounded",
+        "fim": "top controlled pelvic lift, hips higher than in the middle frame, ribs controlled, knees aligned, shoulders and head relaxed on the mat"
+      },
+      "negative_constraints": [
+        "do not overarch the lower back",
+        "do not flare the ribs aggressively",
+        "do not hide foot placement",
+        "do not turn it into a fitness glam bridge pose"
+      ]
+    },
+    {
+      "exercise_id": "good-morning-sem-peso",
+      "display_name": "Good morning sem peso",
+      "camera_preset": "lateral_3q",
+      "camera_detail_preset": "standing_lateral_strength",
+      "framing_preset": "full_body_side_feet_visible",
+      "required_points": ["feet", "knees", "hips", "spine", "shoulders", "gaze"],
+      "support_object_preset": "none",
+      "support_object_visibility": "no support object",
+      "frame_strategy": "3_motion",
+      "biomechanics_summary": "The hips hinge back, knees stay softly bent, the spine stays long, and the load looks centered from midfoot toward heel rather than on the toes.",
+      "phase_delta": {
+        "inicio_to_meio": "the hips travel backward first and the torso tips forward while the spine stays long",
+        "meio_to_fim": "the hinge deepens just enough to show the pattern clearly without rounding the back"
+      },
+      "clarity_checks": [
+        "the movement reads as a hip hinge, not a squat",
+        "the back line remains long and readable",
+        "the hips are visibly leading the movement"
+      ],
+      "phase_descriptions": {
+        "inicio": "standing upright, feet hip-width apart, knees softly unlocked, hands crossed over the chest or on the hips, neutral spine, gaze forward",
+        "meio": "hips hinging back, torso angled forward, knees still soft, spine long, chest open",
+        "fim": "clear hip hinge depth without rounding, hips pushed back, torso forward more than in the middle frame, neutral spine, neck aligned"
+      },
+      "negative_constraints": [
+        "do not round the back",
+        "do not turn it into a barbell exercise",
+        "do not lock the knees",
+        "do not crop hips or feet"
+      ]
+    },
+    {
+      "exercise_id": "marcha-parada",
+      "display_name": "Marcha parada",
+      "camera_preset": "frontal",
+      "camera_detail_preset": "standing_front_cardio",
+      "framing_preset": "full_body_headroom",
+      "required_points": ["feet", "knees", "hips", "arms", "spine", "gaze"],
+      "support_object_preset": "none",
+      "support_object_visibility": "no support object",
+      "frame_strategy": "2_transition",
+      "biomechanics_summary": "Support alternates between feet, the trunk stays tall, the step is low impact, and arm swing looks natural rather than athletic or exaggerated.",
+      "phase_delta": {
+        "inicio_to_meio": "one foot lifts slightly and the opposite arm swings while the body stays upright",
+        "meio_to_fim": "the opposite side becomes readable or the lifted step becomes a little clearer without changing the movement into a run"
+      },
+      "clarity_checks": [
+        "the image reads instantly as marching in place",
+        "foot placement and soft support exchange remain visible",
+        "the body posture looks calm and controlled"
+      ],
+      "phase_descriptions": {
+        "inicio": "standing upright, both feet on the floor, arms relaxed naturally, chest open, gaze forward",
+        "meio": "one foot slightly lifted and opposite arm swinging naturally, upright posture, movement controlled and light",
+        "fim": "higher marching moment or opposite side step of the sequence, no jump, neutral spine, calm face"
+      },
+      "negative_constraints": [
+        "do not turn it into a run",
+        "do not crop feet",
+        "do not show jumping",
+        "do not exaggerate arm swing"
+      ]
+    },
+    {
+      "exercise_id": "marcha-parada-leve",
+      "display_name": "Marcha parada leve",
+      "camera_preset": "frontal",
+      "camera_detail_preset": "standing_front_cardio",
+      "framing_preset": "full_body_headroom",
+      "required_points": ["feet", "knees", "hips", "arms", "spine", "gaze"],
+      "support_object_preset": "none",
+      "support_object_visibility": "no support object",
+      "frame_strategy": "1_static",
+      "biomechanics_summary": "Support alternates gently between feet, knee lift stays low, the trunk remains relaxed, and the movement reads as recovery intensity rather than cardio work.",
+      "phase_delta": {
+        "inicio_to_meio": "one knee lifts softly with minimal arm swing while the body remains relaxed",
+        "meio_to_fim": "the movement quality remains intentionally similar, with only a subtle shift of support and rhythm"
+      },
+      "clarity_checks": [
+        "the movement reads as very light marching",
+        "the body language stays relaxed instead of athletic",
+        "the frame preserves low-impact intent even if reused"
+      ],
+      "phase_descriptions": {
+        "inicio": "standing in a relaxed marching stance, both feet near the floor, shoulders soft, chest open, calm breathing",
+        "meio": "small gentle knee lift with minimal arm swing, upright posture, low effort movement",
+        "fim": "same easy march quality as the middle frame, low impact, controlled pace, relaxed facial expression"
+      },
+      "negative_constraints": [
+        "do not turn it into cardio intensity",
+        "do not crop feet",
+        "do not show impact or jump",
+        "do not use exaggerated athletic posture"
+      ]
+    },
+    {
+      "exercise_id": "mobilidade-de-coluna",
+      "display_name": "Mobilidade de coluna",
+      "camera_preset": "frontal_3q",
+      "camera_detail_preset": "standing_front_mobility",
+      "framing_preset": "full_body_headroom",
+      "required_points": ["feet", "knees", "hips", "spine", "shoulders", "head"],
+      "support_object_preset": "none",
+      "support_object_visibility": "no support object",
+      "frame_strategy": "2_transition",
+      "biomechanics_summary": "Feet stay grounded, the pelvis remains relatively quiet, the trunk rotates or mobilizes gently, and the shoulders and gaze follow without forcing end range.",
+      "phase_delta": {
+        "inicio_to_meio": "the upper trunk begins the mobility action while the base stays calm and the posture remains tall",
+        "meio_to_fim": "the mobility range becomes clearer without turning into a deep twist, backbend, or contortion"
+      },
+      "clarity_checks": [
+        "the spine-focused motion is visible without needing text",
+        "the pelvis looks stable relative to the trunk",
+        "the end range still reads as beginner-friendly"
+      ],
+      "phase_descriptions": {
+        "inicio": "neutral standing position, feet comfortable apart, knees soft, arms relaxed, spine tall, head aligned",
+        "meio": "gentle spinal mobility movement beginning, shoulders and upper back moving while pelvis stays calm, breath controlled",
+        "fim": "clear but gentle spinal mobility end range, movement still beginner-friendly, chest and back readable, no strain in the face"
+      },
+      "negative_constraints": [
+        "do not exaggerate twist or backbend",
+        "do not hide the spine line with arm placement",
+        "do not turn it into a yoga contortion pose",
+        "do not crop torso or head"
+      ]
+    },
+    {
+      "exercise_id": "mobilidade-de-quadril",
+      "display_name": "Mobilidade de quadril",
+      "camera_preset": "lateral_3q",
+      "camera_detail_preset": "standing_lateral_mobility",
+      "framing_preset": "full_body_side_feet_visible",
+      "required_points": ["feet", "knees", "hips", "pelvis", "spine", "gaze"],
+      "support_object_preset": "optional_balance_support",
+      "support_object_visibility": "support is optional; if present it must stay visible",
+      "frame_strategy": "2_transition",
+      "biomechanics_summary": "One leg stabilizes the body, one hip explores a small controlled range, the pelvis stays readable, and the trunk remains steady rather than swinging with the leg.",
+      "phase_delta": {
+        "inicio_to_meio": "one hip begins a controlled path while the support leg and trunk stay stable",
+        "meio_to_fim": "the hip reaches a clearer end position without becoming a dance-like or overly large movement"
+      },
+      "clarity_checks": [
+        "the moving hip side versus support side are obvious",
+        "the pelvis remains readable from the camera angle",
+        "any optional support looks helpful but not central"
+      ],
+      "phase_descriptions": {
+        "inicio": "standing neutral base, feet under hips, knees soft, pelvis neutral, chest open, gaze forward",
+        "meio": "one hip starting a controlled mobility path, support leg stable, pelvis readable, upper body steady",
+        "fim": "clear hip mobility end position without strain, trunk controlled, support foot grounded, calm breathing"
+      },
+      "negative_constraints": [
+        "do not show a large dance-like range of motion",
+        "do not hide the hip line",
+        "do not crop feet or knees",
+        "do not tilt the torso dramatically"
+      ]
+    },
+    {
+      "exercise_id": "polichinelo-sem-salto",
+      "display_name": "Polichinelo sem salto",
+      "camera_preset": "frontal",
+      "camera_detail_preset": "standing_front_cardio",
+      "framing_preset": "full_body_headroom",
+      "required_points": ["feet", "knees", "hips", "arms", "hands", "gaze"],
+      "support_object_preset": "none",
+      "support_object_visibility": "no support object",
+      "frame_strategy": "3_motion",
+      "biomechanics_summary": "A side step opens the base, the arms coordinate upward with low impact, knees stay soft, and there is never an airborne phase.",
+      "phase_delta": {
+        "inicio_to_meio": "one side step opens the stance while the arms move outward and upward in sync",
+        "meio_to_fim": "the body reaches its clearest open position without turning into a jump or high-intensity cardio image"
+      },
+      "clarity_checks": [
+        "the image reads as a modified jumping jack without impact",
+        "arm and leg coordination are obvious",
+        "the open position is clearly distinct from the start position"
+      ],
+      "phase_descriptions": {
+        "inicio": "standing tall, feet together or near together, arms by the sides, gaze forward",
+        "meio": "one side step opening while arms move outward and upward, knees soft, torso upright, no jump",
+        "fim": "widest comfortable open position, feet apart, arms raised or wide, low-impact stance, chest open, gaze forward"
+      },
+      "negative_constraints": [
+        "do not show airborne jumping",
+        "do not crop fingertips or feet",
+        "do not turn it into high-intensity cardio",
+        "do not hyperextend the lower back"
+      ]
+    },
+    {
+      "exercise_id": "ponte-de-gluteos",
+      "display_name": "Ponte de glúteos",
+      "camera_preset": "floor_lateral",
+      "camera_detail_preset": "floor_side_alignment",
+      "framing_preset": "full_body_floor_mat_visible",
+      "required_points": ["feet", "knees", "hips", "pelvis", "spine", "shoulders", "head"],
+      "support_object_preset": "mat_only",
+      "support_object_visibility": "no support object; full mat should remain visible",
+      "frame_strategy": "3_motion",
+      "biomechanics_summary": "Feet and shoulders create the base, hips drive upward, knees stay aligned over the feet, and the ribs stay controlled instead of flaring into lumbar extension.",
+      "phase_delta": {
+        "inicio_to_meio": "the hips begin lifting while the shoulders stay anchored and the diagonal body line starts to appear",
+        "meio_to_fim": "the bridge reaches its clearest top position without losing knee alignment or rib control"
+      },
+      "clarity_checks": [
+        "the diagonal line from shoulders through hips is readable",
+        "foot placement and knee tracking remain visible",
+        "the movement reads as glute-driven rather than neck- or lumbar-driven"
+      ],
+      "phase_descriptions": {
+        "inicio": "lying on the back, knees bent, feet flat hip-width apart, arms by the sides, pelvis neutral, head relaxed",
+        "meio": "hips lifting gradually, knees still bent, trunk creating a diagonal line, shoulders grounded, neck relaxed",
+        "fim": "top bridge position, hips clearly higher, knees aligned with feet, ribs controlled, shoulders and head grounded"
+      },
+      "negative_constraints": [
+        "do not overarch the lower back",
+        "do not flare the rib cage",
+        "do not hide foot placement",
+        "do not turn it into a glamorous hyperextended bridge"
+      ]
+    },
+    {
+      "exercise_id": "ponte-de-gluteos-com-pausa",
+      "display_name": "Ponte de glúteos com pausa",
+      "camera_preset": "floor_lateral",
+      "camera_detail_preset": "floor_side_alignment",
+      "framing_preset": "full_body_floor_mat_visible",
+      "required_points": ["feet", "knees", "hips", "pelvis", "spine", "shoulders", "head"],
+      "support_object_preset": "mat_only",
+      "support_object_visibility": "no support object; full mat should remain visible",
+      "frame_strategy": "2_transition",
+      "biomechanics_summary": "The same bridge mechanics apply, but the top position is held isometrically with quiet ribs, aligned knees, and a stable diagonal from shoulders to knees.",
+      "phase_delta": {
+        "inicio_to_meio": "the bridge rises to its hold position while the base and body line stabilize",
+        "meio_to_fim": "the visual difference is minimal on purpose because the isometric top hold must remain stable and controlled"
+      },
+      "clarity_checks": [
+        "the held top position is obviously intentional",
+        "the middle and final frame stay stable rather than drifting",
+        "the bridge line remains controlled without extra arching"
+      ],
+      "phase_descriptions": {
+        "inicio": "lying on the back, knees bent, feet flat, arms long by the sides, pelvis neutral, head relaxed",
+        "meio": "top bridge position reached and held, hips high, ribs controlled, knees aligned, shoulders anchored",
+        "fim": "same top bridge quality as the middle frame, held with calm control, no extra arching, steady pause"
+      },
+      "negative_constraints": [
+        "do not change the frame into a different pose between middle and final",
+        "do not overarch the lower back",
+        "do not hide the knees or feet",
+        "do not turn it into a yoga wheel preparation"
+      ]
+    },
+    {
+      "exercise_id": "prancha-adaptada",
+      "display_name": "Prancha adaptada",
+      "camera_preset": "lateral",
+      "camera_detail_preset": "floor_side_alignment",
+      "framing_preset": "full_body_floor_mat_visible",
+      "required_points": ["elbows or hands", "shoulders", "hips", "knees", "ankles or feet", "head"],
+      "support_object_preset": "mat_only",
+      "support_object_visibility": "no support object; full mat line should stay readable",
+      "frame_strategy": "2_transition",
+      "biomechanics_summary": "Hands or forearms and knees form the base, the body creates a line from head to knees, the core braces, and the shoulders stack without lumbar sag or hip pike.",
+      "phase_delta": {
+        "inicio_to_meio": "the setup becomes an active support position with the trunk long and the hips aligning between shoulders and knees",
+        "meio_to_fim": "the hold becomes fully stable without visible sagging, piking, or shoulder collapse"
+      },
+      "clarity_checks": [
+        "the exercise reads as a modified plank, not a full plank",
+        "the line from shoulders to knees remains clear",
+        "the support points on the floor stay visible and believable"
+      ],
+      "phase_descriptions": {
+        "inicio": "adapted plank setup on the mat, knees down, hands or forearms under shoulders, trunk long, gaze down",
+        "meio": "body line more engaged, hips aligned between shoulders and knees, abdomen active, neck long",
+        "fim": "stable adapted plank hold, no sagging hips, no piking, shoulders stacked, knees grounded, gaze down slightly forward"
+      },
+      "negative_constraints": [
+        "do not arch the lower back",
+        "do not lift the hips into a pike",
+        "do not crop elbows, knees, or feet",
+        "do not turn it into a full advanced plank unless specified"
+      ]
+    },
+    {
+      "exercise_id": "push-up-inclinada",
+      "display_name": "Push-up inclinada",
+      "camera_preset": "lateral_3q",
+      "camera_detail_preset": "standing_lateral_push",
+      "framing_preset": "full_body_support_visible",
+      "required_points": ["hands", "wrists", "shoulders", "spine", "hips", "feet", "gaze"],
+      "support_object_preset": "elevated_surface_two_hands",
+      "support_object_visibility": "the support surface must stay fully visible and uncropped",
+      "frame_strategy": "3_motion",
+      "biomechanics_summary": "Both palms press into a fixed elevated surface, the body stays in one line from shoulders to heels, elbows bend to bring the chest toward the support, and the support height defines exercise difficulty.",
+      "phase_delta": {
+        "inicio_to_meio": "the elbows begin bending and the chest travels toward the support while the body line stays intact",
+        "meio_to_fim": "the bottom position becomes clear without collapsing the hips or changing the exercise into a floor push-up"
+      },
+      "clarity_checks": [
+        "the support height and hand placement are obvious",
+        "the body reads as one diagonal line rather than segmented",
+        "the chest movement toward the support is easy to understand"
+      ],
+      "phase_descriptions": {
+        "inicio": "inclined push-up start with arms extended, hands on support surface, body in a straight diagonal line, heels grounded or feet planted, gaze down slightly forward",
+        "meio": "controlled lowering phase, elbows bending back, chest moving toward the support, body line still straight",
+        "fim": "lowest controlled point of the inclined push-up, chest near the support, elbows bent, core engaged, neck neutral"
+      },
+      "negative_constraints": [
+        "do not hide the support surface",
+        "do not let the hips sag",
+        "do not crop hands or feet",
+        "do not turn it into a floor push-up"
+      ]
+    },
+    {
+      "exercise_id": "respiracao-e-mobilidade-leve",
+      "display_name": "Respiração e mobilidade leve",
+      "camera_preset": "frontal_3q",
+      "camera_detail_preset": "standing_front_reset",
+      "framing_preset": "full_body_headroom",
+      "required_points": ["feet", "spine", "shoulders", "hands", "rib area", "gaze"],
+      "support_object_preset": "none",
+      "support_object_visibility": "no support object",
+      "frame_strategy": "1_static",
+      "biomechanics_summary": "A relaxed base supports calm breathing, the rib cage and trunk show only subtle motion, shoulders stay down, and the whole image should read as reset rather than exercise intensity.",
+      "phase_delta": {
+        "inicio_to_meio": "the breath leads a small visible change through the ribs, hands, or upper trunk with no large displacement",
+        "meio_to_fim": "the movement quality remains intentionally subtle so the image still reads as calm breathing and gentle mobility"
+      },
+      "clarity_checks": [
+        "the image reads as breathing-focused, not strength or cardio",
+        "hands near ribs or chest remain visible",
+        "the phase difference stays subtle but intentional"
+      ],
+      "phase_descriptions": {
+        "inicio": "comfortable upright position, shoulders relaxed, chest open, hands placed to support breathing awareness, calm gaze",
+        "meio": "gentle mobility or breathing cue in progress, no large displacement, body relaxed, movement subtle and readable",
+        "fim": "same calm breathing and mobility quality as the middle frame, no athletic intensity, posture soft and accessible"
+      },
+      "negative_constraints": [
+        "do not turn it into a workout pose",
+        "do not exaggerate the motion",
+        "do not crop hands near the rib cage",
+        "do not use intense fitness expression"
+      ]
+    },
+    {
+      "exercise_id": "respiracao-profunda",
+      "display_name": "Respiração profunda",
+      "camera_preset": "frontal",
+      "camera_detail_preset": "standing_front_reset",
+      "framing_preset": "full_body_headroom",
+      "required_points": ["feet", "spine", "shoulders", "hands", "rib area", "gaze"],
+      "support_object_preset": "none",
+      "support_object_visibility": "no support object",
+      "frame_strategy": "1_static",
+      "biomechanics_summary": "The base stays relaxed, the belly and lower ribs expand more than the upper chest, shoulders remain quiet, and the exhale returns the trunk softly to neutral.",
+      "phase_delta": {
+        "inicio_to_meio": "the inhalation becomes readable through gentle rib and belly expansion with calm posture",
+        "meio_to_fim": "the exhale softens the rib cage and returns the body toward neutral without dramatic movement"
+      },
+      "clarity_checks": [
+        "the image reads as deep breathing rather than posing",
+        "hands near the rib cage or belly remain visible",
+        "the inhale and exhale states look intentionally different"
+      ],
+      "phase_descriptions": {
+        "inicio": "comfortable upright stance, shoulders relaxed, hands lightly placed to guide breathing, chest open, calm gaze",
+        "meio": "inhalation emphasis, rib cage gently expanding, posture relaxed, face calm",
+        "fim": "soft exhalation emphasis, shoulders still relaxed, neutral spine, no dramatic movement"
+      },
+      "negative_constraints": [
+        "do not turn it into a yoga performance pose",
+        "do not exaggerate arm movement",
+        "do not crop the hands",
+        "do not create a strained facial expression"
+      ]
+    },
+    {
+      "exercise_id": "step-touch-lateral",
+      "display_name": "Step touch lateral",
+      "camera_preset": "frontal",
+      "camera_detail_preset": "standing_front_cardio",
+      "framing_preset": "full_body_headroom",
+      "required_points": ["feet", "knees", "hips", "arms", "spine", "gaze"],
+      "support_object_preset": "none",
+      "support_object_visibility": "no support object",
+      "frame_strategy": "3_motion",
+      "biomechanics_summary": "One foot steps laterally, weight shifts sideways, the other foot taps in, the trunk stays upright, and the movement remains light with no jump phase.",
+      "phase_delta": {
+        "inicio_to_meio": "one foot steps out and the body weight begins shifting laterally while the opposite foot prepares to follow",
+        "meio_to_fim": "the tap-in becomes clear and completes the side step without turning the image into a dance pose or jump"
+      },
+      "clarity_checks": [
+        "the side step direction is obvious",
+        "the weight shift and tap-in role are readable",
+        "the image reads as low-impact lateral movement"
+      ],
+      "phase_descriptions": {
+        "inicio": "standing upright, feet near together, knees soft, arms relaxed, chest open, gaze forward",
+        "meio": "one foot stepping out to the side, weight shifting laterally, opposite foot preparing to tap in, arms moving naturally",
+        "fim": "side step completed with the other foot touching in, body still upright, movement light and rhythmic, no jump"
+      },
+      "negative_constraints": [
+        "do not show airborne jumping",
+        "do not crop feet",
+        "do not exaggerate hip sway",
+        "do not turn it into a dance performance pose"
+      ]
+    },
+    {
+      "exercise_id": "wall-push-up",
+      "display_name": "Wall push-up",
+      "camera_preset": "lateral_3q",
+      "camera_detail_preset": "standing_lateral_push",
+      "framing_preset": "full_body_support_visible",
+      "required_points": ["hands", "wrists", "shoulders", "spine", "hips", "feet", "gaze"],
+      "support_object_preset": "wall_two_hands",
+      "support_object_visibility": "wall edge and both hands contacting the wall must remain visible",
+      "frame_strategy": "3_motion",
+      "biomechanics_summary": "Both palms press into a vertical wall, the body stays in one straight line from head to heels, elbows bend to bring the chest forward, and the wall plane remains consistent across frames.",
+      "phase_delta": {
+        "inicio_to_meio": "the elbows begin bending and the chest travels toward the wall while the body remains aligned",
+        "meio_to_fim": "the closest controlled wall position becomes clear without sagging the hips or changing the support logic"
+      },
+      "clarity_checks": [
+        "wall contact points remain fully visible",
+        "the body line and hand spacing are easy to read",
+        "the image reads as a wall push-up rather than a desk or floor push-up"
+      ],
+      "phase_descriptions": {
+        "inicio": "standing facing the wall in a slight 3/4 side view, arms extended, hands on the wall at chest height, body in a straight line from head to heels",
+        "meio": "controlled lowering toward the wall, elbows bending, chest moving forward, heels grounded, trunk aligned",
+        "fim": "closest controlled position to the wall, elbows more bent, body still straight, hands fully visible on the wall, gaze slightly down"
+      },
+      "negative_constraints": [
+        "do not hide the wall contact point",
+        "do not let the hips sag",
+        "do not crop hands or feet",
+        "do not turn it into a desk push-up or floor push-up"
+      ]
+    }
+  ]
+}
