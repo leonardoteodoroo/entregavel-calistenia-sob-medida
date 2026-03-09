@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
-    "build:pages": "vite build --base /entregavel-calistenia-sob-medida/",
+    "build:pages": "vite build --base /",
+    "build:pages:repo": "vite build --base /entregavel-calistenia-sob-medida/",
     "start": "NODE_ENV=production node dist/index.js",
     "preview": "vite preview --host",
     "check": "tsc --noEmit",

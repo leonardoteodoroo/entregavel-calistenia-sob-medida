@@ -38,14 +38,40 @@ export default function ExerciseGallery({
   media,
 }: ExerciseGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   if (media.mediaType === "video") {
+    if (!videoLoaded) {
+      return (
+        <div className="space-y-4">
+          <div className="relative w-full aspect-video bg-muted rounded-lg overflow-hidden border border-muted-foreground/20">
+            <button
+              onClick={() => setVideoLoaded(true)}
+              className="w-full h-full flex flex-col items-center justify-center gap-2 px-4"
+              type="button"
+              aria-label={`Carregar vídeo de ${exerciseName}`}
+            >
+              <Play
+                size={28}
+                className="text-muted-foreground/70"
+                fill="currentColor"
+              />
+              <span className="font-body text-xs uppercase tracking-wide text-muted-foreground/80 text-center">
+                Toque para carregar o vídeo
+              </span>
+            </button>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="space-y-4">
         <div className="relative w-full aspect-video bg-muted rounded-lg overflow-hidden border border-muted-foreground/20">
           <video
             controls
-            preload="metadata"
+            preload="none"
+            playsInline
             className="w-full h-full object-cover"
             aria-label={media.video.alt}
           >
@@ -66,6 +92,10 @@ export default function ExerciseGallery({
             src={media.image.src}
             alt={media.image.alt}
             className="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+            width={1280}
+            height={720}
           />
         </div>
       </div>
@@ -83,6 +113,10 @@ export default function ExerciseGallery({
             src={positions[activeIndex].src}
             alt={positions[activeIndex].alt}
             className="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+            width={1024}
+            height={1024}
           />
         </div>
 
@@ -114,6 +148,10 @@ export default function ExerciseGallery({
                 src={position.src}
                 alt={position.alt}
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+                width={1024}
+                height={1024}
               />
             </div>
             <p className="text-center text-xs text-muted-foreground uppercase tracking-wide">
