@@ -6,18 +6,8 @@
     {
       "exercise_id": "agachamento-assistido",
       "display_name": "Agachamento assistido",
-      "occurrences": [
-        "S1D1",
-        "S1D5",
-        "S2D8",
-        "S2D12",
-        "S4D28"
-      ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "occurrences": ["S1D1", "S1D5", "S2D8", "S2D12", "S4D28"],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "/exercises/agachamento-assistido/inicio.webp",
         "meio": "/exercises/agachamento-assistido/meio.webp",
@@ -41,11 +31,7 @@
         "S4D25",
         "S4D26"
       ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-agachamento-parcial-inicio-mx85WrE4N5zx8Wn3HRdQvx.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-agachamento-parcial-meio-JWH9esU9F9kX6WjDzW3DF9.webp",
@@ -60,16 +46,8 @@
     {
       "exercise_id": "alongamento-de-quadril",
       "display_name": "Alongamento de quadril",
-      "occurrences": [
-        "S1D7",
-        "S2D14",
-        "S3D21"
-      ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "occurrences": ["S1D7", "S2D14", "S3D21"],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-alongamento-quadril-inicio-g6jdizPxa3B2SBd39NqSZQ.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-alongamento-quadril-meio-ey6ghk9P5TNJ2gjcYJEtUb.webp",
@@ -94,11 +72,7 @@
         "S4D24",
         "S4D27"
       ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-alongamento-posterior-inicio-TUbdLpewCBwXYRc9tPABcB.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-alongamento-posterior-meio-QF2RdDRJhYd6Pc9FQamCeg.webp",
@@ -113,19 +87,8 @@
     {
       "exercise_id": "avanco-curto-com-apoio",
       "display_name": "Avanço curto com apoio",
-      "occurrences": [
-        "S1D4",
-        "S2D8",
-        "S2D12",
-        "S3D15",
-        "S4D22",
-        "S4D26"
-      ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "occurrences": ["S1D4", "S2D8", "S2D12", "S3D15", "S4D22", "S4D26"],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-avanço-curto-inicio-TY47mBfHLhiBXZB8gAxoim.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-avanço-curto-meio-gvZBSbnLDXby87nSMWgRAU.webp",
@@ -140,19 +103,8 @@
     {
       "exercise_id": "bird-dog",
       "display_name": "Bird dog",
-      "occurrences": [
-        "S1D2",
-        "S2D9",
-        "S3D16",
-        "S3D18",
-        "S4D23",
-        "S4D26"
-      ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "occurrences": ["S1D2", "S2D9", "S3D16", "S3D18", "S4D23", "S4D26"],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-bird-dog-inicio-GQ8JJBJt59XCAh6Y52haYh.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-bird-dog-meio-ZfwVT2ormaUTSDiMY37MLM.webp",
@@ -180,11 +132,7 @@
         "S4D26",
         "S4D28"
       ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-dead-bug-inicio-44WEXDf7ViXkDNAoHyvZ4R.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-dead-bug-meio-W9jUCGcFySP5BxjuLKZapS.webp",
@@ -199,17 +147,8 @@
     {
       "exercise_id": "elevacao-de-joelhos-leve",
       "display_name": "Elevação de joelhos leve",
-      "occurrences": [
-        "S1D2",
-        "S2D11",
-        "S3D19",
-        "S4D25"
-      ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "occurrences": ["S1D2", "S2D11", "S3D19", "S4D25"],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-elevacao-joelhos-leve-inicio-ji6gbTLyN7X5Dryyj8C2dC.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-elevacao-joelhos-leve-meio-mSpCQ7ZiqPhehVn4hEstSg.webp",
@@ -224,19 +163,8 @@
     {
       "exercise_id": "elevacao-de-panturrilha",
       "display_name": "Elevação de panturrilha",
-      "occurrences": [
-        "S1D1",
-        "S1D4",
-        "S2D8",
-        "S3D15",
-        "S4D22",
-        "S4D26"
-      ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "occurrences": ["S1D1", "S1D4", "S2D8", "S3D15", "S4D22", "S4D26"],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-elevacao-panturrilha-inicio-ZdAXCd2SngvDMLiB2ru9MQ.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-elevacao-panturrilha-meio-mWDD6bF3tQMBXsSifc9weA.webp",
@@ -251,16 +179,8 @@
     {
       "exercise_id": "elevacao-pelvica",
       "display_name": "Elevação pélvica",
-      "occurrences": [
-        "S1D4",
-        "S2D12",
-        "S3D18"
-      ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "occurrences": ["S1D4", "S2D12", "S3D18"],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-elevacao-pelvica-inicio-WAcLPwvBpCG39WFsQvp6Hk.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-elevacao-pelvica-meio-V9CXqZbmPJ4vCodxvfRkwR.webp",
@@ -275,17 +195,8 @@
     {
       "exercise_id": "good-morning-sem-peso",
       "display_name": "Good morning sem peso",
-      "occurrences": [
-        "S2D8",
-        "S2D12",
-        "S3D15",
-        "S4D22"
-      ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "occurrences": ["S2D8", "S2D12", "S3D15", "S4D22"],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-good-morning-inicio-ALin6d69AxYtmokdf9B3Gy.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-good-morning-meio-TqAk3EGdPqr9AVjVM74W8A.webp",
@@ -300,16 +211,8 @@
     {
       "exercise_id": "marcha-parada",
       "display_name": "Marcha parada",
-      "occurrences": [
-        "S1D1",
-        "S1D5",
-        "S4D28"
-      ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "occurrences": ["S1D1", "S1D5", "S4D28"],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-marcha-parada-inicio-gs74nU6GmwAnAbKGJwdmgo.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-marcha-parada-meio-DPzr9QdgpB3R5U2Hd73TAR.webp",
@@ -324,16 +227,8 @@
     {
       "exercise_id": "marcha-parada-leve",
       "display_name": "Marcha parada leve",
-      "occurrences": [
-        "S1D7",
-        "S2D14",
-        "S3D21"
-      ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "occurrences": ["S1D7", "S2D14", "S3D21"],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-marcha-parada-leve-inicio-mntdQMLHUYYCRQgFxxubrK.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-marcha-parada-leve-meio-A7EQHdeNk9F5KPnmZaMg7X.webp",
@@ -366,11 +261,7 @@
         "S4D27",
         "S4D28"
       ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-mobilidade-coluna-inicio-g7sXsCjzHe4RFS5reAj68A.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-mobilidade-coluna-meio-PsBghRVfHPYb35i39yKzwK.webp",
@@ -395,11 +286,7 @@
         "S4D24",
         "S4D27"
       ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-mobilidade-quadril-inicio-NFL9BNSvgMVLUnUVxkzJ5R.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-mobilidade-quadril-meio-ZPs29RRowdmpo3DEvLqo4C.webp",
@@ -414,19 +301,8 @@
     {
       "exercise_id": "polichinelo-sem-salto",
       "display_name": "Polichinelo sem salto",
-      "occurrences": [
-        "S1D5",
-        "S2D11",
-        "S3D15",
-        "S3D19",
-        "S4D22",
-        "S4D25"
-      ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "occurrences": ["S1D5", "S2D11", "S3D15", "S3D19", "S4D22", "S4D25"],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-polichinelo-sem-salto-inicio-EwFqAgnQ2aF2k3zfUmwTxF.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-polichinelo-sem-salto-meio-44TyjfGXGcTK5fb5fi9mgV.webp",
@@ -441,18 +317,8 @@
     {
       "exercise_id": "ponte-de-gluteos",
       "display_name": "Ponte de glúteos",
-      "occurrences": [
-        "S1D1",
-        "S1D5",
-        "S2D11",
-        "S3D19",
-        "S4D28"
-      ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "occurrences": ["S1D1", "S1D5", "S2D11", "S3D19", "S4D28"],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-ponte-gluteos-inicio-WV4crZawxr8WCHFZFncsyk.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-ponte-gluteos-meio-Ti6XcK2fBzw7equarsqdyZ.webp",
@@ -477,11 +343,7 @@
         "S4D25",
         "S4D26"
       ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-ponte-gluteos-pausa-inicio-F74tNrcqfPnrhCPhs3bnSe.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-ponte-gluteos-pausa-meio-UwHyr98fhu8J32QWmoJ6tA.webp",
@@ -496,18 +358,8 @@
     {
       "exercise_id": "prancha-adaptada",
       "display_name": "Prancha adaptada",
-      "occurrences": [
-        "S1D2",
-        "S2D9",
-        "S3D16",
-        "S3D18",
-        "S4D23"
-      ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "occurrences": ["S1D2", "S2D9", "S3D16", "S3D18", "S4D23"],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-prancha-adaptada-inicio-C97UK2VcvChDNQERZCxFUo.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-prancha-adaptada-meio-PyfwBAHJDRj7bACCFN2E7Z.webp",
@@ -522,17 +374,8 @@
     {
       "exercise_id": "push-up-inclinada",
       "display_name": "Push-up inclinada",
-      "occurrences": [
-        "S2D11",
-        "S3D19",
-        "S4D23",
-        "S4D25"
-      ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "occurrences": ["S2D11", "S3D19", "S4D23", "S4D25"],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-pushup-inclinada-inicio-gK2WiLckAL3p5bCPF5JXXE.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-pushup-inclinada-meio-Zt5whvrLF7GrjZdEZbjKCf.webp",
@@ -558,11 +401,7 @@
         "S4D27",
         "S4D28"
       ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-respiracao-mobilidade-leve-inicio-WBv8U8B98KqEzZPxrhU3GT.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-respiracao-mobilidade-leve-meio-bdzHma8F4QJQT3v4rY8Tkj.webp",
@@ -577,16 +416,8 @@
     {
       "exercise_id": "respiracao-profunda",
       "display_name": "Respiração profunda",
-      "occurrences": [
-        "S1D7",
-        "S2D14",
-        "S3D21"
-      ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "occurrences": ["S1D7", "S2D14", "S3D21"],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-respiracao-profunda-inicio-9nKdZZoLSoYkRxzBYmmGLW.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-respiracao-profunda-meio-MgLzGdJ5ggFmXMDuVY6vfi.webp",
@@ -611,11 +442,7 @@
         "S4D24",
         "S4D27"
       ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-step-touch-lateral-inicio-FckL8ghBEUwrE5mLtP7h7c.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-step-touch-lateral-meio-gbCSAGvTMa33mbtCWVaJ5t.webp",
@@ -630,17 +457,8 @@
     {
       "exercise_id": "wall-push-up",
       "display_name": "Wall push-up",
-      "occurrences": [
-        "S1D2",
-        "S1D5",
-        "S2D9",
-        "S3D16"
-      ],
-      "frames": [
-        "inicio",
-        "meio",
-        "fim"
-      ],
+      "occurrences": ["S1D2", "S1D5", "S2D9", "S3D16"],
+      "frames": ["inicio", "meio", "fim"],
       "image_refs": {
         "inicio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-wall-pushup-inicio-mS4LP95d3Dh8irZfEewnEi.webp",
         "meio": "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/ex-wall-pushup-meio-n3n33gt4sGhGBfEgAcKVT8.webp",

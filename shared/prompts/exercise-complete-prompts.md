@@ -98,14 +98,7 @@ Gere início, meio e fim como três imagens realmente diferentes. Não pule o me
     "safety_priority": "Conservative quarter-squat only, heels fully grounded, chair for light balance only, knees aligned with the feet",
     "support_and_spatial_rule": "standard dining chair centered in front of the character, chair back around lower chest height, both palms resting lightly on the top edge, support used for balance and depth reference only",
     "support_visibility": "chair back and both hands on the chair must stay fully visible",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "spine",
-      "hands",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "spine", "hands", "gaze"],
     "clarity_checks": [
       "the chair contact and support role are readable at a glance",
       "heel grounding and squat depth are clearly visible",
@@ -209,14 +202,7 @@ Gere início, meio e fim como três imagens realmente diferentes. Não pule o me
     "safety_priority": "Conservative quarter-squat only, heels fully grounded, chair for light balance only, knees aligned with the feet",
     "support_and_spatial_rule": "standard dining chair centered in front of the character, chair back around lower chest height, both palms resting lightly on the top edge, support used for balance and depth reference only",
     "support_visibility": "chair back and both hands on the chair must stay fully visible",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "spine",
-      "hands",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "spine", "hands", "gaze"],
     "clarity_checks": [
       "the chair contact and support role are readable at a glance",
       "heel grounding and squat depth are clearly visible",
@@ -320,14 +306,7 @@ Gere início, meio e fim como três imagens realmente diferentes. Não pule o me
     "safety_priority": "Conservative quarter-squat only, heels fully grounded, chair for light balance only, knees aligned with the feet",
     "support_and_spatial_rule": "standard dining chair centered in front of the character, chair back around lower chest height, both palms resting lightly on the top edge, support used for balance and depth reference only",
     "support_visibility": "chair back and both hands on the chair must stay fully visible",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "spine",
-      "hands",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "spine", "hands", "gaze"],
     "clarity_checks": [
       "the chair contact and support role are readable at a glance",
       "heel grounding and squat depth are clearly visible",
@@ -437,14 +416,7 @@ Gere início, meio e fim como três imagens realmente diferentes. Não pule o me
     "safety_priority": "Mini-squat only, hips clearly above the knees, no deep descent, heels grounded",
     "support_and_spatial_rule": "no external support object; the body and environment alone must explain the movement",
     "support_visibility": "no support object",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "spine",
-      "arms",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "spine", "arms", "gaze"],
     "clarity_checks": [
       "the movement reads as partial rather than deep",
       "the knees, hips, and feet remain fully readable",
@@ -548,14 +520,7 @@ Gere início, meio e fim como três imagens realmente diferentes. Não pule o me
     "safety_priority": "Mini-squat only, hips clearly above the knees, no deep descent, heels grounded",
     "support_and_spatial_rule": "no external support object; the body and environment alone must explain the movement",
     "support_visibility": "no support object",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "spine",
-      "arms",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "spine", "arms", "gaze"],
     "clarity_checks": [
       "the movement reads as partial rather than deep",
       "the knees, hips, and feet remain fully readable",
@@ -659,14 +624,7 @@ Gere início, meio e fim como três imagens realmente diferentes. Não pule o me
     "safety_priority": "Mini-squat only, hips clearly above the knees, no deep descent, heels grounded",
     "support_and_spatial_rule": "no external support object; the body and environment alone must explain the movement",
     "support_visibility": "no support object",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "spine",
-      "arms",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "spine", "arms", "gaze"],
     "clarity_checks": [
       "the movement reads as partial rather than deep",
       "the knees, hips, and feet remain fully readable",
@@ -776,14 +734,7 @@ Início e fim precisam ser claramente diferentes; o meio pode ser mais sutil, ma
     "safety_priority": "Short comfortable split stance, pelvis glides gently forward, stretch at the front of the back hip, no deep lunge",
     "support_and_spatial_rule": "optional stable support may appear only if needed for balance; if present it must look intentional, properly scaled, and consistently placed",
     "support_visibility": "no support object unless needed for balance",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "pelvis",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "pelvis", "spine", "gaze"],
     "clarity_checks": [
       "the split stance and front versus back leg roles are obvious",
       "the trunk stays upright instead of collapsing forward",
@@ -887,14 +838,7 @@ Início e fim precisam ser claramente diferentes; o meio pode ser mais sutil, ma
     "safety_priority": "Short comfortable split stance, pelvis glides gently forward, stretch at the front of the back hip, no deep lunge",
     "support_and_spatial_rule": "optional stable support may appear only if needed for balance; if present it must look intentional, properly scaled, and consistently placed",
     "support_visibility": "no support object unless needed for balance",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "pelvis",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "pelvis", "spine", "gaze"],
     "clarity_checks": [
       "the split stance and front versus back leg roles are obvious",
       "the trunk stays upright instead of collapsing forward",
@@ -998,14 +942,7 @@ Início e fim precisam ser claramente diferentes; o meio pode ser mais sutil, ma
     "safety_priority": "Short comfortable split stance, pelvis glides gently forward, stretch at the front of the back hip, no deep lunge",
     "support_and_spatial_rule": "optional stable support may appear only if needed for balance; if present it must look intentional, properly scaled, and consistently placed",
     "support_visibility": "no support object unless needed for balance",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "pelvis",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "pelvis", "spine", "gaze"],
     "clarity_checks": [
       "the split stance and front versus back leg roles are obvious",
       "the trunk stays upright instead of collapsing forward",
@@ -1454,14 +1391,7 @@ Gere início, meio e fim como três imagens realmente diferentes. Não pule o me
     "safety_priority": "Short split stance, small lowering range, upright torso, support hand light only",
     "support_and_spatial_rule": "standard dining chair or stable support placed beside the front hand in a short split stance, one hand touches lightly for balance, support must stay aligned and properly scaled",
     "support_visibility": "chair or stable support must stay fully visible near the front hand",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "spine",
-      "hands",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "spine", "hands", "gaze"],
     "clarity_checks": [
       "the support position relative to the front hand is obvious",
       "the movement reads as a short supported lunge, not a long athletic one",
@@ -1565,14 +1495,7 @@ Gere início, meio e fim como três imagens realmente diferentes. Não pule o me
     "safety_priority": "Short split stance, small lowering range, upright torso, support hand light only",
     "support_and_spatial_rule": "standard dining chair or stable support placed beside the front hand in a short split stance, one hand touches lightly for balance, support must stay aligned and properly scaled",
     "support_visibility": "chair or stable support must stay fully visible near the front hand",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "spine",
-      "hands",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "spine", "hands", "gaze"],
     "clarity_checks": [
       "the support position relative to the front hand is obvious",
       "the movement reads as a short supported lunge, not a long athletic one",
@@ -1676,14 +1599,7 @@ Gere início, meio e fim como três imagens realmente diferentes. Não pule o me
     "safety_priority": "Short split stance, small lowering range, upright torso, support hand light only",
     "support_and_spatial_rule": "standard dining chair or stable support placed beside the front hand in a short split stance, one hand touches lightly for balance, support must stay aligned and properly scaled",
     "support_visibility": "chair or stable support must stay fully visible near the front hand",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "spine",
-      "hands",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "spine", "hands", "gaze"],
     "clarity_checks": [
       "the support position relative to the front hand is obvious",
       "the movement reads as a short supported lunge, not a long athletic one",
@@ -2477,14 +2393,7 @@ Início e fim precisam ser claramente diferentes; o meio pode ser mais sutil, ma
     "safety_priority": "Low-to-medium knee lift below hip height, no run posture, no jump",
     "support_and_spatial_rule": "no external support object; the body and environment alone must explain the movement",
     "support_visibility": "no support object",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "arms",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "arms", "spine", "gaze"],
     "clarity_checks": [
       "the image reads as low-impact marching rather than running",
       "the support foot and lifted knee remain fully visible",
@@ -2588,14 +2497,7 @@ Início e fim precisam ser claramente diferentes; o meio pode ser mais sutil, ma
     "safety_priority": "Low-to-medium knee lift below hip height, no run posture, no jump",
     "support_and_spatial_rule": "no external support object; the body and environment alone must explain the movement",
     "support_visibility": "no support object",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "arms",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "arms", "spine", "gaze"],
     "clarity_checks": [
       "the image reads as low-impact marching rather than running",
       "the support foot and lifted knee remain fully visible",
@@ -2699,14 +2601,7 @@ Início e fim precisam ser claramente diferentes; o meio pode ser mais sutil, ma
     "safety_priority": "Low-to-medium knee lift below hip height, no run posture, no jump",
     "support_and_spatial_rule": "no external support object; the body and environment alone must explain the movement",
     "support_visibility": "no support object",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "arms",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "arms", "spine", "gaze"],
     "clarity_checks": [
       "the image reads as low-impact marching rather than running",
       "the support foot and lifted knee remain fully visible",
@@ -2816,14 +2711,7 @@ Início e fim precisam ser claramente diferentes; o meio pode ser mais sutil, ma
     "safety_priority": "Moderate heel lift only, both heels rise together, ankles stacked, no forward lean",
     "support_and_spatial_rule": "optional stable support may appear only if needed for balance; if present it must look intentional, properly scaled, and consistently placed",
     "support_visibility": "support is optional; if used, hands and support edge must remain visible",
-    "must_keep_visible": [
-      "feet",
-      "ankles",
-      "calves",
-      "knees",
-      "hips",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "ankles", "calves", "knees", "hips", "gaze"],
     "clarity_checks": [
       "heel lift is clearly visible from side view",
       "ankle stacking and balance look realistic",
@@ -2927,14 +2815,7 @@ Início e fim precisam ser claramente diferentes; o meio pode ser mais sutil, ma
     "safety_priority": "Moderate heel lift only, both heels rise together, ankles stacked, no forward lean",
     "support_and_spatial_rule": "optional stable support may appear only if needed for balance; if present it must look intentional, properly scaled, and consistently placed",
     "support_visibility": "support is optional; if used, hands and support edge must remain visible",
-    "must_keep_visible": [
-      "feet",
-      "ankles",
-      "calves",
-      "knees",
-      "hips",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "ankles", "calves", "knees", "hips", "gaze"],
     "clarity_checks": [
       "heel lift is clearly visible from side view",
       "ankle stacking and balance look realistic",
@@ -3038,14 +2919,7 @@ Início e fim precisam ser claramente diferentes; o meio pode ser mais sutil, ma
     "safety_priority": "Moderate heel lift only, both heels rise together, ankles stacked, no forward lean",
     "support_and_spatial_rule": "optional stable support may appear only if needed for balance; if present it must look intentional, properly scaled, and consistently placed",
     "support_visibility": "support is optional; if used, hands and support edge must remain visible",
-    "must_keep_visible": [
-      "feet",
-      "ankles",
-      "calves",
-      "knees",
-      "hips",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "ankles", "calves", "knees", "hips", "gaze"],
     "clarity_checks": [
       "heel lift is clearly visible from side view",
       "ankle stacking and balance look realistic",
@@ -3836,14 +3710,7 @@ Início e fim precisam ser claramente diferentes; o meio pode ser mais sutil, ma
     "safety_priority": "Low-impact march, knee below hip height, natural arm swing, no running mechanics",
     "support_and_spatial_rule": "no external support object; the body and environment alone must explain the movement",
     "support_visibility": "no support object",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "arms",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "arms", "spine", "gaze"],
     "clarity_checks": [
       "the image reads instantly as marching in place",
       "foot placement and soft support exchange remain visible",
@@ -3947,14 +3814,7 @@ Início e fim precisam ser claramente diferentes; o meio pode ser mais sutil, ma
     "safety_priority": "Low-impact march, knee below hip height, natural arm swing, no running mechanics",
     "support_and_spatial_rule": "no external support object; the body and environment alone must explain the movement",
     "support_visibility": "no support object",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "arms",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "arms", "spine", "gaze"],
     "clarity_checks": [
       "the image reads instantly as marching in place",
       "foot placement and soft support exchange remain visible",
@@ -4058,14 +3918,7 @@ Início e fim precisam ser claramente diferentes; o meio pode ser mais sutil, ma
     "safety_priority": "Low-impact march, knee below hip height, natural arm swing, no running mechanics",
     "support_and_spatial_rule": "no external support object; the body and environment alone must explain the movement",
     "support_visibility": "no support object",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "arms",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "arms", "spine", "gaze"],
     "clarity_checks": [
       "the image reads instantly as marching in place",
       "foot placement and soft support exchange remain visible",
@@ -4175,14 +4028,7 @@ Se o orçamento apertar, o início pode servir como base principal, mas os promp
     "safety_priority": "Very small recovery march, minimal arm swing, low effort, no cardio intensity",
     "support_and_spatial_rule": "no external support object; the body and environment alone must explain the movement",
     "support_visibility": "no support object",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "arms",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "arms", "spine", "gaze"],
     "clarity_checks": [
       "the movement reads as very light marching",
       "the body language stays relaxed instead of athletic",
@@ -4286,14 +4132,7 @@ Se o orçamento apertar, o início pode servir como base principal, mas os promp
     "safety_priority": "Very small recovery march, minimal arm swing, low effort, no cardio intensity",
     "support_and_spatial_rule": "no external support object; the body and environment alone must explain the movement",
     "support_visibility": "no support object",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "arms",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "arms", "spine", "gaze"],
     "clarity_checks": [
       "the movement reads as very light marching",
       "the body language stays relaxed instead of athletic",
@@ -4397,14 +4236,7 @@ Se o orçamento apertar, o início pode servir como base principal, mas os promp
     "safety_priority": "Very small recovery march, minimal arm swing, low effort, no cardio intensity",
     "support_and_spatial_rule": "no external support object; the body and environment alone must explain the movement",
     "support_visibility": "no support object",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "arms",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "arms", "spine", "gaze"],
     "clarity_checks": [
       "the movement reads as very light marching",
       "the body language stays relaxed instead of athletic",
@@ -4853,14 +4685,7 @@ Início e fim precisam ser claramente diferentes; o meio pode ser mais sutil, ma
     "safety_priority": "Very small controlled hip range, support leg steady, no dance-like swing",
     "support_and_spatial_rule": "optional stable support may appear only if needed for balance; if present it must look intentional, properly scaled, and consistently placed",
     "support_visibility": "support is optional; if present it must stay visible",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "pelvis",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "pelvis", "spine", "gaze"],
     "clarity_checks": [
       "the moving hip side versus support side are obvious",
       "the pelvis remains readable from the camera angle",
@@ -4964,14 +4789,7 @@ Início e fim precisam ser claramente diferentes; o meio pode ser mais sutil, ma
     "safety_priority": "Very small controlled hip range, support leg steady, no dance-like swing",
     "support_and_spatial_rule": "optional stable support may appear only if needed for balance; if present it must look intentional, properly scaled, and consistently placed",
     "support_visibility": "support is optional; if present it must stay visible",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "pelvis",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "pelvis", "spine", "gaze"],
     "clarity_checks": [
       "the moving hip side versus support side are obvious",
       "the pelvis remains readable from the camera angle",
@@ -5075,14 +4893,7 @@ Início e fim precisam ser claramente diferentes; o meio pode ser mais sutil, ma
     "safety_priority": "Very small controlled hip range, support leg steady, no dance-like swing",
     "support_and_spatial_rule": "optional stable support may appear only if needed for balance; if present it must look intentional, properly scaled, and consistently placed",
     "support_visibility": "support is optional; if present it must stay visible",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "pelvis",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "pelvis", "spine", "gaze"],
     "clarity_checks": [
       "the moving hip side versus support side are obvious",
       "the pelvis remains readable from the camera angle",
@@ -5192,14 +5003,7 @@ Gere início, meio e fim como três imagens realmente diferentes. Não pule o me
     "safety_priority": "Low-impact opening only, both feet grounded, arms stop around shoulder height or slightly above",
     "support_and_spatial_rule": "no external support object; the body and environment alone must explain the movement",
     "support_visibility": "no support object",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "arms",
-      "hands",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "arms", "hands", "gaze"],
     "clarity_checks": [
       "the image reads as a modified jumping jack without impact",
       "arm and leg coordination are obvious",
@@ -5303,14 +5107,7 @@ Gere início, meio e fim como três imagens realmente diferentes. Não pule o me
     "safety_priority": "Low-impact opening only, both feet grounded, arms stop around shoulder height or slightly above",
     "support_and_spatial_rule": "no external support object; the body and environment alone must explain the movement",
     "support_visibility": "no support object",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "arms",
-      "hands",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "arms", "hands", "gaze"],
     "clarity_checks": [
       "the image reads as a modified jumping jack without impact",
       "arm and leg coordination are obvious",
@@ -5414,14 +5211,7 @@ Gere início, meio e fim como três imagens realmente diferentes. Não pule o me
     "safety_priority": "Low-impact opening only, both feet grounded, arms stop around shoulder height or slightly above",
     "support_and_spatial_rule": "no external support object; the body and environment alone must explain the movement",
     "support_visibility": "no support object",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "arms",
-      "hands",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "arms", "hands", "gaze"],
     "clarity_checks": [
       "the image reads as a modified jumping jack without impact",
       "arm and leg coordination are obvious",
@@ -7574,14 +7364,7 @@ Gere início, meio e fim como três imagens realmente diferentes. Não pule o me
     "safety_priority": "Small side step to the subject's right, controlled weight shift, no dance styling and no jump",
     "support_and_spatial_rule": "no external support object; the body and environment alone must explain the movement",
     "support_visibility": "no support object",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "arms",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "arms", "spine", "gaze"],
     "clarity_checks": [
       "the side step direction is obvious",
       "the weight shift and tap-in role are readable",
@@ -7685,14 +7468,7 @@ Gere início, meio e fim como três imagens realmente diferentes. Não pule o me
     "safety_priority": "Small side step to the subject's right, controlled weight shift, no dance styling and no jump",
     "support_and_spatial_rule": "no external support object; the body and environment alone must explain the movement",
     "support_visibility": "no support object",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "arms",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "arms", "spine", "gaze"],
     "clarity_checks": [
       "the side step direction is obvious",
       "the weight shift and tap-in role are readable",
@@ -7796,14 +7572,7 @@ Gere início, meio e fim como três imagens realmente diferentes. Não pule o me
     "safety_priority": "Small side step to the subject's right, controlled weight shift, no dance styling and no jump",
     "support_and_spatial_rule": "no external support object; the body and environment alone must explain the movement",
     "support_visibility": "no support object",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "arms",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "arms", "spine", "gaze"],
     "clarity_checks": [
       "the side step direction is obvious",
       "the weight shift and tap-in role are readable",

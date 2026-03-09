@@ -101,14 +101,7 @@ Os três estados precisam aparecer claramente diferentes na mesma imagem. Use o 
     "center_pose": "hips moving back, knees softly bent, torso slightly inclined forward, arms still extended on the chair, heels grounded, neutral spine, gaze forward",
     "right_pose": "conservative supported quarter-squat depth, hips back, knees aligned with the feet, heels grounded, chest open, hands lightly on the chair, gaze forward",
     "safety_priority": "Conservative quarter-squat only, heels fully grounded, chair for light balance only, knees aligned with the feet",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "spine",
-      "hands",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "spine", "hands", "gaze"],
     "clarity_checks": [
       "the chair contact and support role are readable at a glance",
       "heel grounding and squat depth are clearly visible",
@@ -231,14 +224,7 @@ Os três estados precisam aparecer claramente diferentes na mesma imagem. Sem ap
     "center_pose": "mini-squat middle phase, hips slightly back, knees softly bent, torso slightly inclined forward, heels grounded, arms balancing in front, neutral spine",
     "right_pose": "shallow mini-squat only, hips back, knees aligned with the feet, thighs far above parallel, heels grounded, chest open, gaze forward",
     "safety_priority": "Mini-squat only, hips clearly above the knees, no deep descent, heels grounded",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "spine",
-      "arms",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "spine", "arms", "gaze"],
     "clarity_checks": [
       "the movement reads as partial rather than deep",
       "the knees, hips, and feet remain fully readable",
@@ -361,14 +347,7 @@ O início e o fim precisam contrastar bem; o meio pode ser mais sutil, mas deve 
     "center_pose": "left foot forward, right leg back, gentle forward glide of the pelvis, left knee softly bent, right leg long, torso upright, abdomen engaged, gaze forward",
     "right_pose": "left foot forward, right leg back, clear but gentle hip flexor stretch, pelvis slightly forward, chest open, neutral spine, stretch visible at the front of the right hip",
     "safety_priority": "Short comfortable split stance, pelvis glides gently forward, stretch at the front of the back hip, no deep lunge",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "pelvis",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "pelvis", "spine", "gaze"],
     "clarity_checks": [
       "the split stance and front versus back leg roles are obvious",
       "the trunk stays upright instead of collapsing forward",
@@ -621,14 +600,7 @@ Os três estados precisam aparecer claramente diferentes na mesma imagem. Use o 
     "center_pose": "left foot forward, right foot back, small lowering phase, front and back knees softly bending, pelvis centered, torso upright, left support hand still visible",
     "right_pose": "left foot forward, right foot back, short supported lunge depth only, front knee comfortably bent, back heel may be lifted naturally, torso tall, neutral spine, light support with the left hand",
     "safety_priority": "Short split stance, small lowering range, upright torso, support hand light only",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "spine",
-      "hands",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "spine", "hands", "gaze"],
     "clarity_checks": [
       "the support position relative to the front hand is obvious",
       "the movement reads as a short supported lunge, not a long athletic one",
@@ -1013,14 +985,7 @@ O início e o fim precisam contrastar bem; o meio pode ser mais sutil, mas deve 
     "center_pose": "upright low-impact march, left knee beginning to lift, right arm swinging naturally, right support foot grounded, trunk upright",
     "right_pose": "upright low-impact march, left knee lifted to a low or medium height and clearly below hip height, right arm swinging naturally, right support foot grounded",
     "safety_priority": "Low-to-medium knee lift below hip height, no run posture, no jump",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "arms",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "arms", "spine", "gaze"],
     "clarity_checks": [
       "the image reads as low-impact marching rather than running",
       "the support foot and lifted knee remain fully visible",
@@ -1143,14 +1108,7 @@ O início e o fim precisam contrastar bem; o meio pode ser mais sutil, mas deve 
     "center_pose": "heels beginning to rise, weight moving to the balls of the feet, body stacked upright, ankles clearly visible",
     "right_pose": "both heels lifted together through a moderate rise only, weight on the balls of the feet, ankles stacked, knees soft, torso vertical, controlled balance",
     "safety_priority": "Moderate heel lift only, both heels rise together, ankles stacked, no forward lean",
-    "must_keep_visible": [
-      "feet",
-      "ankles",
-      "calves",
-      "knees",
-      "hips",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "ankles", "calves", "knees", "hips", "gaze"],
     "clarity_checks": [
       "heel lift is clearly visible from side view",
       "ankle stacking and balance look realistic",
@@ -1534,14 +1492,7 @@ O início e o fim precisam contrastar bem; o meio pode ser mais sutil, mas deve 
     "center_pose": "upright march in place, left knee beginning to rise, right arm swinging naturally, right support foot grounded, calm low-impact rhythm",
     "right_pose": "upright march in place, left knee slightly raised below hip height, right arm moving naturally, right support foot grounded, shoulders relaxed, low-impact rhythm",
     "safety_priority": "Low-impact march, knee below hip height, natural arm swing, no running mechanics",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "arms",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "arms", "spine", "gaze"],
     "clarity_checks": [
       "the image reads instantly as marching in place",
       "foot placement and soft support exchange remain visible",
@@ -1664,14 +1615,7 @@ Se precisar simplificar, o foco principal é deixar início, meio e fim intelig�
     "center_pose": "very gentle recovery march, left knee beginning a small lift, right arm moving with minimal swing, trunk relaxed and upright",
     "right_pose": "very gentle recovery march, very small left knee lift below hip height, minimal right arm swing, right support foot grounded, trunk upright and relaxed",
     "safety_priority": "Very small recovery march, minimal arm swing, low effort, no cardio intensity",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "arms",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "arms", "spine", "gaze"],
     "clarity_checks": [
       "the movement reads as very light marching",
       "the body language stays relaxed instead of athletic",
@@ -1924,14 +1868,7 @@ O início e o fim precisam contrastar bem; o meio pode ser mais sutil, mas deve 
     "center_pose": "left leg steady as the support leg, right hip beginning a very small controlled outward path, right knee low, pelvis readable, upper body steady",
     "right_pose": "left support leg steady, right hip taken through a very small controlled outward end range, right knee low and slightly opened, pelvis readable, trunk quiet, chest open",
     "safety_priority": "Very small controlled hip range, support leg steady, no dance-like swing",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "pelvis",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "pelvis", "spine", "gaze"],
     "clarity_checks": [
       "the moving hip side versus support side are obvious",
       "the pelvis remains readable from the camera angle",
@@ -2054,14 +1991,7 @@ Os três estados precisam aparecer claramente diferentes na mesma imagem. Sem ap
     "center_pose": "low-impact opening phase, side step beginning, both feet grounded, arms moving outward and upward through a smooth arc, trunk upright",
     "right_pose": "feet apart in a comfortable open stance, arms raised in coordination to shoulder height or only slightly above, knees soft, trunk upright, both feet grounded",
     "safety_priority": "Low-impact opening only, both feet grounded, arms stop around shoulder height or slightly above",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "arms",
-      "hands",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "arms", "hands", "gaze"],
     "clarity_checks": [
       "the image reads as a modified jumping jack without impact",
       "arm and leg coordination are obvious",
@@ -2967,14 +2897,7 @@ Os três estados precisam aparecer claramente diferentes na mesma imagem. Sem ap
     "center_pose": "small side step to the subject's right beginning, weight shifting laterally in a controlled way, trunk upright, arms moving naturally",
     "right_pose": "small side step to the subject's right completed with the left foot tapping in, weight shifted laterally in a controlled way, trunk upright, both feet grounded",
     "safety_priority": "Small side step to the subject's right, controlled weight shift, no dance styling and no jump",
-    "must_keep_visible": [
-      "feet",
-      "knees",
-      "hips",
-      "arms",
-      "spine",
-      "gaze"
-    ],
+    "must_keep_visible": ["feet", "knees", "hips", "arms", "spine", "gaze"],
     "clarity_checks": [
       "the side step direction is obvious",
       "the weight shift and tap-in role are readable",

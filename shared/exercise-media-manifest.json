@@ -30,9 +30,7 @@
         "video": "Video do exercicio Agachamento parcial"
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Agachamento parcial",
-      "selected_files": [
-        "22.mp4"
-      ],
+      "selected_files": ["22.mp4"],
       "ignored_files": []
     },
     {
@@ -62,14 +60,8 @@
         "single_image": "Alongamento posterior com posicoes 1, 2 e 3 na mesma imagem"
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Alongamento posterior",
-      "selected_files": [
-        "123.png"
-      ],
-      "ignored_files": [
-        "1.png",
-        "2.png",
-        "3.png"
-      ]
+      "selected_files": ["123.png"],
+      "ignored_files": ["1.png", "2.png", "3.png"]
     },
     {
       "exercise_id": "avanco-curto-com-apoio",
@@ -82,9 +74,7 @@
         "single_image": "Avanço curto com apoio com posicoes 1, 2 e 3 na mesma imagem"
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Avanço curto com apoio",
-      "selected_files": [
-        "123.png"
-      ],
+      "selected_files": ["123.png"],
       "ignored_files": []
     },
     {
@@ -98,9 +88,7 @@
         "single_image": "Bird dog com posicoes 1, 2 e 3 na mesma imagem"
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Bird dog",
-      "selected_files": [
-        "123.png"
-      ],
+      "selected_files": ["123.png"],
       "ignored_files": []
     },
     {
@@ -114,9 +102,7 @@
         "single_image": "Dead bug com posicoes 1, 2 e 3 na mesma imagem"
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Dead bug",
-      "selected_files": [
-        "123.png"
-      ],
+      "selected_files": ["123.png"],
       "ignored_files": []
     },
     {
@@ -130,9 +116,7 @@
         "single_image": "Elevação de joelhos leve com posicoes 1, 2 e 3 na mesma imagem"
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Elevação de joelhos leve",
-      "selected_files": [
-        "123.png"
-      ],
+      "selected_files": ["123.png"],
       "ignored_files": []
     },
     {
@@ -146,9 +130,7 @@
         "single_image": "Elevação de panturrilha com posicoes 1, 2 e 3 na mesma imagem"
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Elevação de panturrilha",
-      "selected_files": [
-        "123.jpeg"
-      ],
+      "selected_files": ["123.jpeg"],
       "ignored_files": []
     },
     {
@@ -162,9 +144,7 @@
         "single_image": "Elevação pélvica com posicoes 1, 2 e 3 na mesma imagem"
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Elevação pélvica",
-      "selected_files": [
-        "123.png"
-      ],
+      "selected_files": ["123.png"],
       "ignored_files": []
     },
     {
@@ -178,9 +158,7 @@
         "single_image": "Good morning sem peso com posicoes 1, 2 e 3 na mesma imagem"
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Good morning sem peso",
-      "selected_files": [
-        "123.png"
-      ],
+      "selected_files": ["123.png"],
       "ignored_files": []
     },
     {
@@ -194,9 +172,7 @@
         "single_image": "Marcha parada com posicoes 1, 2 e 3 na mesma imagem"
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Marcha parada",
-      "selected_files": [
-        "123.png"
-      ],
+      "selected_files": ["123.png"],
       "ignored_files": []
     },
     {
@@ -210,9 +186,7 @@
         "single_image": "Marcha parada leve com posicoes 1, 2 e 3 na mesma imagem"
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Marcha parada leve",
-      "selected_files": [
-        "123.png"
-      ],
+      "selected_files": ["123.png"],
       "ignored_files": []
     },
     {
@@ -226,9 +200,7 @@
         "single_image": "Mobilidade de coluna com posicoes 1, 2 e 3 na mesma imagem"
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Mobilidade de coluna",
-      "selected_files": [
-        "123.png"
-      ],
+      "selected_files": ["123.png"],
       "ignored_files": []
     },
     {
@@ -242,9 +214,7 @@
         "video": "Video do exercicio Mobilidade de quadril"
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Mobilidade de quadril",
-      "selected_files": [
-        "123.mp4"
-      ],
+      "selected_files": ["123.mp4"],
       "ignored_files": []
     },
     {
@@ -266,11 +236,7 @@
         }
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Polichinelo sem salto",
-      "selected_files": [
-        "1.jpeg",
-        "2.jpeg",
-        "3.jpeg"
-      ],
+      "selected_files": ["1.jpeg", "2.jpeg", "3.jpeg"],
       "ignored_files": []
     },
     {
@@ -284,9 +250,7 @@
         "single_image": "Ponte de glúteos com posicoes 1, 2 e 3 na mesma imagem"
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Ponte de glúteos",
-      "selected_files": [
-        "123.png"
-      ],
+      "selected_files": ["123.png"],
       "ignored_files": []
     },
     {
@@ -300,9 +264,7 @@
         "single_image": "Ponte de glúteos com pausa com posicoes 1, 2 e 3 na mesma imagem"
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Ponte de glúteos com pausa",
-      "selected_files": [
-        "123.png"
-      ],
+      "selected_files": ["123.png"],
       "ignored_files": []
     },
     {
@@ -316,9 +278,7 @@
         "video": "Video do exercicio Prancha adaptada"
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Prancha adaptada",
-      "selected_files": [
-        "Plank_transition_over_8_seconds_delpmaspu_.mp4"
-      ],
+      "selected_files": ["Plank_transition_over_8_seconds_delpmaspu_.mp4"],
       "ignored_files": []
     },
     {
@@ -332,9 +292,7 @@
         "video": "Video do exercicio Push-up inclinada"
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Push-up inclinada",
-      "selected_files": [
-        "Pushup_lowering_transition_delpmaspu_.mp4"
-      ],
+      "selected_files": ["Pushup_lowering_transition_delpmaspu_.mp4"],
       "ignored_files": []
     },
     {
@@ -348,9 +306,7 @@
         "video": "Video do exercicio Respiração e mobilidade leve"
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Respiração e mobilidade leve",
-      "selected_files": [
-        "Flow_delpmaspu_.mp4"
-      ],
+      "selected_files": ["Flow_delpmaspu_.mp4"],
       "ignored_files": []
     },
     {
@@ -364,12 +320,8 @@
         "video": "Video do exercicio Respiração profunda"
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Respiração profunda",
-      "selected_files": [
-        "Woman_performing_breathing_exercise_delpmaspu_.mp4"
-      ],
-      "ignored_files": [
-        "123.png"
-      ]
+      "selected_files": ["Woman_performing_breathing_exercise_delpmaspu_.mp4"],
+      "ignored_files": ["123.png"]
     },
     {
       "exercise_id": "step-touch-lateral",
@@ -382,9 +334,7 @@
         "single_image": "Step touch lateral com posicoes 1, 2 e 3 na mesma imagem"
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Step touch lateral",
-      "selected_files": [
-        "123.png"
-      ],
+      "selected_files": ["123.png"],
       "ignored_files": []
     },
     {
@@ -406,11 +356,7 @@
         }
       },
       "source_folder": "/home/leonardotl/Área de trabalho/exercicio/Wall push-up",
-      "selected_files": [
-        "1.png",
-        "2.png",
-        "3.png"
-      ],
+      "selected_files": ["1.png", "2.png", "3.png"],
       "ignored_files": []
     }
   ],

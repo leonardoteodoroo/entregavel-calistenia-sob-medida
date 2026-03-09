@@ -56,14 +56,14 @@
 
 ### 2.1 Matriz prática de uso
 
-| Necessidade | Melhor recurso no Flow | Situação oficial atual | Uso recomendado |
-| --- | --- | --- | --- |
-| Explorar uma ideia do zero | `Text to Video` | Disponível em `Veo 3.1 Fast` e `Quality` | Bom para primeira exploração, ruim como único método de consistência |
-| Travar composição inicial | `Frames to Video` com first frame | Disponível em `Veo 3.1 Fast` e `Quality` | Excelente para exercícios e para câmera fixa |
-| Travar início e fim do gesto | `Frames to Video` com first + last | Disponível em `Veo 3.1 Fast` e `Quality` | Muito útil para uma repetição legível em 8s |
-| Preservar personagem/roupa/objeto | `Ingredients to Video` | Help atual aponta suporte em `Veo 3.1 Fast` | Melhor recurso de consistência visual em Flow quando disponível |
-| Estender um clipe aprovado | `Extend` | Disponível no ecossistema atual; matriz do Flow indica restrição importante por modelo/ratio | Bom para continuar ação aprovada, não para reinventar a cena |
-| Editar câmera depois | `Camera` | Existe no Flow, mas a matriz não lista suporte em Veo 3.1 | Usar com cautela; melhor tratar como secundário |
+| Necessidade                       | Melhor recurso no Flow             | Situação oficial atual                                                                       | Uso recomendado                                                      |
+| --------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| Explorar uma ideia do zero        | `Text to Video`                    | Disponível em `Veo 3.1 Fast` e `Quality`                                                     | Bom para primeira exploração, ruim como único método de consistência |
+| Travar composição inicial         | `Frames to Video` com first frame  | Disponível em `Veo 3.1 Fast` e `Quality`                                                     | Excelente para exercícios e para câmera fixa                         |
+| Travar início e fim do gesto      | `Frames to Video` com first + last | Disponível em `Veo 3.1 Fast` e `Quality`                                                     | Muito útil para uma repetição legível em 8s                          |
+| Preservar personagem/roupa/objeto | `Ingredients to Video`             | Help atual aponta suporte em `Veo 3.1 Fast`                                                  | Melhor recurso de consistência visual em Flow quando disponível      |
+| Estender um clipe aprovado        | `Extend`                           | Disponível no ecossistema atual; matriz do Flow indica restrição importante por modelo/ratio | Bom para continuar ação aprovada, não para reinventar a cena         |
+| Editar câmera depois              | `Camera`                           | Existe no Flow, mas a matriz não lista suporte em Veo 3.1                                    | Usar com cautela; melhor tratar como secundário                      |
 
 - `[Fato oficial]` Na matriz atual do Flow, `Frames to Video` com `first` e com `first + last` aparecem em `Veo 3.1 Fast` e `Veo 3.1 Quality`, ambos com `16:9` e `9:16`.
 - `[Fato oficial]` Na mesma matriz, `Ingredients to Video` aparece em `Veo 3.1 Fast` e não aparece em `Veo 3.1 Quality`.
@@ -80,16 +80,16 @@
 
 ### 3.1 Configuração recomendada
 
-| Item | Recomendação principal | Motivo |
-| --- | --- | --- |
-| Modelo | `Veo 3.1 Fast` para consistência operacional; `Veo 3.1 Quality` para versão final de clipe isolado | Fast tende a ser melhor para iteração e, no Flow atual, é o modelo associado a `Ingredients` |
-| Duração | `8s` | É o melhor espaço para mostrar uma repetição completa sem correria |
-| Quantidade de eventos | `1 cena, 1 exercício, 1 câmera` | Alinha com a recomendação oficial de focar vídeos curtos em um único momento |
-| Movimento de câmera | `Estático` ou `mínimo` | Melhora legibilidade biomecânica e reduz drift |
-| Lente percebida | `Natural`, sem wide agressivo | Evita distorção corporal |
-| Ambiente | `Casa simples, limpa, neutra, sem clutter` | Facilita repetição e consistência |
-| Luz | `Difusa, lateral suave, sempre igual` | Reduz mudança de aparência entre clipes |
-| Ritmo | `1 repetição lenta e controlada` | O exercício precisa ser entendível, não “bonito” |
+| Item                  | Recomendação principal                                                                             | Motivo                                                                                       |
+| --------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Modelo                | `Veo 3.1 Fast` para consistência operacional; `Veo 3.1 Quality` para versão final de clipe isolado | Fast tende a ser melhor para iteração e, no Flow atual, é o modelo associado a `Ingredients` |
+| Duração               | `8s`                                                                                               | É o melhor espaço para mostrar uma repetição completa sem correria                           |
+| Quantidade de eventos | `1 cena, 1 exercício, 1 câmera`                                                                    | Alinha com a recomendação oficial de focar vídeos curtos em um único momento                 |
+| Movimento de câmera   | `Estático` ou `mínimo`                                                                             | Melhora legibilidade biomecânica e reduz drift                                               |
+| Lente percebida       | `Natural`, sem wide agressivo                                                                      | Evita distorção corporal                                                                     |
+| Ambiente              | `Casa simples, limpa, neutra, sem clutter`                                                         | Facilita repetição e consistência                                                            |
+| Luz                   | `Difusa, lateral suave, sempre igual`                                                              | Reduz mudança de aparência entre clipes                                                      |
+| Ritmo                 | `1 repetição lenta e controlada`                                                                   | O exercício precisa ser entendível, não “bonito”                                             |
 
 ### 3.2 Modelo mais indicado por fase do trabalho
 
@@ -359,14 +359,14 @@ Purely visual exercise demonstration, neutral face, relaxed mouth, no direct add
 
 ## 10. Matriz de câmera por família de exercício
 
-| Família | Ângulo principal | Altura da câmera | Formato preferido | Movimento | Recurso mais útil | Observação |
-| --- | --- | --- | --- | --- | --- | --- |
-| Em pé frontal | frontal leve ou 3/4 frontal | quadril a peito | `9:16` | estática | `Ingredients` ou `Text` | boa para simetria de braços e joelhos |
-| Em pé lateral | lateral real ou 3/4 lateral | quadril ou cintura | `16:9` | estática | `Frames` | melhor para agachar, inclinar, avançar |
-| Deslocamento lateral | aberto, leve 3/4 ou lateral | quadril | `16:9` | estática ampla | `Frames` ou `Text` | importante não cortar pés e trajeto |
-| Apoio em parede/cadeira | 3/4 lateral | quadril a cintura | `16:9` | estática | `Ingredients` + `Frames` | apoio deve ficar totalmente visível |
-| Solo supino | lateral alta ou 3/4 lateral levemente elevada | tronco médio | `16:9` | estática | `Frames` | mat, cabeça, quadril e pés precisam coexistir |
-| Quadrúpede | 3/4 lateral | altura do tronco | `16:9` | estática | `Frames` ou `Ingredients` | precisa mostrar apoios e extensão ao mesmo tempo |
+| Família                 | Ângulo principal                              | Altura da câmera   | Formato preferido | Movimento      | Recurso mais útil         | Observação                                       |
+| ----------------------- | --------------------------------------------- | ------------------ | ----------------- | -------------- | ------------------------- | ------------------------------------------------ |
+| Em pé frontal           | frontal leve ou 3/4 frontal                   | quadril a peito    | `9:16`            | estática       | `Ingredients` ou `Text`   | boa para simetria de braços e joelhos            |
+| Em pé lateral           | lateral real ou 3/4 lateral                   | quadril ou cintura | `16:9`            | estática       | `Frames`                  | melhor para agachar, inclinar, avançar           |
+| Deslocamento lateral    | aberto, leve 3/4 ou lateral                   | quadril            | `16:9`            | estática ampla | `Frames` ou `Text`        | importante não cortar pés e trajeto              |
+| Apoio em parede/cadeira | 3/4 lateral                                   | quadril a cintura  | `16:9`            | estática       | `Ingredients` + `Frames`  | apoio deve ficar totalmente visível              |
+| Solo supino             | lateral alta ou 3/4 lateral levemente elevada | tronco médio       | `16:9`            | estática       | `Frames`                  | mat, cabeça, quadril e pés precisam coexistir    |
+| Quadrúpede              | 3/4 lateral                                   | altura do tronco   | `16:9`            | estática       | `Frames` ou `Ingredients` | precisa mostrar apoios e extensão ao mesmo tempo |
 
 ### 10.1 Leitura prática da matriz
 

@@ -49,19 +49,19 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   /* Custom design tokens */
-  --color-ivory: #F9F6F0;
-  --color-ivory-dark: #F0EBE3;
-  --color-taupe: #B5A99A;
-  --color-taupe-light: #D4CCC4;
-  --color-rose: #8B4A52;
-  --color-rose-light: #C4858E;
-  --color-rose-muted: #E8D5D7;
-  --color-teal: #5B8A8B;
-  --color-teal-light: #8BB5B6;
-  --color-teal-muted: #D0E4E4;
-  --color-charcoal: #2C2C2C;
-  --color-charcoal-light: #4A4A4A;
-  --color-warm-gray: #7A7570;
+  --color-ivory: #f9f6f0;
+  --color-ivory-dark: #f0ebe3;
+  --color-taupe: #b5a99a;
+  --color-taupe-light: #d4ccc4;
+  --color-rose: #8b4a52;
+  --color-rose-light: #c4858e;
+  --color-rose-muted: #e8d5d7;
+  --color-teal: #5b8a8b;
+  --color-teal-light: #8bb5b6;
+  --color-teal-muted: #d0e4e4;
+  --color-charcoal: #2c2c2c;
+  --color-charcoal-light: #4a4a4a;
+  --color-warm-gray: #7a7570;
 }
 
 :root {
@@ -119,7 +119,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -135,15 +135,20 @@
     min-height: 100dvh;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Playfair Display", serif;
     font-weight: 400;
     line-height: 1.2;
     color: var(--color-charcoal);
   }
 
   p {
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     line-height: 1.7;
     color: var(--color-charcoal-light);
     overflow-wrap: anywhere;
@@ -203,25 +208,47 @@
 
   /* ---- Typography utilities ---- */
   .font-display {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
   }
 
   .font-body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
   }
 
   /* ---- Color utilities ---- */
-  .bg-ivory { background-color: var(--color-ivory); }
-  .bg-ivory-dark { background-color: var(--color-ivory-dark); }
-  .bg-rose-muted { background-color: var(--color-rose-muted); }
-  .bg-teal-muted { background-color: var(--color-teal-muted); }
-  .text-rose-brand { color: var(--color-rose); }
-  .text-teal-brand { color: var(--color-teal); }
-  .text-taupe { color: var(--color-taupe); }
-  .text-charcoal { color: var(--color-charcoal); }
-  .text-warm-gray { color: var(--color-warm-gray); }
-  .border-taupe { border-color: var(--color-taupe-light); }
-  .border-rose { border-color: var(--color-rose-light); }
+  .bg-ivory {
+    background-color: var(--color-ivory);
+  }
+  .bg-ivory-dark {
+    background-color: var(--color-ivory-dark);
+  }
+  .bg-rose-muted {
+    background-color: var(--color-rose-muted);
+  }
+  .bg-teal-muted {
+    background-color: var(--color-teal-muted);
+  }
+  .text-rose-brand {
+    color: var(--color-rose);
+  }
+  .text-teal-brand {
+    color: var(--color-teal);
+  }
+  .text-taupe {
+    color: var(--color-taupe);
+  }
+  .text-charcoal {
+    color: var(--color-charcoal);
+  }
+  .text-warm-gray {
+    color: var(--color-warm-gray);
+  }
+  .border-taupe {
+    border-color: var(--color-taupe-light);
+  }
+  .border-rose {
+    border-color: var(--color-rose-light);
+  }
 
   /* ---- Section divider ---- */
   .divider-rose {
@@ -253,7 +280,7 @@
   .badge-leve {
     background-color: var(--color-teal-muted);
     color: var(--color-teal);
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -265,7 +292,7 @@
   .badge-padrao {
     background-color: var(--color-rose-muted);
     color: var(--color-rose);
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -277,7 +304,7 @@
   .badge-intensa {
     background-color: oklch(0.88 0.015 10);
     color: var(--color-rose);
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -288,7 +315,7 @@
 
   /* ---- Sidebar nav ---- */
   .nav-item {
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     font-size: 0.8rem;
     font-weight: 400;
     color: var(--color-warm-gray);
@@ -321,7 +348,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     font-size: 0.75rem;
     font-weight: 400;
     color: var(--color-taupe);
@@ -357,7 +384,28 @@
     animation: fadeInUp 0.4s ease-out forwards;
   }
 
-  .animate-fade-in-delay-1 { animation-delay: 0.1s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeInUp; animation-duration: 0.4s; animation-timing-function: ease-out; }
-  .animate-fade-in-delay-2 { animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeInUp; animation-duration: 0.4s; animation-timing-function: ease-out; }
-  .animate-fade-in-delay-3 { animation-delay: 0.3s; opacity: 0; animation-fill-mode: forwards; animation-name: fadeInUp; animation-duration: 0.4s; animation-timing-function: ease-out; }
+  .animate-fade-in-delay-1 {
+    animation-delay: 0.1s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-name: fadeInUp;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-out;
+  }
+  .animate-fade-in-delay-2 {
+    animation-delay: 0.2s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-name: fadeInUp;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-out;
+  }
+  .animate-fade-in-delay-3 {
+    animation-delay: 0.3s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-name: fadeInUp;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-out;
+  }
 }

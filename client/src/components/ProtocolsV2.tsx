@@ -38,12 +38,23 @@ export function SectionPerdidias() {
       </h2>
       <p
         className="font-display mb-6"
-        style={{ fontSize: "1rem", color: "var(--color-taupe)", fontStyle: "italic" }}
+        style={{
+          fontSize: "1rem",
+          color: "var(--color-taupe)",
+          fontStyle: "italic",
+        }}
       >
         Isso é comum. Aqui está um protocolo simples para retomar com segurança.
       </p>
 
-      <div style={{ width: "2.5rem", height: "1px", backgroundColor: "var(--color-rose)", marginBottom: "2rem" }} />
+      <div
+        style={{
+          width: "2.5rem",
+          height: "1px",
+          backgroundColor: "var(--color-rose)",
+          marginBottom: "2rem",
+        }}
+      />
 
       <div className="space-y-4">
         {[
@@ -125,19 +136,40 @@ export function SectionPerdidias() {
 
       <div
         className="mt-6 px-4 py-3 rounded flex gap-2"
-        style={{ backgroundColor: "var(--color-rose-muted)", borderLeft: "3px solid var(--color-rose)" }}
+        style={{
+          backgroundColor: "var(--color-rose-muted)",
+          borderLeft: "3px solid var(--color-rose)",
+        }}
       >
-        <AlertCircle size={16} style={{ color: "var(--color-rose)", flexShrink: 0, marginTop: "2px" }} />
+        <AlertCircle
+          size={16}
+          style={{
+            color: "var(--color-rose)",
+            flexShrink: 0,
+            marginTop: "2px",
+          }}
+        />
         <p
           className="font-body"
-          style={{ fontSize: "0.85rem", color: "var(--color-charcoal-light)", lineHeight: 1.6 }}
+          style={{
+            fontSize: "0.85rem",
+            color: "var(--color-charcoal-light)",
+            lineHeight: 1.6,
+          }}
         >
-          É comum sentir regressão após uma pausa, mas ela costuma ser temporária. Retomar com calma melhora a confiança e reduz desconfortos.
+          É comum sentir regressão após uma pausa, mas ela costuma ser
+          temporária. Retomar com calma melhora a confiança e reduz
+          desconfortos.
         </p>
       </div>
 
       <div className="flex justify-end mt-6">
-        <p className="font-body" style={{ fontSize: "0.65rem", color: "var(--color-taupe-light)" }}>34</p>
+        <p
+          className="font-body"
+          style={{ fontSize: "0.65rem", color: "var(--color-taupe-light)" }}
+        >
+          34
+        </p>
       </div>
     </section>
   );
@@ -175,15 +207,33 @@ export function SectionApoioSuporte() {
       </h2>
       <p
         className="font-display mb-6"
-        style={{ fontSize: "1rem", color: "var(--color-taupe)", fontStyle: "italic" }}
+        style={{
+          fontSize: "1rem",
+          color: "var(--color-taupe)",
+          fontStyle: "italic",
+        }}
       >
         Esta área reúne os recursos de apoio em liberação.
       </p>
 
-      <div style={{ width: "2.5rem", height: "1px", backgroundColor: "var(--color-rose)", marginBottom: "2rem" }} />
+      <div
+        style={{
+          width: "2.5rem",
+          height: "1px",
+          backgroundColor: "var(--color-rose)",
+          marginBottom: "2rem",
+        }}
+      />
 
       {/* Blocos de recursos */}
-      <div className="grid gap-4" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(240px, 100%), 1fr))", marginBottom: "2rem" }}>
+      <div
+        className="grid gap-4"
+        style={{
+          gridTemplateColumns:
+            "repeat(auto-fit, minmax(min(240px, 100%), 1fr))",
+          marginBottom: "2rem",
+        }}
+      >
         {[
           {
             icon: <Video size={24} />,
@@ -309,7 +359,8 @@ export function SectionApoioSuporte() {
               key={i}
               className="px-4 py-3 rounded"
               style={{
-                backgroundColor: i % 2 === 0 ? "white" : "var(--color-ivory-dark)",
+                backgroundColor:
+                  i % 2 === 0 ? "white" : "var(--color-ivory-dark)",
                 border: "1px solid var(--color-taupe-light)",
               }}
             >
@@ -339,7 +390,12 @@ export function SectionApoioSuporte() {
       </div>
 
       <div className="flex justify-end mt-6">
-        <p className="font-body" style={{ fontSize: "0.65rem", color: "var(--color-taupe-light)" }}>36</p>
+        <p
+          className="font-body"
+          style={{ fontSize: "0.65rem", color: "var(--color-taupe-light)" }}
+        >
+          36
+        </p>
       </div>
     </section>
   );

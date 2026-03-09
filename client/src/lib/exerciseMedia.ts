@@ -45,8 +45,17 @@ export type ExerciseMedia =
 const typedManifest = mediaManifest as RawManifest;
 
 const mediaByDisplayName = new Map(
-  typedManifest.exercises.map((entry) => [entry.display_name, entry])
+  typedManifest.exercises.map(entry => [entry.display_name, entry])
 );
+
+function withBasePublicPath(assetPath: string): string {
+  if (!assetPath.startsWith("/")) return assetPath;
+
+  const baseUrl = import.meta.env.BASE_URL || "/";
+  if (baseUrl === "/") return assetPath;
+
+  return `${baseUrl.replace(/\/$/, "")}${assetPath}`;
+}
 
 export function getExerciseMedia(exerciseName: string): ExerciseMedia | null {
   const entry = mediaByDisplayName.get(exerciseName);
@@ -58,7 +67,7 @@ export function getExerciseMedia(exerciseName: string): ExerciseMedia | null {
     return {
       mediaType: "video",
       video: {
-        src: publicPaths.video,
+        src: withBasePublicPath(publicPaths.video),
         alt: altText.video,
       },
     };
@@ -70,7 +79,7 @@ export function getExerciseMedia(exerciseName: string): ExerciseMedia | null {
     return {
       mediaType: "single_image",
       image: {
-        src: publicPaths.single_image,
+        src: withBasePublicPath(publicPaths.single_image),
         alt: altText.single_image,
       },
     };
@@ -86,9 +95,21 @@ export function getExerciseMedia(exerciseName: string): ExerciseMedia | null {
   return {
     mediaType: "split_images",
     images: [
-      { label: "Posição 1", src: publicPaths.split_images["1"], alt: altText.split_images["1"] },
-      { label: "Posição 2", src: publicPaths.split_images["2"], alt: altText.split_images["2"] },
-      { label: "Posição 3", src: publicPaths.split_images["3"], alt: altText.split_images["3"] },
+      {
+        label: "Posição 1",
+        src: withBasePublicPath(publicPaths.split_images["1"]),
+        alt: altText.split_images["1"],
+      },
+      {
+        label: "Posição 2",
+        src: withBasePublicPath(publicPaths.split_images["2"]),
+        alt: altText.split_images["2"],
+      },
+      {
+        label: "Posição 3",
+        src: withBasePublicPath(publicPaths.split_images["3"]),
+        alt: altText.split_images["3"],
+      },
     ],
   };
 }

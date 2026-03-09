@@ -50,8 +50,14 @@ type Selection =
 
 const DEFAULT_SOURCE_ROOT = "/home/leonardotl/Área de trabalho/exercicio";
 const OUTPUT_ROOT_RELATIVE = path.join("client", "public", "exercises");
-const MANIFEST_PATH_RELATIVE = path.join("shared", "exercise-media-manifest.json");
-const VISUAL_SPECS_PATH_RELATIVE = path.join("shared", "exercise-visual-specs.json");
+const MANIFEST_PATH_RELATIVE = path.join(
+  "shared",
+  "exercise-media-manifest.json"
+);
+const VISUAL_SPECS_PATH_RELATIVE = path.join(
+  "shared",
+  "exercise-visual-specs.json"
+);
 
 const VIDEO_EXTENSIONS = new Set([".mp4", ".mov", ".m4v", ".webm"]);
 const IMAGE_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".webp", ".avif"]);
@@ -88,7 +94,9 @@ function readExerciseSpecs(projectRoot: string): ExerciseSpec[] {
   const raw = fs.readFileSync(visualSpecsPath, "utf8");
   const parsed = JSON.parse(raw) as ExerciseVisualSpecs;
   if (!Array.isArray(parsed.exercises) || parsed.exercises.length !== 24) {
-    throw new Error("Expected 24 exercises in shared/exercise-visual-specs.json");
+    throw new Error(
+      "Expected 24 exercises in shared/exercise-visual-specs.json"
+    );
   }
   return parsed.exercises;
 }
@@ -96,8 +104,8 @@ function readExerciseSpecs(projectRoot: string): ExerciseSpec[] {
 function getFilesFromFolder(folderPath: string): string[] {
   return fs
     .readdirSync(folderPath, { withFileTypes: true })
-    .filter((entry) => entry.isFile())
-    .map((entry) => entry.name)
+    .filter(entry => entry.isFile())
+    .map(entry => entry.name)
     .sort((a, b) => a.localeCompare(b, "pt-BR"));
 }
 
@@ -230,7 +238,9 @@ function createManifestEntry(
   selection: Selection
 ): ManifestEntry {
   const selectedSet = new Set(selection.selected_files);
-  const ignoredFiles = sourceFiles.filter((fileName) => !selectedSet.has(fileName));
+  const ignoredFiles = sourceFiles.filter(
+    fileName => !selectedSet.has(fileName)
+  );
   const publicBase = `/exercises/${exercise.exercise_id}`;
 
   if (selection.media_type === "video") {
@@ -315,9 +325,18 @@ function writeSelectedMedia(
   }
 
   const [img1, img2, img3] = selection.selected_files;
-  convertImageToWebp(path.join(sourceFolderPath, img1), path.join(outputDir, "1.webp"));
-  convertImageToWebp(path.join(sourceFolderPath, img2), path.join(outputDir, "2.webp"));
-  convertImageToWebp(path.join(sourceFolderPath, img3), path.join(outputDir, "3.webp"));
+  convertImageToWebp(
+    path.join(sourceFolderPath, img1),
+    path.join(outputDir, "1.webp")
+  );
+  convertImageToWebp(
+    path.join(sourceFolderPath, img2),
+    path.join(outputDir, "2.webp")
+  );
+  convertImageToWebp(
+    path.join(sourceFolderPath, img3),
+    path.join(outputDir, "3.webp")
+  );
 }
 
 function main(): void {
@@ -344,10 +363,20 @@ function main(): void {
     const selection = selectByPriority(sourceFiles);
 
     if (!dryRun) {
-      writeSelectedMedia(projectRoot, sourceFolderPath, exercise.exercise_id, selection);
+      writeSelectedMedia(
+        projectRoot,
+        sourceFolderPath,
+        exercise.exercise_id,
+        selection
+      );
     }
 
-    const entry = createManifestEntry(exercise, sourceFolderPath, sourceFiles, selection);
+    const entry = createManifestEntry(
+      exercise,
+      sourceFolderPath,
+      sourceFiles,
+      selection
+    );
     manifestEntries.push(entry);
 
     if (selection.media_type === "video") counters.videos += 1;
@@ -374,7 +403,11 @@ function main(): void {
 
   if (!dryRun) {
     const manifestPath = path.join(projectRoot, MANIFEST_PATH_RELATIVE);
-    fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
+    fs.writeFileSync(
+      manifestPath,
+      `${JSON.stringify(manifest, null, 2)}\n`,
+      "utf8"
+    );
     console.log(`Manifest written to ${manifestPath}`);
   }
 

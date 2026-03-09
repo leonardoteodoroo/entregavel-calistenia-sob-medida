@@ -19,7 +19,11 @@ function VideoPlaceholder() {
         }}
       >
         <div className="flex flex-col items-center gap-2">
-          <Play size={24} className="text-muted-foreground/60" fill="currentColor" />
+          <Play
+            size={24}
+            className="text-muted-foreground/60"
+            fill="currentColor"
+          />
           <span className="font-body text-xs uppercase tracking-wide text-muted-foreground/70">
             Biblioteca de videos em atualizacao
           </span>
@@ -29,7 +33,10 @@ function VideoPlaceholder() {
   );
 }
 
-export default function ExerciseGallery({ exerciseName, media }: ExerciseGalleryProps) {
+export default function ExerciseGallery({
+  exerciseName,
+  media,
+}: ExerciseGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   if (media.mediaType === "video") {

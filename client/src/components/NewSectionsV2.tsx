@@ -47,12 +47,23 @@ export function SectionEncaixe() {
       </h2>
       <p
         className="font-display mb-6"
-        style={{ fontSize: "1rem", color: "var(--color-taupe)", fontStyle: "italic" }}
+        style={{
+          fontSize: "1rem",
+          color: "var(--color-taupe)",
+          fontStyle: "italic",
+        }}
       >
         Deixa claro se você é a pessoa certa para este desafio.
       </p>
 
-      <div style={{ width: "2.5rem", height: "1px", backgroundColor: "var(--color-rose)", marginBottom: "2rem" }} />
+      <div
+        style={{
+          width: "2.5rem",
+          height: "1px",
+          backgroundColor: "var(--color-rose)",
+          marginBottom: "2rem",
+        }}
+      />
 
       <div className="space-y-3" style={{ maxWidth: "600px" }}>
         {[
@@ -91,7 +102,8 @@ export function SectionEncaixe() {
             key={i}
             className="flex gap-3 px-4 py-3 rounded"
             style={{
-              backgroundColor: i % 2 === 0 ? "white" : "var(--color-ivory-dark)",
+              backgroundColor:
+                i % 2 === 0 ? "white" : "var(--color-ivory-dark)",
               border: "1px solid var(--color-taupe-light)",
             }}
           >
@@ -108,13 +120,22 @@ export function SectionEncaixe() {
             <div>
               <p
                 className="font-body"
-                style={{ fontSize: "0.875rem", fontWeight: 500, color: "var(--color-charcoal)", marginBottom: "0.2rem" }}
+                style={{
+                  fontSize: "0.875rem",
+                  fontWeight: 500,
+                  color: "var(--color-charcoal)",
+                  marginBottom: "0.2rem",
+                }}
               >
                 {item.title}
               </p>
               <p
                 className="font-body"
-                style={{ fontSize: "0.8rem", color: "var(--color-warm-gray)", lineHeight: 1.5 }}
+                style={{
+                  fontSize: "0.8rem",
+                  color: "var(--color-warm-gray)",
+                  lineHeight: 1.5,
+                }}
               >
                 {item.desc}
               </p>
@@ -125,19 +146,39 @@ export function SectionEncaixe() {
 
       <div
         className="mt-6 px-4 py-3 rounded flex gap-2"
-        style={{ backgroundColor: "var(--color-rose-muted)", borderLeft: "3px solid var(--color-rose)" }}
+        style={{
+          backgroundColor: "var(--color-rose-muted)",
+          borderLeft: "3px solid var(--color-rose)",
+        }}
       >
-        <CheckCircle2 size={16} style={{ color: "var(--color-rose)", flexShrink: 0, marginTop: "2px" }} />
+        <CheckCircle2
+          size={16}
+          style={{
+            color: "var(--color-rose)",
+            flexShrink: 0,
+            marginTop: "2px",
+          }}
+        />
         <p
           className="font-body"
-          style={{ fontSize: "0.85rem", color: "var(--color-charcoal-light)", lineHeight: 1.6 }}
+          style={{
+            fontSize: "0.85rem",
+            color: "var(--color-charcoal-light)",
+            lineHeight: 1.6,
+          }}
         >
-          Se você se reconheceu em pelo menos 4 desses pontos, você está no lugar certo.
+          Se você se reconheceu em pelo menos 4 desses pontos, você está no
+          lugar certo.
         </p>
       </div>
 
       <div className="flex justify-end mt-6">
-        <p className="font-body" style={{ fontSize: "0.65rem", color: "var(--color-taupe-light)" }}>2</p>
+        <p
+          className="font-body"
+          style={{ fontSize: "0.65rem", color: "var(--color-taupe-light)" }}
+        >
+          2
+        </p>
       </div>
     </section>
   );
@@ -164,14 +205,32 @@ export function SectionCaminhos() {
       </h2>
       <p
         className="font-display mb-6"
-        style={{ fontSize: "1rem", color: "var(--color-taupe)", fontStyle: "italic" }}
+        style={{
+          fontSize: "1rem",
+          color: "var(--color-taupe)",
+          fontStyle: "italic",
+        }}
       >
         Cada dia tem 3 caminhos. Escolha com honestidade, sem julgamento.
       </p>
 
-      <div style={{ width: "2.5rem", height: "1px", backgroundColor: "var(--color-rose)", marginBottom: "2rem" }} />
+      <div
+        style={{
+          width: "2.5rem",
+          height: "1px",
+          backgroundColor: "var(--color-rose)",
+          marginBottom: "2rem",
+        }}
+      />
 
-      <div className="grid gap-4" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(240px, 100%), 1fr))", marginBottom: "2rem" }}>
+      <div
+        className="grid gap-4"
+        style={{
+          gridTemplateColumns:
+            "repeat(auto-fit, minmax(min(240px, 100%), 1fr))",
+          marginBottom: "2rem",
+        }}
+      >
         {[
           {
             name: "Caminho Leve",
@@ -226,11 +285,21 @@ export function SectionCaminhos() {
             </p>
             <p
               className="font-body mb-3"
-              style={{ fontSize: "0.85rem", color: "var(--color-charcoal-light)", lineHeight: 1.6 }}
+              style={{
+                fontSize: "0.85rem",
+                color: "var(--color-charcoal-light)",
+                lineHeight: 1.6,
+              }}
             >
               {caminho.para}
             </p>
-            <div style={{ fontSize: "0.78rem", color: "var(--color-warm-gray)", lineHeight: 1.8 }}>
+            <div
+              style={{
+                fontSize: "0.78rem",
+                color: "var(--color-warm-gray)",
+                lineHeight: 1.8,
+              }}
+            >
               <p className="font-body">{caminho.quando}</p>
               <p className="font-body">{caminho.quando2}</p>
               <p className="font-body">{caminho.quando3}</p>
@@ -241,19 +310,39 @@ export function SectionCaminhos() {
 
       <div
         className="px-4 py-3 rounded flex gap-2"
-        style={{ backgroundColor: "var(--color-ivory-dark)", borderLeft: "3px solid var(--color-taupe)" }}
+        style={{
+          backgroundColor: "var(--color-ivory-dark)",
+          borderLeft: "3px solid var(--color-taupe)",
+        }}
       >
-        <AlertCircle size={16} style={{ color: "var(--color-taupe)", flexShrink: 0, marginTop: "2px" }} />
+        <AlertCircle
+          size={16}
+          style={{
+            color: "var(--color-taupe)",
+            flexShrink: 0,
+            marginTop: "2px",
+          }}
+        />
         <p
           className="font-body"
-          style={{ fontSize: "0.85rem", color: "var(--color-charcoal-light)", lineHeight: 1.6 }}
+          style={{
+            fontSize: "0.85rem",
+            color: "var(--color-charcoal-light)",
+            lineHeight: 1.6,
+          }}
         >
-          Mudar de caminho não é fracasso. É inteligência. Escolha o caminho que você consegue manter hoje. Amanhã pode ser diferente.
+          Mudar de caminho não é fracasso. É inteligência. Escolha o caminho que
+          você consegue manter hoje. Amanhã pode ser diferente.
         </p>
       </div>
 
       <div className="flex justify-end mt-6">
-        <p className="font-body" style={{ fontSize: "0.65rem", color: "var(--color-taupe-light)" }}>3</p>
+        <p
+          className="font-body"
+          style={{ fontSize: "0.65rem", color: "var(--color-taupe-light)" }}
+        >
+          3
+        </p>
       </div>
     </section>
   );
@@ -280,12 +369,23 @@ export function SectionComecaHoje() {
       </h2>
       <p
         className="font-display mb-6"
-        style={{ fontSize: "1rem", color: "var(--color-taupe)", fontStyle: "italic" }}
+        style={{
+          fontSize: "1rem",
+          color: "var(--color-taupe)",
+          fontStyle: "italic",
+        }}
       >
         Tudo que você precisa saber para começar agora.
       </p>
 
-      <div style={{ width: "2.5rem", height: "1px", backgroundColor: "var(--color-rose)", marginBottom: "2rem" }} />
+      <div
+        style={{
+          width: "2.5rem",
+          height: "1px",
+          backgroundColor: "var(--color-rose)",
+          marginBottom: "2rem",
+        }}
+      />
 
       <div className="space-y-3" style={{ maxWidth: "600px" }}>
         {[
@@ -324,7 +424,8 @@ export function SectionComecaHoje() {
             key={i}
             className="flex gap-4 items-start px-4 py-3 rounded"
             style={{
-              backgroundColor: i % 2 === 0 ? "white" : "var(--color-ivory-dark)",
+              backgroundColor:
+                i % 2 === 0 ? "white" : "var(--color-ivory-dark)",
               border: "1px solid var(--color-taupe-light)",
             }}
           >
@@ -343,13 +444,21 @@ export function SectionComecaHoje() {
             <div>
               <p
                 className="font-body"
-                style={{ fontSize: "0.875rem", fontWeight: 500, color: "var(--color-charcoal)" }}
+                style={{
+                  fontSize: "0.875rem",
+                  fontWeight: 500,
+                  color: "var(--color-charcoal)",
+                }}
               >
                 {step.title}
               </p>
               <p
                 className="font-body mt-0.5"
-                style={{ fontSize: "0.8rem", color: "var(--color-warm-gray)", lineHeight: 1.5 }}
+                style={{
+                  fontSize: "0.8rem",
+                  color: "var(--color-warm-gray)",
+                  lineHeight: 1.5,
+                }}
               >
                 {step.desc}
               </p>
@@ -359,7 +468,12 @@ export function SectionComecaHoje() {
       </div>
 
       <div className="flex justify-end mt-6">
-        <p className="font-body" style={{ fontSize: "0.65rem", color: "var(--color-taupe-light)" }}>4</p>
+        <p
+          className="font-body"
+          style={{ fontSize: "0.65rem", color: "var(--color-taupe-light)" }}
+        >
+          4
+        </p>
       </div>
     </section>
   );
@@ -386,12 +500,23 @@ export function SectionOQueEsperar() {
       </h2>
       <p
         className="font-display mb-6"
-        style={{ fontSize: "1rem", color: "var(--color-taupe)", fontStyle: "italic" }}
+        style={{
+          fontSize: "1rem",
+          color: "var(--color-taupe)",
+          fontStyle: "italic",
+        }}
       >
         Sinais realistas de progresso. Sem promessas mágicas.
       </p>
 
-      <div style={{ width: "2.5rem", height: "1px", backgroundColor: "var(--color-rose)", marginBottom: "2rem" }} />
+      <div
+        style={{
+          width: "2.5rem",
+          height: "1px",
+          backgroundColor: "var(--color-rose)",
+          marginBottom: "2rem",
+        }}
+      />
 
       <div className="space-y-4">
         {[
@@ -434,14 +559,14 @@ export function SectionOQueEsperar() {
                 i === 0
                   ? "var(--color-teal-muted)"
                   : i === 1
-                  ? "var(--color-rose-muted)"
-                  : "var(--color-ivory-dark)",
+                    ? "var(--color-rose-muted)"
+                    : "var(--color-ivory-dark)",
               border: `1px solid ${
                 i === 0
                   ? "var(--color-teal-light)"
                   : i === 1
-                  ? "var(--color-rose-light)"
-                  : "var(--color-taupe-light)"
+                    ? "var(--color-rose-light)"
+                    : "var(--color-taupe-light)"
               }`,
             }}
           >
@@ -457,8 +582,8 @@ export function SectionOQueEsperar() {
                     i === 0
                       ? "var(--color-teal)"
                       : i === 1
-                      ? "var(--color-rose)"
-                      : "var(--color-taupe)",
+                        ? "var(--color-rose)"
+                        : "var(--color-taupe)",
                 }}
               >
                 {marco.dias}
@@ -497,19 +622,39 @@ export function SectionOQueEsperar() {
 
       <div
         className="mt-6 px-4 py-3 rounded flex gap-2"
-        style={{ backgroundColor: "var(--color-ivory-dark)", borderLeft: "3px solid var(--color-taupe)" }}
+        style={{
+          backgroundColor: "var(--color-ivory-dark)",
+          borderLeft: "3px solid var(--color-taupe)",
+        }}
       >
-        <Zap size={16} style={{ color: "var(--color-taupe)", flexShrink: 0, marginTop: "2px" }} />
+        <Zap
+          size={16}
+          style={{
+            color: "var(--color-taupe)",
+            flexShrink: 0,
+            marginTop: "2px",
+          }}
+        />
         <p
           className="font-body"
-          style={{ fontSize: "0.85rem", color: "var(--color-charcoal-light)", lineHeight: 1.6 }}
+          style={{
+            fontSize: "0.85rem",
+            color: "var(--color-charcoal-light)",
+            lineHeight: 1.6,
+          }}
         >
-          Esses sinais são realistas. Não prometemos transformação mágica. Com constância, o corpo tende a responder ao estímulo.
+          Esses sinais são realistas. Não prometemos transformação mágica. Com
+          constância, o corpo tende a responder ao estímulo.
         </p>
       </div>
 
       <div className="flex justify-end mt-6">
-        <p className="font-body" style={{ fontSize: "0.65rem", color: "var(--color-taupe-light)" }}>5</p>
+        <p
+          className="font-body"
+          style={{ fontSize: "0.65rem", color: "var(--color-taupe-light)" }}
+        >
+          5
+        </p>
       </div>
     </section>
   );
@@ -536,14 +681,31 @@ export function SectionSinaisProgresso() {
       </h2>
       <p
         className="font-display mb-6"
-        style={{ fontSize: "1rem", color: "var(--color-taupe)", fontStyle: "italic" }}
+        style={{
+          fontSize: "1rem",
+          color: "var(--color-taupe)",
+          fontStyle: "italic",
+        }}
       >
         A balança não conta toda a história. Preste atenção nestes sinais.
       </p>
 
-      <div style={{ width: "2.5rem", height: "1px", backgroundColor: "var(--color-rose)", marginBottom: "2rem" }} />
+      <div
+        style={{
+          width: "2.5rem",
+          height: "1px",
+          backgroundColor: "var(--color-rose)",
+          marginBottom: "2rem",
+        }}
+      />
 
-      <div className="grid gap-3" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(200px, 100%), 1fr))" }}>
+      <div
+        className="grid gap-3"
+        style={{
+          gridTemplateColumns:
+            "repeat(auto-fit, minmax(min(200px, 100%), 1fr))",
+        }}
+      >
         {[
           {
             icon: "⚡",
@@ -599,7 +761,9 @@ export function SectionSinaisProgresso() {
               border: "1px solid var(--color-taupe-light)",
             }}
           >
-            <p style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>{sinal.icon}</p>
+            <p style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>
+              {sinal.icon}
+            </p>
             <p
               className="font-body"
               style={{
@@ -613,7 +777,11 @@ export function SectionSinaisProgresso() {
             </p>
             <p
               className="font-body"
-              style={{ fontSize: "0.78rem", color: "var(--color-warm-gray)", lineHeight: 1.5 }}
+              style={{
+                fontSize: "0.78rem",
+                color: "var(--color-warm-gray)",
+                lineHeight: 1.5,
+              }}
             >
               {sinal.desc}
             </p>
@@ -623,19 +791,39 @@ export function SectionSinaisProgresso() {
 
       <div
         className="mt-6 px-4 py-3 rounded flex gap-2"
-        style={{ backgroundColor: "var(--color-rose-muted)", borderLeft: "3px solid var(--color-rose)" }}
+        style={{
+          backgroundColor: "var(--color-rose-muted)",
+          borderLeft: "3px solid var(--color-rose)",
+        }}
       >
-        <CheckCircle2 size={16} style={{ color: "var(--color-rose)", flexShrink: 0, marginTop: "2px" }} />
+        <CheckCircle2
+          size={16}
+          style={{
+            color: "var(--color-rose)",
+            flexShrink: 0,
+            marginTop: "2px",
+          }}
+        />
         <p
           className="font-body"
-          style={{ fontSize: "0.85rem", color: "var(--color-charcoal-light)", lineHeight: 1.6 }}
+          style={{
+            fontSize: "0.85rem",
+            color: "var(--color-charcoal-light)",
+            lineHeight: 1.6,
+          }}
         >
-          Anote esses sinais. Quando a balança não se move, mas você consegue fazer 5 flexões a mais, isso é progresso real.
+          Anote esses sinais. Quando a balança não se move, mas você consegue
+          fazer 5 flexões a mais, isso é progresso real.
         </p>
       </div>
 
       <div className="flex justify-end mt-6">
-        <p className="font-body" style={{ fontSize: "0.65rem", color: "var(--color-taupe-light)" }}>6</p>
+        <p
+          className="font-body"
+          style={{ fontSize: "0.65rem", color: "var(--color-taupe-light)" }}
+        >
+          6
+        </p>
       </div>
     </section>
   );

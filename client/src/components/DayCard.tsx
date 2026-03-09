@@ -14,11 +14,30 @@ interface DayCardProps {
   weekNumber: number;
 }
 
-const weekColors: Record<number, { accent: string; muted: string; label: string }> = {
-  1: { accent: "var(--color-teal)", muted: "var(--color-teal-muted)", label: "Semana 1" },
-  2: { accent: "var(--color-rose)", muted: "var(--color-rose-muted)", label: "Semana 2" },
-  3: { accent: "var(--color-taupe)", muted: "var(--color-ivory-dark)", label: "Semana 3" },
-  4: { accent: "var(--color-teal)", muted: "var(--color-teal-muted)", label: "Semana 4" },
+const weekColors: Record<
+  number,
+  { accent: string; muted: string; label: string }
+> = {
+  1: {
+    accent: "var(--color-teal)",
+    muted: "var(--color-teal-muted)",
+    label: "Semana 1",
+  },
+  2: {
+    accent: "var(--color-rose)",
+    muted: "var(--color-rose-muted)",
+    label: "Semana 2",
+  },
+  3: {
+    accent: "var(--color-taupe)",
+    muted: "var(--color-ivory-dark)",
+    label: "Semana 3",
+  },
+  4: {
+    accent: "var(--color-teal)",
+    muted: "var(--color-teal-muted)",
+    label: "Semana 4",
+  },
 };
 
 export default function DayCard({ plan, weekNumber }: DayCardProps) {
@@ -29,14 +48,14 @@ export default function DayCard({ plan, weekNumber }: DayCardProps) {
   const orientationAccent = isPauseDay
     ? "var(--color-taupe)"
     : isMobilityDay
-    ? "var(--color-teal)"
-    : colors.accent;
+      ? "var(--color-teal)"
+      : colors.accent;
 
   const orientationBg = isPauseDay
     ? "var(--color-ivory-dark)"
     : isMobilityDay
-    ? "var(--color-teal-muted)"
-    : colors.muted;
+      ? "var(--color-teal-muted)"
+      : colors.muted;
 
   return (
     <section
@@ -150,7 +169,11 @@ export default function DayCard({ plan, weekNumber }: DayCardProps) {
           <Clock size={13} style={{ color: colors.accent }} />
           <span
             className="font-body"
-            style={{ fontSize: "0.8rem", color: "var(--color-charcoal-light)", fontWeight: 400 }}
+            style={{
+              fontSize: "0.8rem",
+              color: "var(--color-charcoal-light)",
+              fontWeight: 400,
+            }}
           >
             {plan.duration}
           </span>
@@ -159,7 +182,11 @@ export default function DayCard({ plan, weekNumber }: DayCardProps) {
           <Target size={13} style={{ color: colors.accent }} />
           <span
             className="font-body"
-            style={{ fontSize: "0.8rem", color: "var(--color-charcoal-light)", fontWeight: 400 }}
+            style={{
+              fontSize: "0.8rem",
+              color: "var(--color-charcoal-light)",
+              fontWeight: 400,
+            }}
           >
             {plan.focus}
           </span>
@@ -234,7 +261,10 @@ export default function DayCard({ plan, weekNumber }: DayCardProps) {
                     {ex.note && (
                       <p
                         className="font-body mt-0.5"
-                        style={{ fontSize: "0.75rem", color: "var(--color-warm-gray)" }}
+                        style={{
+                          fontSize: "0.75rem",
+                          color: "var(--color-warm-gray)",
+                        }}
                       >
                         {ex.note}
                       </p>
@@ -272,7 +302,13 @@ export default function DayCard({ plan, weekNumber }: DayCardProps) {
         >
           Escolha seu caminho
         </h3>
-        <div className="grid gap-2" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(200px, 100%), 1fr))" }}>
+        <div
+          className="grid gap-2"
+          style={{
+            gridTemplateColumns:
+              "repeat(auto-fit, minmax(min(200px, 100%), 1fr))",
+          }}
+        >
           <div
             className="px-3 py-2.5 rounded"
             style={{ backgroundColor: "var(--color-teal-muted)" }}
@@ -280,7 +316,10 @@ export default function DayCard({ plan, weekNumber }: DayCardProps) {
             <span className="badge-leve block mb-1">Caminho Leve</span>
             <p
               className="font-body"
-              style={{ fontSize: "0.78rem", color: "var(--color-charcoal-light)" }}
+              style={{
+                fontSize: "0.78rem",
+                color: "var(--color-charcoal-light)",
+              }}
             >
               {plan.caminhoLeve}
             </p>
@@ -292,7 +331,10 @@ export default function DayCard({ plan, weekNumber }: DayCardProps) {
             <span className="badge-padrao block mb-1">Caminho Base</span>
             <p
               className="font-body"
-              style={{ fontSize: "0.78rem", color: "var(--color-charcoal-light)" }}
+              style={{
+                fontSize: "0.78rem",
+                color: "var(--color-charcoal-light)",
+              }}
             >
               {plan.caminhoBase}
             </p>
@@ -304,7 +346,10 @@ export default function DayCard({ plan, weekNumber }: DayCardProps) {
             <span className="badge-intensa block mb-1">Caminho Avançar</span>
             <p
               className="font-body"
-              style={{ fontSize: "0.78rem", color: "var(--color-charcoal-light)" }}
+              style={{
+                fontSize: "0.78rem",
+                color: "var(--color-charcoal-light)",
+              }}
             >
               {plan.caminhoAvançar}
             </p>
@@ -317,7 +362,11 @@ export default function DayCard({ plan, weekNumber }: DayCardProps) {
         className="flex gap-2.5 px-3 py-2.5 rounded mb-4"
         style={{ backgroundColor: "var(--color-ivory-dark)" }}
       >
-        <Info size={14} className="shrink-0 mt-0.5" style={{ color: "var(--color-taupe)" }} />
+        <Info
+          size={14}
+          className="shrink-0 mt-0.5"
+          style={{ color: "var(--color-taupe)" }}
+        />
         <div>
           <p
             className="font-body"

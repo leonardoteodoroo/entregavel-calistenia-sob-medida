@@ -126,8 +126,15 @@ function sortedEqual(a: string[], b: string[]): boolean {
 
 function main(): void {
   const root = process.cwd();
-  const txtPath = path.join(root, "calistenia-feminina-conteudo-entregavel.txt");
-  const manifestPath = path.join(root, "shared", "exercise-visual-manifest.json");
+  const txtPath = path.join(
+    root,
+    "calistenia-feminina-conteudo-entregavel.txt"
+  );
+  const manifestPath = path.join(
+    root,
+    "shared",
+    "exercise-visual-manifest.json"
+  );
 
   const errors: string[] = [];
 
@@ -145,30 +152,36 @@ function main(): void {
     process.exit(1);
   }
 
-  const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8")) as Manifest;
+  const manifest = JSON.parse(
+    fs.readFileSync(manifestPath, "utf8")
+  ) as Manifest;
   const parsedTxt = parseTxtPlan(txtPath);
 
   if (days.length !== 28) {
     errors.push(`Expected 28 days in planData.ts, found ${days.length}`);
   }
 
-  const dayNumbers = days.map((d) => d.day).sort((a, b) => a - b);
+  const dayNumbers = days.map(d => d.day).sort((a, b) => a - b);
   const expectedDays = Array.from({ length: 28 }, (_, i) => i + 1);
   if (!arraysEqual(dayNumbers.map(String), expectedDays.map(String))) {
     errors.push("planData.ts day list is not exactly 1..28");
   }
 
   const uniqueExerciseNames = new Set(
-    days.flatMap((d) => d.exercises.map((exercise) => exercise.name))
+    days.flatMap(d => d.exercises.map(exercise => exercise.name))
   );
   if (uniqueExerciseNames.size !== 24) {
-    errors.push(`Expected 24 unique exercises in planData.ts, found ${uniqueExerciseNames.size}`);
+    errors.push(
+      `Expected 24 unique exercises in planData.ts, found ${uniqueExerciseNames.size}`
+    );
   }
 
   if (!Array.isArray(manifest.exercises)) {
     errors.push("Manifest 'exercises' is not an array");
   } else if (manifest.exercises.length !== 24) {
-    errors.push(`Expected 24 exercises in manifest, found ${manifest.exercises.length}`);
+    errors.push(
+      `Expected 24 exercises in manifest, found ${manifest.exercises.length}`
+    );
   }
 
   const byExerciseId = new Map<string, ManifestExercise>();
@@ -182,9 +195,12 @@ function main(): void {
     }
 
     for (const key of expectedFrames) {
-      const value = exercise.image_refs?.[key as keyof ManifestExercise["image_refs"]];
+      const value =
+        exercise.image_refs?.[key as keyof ManifestExercise["image_refs"]];
       if (!(typeof value === "string" || value === null)) {
-        errors.push(`Exercise '${exercise.display_name}' has invalid image_refs.${key}`);
+        errors.push(
+          `Exercise '${exercise.display_name}' has invalid image_refs.${key}`
+        );
       }
     }
 
@@ -229,10 +245,14 @@ function main(): void {
   }
 
   if (!Array.isArray(manifest.day_index) || manifest.day_index.length !== 28) {
-    errors.push(`Expected 28 day_index entries in manifest, found ${manifest.day_index?.length ?? 0}`);
+    errors.push(
+      `Expected 28 day_index entries in manifest, found ${manifest.day_index?.length ?? 0}`
+    );
   } else {
     for (const day of days) {
-      const indexEntry = manifest.day_index.find((entry) => entry.day === day.day);
+      const indexEntry = manifest.day_index.find(
+        entry => entry.day === day.day
+      );
       if (!indexEntry) {
         errors.push(`Missing day_index entry for day ${day.day}`);
         continue;
@@ -240,10 +260,12 @@ function main(): void {
 
       const expectedWeek = Math.ceil(day.day / 7);
       if (indexEntry.week !== expectedWeek) {
-        errors.push(`day_index week mismatch for day ${day.day}: expected ${expectedWeek}, got ${indexEntry.week}`);
+        errors.push(
+          `day_index week mismatch for day ${day.day}: expected ${expectedWeek}, got ${indexEntry.week}`
+        );
       }
 
-      const expectedIds = day.exercises.map((exercise) => slugify(exercise.name));
+      const expectedIds = day.exercises.map(exercise => slugify(exercise.name));
       if (!arraysEqual(indexEntry.exercise_ids, expectedIds)) {
         errors.push(
           `day_index exercise_ids mismatch for day ${day.day}: expected ${expectedIds.join(
@@ -265,7 +287,7 @@ function main(): void {
       continue;
     }
 
-    const expectedExercises = day.exercises.map((exercise) => exercise.name);
+    const expectedExercises = day.exercises.map(exercise => exercise.name);
     if (!arraysEqual(txtDay.exercises, expectedExercises)) {
       errors.push(
         `TXT exercises mismatch on day ${day.day}: expected ${expectedExercises.join(

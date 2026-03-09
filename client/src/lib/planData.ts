@@ -34,16 +34,37 @@ export const days: DayPlan[] = [
     focus: "Pernas · Glúteos · Core",
     orientation: "Comece no seu ritmo. O mais importante hoje é aparecer.",
     exercises: [
-      { name: "Marcha parada", reps: "30 seg", note: "Levante os joelhos na altura do quadril" },
-      { name: "Agachamento assistido", reps: "10 rep", note: "Use uma cadeira como apoio se precisar" },
-      { name: "Ponte de glúteos", reps: "12 rep", note: "Aperte os glúteos no topo" },
-      { name: "Dead bug", reps: "6 rep cada lado", note: "Costas coladas no chão" },
-      { name: "Elevação de panturrilha", reps: "15 rep", note: "Pode apoiar na parede" },
+      {
+        name: "Marcha parada",
+        reps: "30 seg",
+        note: "Levante os joelhos na altura do quadril",
+      },
+      {
+        name: "Agachamento assistido",
+        reps: "10 rep",
+        note: "Use uma cadeira como apoio se precisar",
+      },
+      {
+        name: "Ponte de glúteos",
+        reps: "12 rep",
+        note: "Aperte os glúteos no topo",
+      },
+      {
+        name: "Dead bug",
+        reps: "6 rep cada lado",
+        note: "Costas coladas no chão",
+      },
+      {
+        name: "Elevação de panturrilha",
+        reps: "15 rep",
+        note: "Pode apoiar na parede",
+      },
     ],
     caminhoLeve: "1 série de cada exercício · Descanse 45 seg entre eles",
     caminhoBase: "2 séries de cada exercício · Descanse 30 seg entre eles",
     caminhoAvançar: "3 séries de cada exercício · Descanse 20 seg entre eles",
-    adaptacao: "Joelho sensível: troque o agachamento assistido por sentar e levantar da cadeira com amplitude curta. Punho sensível: sem carga relevante no punho neste dia; mantenha as mãos relaxadas.",
+    adaptacao:
+      "Joelho sensível: troque o agachamento assistido por sentar e levantar da cadeira com amplitude curta. Punho sensível: sem carga relevante no punho neste dia; mantenha as mãos relaxadas.",
     observation: "Respire com calma. Se sentir tontura, pare e hidrate-se.",
   },
   {
@@ -52,18 +73,40 @@ export const days: DayPlan[] = [
     trainName: "Fortalecimento Postural",
     duration: "10–12 min",
     focus: "Postura · Braços · Core",
-    orientation: "Ombros para baixo, peito aberto. Você vai sentir a diferença.",
+    orientation:
+      "Ombros para baixo, peito aberto. Você vai sentir a diferença.",
     exercises: [
-      { name: "Wall push-up", reps: "10 rep", note: "Mãos na parede, cotovelos apontam para baixo" },
-      { name: "Bird dog", reps: "8 rep cada lado", note: "Mantenha o quadril estável" },
-      { name: "Prancha adaptada", reps: "20 seg", note: "Apoio nos joelhos, corpo em linha reta" },
-      { name: "Mobilidade de coluna", reps: "8 rep", note: "Gato e vaca: lento e controlado" },
-      { name: "Elevação de joelhos leve", reps: "20 seg", note: "Ritmo suave, sem pressa" },
+      {
+        name: "Wall push-up",
+        reps: "10 rep",
+        note: "Mãos na parede, cotovelos apontam para baixo",
+      },
+      {
+        name: "Bird dog",
+        reps: "8 rep cada lado",
+        note: "Mantenha o quadril estável",
+      },
+      {
+        name: "Prancha adaptada",
+        reps: "20 seg",
+        note: "Apoio nos joelhos, corpo em linha reta",
+      },
+      {
+        name: "Mobilidade de coluna",
+        reps: "8 rep",
+        note: "Gato e vaca: lento e controlado",
+      },
+      {
+        name: "Elevação de joelhos leve",
+        reps: "20 seg",
+        note: "Ritmo suave, sem pressa",
+      },
     ],
     caminhoLeve: "1 série · Descanse 45 seg entre exercícios",
     caminhoBase: "2 séries · Descanse 30 seg entre exercícios",
     caminhoAvançar: "3 séries · Descanse 20 seg entre exercícios",
-    adaptacao: "Punho sensível: faça a prancha nos antebraços e use wall push-up com mãos mais altas na parede.",
+    adaptacao:
+      "Punho sensível: faça a prancha nos antebraços e use wall push-up com mãos mais altas na parede.",
     observation: "Foco na qualidade do movimento, não na velocidade.",
   },
   {
@@ -72,19 +115,43 @@ export const days: DayPlan[] = [
     trainName: "Recuperação Ativa",
     duration: "8–10 min",
     focus: "Mobilidade · Recuperação ativa",
-    orientation: "Sessão de recuperação ativa: solte o corpo e recupere amplitude com calma.",
+    orientation:
+      "Sessão de recuperação ativa: solte o corpo e recupere amplitude com calma.",
     exercises: [
-      { name: "Mobilidade de quadril", reps: "8 círculos cada lado", note: "Círculos lentos e amplos" },
-      { name: "Mobilidade de coluna", reps: "10 rep", note: "Gato e vaca com respiração" },
-      { name: "Alongamento posterior", reps: "30 seg cada lado", note: "Sem forçar" },
-      { name: "Respiração e mobilidade leve", reps: "5 respirações profundas", note: "Inspire pelo nariz, expire pela boca" },
-      { name: "Step touch lateral", reps: "30 seg", note: "Movimento suave, apenas para aquecer" },
+      {
+        name: "Mobilidade de quadril",
+        reps: "8 círculos cada lado",
+        note: "Círculos lentos e amplos",
+      },
+      {
+        name: "Mobilidade de coluna",
+        reps: "10 rep",
+        note: "Gato e vaca com respiração",
+      },
+      {
+        name: "Alongamento posterior",
+        reps: "30 seg cada lado",
+        note: "Sem forçar",
+      },
+      {
+        name: "Respiração e mobilidade leve",
+        reps: "5 respirações profundas",
+        note: "Inspire pelo nariz, expire pela boca",
+      },
+      {
+        name: "Step touch lateral",
+        reps: "30 seg",
+        note: "Movimento suave, apenas para aquecer",
+      },
     ],
     caminhoLeve: "Uma passagem completa, sem pressa",
     caminhoBase: "Duas passagens completas com respiração guiada",
-    caminhoAvançar: "Duas passagens + 1 passagem extra de mobilidade de quadril e coluna",
-    adaptacao: "Joelho sensível: reduza a flexão nos movimentos de quadril e no step touch. Punho sensível: no gato e vaca, apoie os antebraços ou feche levemente as mãos.",
-    observation: "Objetivo de hoje: recuperar amplitude e reduzir rigidez para treinar melhor amanhã.",
+    caminhoAvançar:
+      "Duas passagens + 1 passagem extra de mobilidade de quadril e coluna",
+    adaptacao:
+      "Joelho sensível: reduza a flexão nos movimentos de quadril e no step touch. Punho sensível: no gato e vaca, apoie os antebraços ou feche levemente as mãos.",
+    observation:
+      "Objetivo de hoje: recuperar amplitude e reduzir rigidez para treinar melhor amanhã.",
   },
   {
     day: 4,
@@ -92,19 +159,42 @@ export const days: DayPlan[] = [
     trainName: "Base Inferior",
     duration: "12–15 min",
     focus: "Glúteos · Pernas",
-    orientation: "Controle é mais eficiente que velocidade. Sinta cada movimento.",
+    orientation:
+      "Controle é mais eficiente que velocidade. Sinta cada movimento.",
     exercises: [
-      { name: "Agachamento parcial", reps: "12 rep", note: "Desça até onde se sentir confortável" },
-      { name: "Ponte de glúteos com pausa", reps: "10 rep", note: "Segure 2 seg no topo" },
-      { name: "Avanço curto com apoio", reps: "8 rep cada perna", note: "Apoie a mão na parede" },
-      { name: "Elevação pélvica", reps: "15 rep", note: "Movimento controlado" },
-      { name: "Elevação de panturrilha", reps: "15 rep", note: "Suba devagar, desça devagar" },
+      {
+        name: "Agachamento parcial",
+        reps: "12 rep",
+        note: "Desça até onde se sentir confortável",
+      },
+      {
+        name: "Ponte de glúteos com pausa",
+        reps: "10 rep",
+        note: "Segure 2 seg no topo",
+      },
+      {
+        name: "Avanço curto com apoio",
+        reps: "8 rep cada perna",
+        note: "Apoie a mão na parede",
+      },
+      {
+        name: "Elevação pélvica",
+        reps: "15 rep",
+        note: "Movimento controlado",
+      },
+      {
+        name: "Elevação de panturrilha",
+        reps: "15 rep",
+        note: "Suba devagar, desça devagar",
+      },
     ],
     caminhoLeve: "1 série · Descanse 45 seg",
     caminhoBase: "2 séries · Descanse 30 seg",
     caminhoAvançar: "3 séries · Descanse 20 seg",
-    adaptacao: "Joelho sensível: reduza a amplitude do agachamento parcial e troque o avanço por sentar e levantar da cadeira.",
-    observation: "Mantenha os joelhos alinhados com os pés durante o agachamento.",
+    adaptacao:
+      "Joelho sensível: reduza a amplitude do agachamento parcial e troque o avanço por sentar e levantar da cadeira.",
+    observation:
+      "Mantenha os joelhos alinhados com os pés durante o agachamento.",
   },
   {
     day: 5,
@@ -115,16 +205,29 @@ export const days: DayPlan[] = [
     orientation: "Um exercício de cada vez. Você está construindo algo real.",
     exercises: [
       { name: "Marcha parada", reps: "30 seg", note: "Aquecimento" },
-      { name: "Agachamento assistido", reps: "10 rep", note: "Controle a descida" },
-      { name: "Wall push-up", reps: "10 rep", note: "Cotovelos próximos ao corpo" },
+      {
+        name: "Agachamento assistido",
+        reps: "10 rep",
+        note: "Controle a descida",
+      },
+      {
+        name: "Wall push-up",
+        reps: "10 rep",
+        note: "Cotovelos próximos ao corpo",
+      },
       { name: "Ponte de glúteos", reps: "12 rep", note: "Aperte no topo" },
       { name: "Dead bug", reps: "6 rep cada lado", note: "Costas no chão" },
-      { name: "Polichinelo sem salto", reps: "30 seg", note: "Passo lateral suave" },
+      {
+        name: "Polichinelo sem salto",
+        reps: "30 seg",
+        note: "Passo lateral suave",
+      },
     ],
     caminhoLeve: "1 rodada completa · Descanse 1 min ao final",
     caminhoBase: "2 rodadas completas · Descanse 45 seg entre rodadas",
     caminhoAvançar: "3 rodadas completas · Descanse 30 seg entre rodadas",
-    adaptacao: "Joelho sensível: troque o agachamento assistido por sentar e levantar da cadeira. Punho sensível: use wall push-up com mãos mais altas na parede.",
+    adaptacao:
+      "Joelho sensível: troque o agachamento assistido por sentar e levantar da cadeira. Punho sensível: use wall push-up com mãos mais altas na parede.",
     observation: "Hidrate-se antes, durante e depois.",
   },
   {
@@ -133,19 +236,35 @@ export const days: DayPlan[] = [
     trainName: "Mobilidade e Soltura",
     duration: "8–10 min",
     focus: "Mobilidade · Leve ativação",
-    orientation: "Recuperação ativa da semana: menos intensidade, mais qualidade de movimento.",
+    orientation:
+      "Recuperação ativa da semana: menos intensidade, mais qualidade de movimento.",
     exercises: [
-      { name: "Mobilidade de quadril", reps: "8 rep cada lado", note: "Círculos suaves" },
+      {
+        name: "Mobilidade de quadril",
+        reps: "8 rep cada lado",
+        note: "Círculos suaves",
+      },
       { name: "Mobilidade de coluna", reps: "10 rep", note: "Gato e vaca" },
-      { name: "Alongamento posterior", reps: "30 seg cada lado", note: "Respire no alongamento" },
+      {
+        name: "Alongamento posterior",
+        reps: "30 seg cada lado",
+        note: "Respire no alongamento",
+      },
       { name: "Step touch lateral", reps: "40 seg", note: "Movimento leve" },
-      { name: "Respiração e mobilidade leve", reps: "5 respirações", note: "Feche os olhos se quiser" },
+      {
+        name: "Respiração e mobilidade leve",
+        reps: "5 respirações",
+        note: "Feche os olhos se quiser",
+      },
     ],
     caminhoLeve: "Uma passagem completa, com foco em soltura",
     caminhoBase: "Duas passagens completas, ritmo confortável",
-    caminhoAvançar: "Duas passagens + 1 minuto extra de respiração e alongamento posterior",
-    adaptacao: "Joelho sensível: mantenha amplitude curta nos alongamentos e no step touch. Punho sensível: faça a mobilidade de coluna nos antebraços, se necessário.",
-    observation: "Sessão de mobilidade: termine se sentindo mais solta, não mais cansada.",
+    caminhoAvançar:
+      "Duas passagens + 1 minuto extra de respiração e alongamento posterior",
+    adaptacao:
+      "Joelho sensível: mantenha amplitude curta nos alongamentos e no step touch. Punho sensível: faça a mobilidade de coluna nos antebraços, se necessário.",
+    observation:
+      "Sessão de mobilidade: termine se sentindo mais solta, não mais cansada.",
   },
   {
     day: 7,
@@ -153,18 +272,33 @@ export const days: DayPlan[] = [
     trainName: "Descanso Ativo",
     duration: "5–8 min",
     focus: "Descanso ativo · Continuidade",
-    orientation: "Página de reset semanal: respire, faça check-in e prepare o retorno.",
+    orientation:
+      "Página de reset semanal: respire, faça check-in e prepare o retorno.",
     exercises: [
-      { name: "Respiração profunda", reps: "5 respirações lentas", note: "Inspire 4 seg, expire 6 seg" },
-      { name: "Mobilidade de coluna", reps: "6 rep suaves", note: "Apenas para manter o corpo ativo" },
-      { name: "Alongamento de quadril", reps: "30 seg cada lado", note: "Posição de pombo adaptada ou deitada" },
+      {
+        name: "Respiração profunda",
+        reps: "5 respirações lentas",
+        note: "Inspire 4 seg, expire 6 seg",
+      },
+      {
+        name: "Mobilidade de coluna",
+        reps: "6 rep suaves",
+        note: "Apenas para manter o corpo ativo",
+      },
+      {
+        name: "Alongamento de quadril",
+        reps: "30 seg cada lado",
+        note: "Posição de pombo adaptada ou deitada",
+      },
       { name: "Marcha parada leve", reps: "20 seg", note: "Ritmo bem suave" },
     ],
     caminhoLeve: "Apenas respiração profunda e alongamento de quadril",
     caminhoBase: "Bloco completo uma vez, em ritmo calmo",
     caminhoAvançar: "Bloco completo duas vezes, sem aumentar intensidade",
-    adaptacao: "Joelho sensível: escolha uma variação confortável do alongamento de quadril. Punho sensível: sem apoio de carga obrigatório neste dia.",
-    observation: "Check-in da semana 1: marque os dias feitos e planeje o melhor horário da próxima semana.",
+    adaptacao:
+      "Joelho sensível: escolha uma variação confortável do alongamento de quadril. Punho sensível: sem apoio de carga obrigatório neste dia.",
+    observation:
+      "Check-in da semana 1: marque os dias feitos e planeje o melhor horário da próxima semana.",
   },
 
   // ── SEMANA 2 ──────────────────────────────────────────────
@@ -176,16 +310,37 @@ export const days: DayPlan[] = [
     focus: "Glúteos · Pernas",
     orientation: "Segunda semana começa. Você já sabe o que fazer.",
     exercises: [
-      { name: "Agachamento assistido", reps: "12 rep", note: "Um pouco mais fundo que na semana 1" },
-      { name: "Ponte de glúteos com pausa", reps: "12 rep", note: "Segure 2 seg no topo" },
-      { name: "Avanço curto com apoio", reps: "10 rep cada perna", note: "Controle o equilíbrio" },
-      { name: "Good morning sem peso", reps: "10 rep", note: "Incline o tronco para frente, costas retas" },
-      { name: "Elevação de panturrilha", reps: "15 rep", note: "Suba lentamente" },
+      {
+        name: "Agachamento assistido",
+        reps: "12 rep",
+        note: "Um pouco mais fundo que na semana 1",
+      },
+      {
+        name: "Ponte de glúteos com pausa",
+        reps: "12 rep",
+        note: "Segure 2 seg no topo",
+      },
+      {
+        name: "Avanço curto com apoio",
+        reps: "10 rep cada perna",
+        note: "Controle o equilíbrio",
+      },
+      {
+        name: "Good morning sem peso",
+        reps: "10 rep",
+        note: "Incline o tronco para frente, costas retas",
+      },
+      {
+        name: "Elevação de panturrilha",
+        reps: "15 rep",
+        note: "Suba lentamente",
+      },
     ],
     caminhoLeve: "2 séries · Descanse 45 seg",
     caminhoBase: "3 séries · Descanse 30 seg",
     caminhoAvançar: "3 séries + 10 rep extra de ponte · Descanse 20 seg",
-    adaptacao: "Joelho sensível: reduza a amplitude do avanço curto ou troque por agachamento assistido com apoio.",
+    adaptacao:
+      "Joelho sensível: reduza a amplitude do avanço curto ou troque por agachamento assistido com apoio.",
     observation: "Good morning: mantenha a coluna neutra, não curve as costas.",
   },
   {
@@ -196,16 +351,33 @@ export const days: DayPlan[] = [
     focus: "Core · Estabilidade · Postura",
     orientation: "Um core forte protege sua coluna e melhora tudo o mais.",
     exercises: [
-      { name: "Prancha adaptada", reps: "25 seg", note: "Corpo em linha reta, respire normalmente" },
+      {
+        name: "Prancha adaptada",
+        reps: "25 seg",
+        note: "Corpo em linha reta, respire normalmente",
+      },
       { name: "Dead bug", reps: "8 rep cada lado", note: "Lento e controlado" },
-      { name: "Bird dog", reps: "10 rep cada lado", note: "Não deixe o quadril girar" },
-      { name: "Mobilidade de coluna", reps: "10 rep", note: "Gato e vaca com respiração" },
-      { name: "Wall push-up", reps: "12 rep", note: "Ative o core durante o movimento" },
+      {
+        name: "Bird dog",
+        reps: "10 rep cada lado",
+        note: "Não deixe o quadril girar",
+      },
+      {
+        name: "Mobilidade de coluna",
+        reps: "10 rep",
+        note: "Gato e vaca com respiração",
+      },
+      {
+        name: "Wall push-up",
+        reps: "12 rep",
+        note: "Ative o core durante o movimento",
+      },
     ],
     caminhoLeve: "2 séries · Descanse 45 seg",
     caminhoBase: "3 séries · Descanse 30 seg",
     caminhoAvançar: "3 séries + prancha 35 seg · Descanse 20 seg",
-    adaptacao: "Punho sensível: prancha nos antebraços; se necessário, substitua wall push-up por isometria na parede por 20-30 seg.",
+    adaptacao:
+      "Punho sensível: prancha nos antebraços; se necessário, substitua wall push-up por isometria na parede por 20-30 seg.",
     observation: "Na prancha, não deixe o quadril subir nem cair.",
   },
   {
@@ -216,16 +388,30 @@ export const days: DayPlan[] = [
     focus: "Recuperação · Mobilidade",
     orientation: "Recuperação ativa para manter consistência na semana.",
     exercises: [
-      { name: "Respiração e mobilidade leve", reps: "5 respirações profundas", note: "Inspire pelo nariz, expire pela boca" },
-      { name: "Mobilidade de quadril", reps: "10 círculos cada lado", note: "Amplitude máxima confortável" },
+      {
+        name: "Respiração e mobilidade leve",
+        reps: "5 respirações profundas",
+        note: "Inspire pelo nariz, expire pela boca",
+      },
+      {
+        name: "Mobilidade de quadril",
+        reps: "10 círculos cada lado",
+        note: "Amplitude máxima confortável",
+      },
       { name: "Mobilidade de coluna", reps: "10 rep", note: "Gato e vaca" },
-      { name: "Alongamento posterior", reps: "40 seg cada lado", note: "Sem forçar" },
+      {
+        name: "Alongamento posterior",
+        reps: "40 seg cada lado",
+        note: "Sem forçar",
+      },
       { name: "Step touch lateral", reps: "40 seg", note: "Suave" },
     ],
     caminhoLeve: "Uma passagem completa no seu ritmo",
     caminhoBase: "Duas passagens completas com pausas curtas",
-    caminhoAvançar: "Duas passagens + 1 passagem extra de mobilidade de coluna e quadril",
-    adaptacao: "Joelho sensível: reduza a amplitude do step touch e dos movimentos de quadril. Punho sensível: adapte o gato e vaca com antebraços apoiados.",
+    caminhoAvançar:
+      "Duas passagens + 1 passagem extra de mobilidade de coluna e quadril",
+    adaptacao:
+      "Joelho sensível: reduza a amplitude do step touch e dos movimentos de quadril. Punho sensível: adapte o gato e vaca com antebraços apoiados.",
     observation: "Hoje o foco é recuperar mobilidade, não acumular fadiga.",
   },
   {
@@ -237,17 +423,31 @@ export const days: DayPlan[] = [
     orientation: "Você está mais forte do que era na semana 1. Sinta isso.",
     exercises: [
       { name: "Polichinelo sem salto", reps: "40 seg", note: "Aquecimento" },
-      { name: "Agachamento parcial", reps: "12 rep", note: "Controle a descida" },
-      { name: "Push-up inclinada", reps: "8 rep", note: "Mãos em superfície elevada" },
+      {
+        name: "Agachamento parcial",
+        reps: "12 rep",
+        note: "Controle a descida",
+      },
+      {
+        name: "Push-up inclinada",
+        reps: "8 rep",
+        note: "Mãos em superfície elevada",
+      },
       { name: "Ponte de glúteos", reps: "15 rep", note: "Aperte no topo" },
       { name: "Dead bug", reps: "8 rep cada lado", note: "Costas no chão" },
-      { name: "Elevação de joelhos leve", reps: "30 seg", note: "Ritmo moderado" },
+      {
+        name: "Elevação de joelhos leve",
+        reps: "30 seg",
+        note: "Ritmo moderado",
+      },
     ],
     caminhoLeve: "2 rodadas · Descanse 1 min entre rodadas",
     caminhoBase: "3 rodadas · Descanse 45 seg entre rodadas",
     caminhoAvançar: "3 rodadas · Descanse 30 seg entre rodadas",
-    adaptacao: "Joelho sensível: substitua o agachamento parcial por sentar e levantar da cadeira. Punho sensível: troque push-up inclinada por wall push-up.",
-    observation: "Push-up inclinada: quanto mais alta a superfície, mais fácil.",
+    adaptacao:
+      "Joelho sensível: substitua o agachamento parcial por sentar e levantar da cadeira. Punho sensível: troque push-up inclinada por wall push-up.",
+    observation:
+      "Push-up inclinada: quanto mais alta a superfície, mais fácil.",
   },
   {
     day: 12,
@@ -257,17 +457,32 @@ export const days: DayPlan[] = [
     focus: "Pernas · Glúteos",
     orientation: "Cada semana você faz um pouco mais. Isso é progressão real.",
     exercises: [
-      { name: "Agachamento assistido", reps: "15 rep", note: "Mais profundo que na semana 1" },
-      { name: "Ponte de glúteos com pausa", reps: "15 rep", note: "Segure 3 seg no topo" },
-      { name: "Avanço curto com apoio", reps: "10 rep cada perna", note: "Tente usar menos o apoio" },
+      {
+        name: "Agachamento assistido",
+        reps: "15 rep",
+        note: "Mais profundo que na semana 1",
+      },
+      {
+        name: "Ponte de glúteos com pausa",
+        reps: "15 rep",
+        note: "Segure 3 seg no topo",
+      },
+      {
+        name: "Avanço curto com apoio",
+        reps: "10 rep cada perna",
+        note: "Tente usar menos o apoio",
+      },
       { name: "Elevação pélvica", reps: "15 rep", note: "Movimento amplo" },
       { name: "Good morning sem peso", reps: "12 rep", note: "Costas retas" },
     ],
     caminhoLeve: "2 séries · Descanse 45 seg",
     caminhoBase: "3 séries · Descanse 30 seg",
-    caminhoAvançar: "3 séries + 15 rep de elevação de panturrilha · Descanse 20 seg",
-    adaptacao: "Joelho sensível: reduza a amplitude do avanço ou substitua por agachamento assistido.",
-    observation: "Sinta os glúteos trabalhando na ponte. Se não sentir, aperte mais no topo.",
+    caminhoAvançar:
+      "3 séries + 15 rep de elevação de panturrilha · Descanse 20 seg",
+    adaptacao:
+      "Joelho sensível: reduza a amplitude do avanço ou substitua por agachamento assistido.",
+    observation:
+      "Sinta os glúteos trabalhando na ponte. Se não sentir, aperte mais no topo.",
   },
   {
     day: 13,
@@ -277,17 +492,32 @@ export const days: DayPlan[] = [
     focus: "Mobilidade · Alongamento leve",
     orientation: "Sessão de soltura para chegar melhor ao próximo bloco.",
     exercises: [
-      { name: "Mobilidade de quadril", reps: "10 rep cada lado", note: "Círculos amplos" },
+      {
+        name: "Mobilidade de quadril",
+        reps: "10 rep cada lado",
+        note: "Círculos amplos",
+      },
       { name: "Mobilidade de coluna", reps: "10 rep", note: "Gato e vaca" },
-      { name: "Alongamento posterior", reps: "40 seg cada lado", note: "Respire no alongamento" },
+      {
+        name: "Alongamento posterior",
+        reps: "40 seg cada lado",
+        note: "Respire no alongamento",
+      },
       { name: "Step touch lateral", reps: "40 seg", note: "Suave" },
-      { name: "Respiração e mobilidade leve", reps: "5 respirações", note: "Feche os olhos" },
+      {
+        name: "Respiração e mobilidade leve",
+        reps: "5 respirações",
+        note: "Feche os olhos",
+      },
     ],
     caminhoLeve: "Uma passagem",
     caminhoBase: "Duas passagens",
-    caminhoAvançar: "Duas passagens + 1 minuto extra de alongamento posterior por lado",
-    adaptacao: "Joelho sensível: mantenha amplitude confortável nos alongamentos e no step touch. Punho sensível: adapte a mobilidade de coluna com antebraços apoiados.",
-    observation: "Se sair deste dia mais leve e com boa respiração, o objetivo foi cumprido.",
+    caminhoAvançar:
+      "Duas passagens + 1 minuto extra de alongamento posterior por lado",
+    adaptacao:
+      "Joelho sensível: mantenha amplitude confortável nos alongamentos e no step touch. Punho sensível: adapte a mobilidade de coluna com antebraços apoiados.",
+    observation:
+      "Se sair deste dia mais leve e com boa respiração, o objetivo foi cumprido.",
   },
   {
     day: 14,
@@ -295,18 +525,37 @@ export const days: DayPlan[] = [
     trainName: "Descanso e Reflexão",
     duration: "5–8 min",
     focus: "Recuperação · Constância",
-    orientation: "Reset da metade do desafio: menos cobrança, mais consistência.",
+    orientation:
+      "Reset da metade do desafio: menos cobrança, mais consistência.",
     exercises: [
-      { name: "Respiração profunda", reps: "5 respirações lentas", note: "Inspire 4 seg, expire 6 seg" },
-      { name: "Mobilidade de coluna", reps: "8 rep suaves", note: "Gato e vaca" },
-      { name: "Alongamento de quadril", reps: "40 seg cada lado", note: "Respire" },
-      { name: "Marcha parada leve", reps: "20 seg", note: "Apenas para manter o corpo ativo" },
+      {
+        name: "Respiração profunda",
+        reps: "5 respirações lentas",
+        note: "Inspire 4 seg, expire 6 seg",
+      },
+      {
+        name: "Mobilidade de coluna",
+        reps: "8 rep suaves",
+        note: "Gato e vaca",
+      },
+      {
+        name: "Alongamento de quadril",
+        reps: "40 seg cada lado",
+        note: "Respire",
+      },
+      {
+        name: "Marcha parada leve",
+        reps: "20 seg",
+        note: "Apenas para manter o corpo ativo",
+      },
     ],
     caminhoLeve: "Apenas respiração e alongamentos",
     caminhoBase: "Bloco completo uma vez",
     caminhoAvançar: "Bloco completo duas vezes, mantendo ritmo confortável",
-    adaptacao: "Joelho sensível: faça o alongamento de quadril em versão deitada ou com apoio. Punho sensível: sem carga obrigatória nos punhos neste dia.",
-    observation: "Check-in da semana 2: registre avanços e ajuste o caminho da próxima semana.",
+    adaptacao:
+      "Joelho sensível: faça o alongamento de quadril em versão deitada ou com apoio. Punho sensível: sem carga obrigatória nos punhos neste dia.",
+    observation:
+      "Check-in da semana 2: registre avanços e ajuste o caminho da próxima semana.",
   },
 
   // ── SEMANA 3 ──────────────────────────────────────────────
@@ -319,17 +568,31 @@ export const days: DayPlan[] = [
     orientation: "Semana 3. Você está ganhando ritmo. Confie no processo.",
     exercises: [
       { name: "Polichinelo sem salto", reps: "40 seg", note: "Aquecimento" },
-      { name: "Agachamento parcial", reps: "15 rep", note: "Controle a descida" },
-      { name: "Avanço curto com apoio", reps: "12 rep cada perna", note: "Tente usar menos o apoio" },
-      { name: "Ponte de glúteos com pausa", reps: "15 rep", note: "Segure 3 seg" },
+      {
+        name: "Agachamento parcial",
+        reps: "15 rep",
+        note: "Controle a descida",
+      },
+      {
+        name: "Avanço curto com apoio",
+        reps: "12 rep cada perna",
+        note: "Tente usar menos o apoio",
+      },
+      {
+        name: "Ponte de glúteos com pausa",
+        reps: "15 rep",
+        note: "Segure 3 seg",
+      },
       { name: "Good morning sem peso", reps: "12 rep", note: "Costas retas" },
       { name: "Elevação de panturrilha", reps: "20 rep", note: "Suba devagar" },
     ],
     caminhoLeve: "2 séries · Descanse 45 seg",
     caminhoBase: "3 séries · Descanse 30 seg",
     caminhoAvançar: "3 séries + 15 rep de agachamento extra · Descanse 20 seg",
-    adaptacao: "Joelho sensível: reduza a amplitude do agachamento e troque o avanço por sentar e levantar da cadeira.",
-    observation: "Mantenha os joelhos alinhados com os pés em todos os exercícios.",
+    adaptacao:
+      "Joelho sensível: reduza a amplitude do agachamento e troque o avanço por sentar e levantar da cadeira.",
+    observation:
+      "Mantenha os joelhos alinhados com os pés em todos os exercícios.",
   },
   {
     day: 16,
@@ -340,16 +603,26 @@ export const days: DayPlan[] = [
     orientation: "Core forte é base para tudo. Cada repetição conta.",
     exercises: [
       { name: "Prancha adaptada", reps: "30 seg", note: "Respire normalmente" },
-      { name: "Dead bug", reps: "10 rep cada lado", note: "Lento e controlado" },
-      { name: "Bird dog", reps: "10 rep cada lado", note: "Estabilidade no quadril" },
+      {
+        name: "Dead bug",
+        reps: "10 rep cada lado",
+        note: "Lento e controlado",
+      },
+      {
+        name: "Bird dog",
+        reps: "10 rep cada lado",
+        note: "Estabilidade no quadril",
+      },
       { name: "Wall push-up", reps: "15 rep", note: "Core ativo" },
       { name: "Mobilidade de coluna", reps: "10 rep", note: "Gato e vaca" },
     ],
     caminhoLeve: "2 séries · Descanse 45 seg",
     caminhoBase: "3 séries · Descanse 30 seg",
     caminhoAvançar: "3 séries + prancha 40 seg · Descanse 20 seg",
-    adaptacao: "Punho sensível: prancha nos antebraços e wall push-up com mãos mais altas na parede.",
-    observation: "Na prancha, ative o abdômen como se fosse receber um toque leve na barriga.",
+    adaptacao:
+      "Punho sensível: prancha nos antebraços e wall push-up com mãos mais altas na parede.",
+    observation:
+      "Na prancha, ative o abdômen como se fosse receber um toque leve na barriga.",
   },
   {
     day: 17,
@@ -359,16 +632,30 @@ export const days: DayPlan[] = [
     focus: "Mobilidade · Respiração",
     orientation: "Recuperação ativa para sustentar o ritmo da semana 3.",
     exercises: [
-      { name: "Respiração e mobilidade leve", reps: "5 respirações profundas", note: "Inspire pelo nariz" },
-      { name: "Mobilidade de quadril", reps: "10 rep cada lado", note: "Círculos lentos" },
+      {
+        name: "Respiração e mobilidade leve",
+        reps: "5 respirações profundas",
+        note: "Inspire pelo nariz",
+      },
+      {
+        name: "Mobilidade de quadril",
+        reps: "10 rep cada lado",
+        note: "Círculos lentos",
+      },
       { name: "Mobilidade de coluna", reps: "10 rep", note: "Gato e vaca" },
-      { name: "Alongamento posterior", reps: "40 seg cada lado", note: "Sem forçar" },
+      {
+        name: "Alongamento posterior",
+        reps: "40 seg cada lado",
+        note: "Sem forçar",
+      },
       { name: "Step touch lateral", reps: "40 seg", note: "Suave" },
     ],
     caminhoLeve: "Uma passagem",
     caminhoBase: "Duas passagens",
-    caminhoAvançar: "Duas passagens + 1 passagem extra de respiração e mobilidade de coluna",
-    adaptacao: "Joelho sensível: mantenha amplitude curta no step touch e nos círculos de quadril. Punho sensível: faça a mobilidade de coluna com antebraços apoiados.",
+    caminhoAvançar:
+      "Duas passagens + 1 passagem extra de respiração e mobilidade de coluna",
+    adaptacao:
+      "Joelho sensível: mantenha amplitude curta no step touch e nos círculos de quadril. Punho sensível: faça a mobilidade de coluna com antebraços apoiados.",
     observation: "Recuperar também é treinar: hoje é manutenção de qualidade.",
   },
   {
@@ -379,7 +666,11 @@ export const days: DayPlan[] = [
     focus: "Glúteos · Core",
     orientation: "Glúteos e core trabalham juntos. Sinta a conexão.",
     exercises: [
-      { name: "Ponte de glúteos com pausa", reps: "15 rep", note: "Segure 3 seg no topo" },
+      {
+        name: "Ponte de glúteos com pausa",
+        reps: "15 rep",
+        note: "Segure 3 seg no topo",
+      },
       { name: "Elevação pélvica", reps: "15 rep", note: "Movimento amplo" },
       { name: "Dead bug", reps: "10 rep cada lado", note: "Costas no chão" },
       { name: "Bird dog", reps: "10 rep cada lado", note: "Quadril estável" },
@@ -388,8 +679,10 @@ export const days: DayPlan[] = [
     caminhoLeve: "2 séries · Descanse 45 seg",
     caminhoBase: "3 séries · Descanse 30 seg",
     caminhoAvançar: "3 séries + 15 rep de ponte extra · Descanse 20 seg",
-    adaptacao: "Joelho sensível: mantenha os pés mais próximos do quadril e reduza a amplitude na ponte/elevação pélvica. Punho sensível: faça a prancha nos antebraços.",
-    observation: "Na elevação pélvica, sinta os glúteos trabalhando em cada repetição.",
+    adaptacao:
+      "Joelho sensível: mantenha os pés mais próximos do quadril e reduza a amplitude na ponte/elevação pélvica. Punho sensível: faça a prancha nos antebraços.",
+    observation:
+      "Na elevação pélvica, sinta os glúteos trabalhando em cada repetição.",
   },
   {
     day: 19,
@@ -397,7 +690,8 @@ export const days: DayPlan[] = [
     trainName: "Circuito com Ritmo",
     duration: "15–18 min",
     focus: "Corpo inteiro",
-    orientation: "Você está mais forte, mais constante e mais capaz. Sinta isso.",
+    orientation:
+      "Você está mais forte, mais constante e mais capaz. Sinta isso.",
     exercises: [
       { name: "Elevação de joelhos leve", reps: "40 seg", note: "Aquecimento" },
       { name: "Agachamento parcial", reps: "15 rep", note: "Controle" },
@@ -409,7 +703,8 @@ export const days: DayPlan[] = [
     caminhoLeve: "2 rodadas · Descanse 1 min",
     caminhoBase: "3 rodadas · Descanse 45 seg",
     caminhoAvançar: "4 rodadas · Descanse 30 seg",
-    adaptacao: "Joelho sensível: troque o agachamento parcial por sentar e levantar da cadeira. Punho sensível: substitua push-up inclinada por wall push-up.",
+    adaptacao:
+      "Joelho sensível: troque o agachamento parcial por sentar e levantar da cadeira. Punho sensível: substitua push-up inclinada por wall push-up.",
     observation: "Hidrate-se entre as rodadas.",
   },
   {
@@ -420,16 +715,30 @@ export const days: DayPlan[] = [
     focus: "Recuperação · Mobilidade",
     orientation: "Sessão de mobilidade para liberar tensões acumuladas.",
     exercises: [
-      { name: "Mobilidade de quadril", reps: "10 rep cada lado", note: "Círculos amplos" },
+      {
+        name: "Mobilidade de quadril",
+        reps: "10 rep cada lado",
+        note: "Círculos amplos",
+      },
       { name: "Mobilidade de coluna", reps: "10 rep", note: "Gato e vaca" },
-      { name: "Alongamento posterior", reps: "45 seg cada lado", note: "Respire" },
-      { name: "Respiração e mobilidade leve", reps: "5 respirações", note: "Feche os olhos" },
+      {
+        name: "Alongamento posterior",
+        reps: "45 seg cada lado",
+        note: "Respire",
+      },
+      {
+        name: "Respiração e mobilidade leve",
+        reps: "5 respirações",
+        note: "Feche os olhos",
+      },
       { name: "Step touch lateral", reps: "40 seg", note: "Suave" },
     ],
     caminhoLeve: "Uma passagem",
     caminhoBase: "Duas passagens",
-    caminhoAvançar: "Duas passagens + 1 minuto extra por lado no alongamento posterior",
-    adaptacao: "Joelho sensível: reduza a amplitude no alongamento posterior e no step touch. Punho sensível: adapte a mobilidade de coluna com antebraços apoiados.",
+    caminhoAvançar:
+      "Duas passagens + 1 minuto extra por lado no alongamento posterior",
+    adaptacao:
+      "Joelho sensível: reduza a amplitude no alongamento posterior e no step touch. Punho sensível: adapte a mobilidade de coluna com antebraços apoiados.",
     observation: "Evite forçar amplitude; busque conforto e controle.",
   },
   {
@@ -438,18 +747,33 @@ export const days: DayPlan[] = [
     trainName: "Descanso Ativo",
     duration: "5–8 min",
     focus: "Descanso ativo · Revisão",
-    orientation: "Reset da semana 3: recuperar, revisar e entrar bem na reta final.",
+    orientation:
+      "Reset da semana 3: recuperar, revisar e entrar bem na reta final.",
     exercises: [
-      { name: "Respiração profunda", reps: "5 respirações lentas", note: "Inspire 4 seg, expire 6 seg" },
-      { name: "Mobilidade de coluna", reps: "8 rep suaves", note: "Gato e vaca" },
-      { name: "Alongamento de quadril", reps: "45 seg cada lado", note: "Respire" },
+      {
+        name: "Respiração profunda",
+        reps: "5 respirações lentas",
+        note: "Inspire 4 seg, expire 6 seg",
+      },
+      {
+        name: "Mobilidade de coluna",
+        reps: "8 rep suaves",
+        note: "Gato e vaca",
+      },
+      {
+        name: "Alongamento de quadril",
+        reps: "45 seg cada lado",
+        note: "Respire",
+      },
       { name: "Marcha parada leve", reps: "20 seg", note: "Suave" },
     ],
     caminhoLeve: "Apenas respiração e alongamentos",
     caminhoBase: "Bloco completo uma vez",
     caminhoAvançar: "Bloco completo duas vezes, mantendo ritmo leve",
-    adaptacao: "Joelho sensível: ajuste o alongamento de quadril para uma versão confortável. Punho sensível: sem apoio de carga obrigatório neste dia.",
-    observation: "Check-in da semana 3: marque o progresso e defina um horário para os dias finais.",
+    adaptacao:
+      "Joelho sensível: ajuste o alongamento de quadril para uma versão confortável. Punho sensível: sem apoio de carga obrigatório neste dia.",
+    observation:
+      "Check-in da semana 3: marque o progresso e defina um horário para os dias finais.",
   },
 
   // ── SEMANA 4 ──────────────────────────────────────────────
@@ -463,15 +787,24 @@ export const days: DayPlan[] = [
     exercises: [
       { name: "Polichinelo sem salto", reps: "45 seg", note: "Aquecimento" },
       { name: "Agachamento parcial", reps: "15 rep", note: "Controle total" },
-      { name: "Avanço curto com apoio", reps: "12 rep cada perna", note: "Menos apoio se possível" },
-      { name: "Ponte de glúteos com pausa", reps: "15 rep", note: "Segure 3 seg" },
+      {
+        name: "Avanço curto com apoio",
+        reps: "12 rep cada perna",
+        note: "Menos apoio se possível",
+      },
+      {
+        name: "Ponte de glúteos com pausa",
+        reps: "15 rep",
+        note: "Segure 3 seg",
+      },
       { name: "Good morning sem peso", reps: "12 rep", note: "Costas retas" },
       { name: "Elevação de panturrilha", reps: "20 rep", note: "Suba devagar" },
     ],
     caminhoLeve: "2 séries · Descanse 45 seg",
     caminhoBase: "3 séries · Descanse 30 seg",
     caminhoAvançar: "4 séries · Descanse 20 seg",
-    adaptacao: "Joelho sensível: reduza a amplitude do avanço curto ou substitua por agachamento assistido.",
+    adaptacao:
+      "Joelho sensível: reduza a amplitude do avanço curto ou substitua por agachamento assistido.",
     observation: "Você está na semana final. Confie no que seu corpo aprendeu.",
   },
   {
@@ -483,7 +816,11 @@ export const days: DayPlan[] = [
     orientation: "Um core forte é o presente que você dá para si mesma.",
     exercises: [
       { name: "Prancha adaptada", reps: "35 seg", note: "Respire normalmente" },
-      { name: "Dead bug", reps: "10 rep cada lado", note: "Lento e controlado" },
+      {
+        name: "Dead bug",
+        reps: "10 rep cada lado",
+        note: "Lento e controlado",
+      },
       { name: "Bird dog", reps: "12 rep cada lado", note: "Quadril estável" },
       { name: "Push-up inclinada", reps: "10 rep", note: "Core ativo" },
       { name: "Mobilidade de coluna", reps: "10 rep", note: "Gato e vaca" },
@@ -491,8 +828,10 @@ export const days: DayPlan[] = [
     caminhoLeve: "2 séries · Descanse 45 seg",
     caminhoBase: "3 séries · Descanse 30 seg",
     caminhoAvançar: "3 séries + prancha 45 seg · Descanse 20 seg",
-    adaptacao: "Punho sensível: prancha nos antebraços e push-up inclinada com apoio mais alto (mesa/parede).",
-    observation: "Foque na qualidade. Cada repetição bem feita vale mais que dez mal feitas.",
+    adaptacao:
+      "Punho sensível: prancha nos antebraços e push-up inclinada com apoio mais alto (mesa/parede).",
+    observation:
+      "Foque na qualidade. Cada repetição bem feita vale mais que dez mal feitas.",
   },
   {
     day: 24,
@@ -500,18 +839,33 @@ export const days: DayPlan[] = [
     trainName: "Recuperação Final",
     duration: "8–10 min",
     focus: "Mobilidade · Leve ativação",
-    orientation: "Recuperação ativa da semana final: mantenha o corpo pronto para os últimos dias.",
+    orientation:
+      "Recuperação ativa da semana final: mantenha o corpo pronto para os últimos dias.",
     exercises: [
-      { name: "Respiração e mobilidade leve", reps: "5 respirações profundas", note: "Inspire pelo nariz" },
-      { name: "Mobilidade de quadril", reps: "10 rep cada lado", note: "Círculos lentos" },
+      {
+        name: "Respiração e mobilidade leve",
+        reps: "5 respirações profundas",
+        note: "Inspire pelo nariz",
+      },
+      {
+        name: "Mobilidade de quadril",
+        reps: "10 rep cada lado",
+        note: "Círculos lentos",
+      },
       { name: "Mobilidade de coluna", reps: "10 rep", note: "Gato e vaca" },
-      { name: "Alongamento posterior", reps: "45 seg cada lado", note: "Sem forçar" },
+      {
+        name: "Alongamento posterior",
+        reps: "45 seg cada lado",
+        note: "Sem forçar",
+      },
       { name: "Step touch lateral", reps: "40 seg", note: "Suave" },
     ],
     caminhoLeve: "Uma passagem",
     caminhoBase: "Duas passagens",
-    caminhoAvançar: "Duas passagens + 1 passagem extra de mobilidade de quadril",
-    adaptacao: "Joelho sensível: reduza a amplitude no step touch e nas rotações de quadril. Punho sensível: faça o gato e vaca com antebraços apoiados.",
+    caminhoAvançar:
+      "Duas passagens + 1 passagem extra de mobilidade de quadril",
+    adaptacao:
+      "Joelho sensível: reduza a amplitude no step touch e nas rotações de quadril. Punho sensível: faça o gato e vaca com antebraços apoiados.",
     observation: "Hoje é ajuste fino de mobilidade, não dia de intensidade.",
   },
   {
@@ -525,14 +879,19 @@ export const days: DayPlan[] = [
       { name: "Elevação de joelhos leve", reps: "45 seg", note: "Aquecimento" },
       { name: "Agachamento parcial", reps: "15 rep", note: "Controle" },
       { name: "Push-up inclinada", reps: "10 rep", note: "Core ativo" },
-      { name: "Ponte de glúteos com pausa", reps: "15 rep", note: "Segure 3 seg" },
+      {
+        name: "Ponte de glúteos com pausa",
+        reps: "15 rep",
+        note: "Segure 3 seg",
+      },
       { name: "Dead bug", reps: "10 rep cada lado", note: "Lento" },
       { name: "Polichinelo sem salto", reps: "45 seg", note: "Ritmo moderado" },
     ],
     caminhoLeve: "2 rodadas · Descanse 1 min",
     caminhoBase: "3 rodadas · Descanse 45 seg",
     caminhoAvançar: "4 rodadas · Descanse 30 seg",
-    adaptacao: "Joelho sensível: troque o agachamento parcial por sentar e levantar da cadeira. Punho sensível: substitua push-up inclinada por wall push-up.",
+    adaptacao:
+      "Joelho sensível: troque o agachamento parcial por sentar e levantar da cadeira. Punho sensível: substitua push-up inclinada por wall push-up.",
     observation: "Hidrate-se. Você está quase no final.",
   },
   {
@@ -544,16 +903,25 @@ export const days: DayPlan[] = [
     orientation: "Tudo junto. Você aprendeu a conectar o corpo.",
     exercises: [
       { name: "Agachamento parcial", reps: "15 rep", note: "Controle total" },
-      { name: "Ponte de glúteos com pausa", reps: "15 rep", note: "Segure 3 seg" },
+      {
+        name: "Ponte de glúteos com pausa",
+        reps: "15 rep",
+        note: "Segure 3 seg",
+      },
       { name: "Dead bug", reps: "10 rep cada lado", note: "Core ativo" },
-      { name: "Avanço curto com apoio", reps: "12 rep cada perna", note: "Controle" },
+      {
+        name: "Avanço curto com apoio",
+        reps: "12 rep cada perna",
+        note: "Controle",
+      },
       { name: "Bird dog", reps: "12 rep cada lado", note: "Quadril estável" },
       { name: "Elevação de panturrilha", reps: "20 rep", note: "Suba devagar" },
     ],
     caminhoLeve: "2 séries · Descanse 45 seg",
     caminhoBase: "3 séries · Descanse 30 seg",
     caminhoAvançar: "4 séries · Descanse 20 seg",
-    adaptacao: "Joelho sensível: substitua o avanço curto por agachamento assistido com apoio. Punho sensível: no bird dog, apoie as mãos sobre superfície elevada ou use punhos fechados.",
+    adaptacao:
+      "Joelho sensível: substitua o avanço curto por agachamento assistido com apoio. Punho sensível: no bird dog, apoie as mãos sobre superfície elevada ou use punhos fechados.",
     observation: "Você está integrando tudo que aprendeu nessas semanas.",
   },
   {
@@ -562,19 +930,35 @@ export const days: DayPlan[] = [
     trainName: "Soltura Final",
     duration: "8–10 min",
     focus: "Alongamento · Soltura · Respiração",
-    orientation: "Sessão de soltura e respiração para encerrar o ciclo com qualidade.",
+    orientation:
+      "Sessão de soltura e respiração para encerrar o ciclo com qualidade.",
     exercises: [
-      { name: "Respiração e mobilidade leve", reps: "5 respirações profundas", note: "Inspire pelo nariz" },
-      { name: "Mobilidade de quadril", reps: "10 rep cada lado", note: "Círculos amplos" },
+      {
+        name: "Respiração e mobilidade leve",
+        reps: "5 respirações profundas",
+        note: "Inspire pelo nariz",
+      },
+      {
+        name: "Mobilidade de quadril",
+        reps: "10 rep cada lado",
+        note: "Círculos amplos",
+      },
       { name: "Mobilidade de coluna", reps: "10 rep", note: "Gato e vaca" },
-      { name: "Alongamento posterior", reps: "45 seg cada lado", note: "Respire" },
+      {
+        name: "Alongamento posterior",
+        reps: "45 seg cada lado",
+        note: "Respire",
+      },
       { name: "Step touch lateral", reps: "40 seg", note: "Suave" },
     ],
     caminhoLeve: "Uma passagem",
     caminhoBase: "Duas passagens",
-    caminhoAvançar: "Duas passagens + 2 minutos extras de respiração consciente",
-    adaptacao: "Joelho sensível: mantenha amplitude confortável no alongamento posterior e no step touch. Punho sensível: adapte a mobilidade de coluna com antebraços apoiados.",
-    observation: "Feche o dia com sensação de corpo solto e respiração estável.",
+    caminhoAvançar:
+      "Duas passagens + 2 minutos extras de respiração consciente",
+    adaptacao:
+      "Joelho sensível: mantenha amplitude confortável no alongamento posterior e no step touch. Punho sensível: adapte a mobilidade de coluna com antebraços apoiados.",
+    observation:
+      "Feche o dia com sensação de corpo solto e respiração estável.",
   },
   {
     day: 28,
@@ -584,17 +968,35 @@ export const days: DayPlan[] = [
     focus: "Sessão leve · Celebração · Continuidade",
     orientation: "Você completou 28 dias. Isso é uma conquista real e sua.",
     exercises: [
-      { name: "Marcha parada", reps: "30 seg", note: "Com gratidão pelo que seu corpo fez" },
-      { name: "Agachamento assistido", reps: "10 rep", note: "Sinta o quanto ficou mais fácil" },
-      { name: "Ponte de glúteos", reps: "12 rep", note: "Sinta os glúteos trabalhando" },
+      {
+        name: "Marcha parada",
+        reps: "30 seg",
+        note: "Com gratidão pelo que seu corpo fez",
+      },
+      {
+        name: "Agachamento assistido",
+        reps: "10 rep",
+        note: "Sinta o quanto ficou mais fácil",
+      },
+      {
+        name: "Ponte de glúteos",
+        reps: "12 rep",
+        note: "Sinta os glúteos trabalhando",
+      },
       { name: "Dead bug", reps: "8 rep cada lado", note: "Core forte" },
       { name: "Mobilidade de coluna", reps: "8 rep", note: "Gato e vaca" },
-      { name: "Respiração e mobilidade leve", reps: "5 respirações profundas", note: "Feche os olhos. Respire." },
+      {
+        name: "Respiração e mobilidade leve",
+        reps: "5 respirações profundas",
+        note: "Feche os olhos. Respire.",
+      },
     ],
     caminhoLeve: "1 série de cada exercício · Celebre cada movimento",
     caminhoBase: "2 séries de cada exercício · Com presença total",
-    caminhoAvançar: "2 séries + 10 rep de push-up inclinada · Encerramento forte",
-    adaptacao: "Joelho sensível: troque o agachamento assistido por sentar e levantar com amplitude curta. Punho sensível: sem carga obrigatória nos punhos neste dia.",
+    caminhoAvançar:
+      "2 séries + 10 rep de push-up inclinada · Encerramento forte",
+    adaptacao:
+      "Joelho sensível: troque o agachamento assistido por sentar e levantar com amplitude curta. Punho sensível: sem carga obrigatória nos punhos neste dia.",
     observation: "Marque o dia 28 no checklist. Você merece isso.",
   },
 ];
@@ -604,7 +1006,8 @@ export const weeks = [
     number: 1,
     title: "Adaptação e Constância",
     subtitle: "Dias 1–7",
-    description: "Despertar o corpo, criar o hábito e descobrir que é possível.",
+    description:
+      "Despertar o corpo, criar o hábito e descobrir que é possível.",
     color: "teal",
     days: [1, 2, 3, 4, 5, 6, 7],
   },
@@ -612,7 +1015,8 @@ export const weeks = [
     number: 2,
     title: "Base e Controle",
     subtitle: "Dias 8–14",
-    description: "Aprofundar os movimentos, ganhar estabilidade e confiar no processo.",
+    description:
+      "Aprofundar os movimentos, ganhar estabilidade e confiar no processo.",
     color: "rose",
     days: [8, 9, 10, 11, 12, 13, 14],
   },
@@ -620,7 +1024,8 @@ export const weeks = [
     number: 3,
     title: "Ganho de Ritmo",
     subtitle: "Dias 15–21",
-    description: "Aumentar a cadência, sentir a progressão e perceber a evolução.",
+    description:
+      "Aumentar a cadência, sentir a progressão e perceber a evolução.",
     color: "taupe",
     days: [15, 16, 17, 18, 19, 20, 21],
   },
@@ -628,7 +1033,8 @@ export const weeks = [
     number: 4,
     title: "Consolidação",
     subtitle: "Dias 22–28",
-    description: "Integrar tudo que aprendeu, celebrar a constância e planejar o próximo passo.",
+    description:
+      "Integrar tudo que aprendeu, celebrar a constância e planejar o próximo passo.",
     color: "teal",
     days: [22, 23, 24, 25, 26, 27, 28],
   },

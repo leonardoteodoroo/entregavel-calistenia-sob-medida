@@ -1,4 +1,4 @@
-Segue o documento **unificado e neutralizado** (Design System + Camada de Impacto + Performance/Estabilidade + Acessibilidade + Segurança + SEO + Manutenibilidade), juntando o melhor do manual e do relatório PageSpeed.  
+Segue o documento **unificado e neutralizado** (Design System + Camada de Impacto + Performance/Estabilidade + Acessibilidade + Segurança + SEO + Manutenibilidade), juntando o melhor do manual e do relatório PageSpeed.
 
 ```text
 Template base define o ponto de partida para novos projetos digitais com foco em Design System, consistência visual e padrões de performance/estabilidade.

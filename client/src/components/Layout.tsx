@@ -19,6 +19,7 @@ const navSections: NavSection[] = [
   { id: "boas-vindas", label: "Boas-vindas" },
   { id: "para-quem", label: "Para quem é" },
   { id: "como-usar", label: "Como usar" },
+  { id: "biblioteca-exercicios", label: "Biblioteca de exercícios" },
   { id: "estrutura", label: "Estrutura do plano" },
   { id: "visao-geral", label: "Visão geral" },
   {
@@ -123,13 +124,22 @@ export default function Layout({ children, activeSection }: LayoutProps) {
     const day = Number(activeSection.replace("dia-", ""));
     if (Number.isNaN(day)) return;
 
-    const weekId = day <= 7 ? "semana-1" : day <= 14 ? "semana-2" : day <= 21 ? "semana-3" : "semana-4";
-    setExpandedWeeks((prev) => (prev.includes(weekId) ? prev : [...prev, weekId]));
+    const weekId =
+      day <= 7
+        ? "semana-1"
+        : day <= 14
+          ? "semana-2"
+          : day <= 21
+            ? "semana-3"
+            : "semana-4";
+    setExpandedWeeks(prev =>
+      prev.includes(weekId) ? prev : [...prev, weekId]
+    );
   }, [activeSection]);
 
   const toggleWeek = (id: string) => {
-    setExpandedWeeks((prev) =>
-      prev.includes(id) ? prev.filter((w) => w !== id) : [...prev, id]
+    setExpandedWeeks(prev =>
+      prev.includes(id) ? prev.filter(w => w !== id) : [...prev, id]
     );
   };
 
@@ -144,7 +154,10 @@ export default function Layout({ children, activeSection }: LayoutProps) {
   };
 
   return (
-    <div className="min-h-screen flex" style={{ backgroundColor: "var(--color-ivory)" }}>
+    <div
+      className="min-h-screen flex"
+      style={{ backgroundColor: "var(--color-ivory)" }}
+    >
       {/* Mobile overlay */}
       {sidebarOpen && (
         <div
@@ -180,13 +193,21 @@ export default function Layout({ children, activeSection }: LayoutProps) {
           </div>
           <h2
             className="font-display leading-tight"
-            style={{ fontSize: "0.95rem", color: "var(--color-charcoal)", fontWeight: 600 }}
+            style={{
+              fontSize: "0.95rem",
+              color: "var(--color-charcoal)",
+              fontWeight: 600,
+            }}
           >
             Calistenia Feminina
           </h2>
           <p
             className="font-body mt-0.5"
-            style={{ fontSize: "0.7rem", color: "var(--color-taupe)", fontWeight: 400 }}
+            style={{
+              fontSize: "0.7rem",
+              color: "var(--color-taupe)",
+              fontWeight: 400,
+            }}
           >
             Sob medida
           </p>
@@ -194,11 +215,11 @@ export default function Layout({ children, activeSection }: LayoutProps) {
 
         {/* Nav items */}
         <nav className="flex-1 overflow-y-auto py-4 px-3">
-          {navSections.map((section) => {
+          {navSections.map(section => {
             const isWeek = section.children && section.children.length > 0;
             const isExpanded = expandedWeeks.includes(section.id);
             const hasActiveChild = Boolean(
-              section.children?.some((child) => child.id === activeSection)
+              section.children?.some(child => child.id === activeSection)
             );
             const isActive = activeSection === section.id || hasActiveChild;
 
@@ -212,20 +233,30 @@ export default function Layout({ children, activeSection }: LayoutProps) {
                       fontSize: "0.78rem",
                       fontFamily: "'DM Sans', sans-serif",
                       fontWeight: 500,
-                      color: isActive ? "var(--color-rose)" : "var(--color-charcoal-light)",
-                      backgroundColor: isActive ? "var(--color-rose-muted)" : "transparent",
+                      color: isActive
+                        ? "var(--color-rose)"
+                        : "var(--color-charcoal-light)",
+                      backgroundColor: isActive
+                        ? "var(--color-rose-muted)"
+                        : "transparent",
                     }}
                   >
                     <span>{section.label}</span>
                     {isExpanded ? (
-                      <ChevronUp size={12} style={{ color: "var(--color-taupe)" }} />
+                      <ChevronUp
+                        size={12}
+                        style={{ color: "var(--color-taupe)" }}
+                      />
                     ) : (
-                      <ChevronDown size={12} style={{ color: "var(--color-taupe)" }} />
+                      <ChevronDown
+                        size={12}
+                        style={{ color: "var(--color-taupe)" }}
+                      />
                     )}
                   </button>
                   {isExpanded && (
                     <div className="ml-3 mb-1">
-                      {section.children!.map((child) => (
+                      {section.children!.map(child => (
                         <button
                           key={child.id}
                           onClick={() => scrollTo(child.id)}
@@ -256,8 +287,12 @@ export default function Layout({ children, activeSection }: LayoutProps) {
                 onClick={() => scrollTo(section.id)}
                 className="nav-item w-full text-left mb-0.5"
                 style={{
-                  backgroundColor: isActive ? "var(--color-rose-muted)" : "transparent",
-                  color: isActive ? "var(--color-rose)" : "var(--color-warm-gray)",
+                  backgroundColor: isActive
+                    ? "var(--color-rose-muted)"
+                    : "transparent",
+                  color: isActive
+                    ? "var(--color-rose)"
+                    : "var(--color-warm-gray)",
                   borderLeft:
                     section.emphasis && !isActive
                       ? "2px solid var(--color-rose-light)"
@@ -278,7 +313,11 @@ export default function Layout({ children, activeSection }: LayoutProps) {
         >
           <p
             className="font-body"
-            style={{ fontSize: "0.65rem", color: "var(--color-taupe)", lineHeight: 1.5 }}
+            style={{
+              fontSize: "0.65rem",
+              color: "var(--color-taupe)",
+              lineHeight: 1.5,
+            }}
           >
             Constância vence intensidade.
           </p>
@@ -297,7 +336,11 @@ export default function Layout({ children, activeSection }: LayoutProps) {
         <div>
           <p
             className="font-display"
-            style={{ fontSize: "0.85rem", color: "var(--color-charcoal)", fontWeight: 600 }}
+            style={{
+              fontSize: "0.85rem",
+              color: "var(--color-charcoal)",
+              fontWeight: 600,
+            }}
           >
             Calistenia Feminina
           </p>
@@ -322,9 +365,7 @@ export default function Layout({ children, activeSection }: LayoutProps) {
         className="flex-1 pt-16 lg:pt-0"
         style={{ marginLeft: "0", paddingLeft: "0" }}
       >
-        <div className="lg:ml-[220px]">
-          {children}
-        </div>
+        <div className="lg:ml-[220px]">{children}</div>
       </main>
     </div>
   );
