@@ -4,6 +4,21 @@ import react from "@vitejs/plugin-react";
 import path from "node:path";
 import { defineConfig } from "vite";
 
+const clientRoot = path.resolve(import.meta.dirname, "client");
+
+const multipageInputs = {
+  app: path.resolve(clientRoot, "index.html"),
+  sobre: path.resolve(clientRoot, "sobre", "index.html"),
+  contato: path.resolve(clientRoot, "contato", "index.html"),
+  privacidade: path.resolve(
+    clientRoot,
+    "politica-de-privacidade",
+    "index.html"
+  ),
+  termos: path.resolve(clientRoot, "termos-de-servico", "index.html"),
+  avisoLegal: path.resolve(clientRoot, "aviso-legal", "index.html"),
+};
+
 export default defineConfig({
   plugins: [react(), tailwindcss(), jsxLocPlugin()],
   resolve: {
@@ -14,10 +29,13 @@ export default defineConfig({
     },
   },
   envDir: path.resolve(import.meta.dirname),
-  root: path.resolve(import.meta.dirname, "client"),
+  root: clientRoot,
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      input: multipageInputs,
+    },
   },
   server: {
     port: 3000,

@@ -1,13 +1,8 @@
 import { createRoot } from "react-dom/client";
 import App from "./App";
+import { ensureGtm } from "./lib/gtm";
 import { redirectLegacyHashIfNeeded } from "./lib/legacyHashRedirect";
 import "./index.css";
-
-declare global {
-  interface Window {
-    dataLayer?: Array<Record<string, string>>;
-  }
-}
 
 function trackPageView() {
   const hashPath = window.location.hash.replace(/^#/, "") || "/";
@@ -20,6 +15,7 @@ function trackPageView() {
   });
 }
 
+ensureGtm();
 redirectLegacyHashIfNeeded();
 window.addEventListener("hashchange", redirectLegacyHashIfNeeded);
 window.addEventListener("hashchange", trackPageView);

@@ -7,6 +7,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { useLocation } from "wouter";
+import { siteConfig } from "@/content/siteConfig";
 import SiteFooter from "./SiteFooter";
 
 interface NavChild {
@@ -63,7 +64,7 @@ const navSections: NavSection[] = [
   { label: "Apoio e continuidade", to: "/apoio", emphasis: true },
   {
     label: "BLOG 🧡",
-    href: "https://semprenamoda.com.br/blogs/todos-os-posts",
+    href: siteConfig.blogUrl,
     external: true,
   },
 ];

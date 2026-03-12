@@ -1,35 +1,11 @@
+import {
+  footerHelpLinks,
+  footerInstitutionalLinks,
+  siteConfig,
+  socialLinks,
+  type SiteLink,
+} from "@/content/siteConfig";
 import { ExternalLink } from "lucide-react";
-
-const HELP_LINKS = [
-  { label: "Sobre Nós", href: "#/sobre" },
-  { label: "Biblioteca", href: "#/biblioteca" },
-  { label: "Checklist", href: "#/checklist" },
-  { label: "Perguntas Frequentes - FAQ", href: "#/faq" },
-  { label: "Apoio", href: "#/apoio" },
-  { label: "Contato", href: "#/contato" },
-  {
-    label: "Veja: BLOG Sempre Na Moda 🧡",
-    href: "https://semprenamoda.com.br/blogs/todos-os-posts",
-    external: true,
-  },
-];
-
-const INSTITUTIONAL_LINKS = [
-  { label: "Política de Privacidade", href: "#/politica-de-privacidade" },
-  { label: "Termos de Serviço", href: "#/termos-de-servico" },
-  { label: "Aviso Legal", href: "#/aviso-legal" },
-];
-
-const SOCIAL_LINKS = [
-  { label: "Facebook", href: "https://www.facebook.com/semprenamoda.loja/" },
-  { label: "Instagram", href: "https://www.instagram.com/semprenamoda.loja/" },
-  { label: "Pinterest", href: "https://pinterest.com/semprenamodaloja/" },
-  {
-    label: "YouTube",
-    href: "https://www.youtube.com/@semprenamodaloja?sub_confirmation=1",
-  },
-  { label: "TikTok", href: "https://www.tiktok.com/@semprenamoda.loja/" },
-];
 
 function FooterSection({
   title,
@@ -57,15 +33,7 @@ function FooterSection({
   );
 }
 
-function FooterLink({
-  label,
-  href,
-  external,
-}: {
-  label: string;
-  href: string;
-  external?: boolean;
-}) {
+function FooterLink({ label, href, external }: SiteLink) {
   return (
     <a
       href={href}
@@ -109,7 +77,7 @@ export default function SiteFooter() {
                 lineHeight: 1.5,
               }}
             >
-              Contato: (62) 99991-8702
+              Contato: {siteConfig.supportPhone}
             </p>
             <p
               className="font-body mb-3"
@@ -121,10 +89,10 @@ export default function SiteFooter() {
             >
               Email:{" "}
               <a
-                href="mailto:sac@semprenamoda.com.br"
+                href={`mailto:${siteConfig.supportEmail}`}
                 style={{ color: "var(--color-rose)", fontWeight: 500 }}
               >
-                sac@semprenamoda.com.br
+                {siteConfig.supportEmail}
               </a>
             </p>
             <p
@@ -143,21 +111,16 @@ export default function SiteFooter() {
 
           <FooterSection title="Central de Ajuda">
             <div className="flex flex-col">
-              {HELP_LINKS.map(link => (
-                <FooterLink
-                  key={link.label}
-                  label={link.label}
-                  href={link.href}
-                  external={link.external}
-                />
+              {footerHelpLinks.map(link => (
+                <FooterLink key={link.label} {...link} />
               ))}
             </div>
           </FooterSection>
 
           <FooterSection title="Institucional">
             <div className="flex flex-col mb-4">
-              {INSTITUTIONAL_LINKS.map(link => (
-                <FooterLink key={link.label} label={link.label} href={link.href} />
+              {footerInstitutionalLinks.map(link => (
+                <FooterLink key={link.label} {...link} />
               ))}
             </div>
             <div
@@ -177,7 +140,7 @@ export default function SiteFooter() {
                 Redes oficiais
               </p>
               <div className="flex flex-wrap gap-3">
-                {SOCIAL_LINKS.map(link => (
+                {socialLinks.map(link => (
                   <a
                     key={link.label}
                     href={link.href}
@@ -209,8 +172,8 @@ export default function SiteFooter() {
               lineHeight: 1.6,
             }}
           >
-            © {new Date().getFullYear()} Calistenia Feminina Sob Medida · CNPJ:
-            41.024.752/0001-70 · Todos os direitos reservados.
+            © {new Date().getFullYear()} {siteConfig.brandName} · CNPJ:{" "}
+            {siteConfig.cnpj} · Todos os direitos reservados.
           </p>
         </div>
       </div>

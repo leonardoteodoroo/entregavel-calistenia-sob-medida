@@ -5,6 +5,12 @@
 // ============================================================
 
 import { AlertCircle, Video, BookOpen, MessageCircle } from "lucide-react";
+import {
+  institutionalSlugs,
+  siteConfig,
+  toPublicPath,
+  toSpaHashPath,
+} from "@/content/siteConfig";
 
 // ── BLOCO 6: PERDI DIAS, E AGORA? ──
 export function SectionPerdidias() {
@@ -192,7 +198,7 @@ export function SectionApoioSuporte() {
       title: "Biblioteca de exercícios",
       desc: "Variações e progressões para evoluir os movimentos com segurança.",
       status: "Abrir biblioteca agora",
-      statusHref: "#/biblioteca",
+      statusHref: toSpaHashPath("/biblioteca"),
       color: "var(--color-rose-muted)",
       border: "var(--color-rose-light)",
       accent: "var(--color-rose)",
@@ -202,7 +208,7 @@ export function SectionApoioSuporte() {
       title: "Suporte e dúvidas",
       desc: "Canal oficial para dúvidas técnicas e orientação de continuidade.",
       status: "Falar com suporte por e-mail",
-      statusHref: "mailto:sac@semprenamoda.com.br",
+      statusHref: `mailto:${siteConfig.supportEmail}`,
       color: "var(--color-ivory-dark)",
       border: "var(--color-taupe-light)",
       accent: "var(--color-taupe)",
@@ -358,14 +364,14 @@ export function SectionApoioSuporte() {
         >
           Para atendimento direto, use{" "}
           <a
-            href="mailto:sac@semprenamoda.com.br"
+            href={`mailto:${siteConfig.supportEmail}`}
             style={{ color: "var(--color-rose)", fontWeight: 600 }}
           >
-            sac@semprenamoda.com.br
+            {siteConfig.supportEmail}
           </a>{" "}
           ou acesse{" "}
           <a
-            href="#/contato"
+            href={toPublicPath(institutionalSlugs.contato)}
             style={{ color: "var(--color-rose)", fontWeight: 600 }}
           >
             a página de contato
