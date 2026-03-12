@@ -177,6 +177,38 @@ export function SectionPerdidias() {
 
 // ── BLOCO 8: APOIO / SUPORTE / VÍDEOS ──
 export function SectionApoioSuporte() {
+  const recursos = [
+    {
+      icon: <Video size={24} />,
+      title: "Vídeos de demonstração",
+      desc: "Vídeos curtos de execução e ajustes de postura serão publicados aqui.",
+      status: "Vídeos de demonstração em atualização",
+      color: "var(--color-teal-muted)",
+      border: "var(--color-teal-light)",
+      accent: "var(--color-teal)",
+    },
+    {
+      icon: <BookOpen size={24} />,
+      title: "Biblioteca de exercícios",
+      desc: "Variações e progressões para evoluir os movimentos com segurança.",
+      status: "Abrir biblioteca agora",
+      statusHref: "#/biblioteca",
+      color: "var(--color-rose-muted)",
+      border: "var(--color-rose-light)",
+      accent: "var(--color-rose)",
+    },
+    {
+      icon: <MessageCircle size={24} />,
+      title: "Suporte e dúvidas",
+      desc: "Canal oficial para dúvidas técnicas e orientação de continuidade.",
+      status: "Falar com suporte por e-mail",
+      statusHref: "mailto:sac@semprenamoda.com.br",
+      color: "var(--color-ivory-dark)",
+      border: "var(--color-taupe-light)",
+      accent: "var(--color-taupe)",
+    },
+  ];
+
   return (
     <section
       id="apoio-suporte"
@@ -213,7 +245,7 @@ export function SectionApoioSuporte() {
           fontStyle: "italic",
         }}
       >
-        Esta área reúne os recursos de apoio em liberação.
+        Esta área reúne os recursos de continuidade e suporte do programa.
       </p>
 
       <div
@@ -234,35 +266,7 @@ export function SectionApoioSuporte() {
           marginBottom: "2rem",
         }}
       >
-        {[
-          {
-            icon: <Video size={24} />,
-            title: "Vídeos de demonstração",
-            desc: "Vídeos curtos de execução e ajustes de postura serão publicados aqui.",
-            status: "Vídeos de demonstração em atualização",
-            color: "var(--color-teal-muted)",
-            border: "var(--color-teal-light)",
-            accent: "var(--color-teal)",
-          },
-          {
-            icon: <BookOpen size={24} />,
-            title: "Biblioteca de exercícios",
-            desc: "Variações e progressões para evoluir os movimentos com segurança.",
-            status: "Biblioteca em liberação",
-            color: "var(--color-rose-muted)",
-            border: "var(--color-rose-light)",
-            accent: "var(--color-rose)",
-          },
-          {
-            icon: <MessageCircle size={24} />,
-            title: "Suporte e dúvidas",
-            desc: "Canal dedicado para dúvidas técnicas e orientação de continuidade.",
-            status: "Canal de suporte será disponibilizado nesta área",
-            color: "var(--color-ivory-dark)",
-            border: "var(--color-taupe-light)",
-            accent: "var(--color-taupe)",
-          },
-        ].map((recurso, i) => (
+        {recursos.map((recurso, i) => (
           <div
             key={i}
             className="px-5 py-5 rounded flex flex-col"
@@ -306,20 +310,68 @@ export function SectionApoioSuporte() {
                 border: `1px solid ${recurso.accent}`,
               }}
             >
-              <p
-                className="font-body"
-                style={{
-                  fontSize: "0.75rem",
-                  color: recurso.accent,
-                  fontStyle: "normal",
-                  fontWeight: 500,
-                }}
-              >
-                {recurso.status}
-              </p>
+              {recurso.statusHref ? (
+                <a
+                  href={recurso.statusHref}
+                  className="font-body"
+                  style={{
+                    fontSize: "0.75rem",
+                    color: recurso.accent,
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                  }}
+                >
+                  {recurso.status}
+                </a>
+              ) : (
+                <p
+                  className="font-body"
+                  style={{
+                    fontSize: "0.75rem",
+                    color: recurso.accent,
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                  }}
+                >
+                  {recurso.status}
+                </p>
+              )}
             </div>
           </div>
         ))}
+      </div>
+
+      <div
+        className="rounded px-5 py-4 mb-6"
+        style={{
+          backgroundColor: "white",
+          border: "1px solid var(--color-taupe-light)",
+        }}
+      >
+        <p
+          className="font-body"
+          style={{
+            fontSize: "0.84rem",
+            color: "var(--color-charcoal-light)",
+            lineHeight: 1.6,
+          }}
+        >
+          Para atendimento direto, use{" "}
+          <a
+            href="mailto:sac@semprenamoda.com.br"
+            style={{ color: "var(--color-rose)", fontWeight: 600 }}
+          >
+            sac@semprenamoda.com.br
+          </a>{" "}
+          ou acesse{" "}
+          <a
+            href="#/contato"
+            style={{ color: "var(--color-rose)", fontWeight: 600 }}
+          >
+            a página de contato
+          </a>
+          .
+        </p>
       </div>
 
       {/* Seção de FAQ rápido */}
@@ -344,11 +396,11 @@ export function SectionApoioSuporte() {
             },
             {
               q: "Posso fazer perguntas sobre minha forma?",
-              a: "Por enquanto, use as orientações de adaptação e observação de cada dia. O canal dedicado de suporte será publicado aqui.",
+              a: "Sim. Envie pelo e-mail de suporte e descreva o dia, o exercício e a dificuldade para receber orientação mais objetiva.",
             },
             {
               q: "E se eu não conseguir fazer um exercício?",
-              a: "Use a adaptação técnica do dia e escolha o Caminho Leve. Se ainda houver dúvida, registre para enviar quando o canal abrir.",
+              a: "Use a adaptação do dia e o Caminho Leve. Se a dificuldade continuar, registre o contexto e fale pelo e-mail oficial de suporte.",
             },
             {
               q: "Há comunidade ou grupo de apoio?",

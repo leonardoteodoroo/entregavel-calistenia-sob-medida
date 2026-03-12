@@ -7,6 +7,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { useLocation } from "wouter";
+import SiteFooter from "./SiteFooter";
 
 interface NavChild {
   label: string;
@@ -15,7 +16,9 @@ interface NavChild {
 
 interface NavSection {
   label: string;
-  to: string;
+  to?: string;
+  href?: string;
+  external?: boolean;
   emphasis?: boolean;
   children?: NavChild[];
 }
@@ -58,6 +61,11 @@ const navSections: NavSection[] = [
   { label: "Checklist", to: "/checklist" },
   { label: "FAQ", to: "/faq" },
   { label: "Apoio e continuidade", to: "/apoio", emphasis: true },
+  {
+    label: "BLOG 🧡",
+    href: "https://semprenamoda.com.br/blogs/todos-os-posts",
+    external: true,
+  },
 ];
 
 interface LayoutProps {
@@ -153,20 +161,43 @@ export default function Layout({ children }: LayoutProps) {
 
         <nav className="flex-1 overflow-y-auto py-4 px-3">
           {navSections.map(section => {
+            if (section.external && section.href) {
+              return (
+                <a
+                  key={section.label}
+                  href={section.href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  onClick={() => setSidebarOpen(false)}
+                  className="nav-item w-full text-left mb-0.5"
+                  style={{
+                    color: "var(--color-warm-gray)",
+                    backgroundColor: "transparent",
+                    borderLeft: "2px solid transparent",
+                  }}
+                >
+                  {section.label}
+                </a>
+              );
+            }
+
+            if (!section.to) return null;
+            const sectionTo = section.to;
+
             const isWeek = Boolean(section.children?.length);
-            const isExpanded = expandedWeeks.includes(section.to);
+            const isExpanded = expandedWeeks.includes(sectionTo);
             const hasActiveChild = Boolean(
               section.children?.some(child => location === child.to)
             );
             const isActive =
-              isRouteActive(location, section.to) || hasActiveChild;
+              isRouteActive(location, sectionTo) || hasActiveChild;
 
             if (isWeek) {
               return (
-                <div key={section.to}>
+                <div key={sectionTo}>
                   <div className="flex items-center">
                     <button
-                      onClick={() => navigateTo(section.to)}
+                      onClick={() => navigateTo(sectionTo)}
                       className="w-full text-left px-3 py-2 rounded transition-all duration-150"
                       style={{
                         fontSize: "0.78rem",
@@ -183,7 +214,7 @@ export default function Layout({ children }: LayoutProps) {
                       {section.label}
                     </button>
                     <button
-                      onClick={() => toggleWeek(section.to)}
+                      onClick={() => toggleWeek(sectionTo)}
                       className="px-2 py-2"
                       aria-label={`Expandir ${section.label}`}
                     >
@@ -229,8 +260,8 @@ export default function Layout({ children }: LayoutProps) {
 
             return (
               <button
-                key={section.to}
-                onClick={() => navigateTo(section.to)}
+                key={sectionTo}
+                onClick={() => navigateTo(sectionTo)}
                 className="nav-item w-full text-left mb-0.5"
                 style={{
                   backgroundColor: isActive
@@ -309,7 +340,10 @@ export default function Layout({ children }: LayoutProps) {
         className="flex-1 pt-16 lg:pt-0"
         style={{ marginLeft: "0", paddingLeft: "0" }}
       >
-        <div className="lg:ml-[220px]">{children}</div>
+        <div className="lg:ml-[220px] min-h-[100dvh] flex flex-col">
+          <div className="flex-1">{children}</div>
+          <SiteFooter />
+        </div>
       </main>
     </div>
   );
