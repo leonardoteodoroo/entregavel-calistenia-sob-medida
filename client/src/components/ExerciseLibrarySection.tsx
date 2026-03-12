@@ -1,4 +1,4 @@
-import { startTransition, useDeferredValue, useState } from "react";
+import { startTransition, useDeferredValue, useEffect, useState } from "react";
 import { Search } from "lucide-react";
 import { SectionLabel } from "@/components/NewSectionsV2";
 import ExerciseGallery from "@/components/ExerciseGallery";
@@ -10,6 +10,10 @@ import {
 } from "@/components/ui/accordion";
 import { getExerciseGuideEntries } from "@/lib/exerciseGuide";
 import { getExerciseMedia } from "@/lib/exerciseMedia";
+import {
+  clearPendingLibraryFocus,
+  readPendingLibraryFocus,
+} from "@/lib/libraryFocus";
 
 function normalizeSearch(value: string): string {
   return value
@@ -22,6 +26,10 @@ function normalizeSearch(value: string): string {
 export default function ExerciseLibrarySection() {
   const allEntries = getExerciseGuideEntries();
   const [query, setQuery] = useState("");
+  const [openItems, setOpenItems] = useState<string[]>([]);
+  const [highlightedExerciseId, setHighlightedExerciseId] = useState<
+    string | null
+  >(null);
   const deferredQuery = useDeferredValue(query);
 
   const normalizedQuery = normalizeSearch(deferredQuery);
@@ -34,6 +42,52 @@ export default function ExerciseLibrarySection() {
           );
           return haystack.includes(normalizedQuery);
         });
+
+  useEffect(() => {
+    const pendingExerciseId = readPendingLibraryFocus();
+    if (!pendingExerciseId) return;
+
+    const targetEntry = allEntries.find(
+      entry => entry.exercise_id === pendingExerciseId
+    );
+
+    clearPendingLibraryFocus();
+    if (!targetEntry) return;
+
+    setQuery(targetEntry.display_name);
+    setOpenItems([targetEntry.exercise_id]);
+    setHighlightedExerciseId(targetEntry.exercise_id);
+  }, [allEntries]);
+
+  useEffect(() => {
+    if (!highlightedExerciseId) return;
+
+    const targetStillVisible = filteredEntries.some(
+      entry => entry.exercise_id === highlightedExerciseId
+    );
+    if (!targetStillVisible) return;
+
+    const frameId = window.requestAnimationFrame(() => {
+      const targetElement = document.getElementById(
+        `exercise-card-${highlightedExerciseId}`
+      );
+      targetElement?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+
+    const timeoutId = window.setTimeout(() => {
+      setHighlightedExerciseId(current =>
+        current === highlightedExerciseId ? null : current
+      );
+    }, 3200);
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+      window.clearTimeout(timeoutId);
+    };
+  }, [filteredEntries, highlightedExerciseId]);
 
   return (
     <section
@@ -143,18 +197,32 @@ export default function ExerciseLibrarySection() {
           </p>
         </div>
       ) : (
-        <Accordion type="multiple">
+        <Accordion
+          type="multiple"
+          value={openItems}
+          onValueChange={value => setOpenItems(value as string[])}
+        >
           {filteredEntries.map(entry => {
             const media = getExerciseMedia(entry.display_name);
+            const isHighlighted = highlightedExerciseId === entry.exercise_id;
 
             return (
               <AccordionItem
                 key={entry.exercise_id}
+                id={`exercise-card-${entry.exercise_id}`}
                 value={entry.exercise_id}
                 className="rounded mb-3 px-4"
                 style={{
                   border: "1px solid var(--color-taupe-light)",
-                  backgroundColor: "white",
+                  backgroundColor: isHighlighted
+                    ? "var(--color-teal-muted)"
+                    : "white",
+                  boxShadow: isHighlighted
+                    ? "0 0 0 1px var(--color-teal)"
+                    : "none",
+                  scrollMarginTop: "1.5rem",
+                  transition:
+                    "background-color 220ms ease, box-shadow 220ms ease",
                 }}
               >
                 <AccordionTrigger className="hover:no-underline py-4">

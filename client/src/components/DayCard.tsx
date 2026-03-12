@@ -4,7 +4,10 @@
 // Card de treino diário com exercícios e intensidades
 // ============================================================
 
-import { Clock, Target, Info } from "lucide-react";
+import { BookOpen, Clock, Target, Info } from "lucide-react";
+import { toSpaHashPath } from "@/content/siteConfig";
+import { getExerciseGuideByName } from "@/lib/exerciseGuide";
+import { setPendingLibraryFocus } from "@/lib/libraryFocus";
 import type { DayPlan } from "@/lib/planData";
 import { getExerciseMedia } from "@/lib/exerciseMedia";
 import ExerciseGallery from "./ExerciseGallery";
@@ -232,6 +235,7 @@ export default function DayCard({ plan, weekNumber }: DayCardProps) {
         <div className="space-y-6">
           {plan.exercises.map((ex, i) => {
             const media = getExerciseMedia(ex.name);
+            const guideEntry = getExerciseGuideByName(ex.name);
             return (
               <div
                 key={i}
@@ -268,6 +272,24 @@ export default function DayCard({ plan, weekNumber }: DayCardProps) {
                       >
                         {ex.note}
                       </p>
+                    )}
+                    {guideEntry && (
+                      <a
+                        href={toSpaHashPath("/biblioteca")}
+                        onClick={() =>
+                          setPendingLibraryFocus(guideEntry.exercise_id)
+                        }
+                        className="font-body inline-flex items-center gap-1.5 mt-2 rounded transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                        style={{
+                          fontSize: "0.74rem",
+                          color: "var(--color-teal)",
+                          fontWeight: 500,
+                          textUnderlineOffset: "0.18em",
+                        }}
+                      >
+                        <BookOpen size={13} />
+                        Dúvida neste movimento? Ver na biblioteca
+                      </a>
                     )}
                   </div>
                   <span
