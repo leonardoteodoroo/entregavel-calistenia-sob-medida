@@ -1,10 +1,18 @@
 import { jsxLocPlugin } from "@builder.io/vite-plugin-jsx-loc";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
+import type { IncomingMessage, ServerResponse } from "node:http";
 import path from "node:path";
-import { defineConfig } from "vite";
+import { defineConfig, type Plugin } from "vite";
 
 const clientRoot = path.resolve(import.meta.dirname, "client");
+const institutionalPaths = new Set([
+  "/sobre",
+  "/contato",
+  "/politica-de-privacidade",
+  "/termos-de-servico",
+  "/aviso-legal",
+]);
 
 const multipageInputs = {
   app: path.resolve(clientRoot, "index.html"),
@@ -19,8 +27,47 @@ const multipageInputs = {
   avisoLegal: path.resolve(clientRoot, "aviso-legal", "index.html"),
 };
 
+function createInstitutionalPathRedirectPlugin(): Plugin {
+  const redirectIfNeeded = (
+    req: IncomingMessage,
+    res: ServerResponse,
+    next: (err?: unknown) => void
+  ) => {
+    if (!req.url) {
+      next();
+      return;
+    }
+
+    const requestUrl = new URL(req.url, "http://localhost");
+    if (!institutionalPaths.has(requestUrl.pathname)) {
+      next();
+      return;
+    }
+
+    res.statusCode = 302;
+    res.setHeader("Location", `${requestUrl.pathname}/${requestUrl.search}`);
+    res.end();
+  };
+
+  return {
+    name: "institutional-path-redirect",
+    configureServer(server) {
+      server.middlewares.use(redirectIfNeeded);
+    },
+    configurePreviewServer(server) {
+      server.middlewares.use(redirectIfNeeded);
+    },
+  };
+}
+
 export default defineConfig({
-  plugins: [react(), tailwindcss(), jsxLocPlugin()],
+  plugins: [
+    react(),
+    tailwindcss(),
+    jsxLocPlugin(),
+    createInstitutionalPathRedirectPlugin(),
+  ],
+  appType: "mpa",
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
