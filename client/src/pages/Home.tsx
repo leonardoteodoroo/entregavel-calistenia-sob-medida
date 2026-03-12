@@ -88,7 +88,7 @@ export default function Home() {
                     color: "var(--color-rose)",
                   }}
                 >
-                  Produto digital · Plano de treino
+                  Método digital · 28 dias
                 </p>
                 <h1
                   className="font-display"
@@ -129,9 +129,10 @@ export default function Home() {
                     fontWeight: 300,
                   }}
                 >
-                  Desafio de 28 dias para criar constância com sessões curtas em
-                  casa. Agora organizado por páginas semanais para facilitar o
-                  uso no celular.
+                  Método de 28 dias para sair do zero, criar constância e ganhar
+                  força com sessões curtas de calistenia feminina em casa. Cada
+                  semana tem uma função clara: adaptação, ritmo, confiança e
+                  consolidação.
                 </p>
               </div>
 
@@ -175,11 +176,11 @@ export default function Home() {
         </section>
 
         <section
-          id="boas-vindas"
+          id="como-funciona"
           className="page-card mb-6"
           style={{ padding: "clamp(2rem, 5vw, 3.5rem)" }}
         >
-          <SectionLabel>Boas-vindas</SectionLabel>
+          <SectionLabel>Como funciona</SectionLabel>
           <h2
             className="font-display mb-6"
             style={{
@@ -189,7 +190,7 @@ export default function Home() {
               lineHeight: 1.2,
             }}
           >
-            Estrutura nova, mesmo plano.
+            Como este método funciona.
           </h2>
           <div
             style={{
@@ -209,9 +210,10 @@ export default function Home() {
                 fontWeight: 300,
               }}
             >
-              O conteúdo continua o mesmo: progressão suave, sessões curtas e
-              foco em constância. A diferença é que agora cada semana está em
-              uma página própria para evitar travamentos no celular.
+              Este não é um calendário solto. O programa foi organizado em 4
+              semanas com papéis diferentes: a primeira adapta seu corpo e
+              reduz atrito; a segunda cria ritmo; a terceira aumenta confiança
+              e capacidade; a quarta consolida o hábito.
             </p>
             <p
               className="font-body"
@@ -222,9 +224,23 @@ export default function Home() {
                 fontWeight: 300,
               }}
             >
-              A navegação lateral leva direto para semana, biblioteca,
-              checklist, FAQ e apoio. Menos rolagem infinita, mais clareza no
-              uso diário.
+              Em cada dia, você pode ajustar a intensidade com Caminho Leve,
+              Base ou Avançar. Isso permite continuar dentro do método mesmo
+              quando a energia muda, sem transformar o plano em tudo ou nada.
+            </p>
+            <p
+              className="font-body"
+              style={{
+                fontSize: "clamp(0.9rem, 2vw, 1rem)",
+                color: "var(--color-charcoal-light)",
+                lineHeight: 1.75,
+                fontWeight: 300,
+              }}
+            >
+              Biblioteca, checklist, FAQ e apoio existem para sustentar a
+              execução com segurança e continuidade. A proposta não é fazer
+              perfeito; é conseguir começar, manter ritmo e saber como seguir
+              até depois do dia 28.
             </p>
           </div>
         </section>
@@ -238,7 +254,7 @@ export default function Home() {
           className="page-card mb-6 overflow-hidden"
           style={{ padding: "clamp(2rem, 5vw, 3.5rem)" }}
         >
-          <SectionLabel>Visão geral</SectionLabel>
+          <SectionLabel>Método em 4 etapas</SectionLabel>
           <h2
             className="font-display mb-2"
             style={{
@@ -247,7 +263,7 @@ export default function Home() {
               fontWeight: 400,
             }}
           >
-            Visão geral das 4 semanas
+            A lógica das 4 semanas
           </h2>
           <p
             className="font-display mb-6"
@@ -257,7 +273,8 @@ export default function Home() {
               fontStyle: "italic",
             }}
           >
-            Cada semana mantém um propósito claro.
+            Você não está repetindo sessões aleatórias. Cada semana prepara a
+            próxima.
           </p>
 
           <div
