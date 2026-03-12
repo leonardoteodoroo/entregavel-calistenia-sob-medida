@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { Play } from "lucide-react";
+import { useRef, useState } from "react";
+import type { TouchEvent } from "react";
+import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import type { ExerciseMedia } from "@/lib/exerciseMedia";
 
 interface ExerciseGalleryProps {
@@ -39,6 +40,8 @@ export default function ExerciseGallery({
 }: ExerciseGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const touchStartX = useRef<number | null>(null);
+  const touchCurrentX = useRef<number | null>(null);
 
   if (media.mediaType === "video") {
     if (!videoLoaded) {
@@ -103,21 +106,141 @@ export default function ExerciseGallery({
   }
 
   const positions = media.images;
+  const hasThreeImageSequence = positions.length === 3;
+  const canGoPrevious = activeIndex > 0;
+  const canGoNext = activeIndex < positions.length - 1;
+
+  function goToPrevious() {
+    setActiveIndex(current => Math.max(current - 1, 0));
+  }
+
+  function goToNext() {
+    setActiveIndex(current => Math.min(current + 1, positions.length - 1));
+  }
+
+  function handleTouchStart(event: TouchEvent<HTMLDivElement>) {
+    if (!hasThreeImageSequence) return;
+    const nextX = event.touches[0]?.clientX;
+    if (typeof nextX !== "number") return;
+    touchStartX.current = nextX;
+    touchCurrentX.current = nextX;
+  }
+
+  function handleTouchMove(event: TouchEvent<HTMLDivElement>) {
+    if (!hasThreeImageSequence) return;
+    const nextX = event.touches[0]?.clientX;
+    if (typeof nextX !== "number") return;
+    touchCurrentX.current = nextX;
+  }
+
+  function handleTouchEnd() {
+    if (!hasThreeImageSequence) return;
+
+    const startX = touchStartX.current;
+    const endX = touchCurrentX.current;
+
+    touchStartX.current = null;
+    touchCurrentX.current = null;
+
+    if (typeof startX !== "number" || typeof endX !== "number") return;
+
+    const deltaX = endX - startX;
+    if (Math.abs(deltaX) < 36) return;
+
+    if (deltaX < 0 && canGoNext) {
+      goToNext();
+    }
+
+    if (deltaX > 0 && canGoPrevious) {
+      goToPrevious();
+    }
+  }
 
   return (
     <div className="space-y-4">
       <VideoPlaceholder />
       <div className="md:hidden mt-4">
-        <div className="relative w-full aspect-square bg-muted rounded-lg overflow-hidden">
+        <div
+          className="relative w-full aspect-square bg-muted rounded-lg overflow-hidden"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           <img
+            key={positions[activeIndex].src}
             src={positions[activeIndex].src}
             alt={positions[activeIndex].alt}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover animate-fade-in"
             loading="lazy"
             decoding="async"
             width={1024}
             height={1024}
           />
+
+          {hasThreeImageSequence && (
+            <>
+              <button
+                type="button"
+                onClick={goToPrevious}
+                disabled={!canGoPrevious}
+                aria-label={`Ver imagem anterior de ${exerciseName}`}
+                className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                style={{
+                  width: "2.25rem",
+                  height: "2.25rem",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: canGoPrevious
+                    ? "rgba(249, 246, 240, 0.92)"
+                    : "rgba(249, 246, 240, 0.58)",
+                  color: canGoPrevious
+                    ? "var(--color-charcoal)"
+                    : "var(--color-taupe)",
+                  boxShadow: "0 8px 24px rgba(44, 44, 44, 0.12)",
+                }}
+              >
+                <ChevronLeft size={18} />
+              </button>
+
+              <button
+                type="button"
+                onClick={goToNext}
+                disabled={!canGoNext}
+                aria-label={`Ver próxima imagem de ${exerciseName}`}
+                className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                style={{
+                  width: "2.25rem",
+                  height: "2.25rem",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: canGoNext
+                    ? "rgba(249, 246, 240, 0.92)"
+                    : "rgba(249, 246, 240, 0.58)",
+                  color: canGoNext
+                    ? "var(--color-charcoal)"
+                    : "var(--color-taupe)",
+                  boxShadow: "0 8px 24px rgba(44, 44, 44, 0.12)",
+                }}
+              >
+                <ChevronRight size={18} />
+              </button>
+
+              <div
+                className="absolute left-1/2 bottom-3 -translate-x-1/2 rounded-full px-2.5 py-1"
+                style={{
+                  backgroundColor: "rgba(44, 44, 44, 0.7)",
+                  color: "var(--color-ivory)",
+                  fontSize: "0.68rem",
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                }}
+              >
+                {activeIndex + 1}/{positions.length}
+              </div>
+            </>
+          )}
         </div>
 
         <div className="flex gap-2 justify-center mt-3">
@@ -138,6 +261,19 @@ export default function ExerciseGallery({
         <p className="text-center text-sm text-muted-foreground mt-2">
           {positions[activeIndex].label}
         </p>
+
+        {hasThreeImageSequence && (
+          <p
+            className="font-body text-center mt-1"
+            style={{
+              fontSize: "0.72rem",
+              color: "var(--color-taupe)",
+              letterSpacing: "0.04em",
+            }}
+          >
+            Arraste para o lado ou use as setas
+          </p>
+        )}
       </div>
 
       <div className="hidden md:grid md:grid-cols-3 gap-4 mt-4">
