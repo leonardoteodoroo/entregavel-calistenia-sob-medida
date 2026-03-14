@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bonus de Receitas - Jantar Leve</title>
+    <style>
+      :root {
+        --ivory: #f9f6f0;
+        --taupe-light: #d4ccc4;
+        --rose: #8b4a52;
+        --charcoal: #2c2c2c;
+        --warm-gray: #7a7570;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--ivory);
+        color: var(--charcoal);
+        font-family: "DM Sans", sans-serif;
+        display: grid;
+        place-items: center;
+        padding: 1.25rem;
+      }
+
+      main {
+        width: min(760px, 100%);
+        background: #fff;
+        border: 1px solid var(--taupe-light);
+        border-radius: 6px;
+        padding: clamp(1.5rem, 4vw, 2.5rem);
+      }
+
+      h1 {
+        margin: 0 0 0.75rem;
+        font-family: "Playfair Display", serif;
+        font-weight: 500;
+      }
+
+      p {
+        margin: 0 0 0.9rem;
+        line-height: 1.6;
+      }
+
+      .tag {
+        font-size: 0.72rem;
+        color: var(--rose);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+
+      .muted {
+        color: var(--warm-gray);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="tag">Bonus de receitas</p>
+      <h1>Jantar pratico</h1>
+      <p>Placeholder inicial para o ambiente interativo de receitas.</p>
+      <p class="muted">
+        Aqui sera a base para receitas de noite com opcoes por nivel de fome,
+        disponibilidade e tempo de preparo.
+      </p>
+    </main>
+  </body>
+</html>

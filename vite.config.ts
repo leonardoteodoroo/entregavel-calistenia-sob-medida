@@ -6,12 +6,13 @@ import path from "node:path";
 import { defineConfig, type Plugin } from "vite";
 
 const clientRoot = path.resolve(import.meta.dirname, "client");
-const institutionalPaths = new Set([
+const slashRedirectPaths = new Set([
   "/sobre",
   "/contato",
   "/politica-de-privacidade",
   "/termos-de-servico",
   "/aviso-legal",
+  "/receitas-low-carb",
 ]);
 
 const multipageInputs = {
@@ -25,9 +26,14 @@ const multipageInputs = {
   ),
   termos: path.resolve(clientRoot, "termos-de-servico", "index.html"),
   avisoLegal: path.resolve(clientRoot, "aviso-legal", "index.html"),
+  receitasLowCarb: path.resolve(
+    clientRoot,
+    "receitas-low-carb",
+    "index.html"
+  ),
 };
 
-function createInstitutionalPathRedirectPlugin(): Plugin {
+function createSlashRedirectPlugin(): Plugin {
   const redirectIfNeeded = (
     req: IncomingMessage,
     res: ServerResponse,
@@ -39,7 +45,7 @@ function createInstitutionalPathRedirectPlugin(): Plugin {
     }
 
     const requestUrl = new URL(req.url, "http://localhost");
-    if (!institutionalPaths.has(requestUrl.pathname)) {
+    if (!slashRedirectPaths.has(requestUrl.pathname)) {
       next();
       return;
     }
@@ -50,7 +56,7 @@ function createInstitutionalPathRedirectPlugin(): Plugin {
   };
 
   return {
-    name: "institutional-path-redirect",
+    name: "slash-path-redirect",
     configureServer(server) {
       server.middlewares.use(redirectIfNeeded);
     },
@@ -65,7 +71,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     jsxLocPlugin(),
-    createInstitutionalPathRedirectPlugin(),
+    createSlashRedirectPlugin(),
   ],
   appType: "mpa",
   resolve: {

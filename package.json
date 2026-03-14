@@ -16,7 +16,8 @@
     "format": "prettier --write .",
     "sync:exercise-media": "tsx scripts/sync-exercise-media.ts",
     "sync:exercise-media:dry-run": "tsx scripts/sync-exercise-media.ts --dry-run",
-    "sync:exercise-guide": "tsx scripts/sync-exercise-guide.ts"
+    "sync:exercise-guide": "tsx scripts/sync-exercise-guide.ts",
+    "sync:bonus-recipe-media": "tsx scripts/sync-bonus-recipe-media.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

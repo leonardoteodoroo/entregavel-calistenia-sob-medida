@@ -30,6 +30,10 @@ export const productRoutes = {
   apoio: "/apoio",
 } as const;
 
+export const standaloneRoutes = {
+  receitasLowCarb: "/receitas-low-carb/",
+} as const;
+
 export const institutionalSlugs: Record<
   "sobre" | "contato" | "privacidade" | "termos" | "avisoLegal",
   InstitutionalSlug

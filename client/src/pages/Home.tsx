@@ -1,4 +1,6 @@
+import { standaloneRoutes, toPublicPath } from "@/content/siteConfig";
 import Layout from "@/components/Layout";
+import { Clock3, Heart, ThumbsUp } from "lucide-react";
 import {
   SectionCaminhos,
   SectionComecaHoje,
@@ -8,10 +10,75 @@ import {
   SectionSinaisProgresso,
 } from "@/components/NewSectionsV2";
 import { weeks } from "@/lib/planData";
+import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 
 const HERO_IMG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/capa-hero-cbNx8vkc9mpUh3EgwHquFC.webp";
+
+const BONUS_LIKES_STORAGE_KEY = "cf-bonus-receitas-like-v1";
+
+type BonusCard = {
+  id: string;
+  title: string;
+  description?: string;
+  href?: string;
+  thumbnail?: {
+    src: string;
+    alt: string;
+  };
+  social?: {
+    likesBase: number;
+  };
+  placeholderDays?: number;
+};
+
+const BONUS_RECIPES: BonusCard[] = [
+  {
+    id: "receitas-low-carb",
+    title: "Receitas Low Carb",
+    description:
+      "Sendo sincera: não adianta treinar 10 minutos e demorar duas horas na cozinha. Separei 10 pratos fáceis que não roubam seu tempo.",
+    href: toPublicPath(standaloneRoutes.receitasLowCarb),
+    thumbnail: {
+      src: toPublicPath("bonus/receitas-low-carb/01-crepioca.webp"),
+      alt: "Miniatura da receita de crepioca low carb",
+    },
+    social: { likesBase: 287 },
+  },
+  {
+    id: "bonus-placeholder-1",
+    title: "Em breve",
+    placeholderDays: 16,
+  },
+  {
+    id: "bonus-placeholder-2",
+    title: "Em breve",
+    placeholderDays: 16,
+  },
+];
+
+type BonusLikesState = Record<string, boolean>;
+
+function readBonusLikesState(): BonusLikesState {
+  if (typeof window === "undefined") return {};
+  try {
+    const raw = localStorage.getItem(BONUS_LIKES_STORAGE_KEY);
+    if (!raw) return {};
+    const parsed = JSON.parse(raw) as unknown;
+    if (!parsed || typeof parsed !== "object") return {};
+
+    const result: BonusLikesState = {};
+    for (const [cardId, value] of Object.entries(parsed)) {
+      if (typeof value === "boolean") {
+        result[cardId] = value;
+      }
+    }
+    return result;
+  } catch {
+    return {};
+  }
+}
 
 function WeekBadge({ week }: { week: number }) {
   const colors: Record<number, { bg: string; text: string }> = {
@@ -40,7 +107,32 @@ function WeekBadge({ week }: { week: number }) {
 }
 
 export default function Home() {
-  const [, setLocation] = useLocation();
+  const [location, setLocation] = useLocation();
+  const [bonusLikes, setBonusLikes] = useState<BonusLikesState>(() =>
+    readBonusLikesState()
+  );
+  const updatedAtLabel = new Intl.DateTimeFormat("pt-BR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  }).format(new Date());
+
+  useEffect(() => {
+    if (location !== "/bonus") return;
+    const section = document.getElementById("bonus");
+    if (!section) return;
+    requestAnimationFrame(() => {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }, [location]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(BONUS_LIKES_STORAGE_KEY, JSON.stringify(bonusLikes));
+    } catch {
+      // ignore localStorage write failures
+    }
+  }, [bonusLikes]);
 
   return (
     <Layout>
@@ -356,6 +448,266 @@ export default function Home() {
         <SectionSinaisProgresso />
 
         <section
+          id="bonus"
+          className="page-card mb-6 overflow-hidden"
+          style={{ padding: "clamp(2rem, 5vw, 3.5rem)" }}
+        >
+          <SectionLabel>Bônus</SectionLabel>
+          <h2
+            className="font-display mb-2"
+            style={{
+              fontSize: "clamp(1.4rem, 4vw, 2rem)",
+              color: "var(--color-charcoal)",
+              fontWeight: 400,
+            }}
+          >
+            O combustível para a sua constância.
+          </h2>
+          <p
+            className="font-display mb-6"
+            style={{
+              fontSize: "0.95rem",
+              color: "var(--color-taupe)",
+              fontStyle: "italic",
+            }}
+          >
+            De nada adianta o método de treino perfeito se sua alimentação te
+            deixa cansada e sem energia. No ambiente interativo de bônus, seu
+            primeiro presente já está liberado: receitas simples e rápidas para
+            quem não tem tempo a perder, mas quer ver o corpo responder melhor
+            aos exercícios. E não para na cozinha: esse espaço será atualizado
+            com novos conteúdos práticos para acelerar seus resultados além do
+            treino.
+          </p>
+
+          <div
+            className="grid gap-3"
+            style={{
+              gridTemplateColumns:
+                "repeat(auto-fit, minmax(min(220px, 100%), 1fr))",
+            }}
+          >
+            {BONUS_RECIPES.map(item => {
+              const isLiked = Boolean(bonusLikes[item.id]);
+              const likesCount = item.social
+                ? item.social.likesBase + (isLiked ? 1 : 0)
+                : 0;
+              const openBonusCard = () => {
+                if (!item.href) return;
+                window.open(item.href, "_blank", "noopener,noreferrer");
+              };
+
+              return (
+                <article
+                  key={item.id}
+                  className="px-4 py-4 rounded"
+                  style={{
+                    backgroundColor: "white",
+                    border: "1px solid var(--color-taupe-light)",
+                    cursor: item.social ? "pointer" : "default",
+                  }}
+                  role={item.social ? "link" : undefined}
+                  tabIndex={item.social ? 0 : undefined}
+                  onClick={item.social ? openBonusCard : undefined}
+                  onKeyDown={
+                    item.social
+                      ? event => {
+                          if (event.key === "Enter" || event.key === " ") {
+                            event.preventDefault();
+                            openBonusCard();
+                          }
+                        }
+                      : undefined
+                  }
+                >
+                  {item.social ? (
+                    <>
+                      {item.thumbnail ? (
+                        <img
+                          src={item.thumbnail.src}
+                          alt={item.thumbnail.alt}
+                          loading="lazy"
+                          decoding="async"
+                          className="rounded mb-3 w-full"
+                          style={{
+                            aspectRatio: "16 / 9",
+                            objectFit: "cover",
+                            border: "1px solid var(--color-taupe-light)",
+                          }}
+                        />
+                      ) : null}
+
+                      <div className="min-w-0">
+                        <p
+                          className="font-body"
+                          style={{
+                            fontSize: "0.85rem",
+                            fontWeight: 500,
+                            color: "var(--color-charcoal)",
+                            marginBottom: "0.3rem",
+                          }}
+                        >
+                          {item.title}
+                        </p>
+                        <p
+                          className="font-body"
+                          style={{
+                            fontSize: "0.78rem",
+                            color: "var(--color-warm-gray)",
+                            lineHeight: 1.6,
+                            marginBottom: "0.45rem",
+                          }}
+                        >
+                          {item.description}
+                        </p>
+
+                        <div
+                          className="mb-2 flex flex-wrap items-center gap-2"
+                          style={{ rowGap: "0.4rem" }}
+                        >
+                          <button
+                            type="button"
+                            aria-pressed={isLiked}
+                            onClick={event => {
+                              event.stopPropagation();
+                              setBonusLikes(prev => ({
+                                ...prev,
+                                [item.id]: !prev[item.id],
+                              }));
+                            }}
+                            onKeyDown={event => event.stopPropagation()}
+                            className="inline-flex items-center gap-1 rounded px-2 py-1 font-body"
+                            style={{
+                              fontSize: "0.72rem",
+                              fontWeight: 600,
+                              color: isLiked ? "#145fd1" : "var(--color-taupe)",
+                              border: isLiked
+                                ? "1px solid rgba(24,119,242,0.35)"
+                                : "1px solid var(--color-taupe-light)",
+                              backgroundColor: isLiked
+                                ? "rgba(24,119,242,0.10)"
+                                : "var(--color-ivory-dark)",
+                            }}
+                          >
+                            <ThumbsUp
+                              size={13}
+                              style={{ color: "#1877F2" }}
+                              fill={isLiked ? "#1877F2" : "none"}
+                              aria-hidden
+                            />
+                            Curtir
+                          </button>
+                          <span
+                            className="font-body"
+                            style={{
+                              fontSize: "0.72rem",
+                              color: "var(--color-taupe)",
+                            }}
+                          >
+                            {likesCount} curtidas
+                          </span>
+                        </div>
+
+                        <p
+                          className="font-body mb-2 inline-flex items-center gap-1.5"
+                          style={{
+                            fontSize: "0.7rem",
+                            color: "var(--color-taupe)",
+                          }}
+                        >
+                          Atualização: {updatedAtLabel}, com carinho
+                          <Heart
+                            size={12}
+                            style={{ color: "var(--color-rose)" }}
+                            fill="rgba(214,106,126,0.18)"
+                            aria-hidden
+                          />
+                        </p>
+                      </div>
+
+                      <p
+                        className="font-body inline-block"
+                        style={{
+                          marginTop: "0.1rem",
+                          fontSize: "0.7rem",
+                          color: "var(--color-rose)",
+                          textTransform: "uppercase",
+                          letterSpacing: "0.08em",
+                          fontWeight: 500,
+                        }}
+                      >
+                        Abrir ambiente interativo
+                      </p>
+                    </>
+                  ) : (
+                    <div
+                      className="rounded"
+                      style={{
+                        background:
+                          "linear-gradient(145deg, var(--color-ivory) 0%, var(--color-ivory-dark) 100%)",
+                        border: "1px solid var(--color-taupe-light)",
+                        padding: "0.95rem",
+                      }}
+                    >
+                      <p
+                        className="font-body"
+                        style={{
+                          fontSize: "0.68rem",
+                          textTransform: "uppercase",
+                          letterSpacing: "0.1em",
+                          fontWeight: 600,
+                          color: "var(--color-taupe)",
+                          marginBottom: "0.45rem",
+                        }}
+                      >
+                        Em breve
+                      </p>
+
+                      <div
+                        className="inline-flex items-center gap-2 rounded-full"
+                        style={{
+                          padding: "0.36rem 0.62rem",
+                          border: "1px solid rgba(188,168,145,0.5)",
+                          backgroundColor: "rgba(255,255,255,0.7)",
+                        }}
+                      >
+                        <Clock3
+                          size={13}
+                          style={{ color: "var(--color-rose)" }}
+                          aria-hidden
+                        />
+                        <span
+                          className="font-display"
+                          style={{
+                            fontSize: "1rem",
+                            color: "var(--color-charcoal)",
+                            lineHeight: 1,
+                          }}
+                        >
+                          {item.placeholderDays ?? 16}
+                        </span>
+                        <span
+                          className="font-body"
+                          style={{
+                            fontSize: "0.68rem",
+                            letterSpacing: "0.08em",
+                            textTransform: "uppercase",
+                            color: "var(--color-taupe)",
+                            fontWeight: 600,
+                          }}
+                        >
+                          dias
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                </article>
+              );
+            })}
+          </div>
+        </section>
+
+        <section
           id="navegacao-rapida"
           className="page-card mb-8"
           style={{ padding: "clamp(2rem, 5vw, 3rem)" }}
@@ -413,6 +765,12 @@ export default function Home() {
                 description:
                   "Protocolos para dias perdidos, suporte e próximos passos.",
                 route: "/apoio",
+              },
+              {
+                title: "Bônus: conteúdos extras",
+                description:
+                  "Receitas iniciais e futuros conteúdos em ambientes interativos independentes.",
+                route: "/bonus",
               },
             ].map(item => (
               <button

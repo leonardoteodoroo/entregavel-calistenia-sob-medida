@@ -16,6 +16,7 @@ function AppRouter() {
   return (
     <WouterRouter hook={useHashLocation}>
       <Switch>
+        <Route path="/bonus" component={Home} />
         <Route path="/" component={Home} />
         <Route path="/semana/:week/dia/:day" component={WeekPage} />
         <Route path="/semana/:week" component={WeekPage} />
