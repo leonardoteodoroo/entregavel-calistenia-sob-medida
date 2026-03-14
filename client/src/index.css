@@ -314,6 +314,34 @@
   }
 
   /* ---- Sidebar nav ---- */
+  .menu-panel {
+    position: relative;
+    background-image: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(249, 246, 240, 0.72) 100%
+    );
+    backdrop-filter: saturate(1.15) blur(8px);
+  }
+
+  @keyframes menuEntryIn {
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .menu-entry {
+    opacity: 0;
+    transform: translateX(-10px);
+    animation: menuEntryIn 0.34s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: opacity, transform;
+  }
+
   .nav-item {
     font-family: "DM Sans", sans-serif;
     font-size: 0.8rem;
@@ -321,22 +349,56 @@
     color: var(--color-warm-gray);
     padding: 0.4rem 0.75rem;
     border-radius: 3px;
-    transition: all 0.2s ease;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nav-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 20%;
+    bottom: 20%;
+    width: 2px;
+    border-radius: 8px;
+    background: var(--color-rose);
+    opacity: 0;
+    transform: scaleY(0.4);
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
   }
 
   .nav-item:hover {
     background-color: var(--color-rose-muted);
     color: var(--color-rose);
+    transform: translateX(2px);
+    box-shadow: inset 0 0 0 1px rgba(139, 74, 82, 0.1);
+  }
+
+  .nav-item:hover::before {
+    opacity: 0.7;
+    transform: scaleY(1);
   }
 
   .nav-item.active {
     background-color: var(--color-rose-muted);
     color: var(--color-rose);
     font-weight: 500;
+  }
+
+  .nav-item.active::before {
+    opacity: 0.85;
+    transform: scaleY(1);
   }
 
   /* ---- Checklist day box ---- */
@@ -407,5 +469,18 @@
     animation-name: fadeInUp;
     animation-duration: 0.4s;
     animation-timing-function: ease-out;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .menu-entry {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+
+    .nav-item,
+    .nav-item::before {
+      transition: none;
+    }
   }
 }

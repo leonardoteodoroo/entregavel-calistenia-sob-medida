@@ -8,6 +8,11 @@ import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { useLocation } from "wouter";
 import { siteConfig } from "@/content/siteConfig";
+import {
+  expandWeekFromLocation,
+  initialExpandedWeeks,
+  toggleExpandedWeek,
+} from "@/lib/weekMenuState";
 import SiteFooter from "./SiteFooter";
 
 interface NavChild {
@@ -62,6 +67,7 @@ const navSections: NavSection[] = [
   { label: "Checklist", to: "/checklist" },
   { label: "FAQ", to: "/faq" },
   { label: "Apoio e continuidade", to: "/apoio", emphasis: true },
+  { label: "Bônus", to: "/bonus" },
   {
     label: "BLOG 🧡",
     href: siteConfig.blogUrl,
@@ -81,26 +87,33 @@ function isRouteActive(currentPath: string, to: string): boolean {
 export default function Layout({ children }: LayoutProps) {
   const [location, setLocation] = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [expandedWeeks, setExpandedWeeks] = useState<string[]>(["/semana/1"]);
+  const [expandedWeeks, setExpandedWeeks] =
+    useState<string[]>(initialExpandedWeeks);
 
   useEffect(() => {
-    if (!location.startsWith("/semana/")) return;
-    const weekPrefix = location.split("/").slice(0, 3).join("/");
-    setExpandedWeeks(prev =>
-      prev.includes(weekPrefix) ? prev : [...prev, weekPrefix]
-    );
+    setExpandedWeeks(prev => expandWeekFromLocation(prev, location));
   }, [location]);
 
   const toggleWeek = (to: string) => {
-    setExpandedWeeks(prev =>
-      prev.includes(to) ? prev.filter(item => item !== to) : [...prev, to]
-    );
+    setExpandedWeeks(prev => toggleExpandedWeek(prev, to));
   };
 
   const navigateTo = (to: string) => {
+    const isSameRoute = location === to;
     setLocation(to);
     setSidebarOpen(false);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    if (to === "/bonus") {
+      const bonusSection = document.getElementById("bonus");
+      if (bonusSection) {
+        bonusSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      return;
+    }
+
+    if (!isSameRoute) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
@@ -116,7 +129,7 @@ export default function Layout({ children }: LayoutProps) {
       )}
 
       <aside
-        className={`fixed top-0 left-0 h-full z-40 flex flex-col transition-transform duration-300 ease-out
+        className={`menu-panel fixed top-0 left-0 h-full z-40 flex flex-col transition-[transform,opacity] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
         `}
         style={{
@@ -161,7 +174,8 @@ export default function Layout({ children }: LayoutProps) {
         </div>
 
         <nav className="flex-1 overflow-y-auto py-4 px-3">
-          {navSections.map(section => {
+          {navSections.map((section, sectionIndex) => {
+            const entryAnimationDelay = `${sectionIndex * 35}ms`;
             if (section.external && section.href) {
               return (
                 <a
@@ -170,11 +184,12 @@ export default function Layout({ children }: LayoutProps) {
                   target="_blank"
                   rel="noreferrer noopener"
                   onClick={() => setSidebarOpen(false)}
-                  className="nav-item w-full text-left mb-0.5"
+                  className="menu-entry nav-item w-full text-left mb-0.5"
                   style={{
                     color: "var(--color-warm-gray)",
                     backgroundColor: "transparent",
                     borderLeft: "2px solid transparent",
+                    animationDelay: entryAnimationDelay,
                   }}
                 >
                   {section.label}
@@ -199,7 +214,7 @@ export default function Layout({ children }: LayoutProps) {
                   <div className="flex items-center">
                     <button
                       onClick={() => navigateTo(sectionTo)}
-                      className="w-full text-left px-3 py-2 rounded transition-all duration-150"
+                      className="menu-entry w-full text-left px-3 py-2 rounded transition-all duration-150"
                       style={{
                         fontSize: "0.78rem",
                         fontFamily: "'DM Sans', sans-serif",
@@ -210,13 +225,14 @@ export default function Layout({ children }: LayoutProps) {
                         backgroundColor: isActive
                           ? "var(--color-rose-muted)"
                           : "transparent",
+                        animationDelay: entryAnimationDelay,
                       }}
                     >
                       {section.label}
                     </button>
                     <button
                       onClick={() => toggleWeek(sectionTo)}
-                      className="px-2 py-2"
+                      className="px-2 py-2 transition-transform duration-200 hover:scale-105"
                       aria-label={`Expandir ${section.label}`}
                     >
                       {isExpanded ? (
@@ -233,7 +249,7 @@ export default function Layout({ children }: LayoutProps) {
                     </button>
                   </div>
                   {isExpanded && (
-                    <div className="ml-3 mb-1">
+                    <div className="ml-3 mb-1 animate-fade-in">
                       {section.children!.map(child => (
                         <button
                           key={child.to}
@@ -263,7 +279,7 @@ export default function Layout({ children }: LayoutProps) {
               <button
                 key={sectionTo}
                 onClick={() => navigateTo(sectionTo)}
-                className="nav-item w-full text-left mb-0.5"
+                className="menu-entry nav-item w-full text-left mb-0.5"
                 style={{
                   backgroundColor: isActive
                     ? "var(--color-rose-muted)"
@@ -276,6 +292,7 @@ export default function Layout({ children }: LayoutProps) {
                       ? "2px solid var(--color-rose-light)"
                       : "2px solid transparent",
                   paddingLeft: section.emphasis ? "0.6rem" : "0.75rem",
+                  animationDelay: entryAnimationDelay,
                 }}
               >
                 {section.label}
