@@ -3,6 +3,7 @@
 Atualizado em: 10 de março de 2026
 
 Base usada:
+
 - Referência estratégica local:
   - `docs/diretrizes_da_marca.md`
   - `calistenia-feminina-conteudo-entregavel.txt`
@@ -18,11 +19,13 @@ Base usada:
 Para esse produto, eu não montaria a conta em cima de uma “lista mágica de interesses”.
 
 Motivo:
+
 - A própria Meta informa que alguns `detailed targeting options` foram combinados, sumiram ou podem variar por conta, idioma e contexto.
 - A Meta também removeu `detailed targeting exclusions` de novos conjuntos; a remoção passou a valer para campanhas ativas a partir de **31 de março de 2025**.
 - A direção atual da plataforma favorece `broad targeting`, `Advantage+ audience`, `Custom Audiences` e `Lookalikes`.
 
 Conclusão prática:
+
 - Para esse produto, o setup mais confiável é:
   - `cold broad`
   - `cold broad por faixa etária`
@@ -31,6 +34,7 @@ Conclusão prática:
   - `lookalike`
 
 Minha recomendação:
+
 - Não abrir o criativo frio falando `R$ 19,90`.
 - Testar preço apenas em:
   - remarketing
@@ -42,6 +46,7 @@ Minha recomendação:
 ### 2.1 Públicos e targeting que seguem existindo
 
 Validado em documentação oficial da Meta:
+
 - `Age`
 - `Gender`
 - `Locations`
@@ -58,23 +63,27 @@ Validado em documentação oficial da Meta:
 ### 2.2 O que mudou e importa para você
 
 Validado em documentação oficial:
+
 - `Detailed targeting exclusions` foram removidos para novos ad sets e deixaram de valer em campanhas ativas a partir de **31 de março de 2025**.
 - A Meta afirma que algumas opções de `detailed targeting` foram combinadas.
 - A Meta afirma que alguns interesses e opções podem não aparecer em certos idiomas ou contas.
 - A Meta recomenda considerar `broad targeting` quando quiser mais volume e mais espaço para otimização.
 
 Implicação prática:
+
 - Não baseie a estratégia inteira em interesses específicos.
 - Use interesses só como camada de teste, nunca como pilar central da conta.
 
 ### 2.3 Observação importante sobre “interesses que de fato existem”
 
 O que eu consigo validar de forma oficial na internet é:
+
 - o tipo de targeting existe
 - a categoria existe
 - a Meta ainda suporta o mecanismo
 
 O que eu não consigo garantir externamente sem entrar na sua conta:
+
 - o nome exato de cada interesse disponível hoje no seu Ads Manager
 - se um interesse está disponível no seu idioma da conta
 - se um interesse aparece para esse objetivo específico
@@ -82,6 +91,7 @@ O que eu não consigo garantir externamente sem entrar na sua conta:
 Isso não é limitação minha; a própria Meta documenta que esses itens variam.
 
 Por isso, no plano abaixo eu separo:
+
 - `públicos oficiais e estáveis`
 - `sementes opcionais de busca de interesse`, para você usar só se aparecerem no seu Ads Manager
 
@@ -90,44 +100,53 @@ Por isso, no plano abaixo eu separo:
 ### 3.1 Objetivo
 
 Se você tem rastreamento minimamente confiável:
+
 - usar `Sales`
 
 Se você ainda não tem evento de compra bem alimentado:
+
 - começar em `Sales`, mas monitorar se o volume é baixo demais
 - em paralelo, se necessário, usar uma estrutura secundária com `Landing Page Views` ou etapa intermediária própria
 
 ### 3.2 Tipo de campanha
 
 Para ticket baixo e produto simples:
+
 - começar com teste de criativo e público em `ABO`
 - depois mover vencedores para escala
 
 ### 3.3 Posicionamentos
 
 Recomendação:
+
 - `Advantage+ placements` ligado
 
 Motivo:
+
 - é a direção oficial atual da Meta
 - reduz risco de você matar entrega no começo
 
 ### 3.4 Gênero
 
 Recomendação inicial:
+
 - `Women`
 
 ### 3.5 Localização
 
 Recomendação inicial:
+
 - `Brasil`
 
 Se quiser abrir teste de qualidade:
+
 - `Brasil` completo
 - depois teste separado com capitais e regiões Sul/Sudeste se volume permitir
 
 ## 4. Faixas etárias que eu testaria
 
 Base estratégica do produto:
+
 - mulher em rotina real
 - iniciantes e retomada
 - pouca identificação com “fitness agressivo”
@@ -136,28 +155,36 @@ Base estratégica do produto:
 Faixas que eu priorizaria:
 
 ### Faixa principal
+
 - `32–45`
 
 Motivo:
+
 - combina com o coração da proposta
 - tende a bater melhor com dor real de rotina, cansaço, recomeço e falta de tempo
 
 ### Faixa secundária
+
 - `36–49`
 
 Motivo:
+
 - muito alinhada com a persona descrita na estratégia da marca
 
 ### Faixa de expansão
+
 - `46–54`
 
 Motivo:
+
 - pode responder bem ao ângulo de mobilidade, confiança, corpo ativo e treino possível
 
 ### Faixa que eu deixaria por último
+
 - `25–31`
 
 Motivo:
+
 - pode comprar, mas tende a exigir criativo um pouco diferente
 - costuma responder menos ao discurso de “retomada gentil” e mais a estética, praticidade e corpo
 
@@ -173,9 +200,11 @@ Motivo:
 - Detailed targeting: `vazio`
 
 Uso:
+
 - melhor ponto de partida
 
 Por que testar:
+
 - a Meta hoje favorece entrega ampla com mais sinais para otimização
 
 ## 5.2 Público 2 — Cold Broad Retomada
@@ -188,6 +217,7 @@ Por que testar:
 - Detailed targeting: `vazio`
 
 Uso:
+
 - público mais aderente à persona central
 
 ## 5.3 Público 3 — Cold Broad Expansão Madura
@@ -200,6 +230,7 @@ Uso:
 - Detailed targeting: `vazio`
 
 Uso:
+
 - expansão
 - pode funcionar especialmente em criativo com ângulo de mobilidade, disposição e constância
 
@@ -213,6 +244,7 @@ Uso:
 - Detailed targeting: `usar no máximo 1–3 temas por conjunto`
 
 Sementes de busca para procurar dentro do Ads Manager:
+
 - treino em casa
 - exercícios em casa
 - atividade física
@@ -224,10 +256,12 @@ Sementes de busca para procurar dentro do Ads Manager:
 - condicionamento físico
 
 Regra:
+
 - use apenas o que realmente aparecer na sua conta
 - não empilhe 7 ou 8 interesses no mesmo conjunto
 
 Uso:
+
 - teste complementar
 
 ## 5.5 Público 5 — Instagram Engagers
@@ -239,6 +273,7 @@ Uso:
 - Gênero: `Women`
 
 Uso:
+
 - remarketing quente
 
 ## 5.6 Público 6 — Video Viewers
@@ -252,6 +287,7 @@ Uso:
 - Idade: `25–54`
 
 Uso:
+
 - remarketing morno
 
 ## 5.7 Público 7 — Site Visitors
@@ -264,6 +300,7 @@ Uso:
   - `180 dias`
 
 Uso:
+
 - remarketing
 - reimpacto de quem visitou e não comprou
 
@@ -278,6 +315,7 @@ Uso:
 - Gênero: `Women`
 
 Uso:
+
 - prospecção com um pouco mais de direção
 
 ## 5.9 Público 9 — Lookalike de Compradoras
@@ -289,6 +327,7 @@ Uso:
   - `1–2%`
 
 Uso:
+
 - melhor público de escala, se você já tiver compras suficientes
 
 ## 6. Ordem de prioridade dos públicos
@@ -306,6 +345,7 @@ Se eu fosse começar amanhã:
 ## 7. O que um anúncio da Meta tem hoje
 
 Na prática, para seus anúncios, pense nestes campos:
+
 - `Primary Text`
 - `Headline`
 - `Description`
@@ -316,6 +356,7 @@ Na prática, para seus anúncios, pense nestes campos:
 ## 8. Limites ideais de caracteres
 
 Observação importante:
+
 - A Meta publica melhor os `limites recomendados por placement` do que um “máximo universal” simples.
 - Os máximos técnicos de API existem, mas truncamento e performance acontecem muito antes.
 - Para vender bem, o número que importa mais é o `ideal`, não o teto bruto.
@@ -323,31 +364,37 @@ Observação importante:
 ### 8.1 Ideais práticos validados em fontes oficiais da Meta
 
 #### Feed com imagem ou vídeo
+
 - `Primary Text`: `50–150 caracteres`
 - `Headline`: `27 caracteres`
 
 #### Carousel em feed
+
 - `Primary Text`: `80 caracteres`
 - `Headline`: `45 caracteres`
 - `Description`: `18 caracteres`
 
 #### Reels
+
 - `Primary Text`: `40 caracteres`
 - `Headline`: `55 caracteres`
 
 ### 8.2 Máximos técnicos oficiais
 
 Em documentação oficial para `asset_feed_spec`, a Meta mostra:
+
 - `Title`: até `255`
 - `Description`: até `255`
 - `Body`: até `1024`
 
 Em documentação oficial de `multi-language ads`, a Meta mostra um teto maior para alguns fluxos:
+
 - `Title`: até `255`
 - `Body`: até `4096`
 - `Description`: até `10000`
 
 Leitura correta:
+
 - não use esses números como meta de copy
 - use como teto técnico
 - para performance, continue nos limites ideais por placement
@@ -355,16 +402,19 @@ Leitura correta:
 ## 9. Minha regra prática para você
 
 ### Frio
+
 - `Primary Text`: até `110–140`
 - `Headline`: até `27–40`
 - `Description`: curta, opcional
 
 ### Remarketing
+
 - `Primary Text`: até `125`
 - `Headline`: até `40`
 - `Description`: até `18–30`
 
 ### Reels
+
 - texto principal curto
 - promessa rápida
 - arte limpa
@@ -373,9 +423,11 @@ Leitura correta:
 ## 10. Devo falar R$ 19,90 no anúncio?
 
 Minha recomendação:
+
 - `não` como criativo frio principal
 
 Motivo:
+
 - seu produto vende mais por identificação e alívio do que por preço
 - `R$ 19,90` muito cedo pode baratear a percepção
 - o criativo frio precisa vender:
@@ -384,11 +436,13 @@ Motivo:
   - “eu consigo”
 
 Onde eu testaria preço:
+
 - remarketing
 - anúncio comparativo de valor
 - criativo de oferta
 
 Como eu testaria:
+
 - versão A: sem preço
 - versão B: “acesso por menos de uma refeição fora”
 - versão C: “28 dias por R$ 19,90”
@@ -413,6 +467,7 @@ Description:
 `Treino possível em casa`
 
 Gancho visual:
+
 - mulher real
 - 35 a 42 anos
 - ambiente doméstico bonito e simples
@@ -437,6 +492,7 @@ Description:
 `Sem academia`
 
 Gancho visual:
+
 - relógio discreto
 - canto de treino em casa
 - sensação de rotina real
@@ -459,6 +515,7 @@ Description:
 `28 dias de constância`
 
 Gancho visual:
+
 - sala clara
 - tapete
 - roupa neutra
@@ -482,6 +539,7 @@ Description:
 `Continue no seu ritmo`
 
 Gancho visual:
+
 - checklist
 - marcação de dias
 - sensação de progresso simples
@@ -504,6 +562,7 @@ Description:
 `Movimento real`
 
 Gancho visual:
+
 - pós-treino leve
 - sorriso discreto
 - energia serena
@@ -513,11 +572,13 @@ Gancho visual:
 ### 12.1 Criativo estático
 
 Melhor para:
+
 - promessa simples
 - identificação imediata
 - público frio
 
 Estrutura:
+
 - uma mulher
 - um benefício
 - pouco texto na arte
@@ -525,11 +586,13 @@ Estrutura:
 ### 12.2 Vídeo curto
 
 Melhor para:
+
 - dor + alívio
 - rotina
 - recomeço
 
 Estrutura:
+
 1. dor real
 2. alívio
 3. prova visual
@@ -538,22 +601,26 @@ Estrutura:
 ### 12.3 UGC estilo depoimento
 
 Melhor para:
+
 - warm
 - lookalike
 - criativo 2 ou 3 de escala
 
 Estrutura:
+
 - “eu achava que precisava de motivação”
 - “o que eu precisava era de algo possível”
 
 ### 12.4 Reels
 
 Melhor para:
+
 - hook rápido
 - estética leve
 - criativo vertical
 
 Regra oficial relevante:
+
 - preserve áreas seguras
 - deixe folga visual no topo, base e laterais
 
@@ -572,6 +639,7 @@ Negativo:
 `Capa horizontal 16:9 para produto digital de treino feminino em casa, estilo editorial wellness minimalista, mostrar mulher brasileira real entre 35 e 42 anos em ambiente doméstico bonito e claro, usando roupa neutra elegante, em pose de movimento leve de calistenia adaptada, luz natural suave, paleta off-white, areia, taupe, rosé queimado e verde sálvia, composição premium acessível, visual sofisticado e confiável, espaço negativo bem planejado para título, sensação de recomeço, constância, leveza e confiança, sem academia, sem equipamentos complexos, sem estética maromba, imagem comercial de alta conversão, alta nitidez, realismo fotográfico, resolução 1920x1080`
 
 Texto sugerido para sobreposição na arte:
+
 - `Calistenia Feminina em Casa`
 - `28 dias para criar constância`
 
@@ -590,6 +658,7 @@ Negativo:
 Não usar `R$ 19,90` como headline principal no frio.
 
 Melhor uso:
+
 - frio: vender mecanismo + identificação
 - morno: vender facilidade + tempo
 - quente: vender oferta + risco baixo + preço
@@ -597,6 +666,7 @@ Melhor uso:
 ## 16.2 Regra de corte e escala
 
 Defina antes de subir:
+
 - quantos cliques sem venda derrubam o anúncio
 - quantas vendas validam o criativo
 - qual CPA máximo ainda fecha conta
@@ -606,11 +676,13 @@ Sem isso, você vai “achar” que um anúncio é ruim cedo demais ou deixar an
 ## 16.3 Tracking e naming
 
 Se você quer vender com consistência:
+
 - padronize nome de campanha, conjunto e anúncio
 - use UTM em tudo
 - confirme se compra, checkout iniciado e LPV estão chegando corretamente
 
 Se o rastreamento no Hotmart estiver fraco:
+
 - considere uma bridge page própria antes da Hotmart
 - isso te devolve controle de evento e remarketing
 
@@ -619,10 +691,12 @@ Se o rastreamento no Hotmart estiver fraco:
 Se eu fosse começar simples:
 
 Campanha 1:
+
 - `Sales`
 - `ABO`
 
 Conjuntos:
+
 - `BROAD_W_32_45_BR`
 - `BROAD_W_36_49_BR`
 - `DT_W_30_50_HOME_WELLNESS`
@@ -630,6 +704,7 @@ Conjuntos:
 - `CA_VIDEO_25_50_365D`
 
 Criativos iniciais:
+
 - `Recomeço gentil`
 - `10 minutos contam`
 - `Sem academia`
@@ -639,6 +714,7 @@ Criativos iniciais:
 ## 18. Minha recomendação final
 
 Para esse produto, eu apostaria primeiro em:
+
 - criativo emocional e identificável
 - mulheres `32–49`
 - broad + warm + lookalike
@@ -646,6 +722,7 @@ Para esse produto, eu apostaria primeiro em:
 
 O centro da venda não é “barato”.
 O centro da venda é:
+
 - `isso cabe na minha vida`
 - `isso foi feito para mim`
 - `eu consigo manter`
@@ -653,6 +730,7 @@ O centro da venda é:
 ## 19. Fontes atuais usadas
 
 ### Meta Help Center / Business
+
 - About reaching new audiences:
   - https://www.facebook.com/help/157306091096340
 - About Detailed Targeting:
@@ -669,6 +747,7 @@ O centro da venda é:
   - https://www.facebook.com/business/help/164749007013531
 
 ### Meta Ads Guide
+
 - Image ad specs on Facebook Feed:
   - https://www.facebook.com/business/ads-guide/update/image
 - Video ad specs on Facebook Feed:
@@ -681,6 +760,7 @@ O centro da venda é:
   - https://www.facebook.com/business/ads-guide/update/image/instagram-feed
 
 ### Meta for Developers
+
 - Ad Creative asset feed options:
   - https://developers.facebook.com/docs/marketing-api/ad-creative/asset-feed-spec/options
 - Ad Creative reference:
@@ -691,15 +771,19 @@ O centro da venda é:
 ## 20. Nota de método
 
 Onde eu afirmo algo como “existe hoje”:
+
 - estou me baseando em documentação oficial atual da Meta
 
 Onde eu recomendo faixa etária, ordem de teste ou ângulo:
+
 - isso é inferência estratégica minha com base no seu produto e no posicionamento da marca
 
 Onde eu cito limites ideais de caracteres por placement:
+
 - estou usando o Meta Ads Guide atual
 - em alguns casos o texto ideal apareceu no snippet oficial indexado pelo buscador, porque as páginas da Ads Guide são parcialmente dinâmicas
 
 Leitura correta:
+
 - os formatos e estruturas acima estão atualizados
 - os nomes exatos de certos interesses podem variar dentro da sua conta

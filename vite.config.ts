@@ -13,6 +13,7 @@ const slashRedirectPaths = new Set([
   "/termos-de-servico",
   "/aviso-legal",
   "/receitas-low-carb",
+  "/sobremesas-saudaveis",
 ]);
 
 const multipageInputs = {
@@ -26,9 +27,10 @@ const multipageInputs = {
   ),
   termos: path.resolve(clientRoot, "termos-de-servico", "index.html"),
   avisoLegal: path.resolve(clientRoot, "aviso-legal", "index.html"),
-  receitasLowCarb: path.resolve(
+  receitasLowCarb: path.resolve(clientRoot, "receitas-low-carb", "index.html"),
+  sobremesasSaudaveis: path.resolve(
     clientRoot,
-    "receitas-low-carb",
+    "sobremesas-saudaveis",
     "index.html"
   ),
 };

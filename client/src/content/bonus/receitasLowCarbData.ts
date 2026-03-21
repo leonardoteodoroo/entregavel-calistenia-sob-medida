@@ -1,5 +1,7 @@
 import { toPublicPath } from "@/content/siteConfig";
 
+import type { Recipe, RecipeBook } from "./bonusRecipeTypes";
+
 export const introData = {
   title: "RECEITAS LOW CARB",
   author: "@semprenamoda.loja",
@@ -12,25 +14,6 @@ export const introData = {
   ],
 };
 
-export interface Recipe {
-  id: string;
-  title: string;
-  premise: string;
-  servings: string;
-  time: {
-    prep: string;
-    cook: string;
-    total: string;
-  };
-  ingredients: string[];
-  instructions: string;
-  instructionsSteps: string[];
-  objection: string;
-  masterTip: string;
-  imageUrl: string;
-  imageAlt: string;
-}
-
 const BONUS_RECIPE_IMAGE_BASE = "bonus/receitas-low-carb";
 
 export const recipes: Recipe[] = [
@@ -42,8 +25,9 @@ export const recipes: Recipe[] = [
     servings: "1 porcao",
     time: {
       prep: "3 min",
-      cook: "5 min",
       total: "8 min",
+      extraLabel: "Cozimento",
+      extraValue: "5 min",
     },
     ingredients: [
       "2 ovos inteiros",
@@ -64,8 +48,11 @@ export const recipes: Recipe[] = [
       "Ah, mas sera que nao fica com gosto forte de ovo? O truque e bater bem e caprichar no oregano, ele rouba a cena e deixa com gostinho de pizza.",
     masterTip:
       "Se quiser turbinar o pos-treino, recheia com um franguinho desfiado ou um queijo branco derretido. Fica dos deuses!",
-    imageUrl: toPublicPath(`${BONUS_RECIPE_IMAGE_BASE}/01-crepioca.webp`),
-    imageAlt: "Crepioca low carb dourada e recheada com queijo em prato claro",
+    visual: {
+      kind: "asset",
+      src: toPublicPath(`${BONUS_RECIPE_IMAGE_BASE}/01-crepioca.webp`),
+      alt: "Crepioca low carb dourada e recheada com queijo em prato claro",
+    },
   },
   {
     id: "02",
@@ -75,8 +62,9 @@ export const recipes: Recipe[] = [
     servings: "1 porcao (4 bolinhos)",
     time: {
       prep: "10 min",
-      cook: "20 min",
       total: "30 min",
+      extraLabel: "Cozimento",
+      extraValue: "20 min",
     },
     ingredients: [
       "1/2 xicara de espinafre picadinho",
@@ -97,10 +85,13 @@ export const recipes: Recipe[] = [
       "Pode achar que vai ficar seco, ne? Mas o espinafre solta uma aguinha que deixa o interior super umido e macio.",
     masterTip:
       "Faz uma fornada maior no domingo e congela! Na hora do desespero, e so jogar na airfryer que ele volta a ficar crocante.",
-    imageUrl: toPublicPath(
-      `${BONUS_RECIPE_IMAGE_BASE}/02-bolinho-espinafre-assado.webp`
-    ),
-    imageAlt: "Bolinhos de espinafre assados e dourados em prato neutro",
+    visual: {
+      kind: "asset",
+      src: toPublicPath(
+        `${BONUS_RECIPE_IMAGE_BASE}/02-bolinho-espinafre-assado.webp`
+      ),
+      alt: "Bolinhos de espinafre assados e dourados em prato neutro",
+    },
   },
   {
     id: "03",
@@ -110,8 +101,9 @@ export const recipes: Recipe[] = [
     servings: "1 porcao",
     time: {
       prep: "10 min",
-      cook: "18 min",
       total: "28 min",
+      extraLabel: "Cozimento",
+      extraValue: "18 min",
     },
     ingredients: [
       "150g daquele franguinho desfiado que sobrou na geladeira",
@@ -135,8 +127,11 @@ export const recipes: Recipe[] = [
       "Sufle parece dificil e que vai murchar, ne? Como a base e frango, ele fica super estruturado e nao tem erro, nao precisa ser chef pra acertar!",
     masterTip:
       "Se quiser um toque especial, coloca uma pitadinha de noz-moscada na mistura dos ovos. Da um sabor de restaurante fino.",
-    imageUrl: toPublicPath(`${BONUS_RECIPE_IMAGE_BASE}/03-sufle-frango.webp`),
-    imageAlt: "Sufle de frango gratinado servido em ramekin branco",
+    visual: {
+      kind: "asset",
+      src: toPublicPath(`${BONUS_RECIPE_IMAGE_BASE}/03-sufle-frango.webp`),
+      alt: "Sufle de frango gratinado servido em ramekin branco",
+    },
   },
   {
     id: "04",
@@ -146,8 +141,9 @@ export const recipes: Recipe[] = [
     servings: "1 porcao",
     time: {
       prep: "10 min",
-      cook: "20 min",
       total: "30 min",
+      extraLabel: "Cozimento",
+      extraValue: "20 min",
     },
     ingredients: [
       "150g de peito de frango em cubinhos",
@@ -170,10 +166,11 @@ export const recipes: Recipe[] = [
       "Medo do peito de frango ficar esturricado? O papel aluminio e o suco do abacaxi garantem que ele cozinhe no proprio vapor, ficando super suculento!",
     masterTip:
       "Tira o papel aluminio nos ultimos 5 minutinhos so pro molho dar aquela caramelizada e engrossar. Fica perfeito com um arrozinho de couve-flor!",
-    imageUrl: toPublicPath(
-      `${BONUS_RECIPE_IMAGE_BASE}/04-picadinho-frango.webp`
-    ),
-    imageAlt: "Picadinho de frango com molho barbecue, abacaxi e pimentao",
+    visual: {
+      kind: "asset",
+      src: toPublicPath(`${BONUS_RECIPE_IMAGE_BASE}/04-picadinho-frango.webp`),
+      alt: "Picadinho de frango com molho barbecue, abacaxi e pimentao",
+    },
   },
   {
     id: "05",
@@ -183,8 +180,9 @@ export const recipes: Recipe[] = [
     servings: "1 porcao (2 hamburgueres pequenos)",
     time: {
       prep: "12 min",
-      cook: "20 min",
       total: "32 min",
+      extraLabel: "Cozimento",
+      extraValue: "20 min",
     },
     ingredients: [
       "150g de carne moida magra (ou frango, voce escolhe!)",
@@ -206,10 +204,11 @@ export const recipes: Recipe[] = [
       "Hamburguer de forno fica sem graca? Que nada! Como a gente caprichou no alho e na cebola triturada, ele fica super temperado e nao perde a suculencia.",
     masterTip:
       "Faz um buraquinho raso no meio do hamburguer com o dedao antes de assar. Isso evita que ele encolha e vire uma 'almondega' no forno!",
-    imageUrl: toPublicPath(
-      `${BONUS_RECIPE_IMAGE_BASE}/05-hamburguer-prato.webp`
-    ),
-    imageAlt: "Hamburguer caseiro low carb no prato com ervas",
+    visual: {
+      kind: "asset",
+      src: toPublicPath(`${BONUS_RECIPE_IMAGE_BASE}/05-hamburguer-prato.webp`),
+      alt: "Hamburguer caseiro low carb no prato com ervas",
+    },
   },
   {
     id: "06",
@@ -219,8 +218,9 @@ export const recipes: Recipe[] = [
     servings: "1 porcao",
     time: {
       prep: "12 min",
-      cook: "35 min",
       total: "47 min",
+      extraLabel: "Cozimento",
+      extraValue: "35 min",
     },
     ingredients: [
       "150g de file de peixe (tilapia, pescada, o que tiver mais fresco)",
@@ -245,10 +245,11 @@ export const recipes: Recipe[] = [
       "Sera que a batata cozinha junto com o peixe? Sim! O segredo e cortar a batata em rodelas nao muito grossas. O caldinho do peixe e do tomate vai cozinhar ela perfeitamente.",
     masterTip:
       "O ponto perfeito e quando aquele caldinho do fundo da forma seca quase todo e os legumes de cima dao uma leve tostada. Fica divino!",
-    imageUrl: toPublicPath(
-      `${BONUS_RECIPE_IMAGE_BASE}/06-file-peixe-assado.webp`
-    ),
-    imageAlt: "File de peixe assado com legumes coloridos e batatas em rodelas",
+    visual: {
+      kind: "asset",
+      src: toPublicPath(`${BONUS_RECIPE_IMAGE_BASE}/06-file-peixe-assado.webp`),
+      alt: "File de peixe assado com legumes coloridos e batatas em rodelas",
+    },
   },
   {
     id: "07",
@@ -258,8 +259,9 @@ export const recipes: Recipe[] = [
     servings: "1 porcao",
     time: {
       prep: "5 min",
-      cook: "0 min",
       total: "5 min",
+      extraLabel: "Cozimento",
+      extraValue: "0 min",
     },
     ingredients: [
       "100g de abacate bem maduro",
@@ -280,8 +282,11 @@ export const recipes: Recipe[] = [
       "Abacate com limao nao fica com gosto de guacamole? O limao aqui entra so pra nao deixar o abacate escurecer e pra quebrar o enjoo, o adocante e o leite de coco garantem o sabor de sobremesa!",
     masterTip:
       "Deixa na geladeira por umas horinhas antes de comer. Ele fica mais firme, parecendo uma mousse. Fica perfeito com umas raspinhas de limao por cima!",
-    imageUrl: toPublicPath(`${BONUS_RECIPE_IMAGE_BASE}/07-creme-abacate.webp`),
-    imageAlt: "Creme de abacate low carb servido em bowl com raspas de limao",
+    visual: {
+      kind: "asset",
+      src: toPublicPath(`${BONUS_RECIPE_IMAGE_BASE}/07-creme-abacate.webp`),
+      alt: "Creme de abacate low carb servido em bowl com raspas de limao",
+    },
   },
   {
     id: "08",
@@ -291,8 +296,9 @@ export const recipes: Recipe[] = [
     servings: "1 porcao",
     time: {
       prep: "7 min",
-      cook: "5 min",
       total: "12 min",
+      extraLabel: "Cozimento",
+      extraValue: "5 min",
     },
     ingredients: [
       "5 colheres de sopa de goma de tapioca",
@@ -313,8 +319,11 @@ export const recipes: Recipe[] = [
       "Tapioca nao e low carb, ne? A gente sabe! Mas a aveia entra aqui justamente pra baixar o indice glicemico e a canela ajuda a acelerar o metabolismo. E equilibrio!",
     masterTip:
       "Deixa a tapioca dar uma leve tostadinha a mais depois de fechada, pra banana la dentro ficar bem quentinha e o acucar dar uma caramelizada.",
-    imageUrl: toPublicPath(`${BONUS_RECIPE_IMAGE_BASE}/08-tapioca-banana.webp`),
-    imageAlt: "Tapioca de banana dobrada com canela em prato claro",
+    visual: {
+      kind: "asset",
+      src: toPublicPath(`${BONUS_RECIPE_IMAGE_BASE}/08-tapioca-banana.webp`),
+      alt: "Tapioca de banana dobrada com canela em prato claro",
+    },
   },
   {
     id: "09",
@@ -324,8 +333,9 @@ export const recipes: Recipe[] = [
     servings: "1 porcao",
     time: {
       prep: "3 min",
-      cook: "3 min",
       total: "6 min",
+      extraLabel: "Cozimento",
+      extraValue: "3 min",
     },
     ingredients: [
       "15g de oleo de coco (ou manteiga derretida)",
@@ -348,8 +358,11 @@ export const recipes: Recipe[] = [
       "Bolo de microondas costuma ficar borrachudo... O segredo aqui e a farinha de amendoas e o oleo de coco, que trazem umidade e deixam a massa super fofinha.",
     masterTip:
       "Faz uma caldinha rapida com um pouquinho de whey protein de chocolate e agua, e joga por cima dele ainda quente. Fica parecendo petit gateau!",
-    imageUrl: toPublicPath(`${BONUS_RECIPE_IMAGE_BASE}/09-bolo-caneca.webp`),
-    imageAlt: "Bolo de caneca low carb de cacau servido quente",
+    visual: {
+      kind: "asset",
+      src: toPublicPath(`${BONUS_RECIPE_IMAGE_BASE}/09-bolo-caneca.webp`),
+      alt: "Bolo de caneca low carb de cacau servido quente",
+    },
   },
   {
     id: "10",
@@ -359,8 +372,9 @@ export const recipes: Recipe[] = [
     servings: "2 porcoes (6 biscoitos)",
     time: {
       prep: "12 min",
-      cook: "15 min",
       total: "27 min",
+      extraLabel: "Cozimento",
+      extraValue: "15 min",
     },
     ingredients: [
       "1 xicara de amendoim torrado e moido (ou pasta de amendoim se quiser mais pratico)",
@@ -380,9 +394,20 @@ export const recipes: Recipe[] = [
       "Sera que desmancha? A aveia e o ovo sao a cola perfeita dessa receita. So espera esfriar um pouquinho antes de tirar da forma pra eles firmarem bem.",
     masterTip:
       "Se quiser dar uma variada, coloca umas gotinhas de chocolate 70% cacau na massa antes de assar. Fica parecendo aqueles cookies carissimos de cafeteria!",
-    imageUrl: toPublicPath(
-      `${BONUS_RECIPE_IMAGE_BASE}/10-biscoito-amendoim.webp`
-    ),
-    imageAlt: "Biscoitos de amendoim caseiros crocantes servidos no prato",
+    visual: {
+      kind: "asset",
+      src: toPublicPath(`${BONUS_RECIPE_IMAGE_BASE}/10-biscoito-amendoim.webp`),
+      alt: "Biscoitos de amendoim caseiros crocantes servidos no prato",
+    },
   },
 ];
+
+const receitasLowCarbBook: RecipeBook = {
+  intro: introData,
+  recipes,
+  storageKey: "cf-receitas-low-carb-progress-v1",
+  searchPlaceholder: "Buscar receita...",
+  emptyStateCopy: "Nenhuma receita encontrada para sua busca.",
+};
+
+export default receitasLowCarbBook;

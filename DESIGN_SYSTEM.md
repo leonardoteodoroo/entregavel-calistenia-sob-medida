@@ -3,6 +3,7 @@
 Documento consolidado com base no estado real do projeto em **10/03/2026**.
 
 Fontes analisadas:
+
 - `client/src/index.css`
 - `client/src/pages/*`
 - `client/src/components/*`
@@ -12,9 +13,11 @@ Fontes analisadas:
 - `docs/diretrizes_da_marca.md`
 
 ## TAREFA
+
 Este documento é a referência visual e técnica oficial do projeto: cores, tipografia, layout, componentes, acessibilidade, performance e regras de manutenção.
 
 ## 0) IDENTIDADE DA MARCA (ESTADO ATUAL)
+
 - Direção visual: **Editorial Wellness Minimalista**.
 - Posicionamento: feminino, possível, seguro, acolhedor, elegante.
 - Linguagem: calma, direta, sem tom agressivo de performance extrema.
@@ -26,6 +29,7 @@ Este documento é a referência visual e técnica oficial do projeto: cores, tip
 ## 1) CORES (TOKENS SEMÂNTICOS)
 
 ### 1.1 Paleta base da marca (custom)
+
 - `--color-ivory`: `#f9f6f0`
 - `--color-ivory-dark`: `#f0ebe3`
 - `--color-taupe`: `#b5a99a`
@@ -41,6 +45,7 @@ Este documento é a referência visual e técnica oficial do projeto: cores, tip
 - `--color-warm-gray`: `#7a7570`
 
 ### 1.2 Tokens semânticos de tema (`:root`, base shadcn)
+
 - `--background`: `oklch(0.978 0.006 75)`
 - `--foreground`: `oklch(0.22 0.008 60)`
 - `--card`: `oklch(0.99 0.003 75)`
@@ -64,6 +69,7 @@ Este documento é a referência visual e técnica oficial do projeto: cores, tip
 ### 1.3 Mapeamento dos tokens do sistema
 
 #### Texto
+
 - `text-primary`: `--color-charcoal` (`#2c2c2c`)
 - `text-secondary`: `--color-charcoal-light` (`#4a4a4a`)
 - `text-muted`: `--color-warm-gray` e `--color-taupe` (uso combinado)
@@ -72,6 +78,7 @@ Este documento é a referência visual e técnica oficial do projeto: cores, tip
 - `text-on-strong`: `(NÃO APLICAVEL)`
 
 #### Superfícies
+
 - `surface-page`: `--color-ivory`
 - `surface-section`: `white` e `--color-ivory-dark` alternados
 - `surface-card`: `--color-ivory` (cards editoriais) e `--card` (ui base)
@@ -79,6 +86,7 @@ Este documento é a referência visual e técnica oficial do projeto: cores, tip
 - `surface-elevated`: `--popover`
 
 #### Ações
+
 - `action-primary`: `--primary` (ui base) e `--color-rose` (ênfase editorial)
 - `action-primary-hover`: `hover:bg-primary/90`
 - `action-primary-active`: `(NÃO APLICAVEL)`
@@ -93,18 +101,21 @@ Este documento é a referência visual e técnica oficial do projeto: cores, tip
 - `action-strong-disabled`: `(NÃO APLICAVEL)`
 
 #### Gradientes
-- `gradient-primary`: 
+
+- `gradient-primary`:
   - `linear-gradient(105deg, var(--color-ivory) 45%, transparent 80%)`
   - `linear-gradient(180deg, var(--color-ivory) 0%, rgba(249,246,240,0.92) 100%)`
 - `gradient-cta`: `(NÃO APLICAVEL)`
 
 #### Bordas
+
 - `border-default`: `--color-taupe-light` e `--border`
 - `border-subtle`: `--color-taupe-light` (uso de divisores de 1px)
 - `border-focus`: `--ring`
 - `border-disabled`: `(NÃO APLICAVEL)`
 
 #### Status
+
 - `status-success`: `(NÃO APLICAVEL)`
 - `status-success-surface`: `(NÃO APLICAVEL)`
 - `status-warning`: `(NÃO APLICAVEL)`
@@ -113,6 +124,7 @@ Este documento é a referência visual e técnica oficial do projeto: cores, tip
 - `status-error-surface`: `destructive/20` (anéis e estados inválidos)
 
 #### Links e destaques
+
 - `link-default`: `--color-rose`
 - `link-hover`: `(NÃO APLICAVEL)`
 - `highlight`: `--color-rose-muted`
@@ -122,6 +134,7 @@ Este documento é a referência visual e técnica oficial do projeto: cores, tip
 ## 2) ESPAÇAMENTO (SPACING SCALE)
 
 Escala base em uso (Tailwind + estilos inline):
+
 - `space-1`: `4px`
 - `space-2`: `8px`
 - `space-3`: `12px`
@@ -137,6 +150,7 @@ Escala base em uso (Tailwind + estilos inline):
 - `space-24`: `(NÃO APLICAVEL)` como token nomeado explícito
 
 Escalas fluidas usadas no layout:
+
 - `page-padding-x`: `clamp(1rem, 3vw, 2rem)`
 - `section-padding`: `clamp(2rem, 5vw, 3.5rem)`
 - `hero-padding`: `clamp(2rem, 5vw, 4rem)`
@@ -146,10 +160,12 @@ Escalas fluidas usadas no layout:
 ## 3) TIPOGRAFIA (TYPOGRAPHY)
 
 ### Famílias
+
 - `font-family-base`: `"DM Sans", sans-serif`
 - `font-family-heading`: `"Playfair Display", serif`
 
 ### Escala em uso real
+
 - `text-2xs`: `0.62rem` a `0.65rem` (labels, microcopy)
 - `text-xs`: `0.75rem`
 - `text-sm`: `0.78rem` a `0.88rem`
@@ -163,6 +179,7 @@ Escalas fluidas usadas no layout:
 - `text-6xl`: `(NÃO APLICAVEL)`
 
 ### Pesos
+
 - `font-light`: `300`
 - `font-normal`: `400`
 - `font-medium`: `500`
@@ -170,12 +187,14 @@ Escalas fluidas usadas no layout:
 - `font-bold`: `700`
 
 ### Line-height
+
 - `leading-tight`: `1.1` a `1.2` (headings)
 - `leading-normal`: `1.5` a `1.6`
 - `leading-relaxed`: `1.65` a `1.75` (texto longo)
 - `leading-snug`: `(NÃO APLICAVEL)` como token explícito
 
 ### Legibilidade / measure
+
 - `measure-sm`: `460px` a `520px`
 - `measure-md`: `600px` a `620px`
 - `measure-lg`: `780px`
@@ -204,6 +223,7 @@ Escalas fluidas usadas no layout:
 ## 5) RADIUS & SHADOWS (EFEITOS DE PROFUNDIDADE)
 
 ### Radius
+
 - `--radius`: `0.5rem` (8px)
 - `radius-sm`: `4px`
 - `radius-md`: `6px`
@@ -214,6 +234,7 @@ Escalas fluidas usadas no layout:
 - Raio editorial adicional: `2px` e `3px` em badges e checkboxes de dia.
 
 ### Shadows
+
 - `shadow-sm`: utilitário Tailwind (`shadow-sm` / `shadow-xs`)
 - `shadow-md`: utilitário Tailwind (`shadow-md`)
 - `shadow-lg`: utilitário Tailwind (`shadow-lg`)
@@ -236,11 +257,13 @@ Escalas fluidas usadas no layout:
 - `motion-distance-md`: `12px` (`fadeInUp`)
 
 Animações reais:
+
 - `fadeInUp`: `0.4s ease-out`, `translateY(12px -> 0)`, `opacity(0 -> 1)`
 - Sidebar mobile: `transition-transform duration-300 ease-out`
 - Accordion icon: `transition-transform duration-200`
 
 Preferência de movimento reduzido:
+
 - `prefers-reduced-motion`: `(NÃO APLICAVEL)` (não implementado no CSS atual)
 
 ---
@@ -248,6 +271,7 @@ Preferência de movimento reduzido:
 ## 7) BREAKPOINTS (RESPONSIVIDADE)
 
 Breakpoints ativos (Tailwind padrão):
+
 - `bp-sm`: `>= 640px`
 - `bp-md`: `>= 768px`
 - `bp-lg`: `>= 1024px`
@@ -255,6 +279,7 @@ Breakpoints ativos (Tailwind padrão):
 - `bp-2xl`: `>= 1536px`
 
 Regra de mobile usada em lógica JS:
+
 - `bp-mobile`: `< 768px` (`useIsMobile`)
 
 ---
@@ -275,48 +300,58 @@ Regra de mobile usada em lógica JS:
 ## 9) COMPONENTES PADRÃO (BLUEPRINTS)
 
 ### Botões
+
 - Padrão editorial principal: `background: white`, `border: 1px solid var(--color-taupe-light)`, `text: var(--color-charcoal)`, `rounded`, `font-body`.
 - Padrão UI (`Button` shadcn): variantes `default`, `destructive`, `outline`, `secondary`, `ghost`, `link`.
 - `Button CTA (venda)`: `(NÃO APLICAVEL)` como componente dedicado.
 - Estado loading padronizado: `(NÃO APLICAVEL)`.
 
 ### Links
+
 - Link de conteúdo técnico (fontes): `underline`, `color: var(--color-rose)`.
 - Estado hover próprio padronizado: `(NÃO APLICAVEL)`.
 
 ### Cards
+
 - Card editorial (`.page-card`): `ivory + border taupe-light + radius 4px + shadow-card`.
 - Card de exercício (`.exercise-card`): `white + border-left accent + radius assimétrico`.
 - Card shadcn (`Card`): `bg-card + rounded-xl + border + shadow-sm`.
 
 ### Badges / Chips
+
 - `badge-leve`: teal-muted + teal.
 - `badge-padrao`: rose-muted + rose.
 - `badge-intensa`: `oklch(0.88 0.015 10)` + rose.
 - Badge de estado com semântica success/warning completa: `(NÃO APLICAVEL)`.
 
 ### Alerts / Banners
+
 - Callout editorial: bloco com `border-left: 3px` + fundo muted (rose/teal/ivory-dark).
 - `Alert` shadcn disponível (`default` e `destructive`).
 - Sistema de severidade completo (success/warning/error) no editorial: `(NÃO APLICAVEL)`.
 
 ### Inputs e formulários
+
 - Campo de busca da biblioteca: input custom com ícone, borda taupe-light, fundo branco.
 - `Input` shadcn com foco em `ring` e estado inválido via `destructive`.
 - Formulários longos com validação completa de UX: `(NÃO APLICAVEL)`.
 
 ### Modals / Dialogs
+
 - `Dialog`/`Sheet`/`AlertDialog` com overlay `bg-black/50`, `z-50`, animações de fade/zoom.
 - Close button com `sr-only`.
 
 ### Dropdown / Tooltip
+
 - Dropdown e Tooltip padrões shadcn com `bg-popover`, `border`, `shadow`, `z-50`.
 
 ### Accordions / FAQ
+
 - FAQ principal editorial usa blocos simples.
 - Biblioteca usa `Accordion` com trigger acessível e animação open/close.
 
 ### Skeleton / Loading states
+
 - `Skeleton`: `bg-accent animate-pulse rounded-md`.
 - Estratégia avançada de skeleton por página: `(NÃO APLICAVEL)`.
 
@@ -341,11 +376,13 @@ Regra de mobile usada em lógica JS:
 ## 11) CAMADA DE IMPACTO (ESCAPE HATCH / LICENSED TO WOW)
 
 Implementação atual:
+
 - Escopo `impact` dedicado: `(NÃO APLICAVEL)`.
 - Remapeamento formal de `impact-*` tokens: `(NÃO APLICAVEL)`.
 - Seções de maior impacto visual existem (hero e encerramento), mas sem camada técnica separada.
 
 Tokens `impact-*`:
+
 - `impact-surface-page`: `(NÃO APLICAVEL)`
 - `impact-surface-card`: `(NÃO APLICAVEL)`
 - `impact-text-primary`: `(NÃO APLICAVEL)`
@@ -366,6 +403,7 @@ Tokens `impact-*`:
 ## 12) PADRÕES DE IMPLEMENTAÇÃO (PERFORMANCE, ESTABILIDADE, SEGURANÇA, SEO, MANUTENIBILIDADE)
 
 ### 12.1 Estabilidade
+
 - Progressive enhancement: parcial.
 - Error Boundary global: implementado.
 - Fallback de imagem com `<picture>` AVIF/WebP/JPG: `(NÃO APLICAVEL)`.
@@ -373,11 +411,13 @@ Tokens `impact-*`:
 - Fallback sem JS para conteúdo principal: `(NÃO APLICAVEL)` (SPA hash-router).
 
 ### 12.2 Core Web Vitals
+
 - Budget formal versionado: `(NÃO APLICAVEL)`.
 - Lighthouse CI em pipeline: `(NÃO APLICAVEL)`.
 - Estratégia de reduzir main thread: parcial (`startTransition` + `useDeferredValue` na busca).
 
 ### 12.3 Imagens e mídia
+
 - `loading="lazy"` e `decoding="async"` em imagens: implementado.
 - `width`/`height` definidos nas imagens da galeria: implementado.
 - `video preload="none"`: implementado.
@@ -385,27 +425,32 @@ Tokens `impact-*`:
 - Otimização explícita de LCP (preload/fetchpriority): `(NÃO APLICAVEL)`.
 
 ### 12.4 Fontes
+
 - Google Fonts com `preconnect` para `fonts.googleapis.com` e `fonts.gstatic.com`: implementado.
 - `display=swap` no request de fonte: implementado.
 - Fonte local/subset manual: `(NÃO APLICAVEL)`.
 
 ### 12.5 CSS
+
 - Tailwind v4 + build de produção via Vite: implementado.
 - Tokens globais em `index.css`: implementado.
 - CSS crítico inline no `<head>`: `(NÃO APLICAVEL)`.
 
 ### 12.6 JavaScript
+
 - Build minificado padrão do Vite: implementado.
 - Code splitting explícito por rota com `React.lazy`: `(NÃO APLICAVEL)`.
 - Remoção automática de `console` em produção por configuração: `(NÃO APLICAVEL)`.
 
 ### 12.7 Servidor, cache e compressão
+
 - Servidor Express simples para estático: implementado.
 - Brotli/Gzip no próprio servidor do repo: `(NÃO APLICAVEL)`.
 - Cache headers longos configurados no servidor: `(NÃO APLICAVEL)`.
 - CDN para mídia externa (CloudFront) já usada em assets de capa: parcial.
 
 ### 12.8 SEO e metadados
+
 - `<title>` configurado: implementado.
 - Meta description: `(NÃO APLICAVEL)`.
 - Open Graph / Twitter Cards: `(NÃO APLICAVEL)`.
@@ -413,21 +458,25 @@ Tokens `impact-*`:
 - JSON-LD: `(NÃO APLICAVEL)`.
 
 ### 12.9 Segurança
+
 - Cabeçalhos de segurança (CSP, HSTS, etc.) no app Node local: `(NÃO APLICAVEL)`.
 - HTTPS/TLS depende do ambiente de hospedagem: `(NÃO APLICAVEL)` neste repositório.
 - Política de incidentes e hardening operacional documentada: `(NÃO APLICAVEL)`.
 
 ### 12.10 Qualidade e operação
+
 - TypeScript check (`npm run check`): implementado.
 - Testes automatizados UI/e2e/a11y: `(NÃO APLICAVEL)`.
 - CI/CD com gates de qualidade: `(NÃO APLICAVEL)` no repositório.
 
 ### 12.11 Engenharia opcional avançada
+
 - Speculation Rules API: `(NÃO APLICAVEL)`.
 - Partytown: `(NÃO APLICAVEL)`.
 - View Transitions API: `(NÃO APLICAVEL)`.
 
 ### 12.12 Build atual (Vite + React + TS)
+
 - Plugins: `@vitejs/plugin-react`, `@tailwindcss/vite`, `jsxLocPlugin`.
 - Alias ativos: `@`, `@shared`, `@assets`.
 - `root`: `client`
@@ -440,6 +489,7 @@ Tokens `impact-*`:
 ## 13) GOVERNANÇA (EVITAR BAGUNÇA)
 
 Regras ativas para este projeto:
+
 - Usar tokens de `index.css` antes de criar nova cor/tamanho.
 - Preferir classes utilitárias e variáveis CSS em vez de inline hard-coded novo.
 - Se criar novo token, justificar uso em mais de 2 contextos.

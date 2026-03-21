@@ -32,6 +32,7 @@ export const productRoutes = {
 
 export const standaloneRoutes = {
   receitasLowCarb: "/receitas-low-carb/",
+  sobremesasSaudaveis: "/sobremesas-saudaveis/",
 } as const;
 
 export const institutionalSlugs: Record<

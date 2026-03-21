@@ -1,6 +1,6 @@
 Perfeito. Vou te entregar o que realmente importa para construir a marca e guiar **vídeos, imagens, copies e escolha da modelo**.
 
-A base estratégica é esta: seu produto não é sobre performance extrema. Ele foi feito para **mulheres reais**, com rotina corrida, pouco tempo, iniciantes ou em retomada, com foco em **constância, sentir-se bem no próprio corpo, ficar mais forte e mais confiante**. O material também reforça que são **10 a 20 minutos por dia**, em casa, sem academia, sem complicação, sem treinos longos e sem equipamento obrigatório. Além disso, o plano explicitamente não é para quem busca resultados rápidos e extremos, nem para quem quer treinar 2 horas por dia.  
+A base estratégica é esta: seu produto não é sobre performance extrema. Ele foi feito para **mulheres reais**, com rotina corrida, pouco tempo, iniciantes ou em retomada, com foco em **constância, sentir-se bem no próprio corpo, ficar mais forte e mais confiante**. O material também reforça que são **10 a 20 minutos por dia**, em casa, sem academia, sem complicação, sem treinos longos e sem equipamento obrigatório. Além disso, o plano explicitamente não é para quem busca resultados rápidos e extremos, nem para quem quer treinar 2 horas por dia.
 
 ## 1) Posicionamento central da marca
 
@@ -10,25 +10,25 @@ A sua marca deve ocupar este território:
 
 Não é:
 
-* maromba
-* crossfit agressivo
-* transformação extrema
-* estética de atleta
-* disciplina militar
+- maromba
+- crossfit agressivo
+- transformação extrema
+- estética de atleta
+- disciplina militar
 
 É:
 
-* possível
-* feminina
-* segura
-* guiada
-* elegante
-* acolhedora
-* consistente
-* progressiva
-* realista
+- possível
+- feminina
+- segura
+- guiada
+- elegante
+- acolhedora
+- consistente
+- progressiva
+- realista
 
-O seu produto fala diretamente de **começar do zero sem pressão**, voltar sem se cobrar como antes, usar intensidade leve quando necessário, adaptar limitações e continuar no dia seguinte se perder um treino. Isso é uma assinatura fortíssima de marca. 
+O seu produto fala diretamente de **começar do zero sem pressão**, voltar sem se cobrar como antes, usar intensidade leve quando necessário, adaptar limitações e continuar no dia seguinte se perder um treino. Isso é uma assinatura fortíssima de marca.
 
 ## 2) A grande promessa que mais combina com o produto
 
@@ -40,11 +40,11 @@ A promessa mais forte é:
 
 Porque o seu material insiste em:
 
-* constância acima de perfeição
-* treino curto feito > treino ideal que não aconteceu
-* movimento antes de restrição
-* adaptação ao seu ritmo
-* evolução progressiva ao longo de 28 dias 
+- constância acima de perfeição
+- treino curto feito > treino ideal que não aconteceu
+- movimento antes de restrição
+- adaptação ao seu ritmo
+- evolução progressiva ao longo de 28 dias
 
 ## 3) Persona compradora principal
 
@@ -57,23 +57,23 @@ Mulher entre 36 e 49 anos, vida corrida, trabalho + casa + cansaço mental. Já 
 
 **O que ela quer de verdade**
 
-* voltar a se sentir bem no espelho
-* sentir o corpo menos travado
-* recuperar energia
-* ter disciplina possível
-* conseguir treinar sem sair de casa
-* fazer algo feminino e sem humilhação
-* provar para si mesma que consegue manter uma rotina
+- voltar a se sentir bem no espelho
+- sentir o corpo menos travado
+- recuperar energia
+- ter disciplina possível
+- conseguir treinar sem sair de casa
+- fazer algo feminino e sem humilhação
+- provar para si mesma que consegue manter uma rotina
 
 **O que ela não quer**
 
-* academia lotada
-* treino que machuca
-* pressão estética agressiva
-* aula confusa
-* método com cara de atleta
-* dieta rígida logo de cara
-* rotina impossível de sustentar
+- academia lotada
+- treino que machuca
+- pressão estética agressiva
+- aula confusa
+- método com cara de atleta
+- dieta rígida logo de cara
+- rotina impossível de sustentar
 
 **A dor emocional**
 Ela não pensa: “quero aprender calistenia”.
@@ -86,7 +86,7 @@ Ela pensa:
 **A esperança secreta**
 “Talvez, se for simples e do meu jeito, eu consiga dessa vez.”
 
-Isso encaixa totalmente com o texto do seu produto, que fala com mulheres reais, pouco tempo, dias difíceis, iniciantes, retomada, ritmo próprio e retorno após falha. 
+Isso encaixa totalmente com o texto do seu produto, que fala com mulheres reais, pouco tempo, dias difíceis, iniciantes, retomada, ritmo próprio e retorno após falha.
 
 ## 4) Subpersonas para criativos
 
@@ -110,7 +110,7 @@ Não está necessariamente pensando só em emagrecer. Está pensando em se senti
 Ângulo emocional:
 **“Seu corpo não precisa de punição. Precisa de movimento.”**
 
-Esses três ângulos nascem do próprio plano: treinos de 10–20 min, progressão leve, foco em se sentir melhor, constância acima de perfeição e adaptação para a realidade da aluna. 
+Esses três ângulos nascem do próprio plano: treinos de 10–20 min, progressão leve, foco em se sentir melhor, constância acima de perfeição e adaptação para a realidade da aluna.
 
 ## 5) Modelo ideal para a marca
 
@@ -123,47 +123,47 @@ A modelo da sua marca precisa traduzir:
 
 ### Aparência
 
-* mulher brasileira
-* bonita, mas acessível
-* corpo natural e saudável
-* sem definição extrema
-* sem aparência de atleta profissional
-* sem estética “influencer fitness”
-* postura boa, expressão calma, confiante e acolhedora
+- mulher brasileira
+- bonita, mas acessível
+- corpo natural e saudável
+- sem definição extrema
+- sem aparência de atleta profissional
+- sem estética “influencer fitness”
+- postura boa, expressão calma, confiante e acolhedora
 
 ### Corpo ideal
 
-* magra natural ou médio/saudável
-* pernas e braços com aparência ativa
-* abdômen natural
-* cintura feminina, mas sem shape agressivo
-* visual de mulher adulta real
+- magra natural ou médio/saudável
+- pernas e braços com aparência ativa
+- abdômen natural
+- cintura feminina, mas sem shape agressivo
+- visual de mulher adulta real
 
 ### Rosto
 
-* traços simpáticos
-* ar sereno
-* energia de confiança leve
-* zero cara de “coach que grita”
+- traços simpáticos
+- ar sereno
+- energia de confiança leve
+- zero cara de “coach que grita”
 
 ### Cabelo e styling
 
-* cabelo natural ou levemente arrumado
-* maquiagem discreta
-* roupa clean
-* top, legging, conjunto neutro ou elegante
-* tons suaves, não neon fitness
+- cabelo natural ou levemente arrumado
+- maquiagem discreta
+- roupa clean
+- top, legging, conjunto neutro ou elegante
+- tons suaves, não neon fitness
 
 ### O que evitar
 
-* modelo trincada
-* cara de musa fitness
-* academia de luxo ao fundo
-* produção muito fashion/editorial
-* sensualização excessiva
-* energia de performance extrema
+- modelo trincada
+- cara de musa fitness
+- academia de luxo ao fundo
+- produção muito fashion/editorial
+- sensualização excessiva
+- energia de performance extrema
 
-Isso é coerente com o posicionamento do produto como algo para mulheres reais, não atletas, com começo gentil, sem extremos e com foco em constância. 
+Isso é coerente com o posicionamento do produto como algo para mulheres reais, não atletas, com começo gentil, sem extremos e com foco em constância.
 
 ## 6) A energia visual da marca
 
@@ -173,73 +173,73 @@ Sua marca pode usar o conceito:
 
 Isso significa:
 
-* clean
-* bonito
-* feminino
-* refinado
-* calmo
-* possível
-* sem cara de produto “barato”
-* sem cara de academia hardcore
+- clean
+- bonito
+- feminino
+- refinado
+- calmo
+- possível
+- sem cara de produto “barato”
+- sem cara de academia hardcore
 
 ### Visual ideal
 
-* luz natural
-* casa organizada, mas real
-* sala, quarto ou canto de treino bonito
-* tapete
-* tons neutros
-* enquadramentos estáveis
-* movimentos simples
-* expressão de foco leve, não sofrimento
+- luz natural
+- casa organizada, mas real
+- sala, quarto ou canto de treino bonito
+- tapete
+- tons neutros
+- enquadramentos estáveis
+- movimentos simples
+- expressão de foco leve, não sofrimento
 
 ### Paleta emocional
 
 Eu recomendo:
 
-* off-white
-* bege
-* areia
-* taupe
-* verde sálvia
-* rosé queimado
-* cinza suave
-* preto apenas como apoio
+- off-white
+- bege
+- areia
+- taupe
+- verde sálvia
+- rosé queimado
+- cinza suave
+- preto apenas como apoio
 
 ### Textura da marca
 
-* mais “bem-estar feminino”
-* menos “treino bruto”
-* mais “ritual de autocuidado com resultado”
-* menos “desafio militar”
+- mais “bem-estar feminino”
+- menos “treino bruto”
+- mais “ritual de autocuidado com resultado”
+- menos “desafio militar”
 
 ## 7) Linguagem da marca
 
 ### Tom de voz
 
-* acolhedor
-* seguro
-* elegante
-* encorajador
-* feminino
-* objetivo
-* sem gritaria
-* sem humilhação
-* sem excesso de hype
+- acolhedor
+- seguro
+- elegante
+- encorajador
+- feminino
+- objetivo
+- sem gritaria
+- sem humilhação
+- sem excesso de hype
 
 ### Frases que combinam com a marca
 
-* “comece do seu ritmo”
-* “constância vale mais que perfeição”
-* “10 minutos contam”
-* “movimento real para mulheres reais”
-* “sem academia, sem complicação”
-* “volte a se sentir bem no seu corpo”
-* “forte, presente e confiante”
-* “você não precisa fazer perfeito”
-* “você só precisa aparecer”
+- “comece do seu ritmo”
+- “constância vale mais que perfeição”
+- “10 minutos contam”
+- “movimento real para mulheres reais”
+- “sem academia, sem complicação”
+- “volte a se sentir bem no seu corpo”
+- “forte, presente e confiante”
+- “você não precisa fazer perfeito”
+- “você só precisa aparecer”
 
-Essas frases estão alinhadas ao núcleo do produto: constância, realidade, treino curto, adaptação, continuidade e confiança. 
+Essas frases estão alinhadas ao núcleo do produto: constância, realidade, treino curto, adaptação, continuidade e confiança.
 
 ## 8) O que mais vende no seu texto
 
@@ -247,23 +247,23 @@ Os pilares de copy mais fortes para seus criativos são:
 
 ### 1. Constância
 
-O produto repete isso o tempo todo: constância > perfeição; perdeu um dia, volta no seguinte; versão leve continua valendo. 
+O produto repete isso o tempo todo: constância > perfeição; perdeu um dia, volta no seguinte; versão leve continua valendo.
 
 ### 2. Facilidade real
 
-Treinos de 10–20 minutos, sem academia, sem equipamento obrigatório, com nível leve, padrão e mais intensa. 
+Treinos de 10–20 minutos, sem academia, sem equipamento obrigatório, com nível leve, padrão e mais intensa.
 
 ### 3. Segurança
 
-Existe adaptação para limitações, aviso para parar se doer, progressão lenta e intencional, foco em qualidade do movimento. 
+Existe adaptação para limitações, aviso para parar se doer, progressão lenta e intencional, foco em qualidade do movimento.
 
 ### 4. Autoconfiança
 
-No fim do plano, a linguagem é clara: ela está mais forte, mais capaz e mais confiante. 
+No fim do plano, a linguagem é clara: ela está mais forte, mais capaz e mais confiante.
 
 ### 5. Recomeço sem culpa
 
-O produto não pune a aluna. Ele acolhe a realidade dela. Isso é ouro para criativo. 
+O produto não pune a aluna. Ele acolhe a realidade dela. Isso é ouro para criativo.
 
 ## 9) Ângulos de criativo que você deve explorar
 
@@ -307,19 +307,19 @@ Hook:
 Hook:
 **Tem dias em que você vai no leve. E isso ainda conta.**
 
-Todos esses ângulos são totalmente fiéis ao PDF. 
+Todos esses ângulos são totalmente fiéis ao PDF.
 
 ## 10) Estrutura ideal para vídeos
 
 Seus vídeos devem parecer:
 
-* diretos
-* íntimos
-* reais
-* acolhedores
-* com cortes simples
-* com cenas caseiras
-* com poucos elementos
+- diretos
+- íntimos
+- reais
+- acolhedores
+- com cortes simples
+- com cenas caseiras
+- com poucos elementos
 
 ### Fórmula de vídeo que mais combina
 
@@ -335,14 +335,14 @@ Exemplo:
 
 ### Tipos de vídeo que mais combinam
 
-* UGC review
-* rotina real
-* antes/depois emocional
-* vídeo com texto na tela
-* sequência de treino leve
-* “meu recomeço”
-* “o que mudou em 28 dias”
-* “por que eu consegui manter”
+- UGC review
+- rotina real
+- antes/depois emocional
+- vídeo com texto na tela
+- sequência de treino leve
+- “meu recomeço”
+- “o que mudou em 28 dias”
+- “por que eu consegui manter”
 
 ## 11) 7 roteiros-base para vídeos
 
@@ -389,18 +389,18 @@ Isso mudou a forma como eu vejo disciplina.”
 “Vinte e oito dias parecem pouco.
 Mas quando você faz do jeito certo, dá tempo de perceber que está mais forte, mais capaz e mais constante.”
 
-Esses roteiros conversam diretamente com o encerramento e FAQ do produto. 
+Esses roteiros conversam diretamente com o encerramento e FAQ do produto.
 
 ## 12) Estrutura ideal para imagens
 
 Suas imagens precisam vender:
 
-* possibilidade
-* identificação
-* calma
-* elegância
-* consistência
-* ambiente real
+- possibilidade
+- identificação
+- calma
+- elegância
+- consistência
+- ambiente real
 
 ### 5 tipos de imagem principais
 
@@ -421,40 +421,40 @@ Vende clareza, segurança e acessibilidade.
 
 ### Cenas mais fortes
 
-* sala real
-* tapete no chão
-* luz da manhã
-* roupa clean
-* wall push-up
-* bird dog
-* glute bridge
-* agachamento assistido
-* mobilidade de coluna
-* respiração sentada
+- sala real
+- tapete no chão
+- luz da manhã
+- roupa clean
+- wall push-up
+- bird dog
+- glute bridge
+- agachamento assistido
+- mobilidade de coluna
+- respiração sentada
 
-Esses movimentos representam muito bem o espírito do plano, que começa leve, adaptável e acessível. 
+Esses movimentos representam muito bem o espírito do plano, que começa leve, adaptável e acessível.
 
 ## 13) O que seus criativos devem mostrar visualmente
 
 Mostre:
 
-* início real
-* esforço moderado
-* movimentos possíveis
-* postura correta
-* microvitórias
-* ambiente doméstico
-* sensação de leveza após o treino
+- início real
+- esforço moderado
+- movimentos possíveis
+- postura correta
+- microvitórias
+- ambiente doméstico
+- sensação de leveza após o treino
 
 Não mostre:
 
-* exaustão extrema
-* suor exagerado
-* sofrimento
-* corpo ultra definido
-* comparação humilhante
-* “antes e depois” agressivo
-* exercícios avançados demais
+- exaustão extrema
+- suor exagerado
+- sofrimento
+- corpo ultra definido
+- comparação humilhante
+- “antes e depois” agressivo
+- exercícios avançados demais
 
 ## 14) Pilares de texto para anúncios
 
@@ -478,35 +478,35 @@ Não mostre:
 
 “Mais forte, mais presente, mais confiante.”
 
-Tudo isso é sustentado pelo plano e pelo encerramento do material. 
+Tudo isso é sustentado pelo plano e pelo encerramento do material.
 
 ## 15) Headlines prontas
 
-* Calistenia feminina para mulheres reais
-* 10 a 20 minutos para voltar a se sentir bem
-* Sem academia. Sem treinos longos. Sem complicação.
-* O plano para quem quer voltar a treinar sem se frustrar
-* Recomece com constância, não com pressão
-* Um treino feminino que cabe na sua rotina
-* Seu corpo não precisa de extremos. Precisa de movimento.
-* Comece do zero, do seu jeito
-* Treino em casa para recuperar força e confiança
-* 28 dias para criar constância de verdade
+- Calistenia feminina para mulheres reais
+- 10 a 20 minutos para voltar a se sentir bem
+- Sem academia. Sem treinos longos. Sem complicação.
+- O plano para quem quer voltar a treinar sem se frustrar
+- Recomece com constância, não com pressão
+- Um treino feminino que cabe na sua rotina
+- Seu corpo não precisa de extremos. Precisa de movimento.
+- Comece do zero, do seu jeito
+- Treino em casa para recuperar força e confiança
+- 28 dias para criar constância de verdade
 
 ## 16) Linhas curtas para anúncios e overlays
 
-* Constância > perfeição
-* 10 minutos contam
-* Perdeu um dia? Continua.
-* Sem academia
-* Sem complicação
-* Em casa
-* Feito para iniciantes
-* Retomada gentil
-* Corpo mais ativo
-* Confiança de volta
-* Treino possível
-* Movimento real
+- Constância > perfeição
+- 10 minutos contam
+- Perdeu um dia? Continua.
+- Sem academia
+- Sem complicação
+- Em casa
+- Feito para iniciantes
+- Retomada gentil
+- Corpo mais ativo
+- Confiança de volta
+- Treino possível
+- Movimento real
 
 ## 17) Objeções que você precisa quebrar nos criativos
 
@@ -540,7 +540,7 @@ Resposta:
 Resposta:
 **O plano começa pelo movimento, não pela restrição.**
 
-Essas respostas estão no conteúdo do próprio produto e FAQ. 
+Essas respostas estão no conteúdo do próprio produto e FAQ.
 
 ## 18) Identidade emocional da marca
 
@@ -595,12 +595,12 @@ O segundo vende melhor transformação.
 
 Eu seguiria assim:
 
-* **produto:** transformação possível
-* **marca:** wellness premium acessível
-* **modelo:** mulher real, bonita, natural, adulta
-* **vídeo:** íntimo, caseiro, honesto
-* **imagem:** clean, leve, elegante
-* **copy:** constância, segurança, feminilidade, recomeço
+- **produto:** transformação possível
+- **marca:** wellness premium acessível
+- **modelo:** mulher real, bonita, natural, adulta
+- **vídeo:** íntimo, caseiro, honesto
+- **imagem:** clean, leve, elegante
+- **copy:** constância, segurança, feminilidade, recomeço
 
 Se quiser, no próximo passo eu organizo tudo isso em um formato ainda mais operacional:
 **manual da marca + 20 hooks + 10 roteiros UGC + 10 prompts de imagem + briefing definitivo da modelo.**

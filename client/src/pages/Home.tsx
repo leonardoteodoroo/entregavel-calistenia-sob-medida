@@ -1,6 +1,8 @@
 import { standaloneRoutes, toPublicPath } from "@/content/siteConfig";
+import BonusVisual from "@/components/bonus/BonusVisual";
 import Layout from "@/components/Layout";
 import { Clock3, Heart, ThumbsUp } from "lucide-react";
+import type { RecipeVisual } from "@/content/bonus/bonusRecipeTypes";
 import {
   SectionCaminhos,
   SectionComecaHoje,
@@ -23,10 +25,7 @@ type BonusCard = {
   title: string;
   description?: string;
   href?: string;
-  thumbnail?: {
-    src: string;
-    alt: string;
-  };
+  thumbnail?: RecipeVisual;
   social?: {
     likesBase: number;
   };
@@ -41,15 +40,27 @@ const BONUS_RECIPES: BonusCard[] = [
       "Sendo sincera: não adianta treinar 10 minutos e demorar duas horas na cozinha. Separei 10 pratos fáceis que não roubam seu tempo.",
     href: toPublicPath(standaloneRoutes.receitasLowCarb),
     thumbnail: {
+      kind: "asset",
       src: toPublicPath("bonus/receitas-low-carb/01-crepioca.webp"),
       alt: "Miniatura da receita de crepioca low carb",
     },
     social: { likesBase: 287 },
   },
   {
-    id: "bonus-placeholder-1",
-    title: "Em breve",
-    placeholderDays: 16,
+    id: "sobremesas-saudaveis",
+    title: "Sobremesas Saudáveis",
+    description:
+      "Pra quando bater a vontade de doce sem sair do eixo: 12 sobremesas práticas, geladas, cremosas e pensadas para a vida real.",
+    href: toPublicPath(standaloneRoutes.sobremesasSaudaveis),
+    thumbnail: {
+      kind: "placeholder",
+      alt: "Miniatura editorial de sobremesas saudaveis",
+      prompt:
+        "Miniatura editorial de sobremesas saudaveis com tacas cremosas e atmosfera clara",
+      comment:
+        "Placeholder: 1376x768 (16:9) - composicao editorial de sobremesas saudaveis, fundo claro",
+    },
+    social: { likesBase: 241 },
   },
   {
     id: "bonus-placeholder-2",
@@ -303,9 +314,9 @@ export default function Home() {
               }}
             >
               Este não é um calendário solto. O programa foi organizado em 4
-              semanas com papéis diferentes: a primeira adapta seu corpo e
-              reduz atrito; a segunda cria ritmo; a terceira aumenta confiança
-              e capacidade; a quarta consolida o hábito.
+              semanas com papéis diferentes: a primeira adapta seu corpo e reduz
+              atrito; a segunda cria ritmo; a terceira aumenta confiança e
+              capacidade; a quarta consolida o hábito.
             </p>
             <p
               className="font-body"
@@ -471,13 +482,13 @@ export default function Home() {
               fontStyle: "italic",
             }}
           >
-            De nada adianta o método de treino perfeito se sua alimentação te
-            deixa cansada e sem energia. No ambiente interativo de bônus, seu
-            primeiro presente já está liberado: receitas simples e rápidas para
-            quem não tem tempo a perder, mas quer ver o corpo responder melhor
-            aos exercícios. E não para na cozinha: esse espaço será atualizado
-            com novos conteúdos práticos para acelerar seus resultados além do
-            treino.
+            De nada adianta o método de treino perfeito se a sua rotina te deixa
+            sem energia e te joga no piloto automático. Por isso, o ambiente de
+            bônus já abre com dois apoios reais para o dia a dia: receitas low
+            carb para simplificar as refeições e sobremesas saudáveis para matar
+            a vontade de doce sem perder a mão. E esse espaço continua vivo:
+            novos conteúdos práticos podem entrar aqui para sustentar seus
+            resultados além do treino.
           </p>
 
           <div
@@ -492,6 +503,7 @@ export default function Home() {
               const likesCount = item.social
                 ? item.social.likesBase + (isLiked ? 1 : 0)
                 : 0;
+              const isInteractive = Boolean(item.href);
               const openBonusCard = () => {
                 if (!item.href) return;
                 window.open(item.href, "_blank", "noopener,noreferrer");
@@ -504,13 +516,13 @@ export default function Home() {
                   style={{
                     backgroundColor: "white",
                     border: "1px solid var(--color-taupe-light)",
-                    cursor: item.social ? "pointer" : "default",
+                    cursor: isInteractive ? "pointer" : "default",
                   }}
-                  role={item.social ? "link" : undefined}
-                  tabIndex={item.social ? 0 : undefined}
-                  onClick={item.social ? openBonusCard : undefined}
+                  role={isInteractive ? "link" : undefined}
+                  tabIndex={isInteractive ? 0 : undefined}
+                  onClick={isInteractive ? openBonusCard : undefined}
                   onKeyDown={
-                    item.social
+                    isInteractive
                       ? event => {
                           if (event.key === "Enter" || event.key === " ") {
                             event.preventDefault();
@@ -523,16 +535,15 @@ export default function Home() {
                   {item.social ? (
                     <>
                       {item.thumbnail ? (
-                        <img
-                          src={item.thumbnail.src}
-                          alt={item.thumbnail.alt}
+                        <BonusVisual
+                          visual={item.thumbnail}
                           loading="lazy"
                           decoding="async"
                           className="rounded mb-3 w-full"
                           style={{
                             aspectRatio: "16 / 9",
-                            objectFit: "cover",
                             border: "1px solid var(--color-taupe-light)",
+                            objectFit: "cover",
                           }}
                         />
                       ) : null}

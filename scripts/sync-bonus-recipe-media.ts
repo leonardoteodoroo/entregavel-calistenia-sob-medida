@@ -21,7 +21,8 @@ const SOURCE_IMAGES: BonusImageSpec[] = [
     outputName: "03-sufle-frango.webp",
   },
   {
-    sourceName: "Fotografia_culinria_hiperrealista_de_picadinho_de__aa6263319c.jpeg",
+    sourceName:
+      "Fotografia_culinria_hiperrealista_de_picadinho_de__aa6263319c.jpeg",
     outputName: "04-picadinho-frango.webp",
   },
   {
@@ -29,7 +30,8 @@ const SOURCE_IMAGES: BonusImageSpec[] = [
     outputName: "05-hamburguer-prato.webp",
   },
   {
-    sourceName: "Fotografia_gastronmica_sofisticada_de_fil_de_peixe_48e8d4fd1c.jpeg",
+    sourceName:
+      "Fotografia_gastronmica_sofisticada_de_fil_de_peixe_48e8d4fd1c.jpeg",
     outputName: "06-file-peixe-assado.webp",
   },
   {
@@ -45,17 +47,13 @@ const SOURCE_IMAGES: BonusImageSpec[] = [
     outputName: "09-bolo-caneca.webp",
   },
   {
-    sourceName: "Fotografia_food_editorial_realista_de_biscoitos_de_a996a700d1.jpeg",
+    sourceName:
+      "Fotografia_food_editorial_realista_de_biscoitos_de_a996a700d1.jpeg",
     outputName: "10-biscoito-amendoim.webp",
   },
 ];
 
-const OUTPUT_DIR = path.join(
-  "client",
-  "public",
-  "bonus",
-  "receitas-low-carb"
-);
+const OUTPUT_DIR = path.join("client", "public", "bonus", "receitas-low-carb");
 const ARCHIVE_DIR = path.join(
   "archive",
   "source-images",
