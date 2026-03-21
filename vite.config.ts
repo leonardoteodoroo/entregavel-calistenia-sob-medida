@@ -7,6 +7,7 @@ import { defineConfig, type Plugin } from "vite";
 
 const clientRoot = path.resolve(import.meta.dirname, "client");
 const slashRedirectPaths = new Set([
+  "/lab",
   "/sobre",
   "/contato",
   "/politica-de-privacidade",
@@ -18,6 +19,7 @@ const slashRedirectPaths = new Set([
 
 const multipageInputs = {
   app: path.resolve(clientRoot, "index.html"),
+  lab: path.resolve(clientRoot, "lab", "index.html"),
   sobre: path.resolve(clientRoot, "sobre", "index.html"),
   contato: path.resolve(clientRoot, "contato", "index.html"),
   privacidade: path.resolve(

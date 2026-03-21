@@ -16,8 +16,8 @@ export default function ApoioPage() {
     <Layout>
       <div
         style={{
-          padding: "clamp(1rem, 3vw, 2rem)",
-          maxWidth: "860px",
+          padding: 0,
+          maxWidth: "100%",
           margin: "0 auto",
         }}
       >
@@ -49,7 +49,7 @@ export default function ApoioPage() {
 
             <div
               className="relative z-10"
-              style={{ padding: "clamp(2.5rem, 6vw, 4.5rem)" }}
+              style={{ padding: "clamp(5px, 6vw, 4.5rem)" }}
             >
               <SectionLabel>Encerramento</SectionLabel>
               <h2

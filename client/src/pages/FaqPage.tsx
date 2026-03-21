@@ -10,15 +10,15 @@ export default function FaqPage() {
     <Layout>
       <div
         style={{
-          padding: "clamp(1rem, 3vw, 2rem)",
-          maxWidth: "860px",
+          padding: 0,
+          maxWidth: "100%",
           margin: "0 auto",
         }}
       >
         <section
           id="faq"
           className="page-card mb-6 mt-2"
-          style={{ padding: "clamp(2rem, 5vw, 3.5rem)" }}
+          style={{ padding: "clamp(5px, 3.5vw, 3.5rem)" }}
         >
           <SectionLabel>Dúvidas frequentes</SectionLabel>
           <h2

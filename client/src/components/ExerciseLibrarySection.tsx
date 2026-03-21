@@ -93,7 +93,7 @@ export default function ExerciseLibrarySection() {
     <section
       id="biblioteca-exercicios"
       className="page-card mb-6 animate-fade-in"
-      style={{ padding: "clamp(2rem, 5vw, 3.5rem)" }}
+      style={{ padding: "clamp(5px, 3.5vw, 3.5rem)" }}
     >
       <SectionLabel>Biblioteca</SectionLabel>
       <h2
@@ -203,7 +203,13 @@ export default function ExerciseLibrarySection() {
           onValueChange={value => setOpenItems(value as string[])}
         >
           {filteredEntries.map(entry => {
-            const media = getExerciseMedia(entry.display_name);
+            const media = getExerciseMedia(entry.display_name) || {
+              mediaType: "single_image",
+              image: {
+                src: "/exercises/placeholder-wide.png",
+                alt: "Referência visual de " + entry.display_name
+              }
+            };
             const isHighlighted = highlightedExerciseId === entry.exercise_id;
 
             return (
@@ -254,30 +260,12 @@ export default function ExerciseLibrarySection() {
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pb-5">
-                  {media ? (
-                    <div className="mb-5">
-                      <ExerciseGallery
-                        exerciseName={entry.display_name}
-                        media={media}
-                      />
-                    </div>
-                  ) : (
-                    <div
-                      className="mb-5 px-4 py-3 rounded"
-                      style={{ backgroundColor: "var(--color-ivory-dark)" }}
-                    >
-                      <p
-                        className="font-body"
-                        style={{
-                          fontSize: "0.78rem",
-                          color: "var(--color-charcoal-light)",
-                        }}
-                      >
-                        Referência visual indisponível no momento para este
-                        exercício.
-                      </p>
-                    </div>
-                  )}
+                  <div className="mb-5">
+                    <ExerciseGallery
+                      exerciseName={entry.display_name}
+                      media={media as any}
+                    />
+                  </div>
 
                   <div
                     className="grid gap-4"

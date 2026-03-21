@@ -10,23 +10,26 @@ interface ExerciseGalleryProps {
 
 function VideoPlaceholder() {
   return (
-    <div className="flex justify-center">
-      <div
-        className="flex items-center justify-center rounded-lg bg-gradient-to-br from-muted to-muted/50 border border-muted-foreground/20"
-        style={{
-          width: "400px",
-          height: "100px",
-          maxWidth: "100%",
-        }}
-      >
-        <div className="flex flex-col items-center gap-2">
-          <Play
-            size={24}
-            className="text-muted-foreground/60"
-            fill="currentColor"
-          />
-          <span className="font-body text-xs uppercase tracking-wide text-muted-foreground/70">
-            Biblioteca de videos em atualizacao
+    <div className="flex justify-center mb-4">
+      <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-muted-foreground/10 shadow-sm">
+        <img
+          src="/exercises/placeholder-wide.png"
+          alt="Biblioteca de vídeos em atualização"
+          className="w-full h-full object-cover opacity-80"
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-black/10 backdrop-blur-[1px]">
+          <div className="bg-white/90 p-3 rounded-full shadow-lg">
+            <Play
+              size={24}
+              className="text-rose-500 ml-0.5"
+              fill="currentColor"
+            />
+          </div>
+          <span
+            className="font-body text-[10px] uppercase tracking-[0.2em] text-white font-medium px-4 py-1.5 rounded-full"
+            style={{ backgroundColor: "rgba(0,0,0,0.4)" }}
+          >
+            Vídeo em breve
           </span>
         </div>
       </div>
@@ -44,22 +47,31 @@ export default function ExerciseGallery({
   const touchCurrentX = useRef<number | null>(null);
 
   if (media.mediaType === "video") {
+    const thumbnailSrc = media.video.src.replace("video.mp4", "thumbnail.webp");
+
     if (!videoLoaded) {
       return (
         <div className="space-y-4">
-          <div className="relative w-full aspect-video bg-muted rounded-lg overflow-hidden border border-muted-foreground/20">
+          <div className="relative w-full aspect-video bg-muted rounded-lg overflow-hidden border border-muted-foreground/20 shadow-sm group">
+            <img
+              src={thumbnailSrc}
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500"
+            />
             <button
               onClick={() => setVideoLoaded(true)}
-              className="w-full h-full flex flex-col items-center justify-center gap-2 px-4"
+              className="relative z-10 w-full h-full flex flex-col items-center justify-center gap-3 px-4 bg-black/20 backdrop-blur-[2px]"
               type="button"
               aria-label={`Carregar vídeo de ${exerciseName}`}
             >
-              <Play
-                size={28}
-                className="text-muted-foreground/70"
-                fill="currentColor"
-              />
-              <span className="font-body text-xs uppercase tracking-wide text-muted-foreground/80 text-center">
+              <div className="bg-white/90 p-4 rounded-full shadow-xl transform group-hover:scale-110 transition-transform">
+                <Play
+                  size={32}
+                  className="text-rose-500 ml-1"
+                  fill="currentColor"
+                />
+              </div>
+              <span className="font-body text-[11px] uppercase tracking-[0.2em] text-white font-bold drop-shadow-md">
                 Toque para carregar o vídeo
               </span>
             </button>
@@ -70,10 +82,11 @@ export default function ExerciseGallery({
 
     return (
       <div className="space-y-4">
-        <div className="relative w-full aspect-video bg-muted rounded-lg overflow-hidden border border-muted-foreground/20">
+        <div className="relative w-full aspect-video bg-muted rounded-lg overflow-hidden border border-muted-foreground/20 shadow-lg">
           <video
             controls
-            preload="none"
+            preload="metadata"
+            poster={thumbnailSrc}
             playsInline
             className="w-full h-full object-cover"
             aria-label={media.video.alt}

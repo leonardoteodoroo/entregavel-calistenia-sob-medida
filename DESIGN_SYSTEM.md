@@ -151,8 +151,8 @@ Escala base em uso (Tailwind + estilos inline):
 
 Escalas fluidas usadas no layout:
 
-- `page-padding-x`: `clamp(1rem, 3vw, 2rem)`
-- `section-padding`: `clamp(2rem, 5vw, 3.5rem)`
+- `page-padding-x`: `0` <!-- anterior a refatoração: clamp(1rem, 3vw, 2rem) -->
+- `section-padding`: `clamp(5px, 3.5vw, 3.5rem)` <!-- anterior a refatoração mobile: clamp(2rem, 5vw, 3.5rem) -->
 - `hero-padding`: `clamp(2rem, 5vw, 4rem)`
 
 ---
@@ -204,11 +204,11 @@ Escalas fluidas usadas no layout:
 ## 4) LAYOUT & GRID (ESTRUTURA DE PÁGINA)
 
 - `container-max`: `1280px` (`.container` em `lg`)
-- `content-max`: `860px` (wrapper principal das páginas)
+- `content-max`: `100%` (wrapper principal das páginas) <!-- anterior a refatoração: 860px -->
 - `card-max`: `780px` (cards de dia/semana)
 - `sidebar-width`: `220px` (layout custom principal)
-- `container-padding-x-mobile`: `1rem`
-- `container-padding-x-sm`: `1.5rem`
+- `container-padding-x-mobile`: `0` <!-- anterior a refatoração: 1rem -->
+- `container-padding-x-sm`: `0` <!-- anterior a refatoração: 1.5rem -->
 - `container-padding-x-lg`: `2rem`
 - `grid-columns`: padrão fluido com `repeat(auto-fit, minmax(...))`
 - `grid-columns-fixos`: `sm:2`, `md:3`, `lg:4` em blocos específicos
@@ -313,7 +313,7 @@ Regra de mobile usada em lógica JS:
 
 ### Cards
 
-- Card editorial (`.page-card`): `ivory + border taupe-light + radius 4px + shadow-card`.
+- Card editorial (`.page-card`): Expansivo e sem limite de bordas visuais nativas (`position: relative, overflow: hidden`). <!-- anterior a refatoração formava uma caixa com: bg ivory + border taupe-light + radius 4px + shadow-card -->
 - Card de exercício (`.exercise-card`): `white + border-left accent + radius assimétrico`.
 - Card shadcn (`Card`): `bg-card + rounded-xl + border + shadow-sm`.
 

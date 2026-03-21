@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Cards & Magic Menu</title>
+    <!-- Importação do FontAwesome para os ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            /* Removemos o flex do body para empilhar as secções verticalmente */
+            display: block;
+            width: 100%;
+        }
+
+        /* Estilos comuns para as secções */
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .section-title {
+            position: absolute;
+            top: 2rem;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        /* =========================================
+           SECÇÃO 1: SOCIAL MEDIA CARD HOVER
+           ========================================= */
+        .section-cards {
+            --bg-color: #0d0d0f;
+            --card-color: #151517;
+            --text-main: #f3f3f3;
+            --text-muted: #8a8a93;
+            --border-default: rgba(255, 255, 255, 0.05);
+            --glow-color: rgba(255, 255, 255, 0.15);
+            --glow-inner: rgba(255, 255, 255, 0.04);
+            
+            background-color: var(--bg-color);
+            color: var(--text-main);
+        }
+
+        .section-cards .section-title {
+            color: #fff;
+        }
+
+        #cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            max-width: 1000px;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background-color: var(--border-default);
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            height: 320px;
+            width: 260px;
+            position: relative;
+            flex-direction: column;
+        }
+
+        #cards:hover > .card {
+            background: radial-gradient(
+                600px circle at var(--mouse-x) var(--mouse-y),
+                var(--glow-color),
+                var(--border-default) 40%
+            );
+        }
+
+        .card-content {
+            background-color: var(--card-color);
+            border-radius: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            inset: 1px;
+            position: absolute;
+            z-index: 2;
+            padding: 2rem;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .card-content::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                400px circle at var(--mouse-x) var(--mouse-y),
+                var(--glow-inner),
+                transparent 40%
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .card:hover .card-content::before {
+            opacity: 1;
+        }
+
+        .card-info {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .icon-wrapper {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .action-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .action-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* =========================================
+           SECÇÃO 2: MAGIC NAVIGATION MENU
+           ========================================= */
+        .section-magic {
+            /* Variáveis isoladas para a secção mágica */
+            --bg-color: #282936; 
+            --nav-bg: #ffffff;
+            --active-color: #5a6df5;
+            --icon-color: #878787;
+            
+            background-color: var(--bg-color);
+        }
+
+        .section-magic .section-title {
+            color: #fff;
+        }
+
+        .navigation {
+            position: relative;
+            width: 350px;
+            height: 70px;
+            background: var(--nav-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            margin-top: 3rem;
+        }
+
+        .navigation ul {
+            display: flex;
+            width: 350px;
+        }
+
+        .navigation ul li {
+            position: relative;
+            list-style: none;
+            width: 70px;
+            height: 70px;
+            z-index: 1;
+        }
+
+        .navigation ul li a {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+            font-weight: 500;
+            height: 100%;
+            text-decoration: none;
+        }
+
+        .navigation ul li a .icon {
+            position: relative;
+            display: block;
+            line-height: 75px;
+            font-size: 1.5em;
+            text-align: center;
+            transition: 0.5s;
+            color: var(--icon-color);
+        }
+
+        /* Efeito de subir e mudar de cor quando o item está ativo */
+        .navigation ul li.active a .icon {
+            transform: translateY(-32px);
+            color: #fff;
+        }
+
+        /* O círculo verde/azul que destaca o ícone ativo */
+        .indicator {
+            position: absolute;
+            top: -50%;
+            left: 0;
+            width: 70px;
+            height: 70px;
+            background: var(--active-color);
+            border-radius: 50%;
+            /* A borda grossa da mesma cor que o fundo da página cria o efeito de separação */
+            border: 6px solid var(--bg-color);
+            transition: 0.5s;
+        }
+
+        /* A Magia do CSS: Criar as curvas (recorte) na barra de navegação */
+        .indicator::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -22px;
+            width: 20px;
+            height: 20px;
+            background: transparent;
+            border-top-right-radius: 20px;
+            /* A sombra simula uma continuação do fundo da página por cima do menu branco */
+            box-shadow: 1px -10px 0 0 var(--bg-color);
+        }
+
+        .indicator::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -22px;
+            width: 20px;
+            height: 20px;
+            background: transparent;
+            border-top-left-radius: 20px;
+            box-shadow: -1px -10px 0 0 var(--bg-color);
+        }
+
+        /* Mover o indicador com base no item ativo (70px é a largura de cada li) */
+        .navigation ul li:nth-child(1).active ~ .indicator { transform: translateX(calc(70px * 0)); }
+        .navigation ul li:nth-child(2).active ~ .indicator { transform: translateX(calc(70px * 1)); }
+        .navigation ul li:nth-child(3).active ~ .indicator { transform: translateX(calc(70px * 2)); }
+        .navigation ul li:nth-child(4).active ~ .indicator { transform: translateX(calc(70px * 3)); }
+        .navigation ul li:nth-child(5).active ~ .indicator { transform: translateX(calc(70px * 4)); }
+
+        /* Responsividade geral */
+        @media (max-width: 600px) {
+            .card {
+                width: 100%;
+                max-width: 300px;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SECÇÃO 1: SOCIAL MEDIA CARDS -->
+    <section class="section-cards">
+        <h2 class="section-title">Efeito Hover em Cartões</h2>
+        <div id="cards">
+            <!-- Cartão Instagram -->
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-info">
+                        <div class="icon-wrapper">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <h3 class="card-title">Instagram</h3>
+                        <p class="card-subtitle">Seguidores: 825k</p>
+                        <a href="#" class="action-button">
+                            <i class="fa-solid fa-link"></i>
+                            <span>Seguir</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cartão Github -->
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-info">
+                        <div class="icon-wrapper">
+                            <i class="fa-brands fa-github"></i>
+                        </div>
+                        <h3 class="card-title">Github</h3>
+                        <p class="card-subtitle">Seguidores: 150k</p>
+                        <a href="#" class="action-button">
+                            <i class="fa-solid fa-link"></i>
+                            <span>Seguir</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cartão LinkedIn -->
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-info">
+                        <div class="icon-wrapper">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </div>
+                        <h3 class="card-title">LinkedIn</h3>
+                        <p class="card-subtitle">Conexões: 100k</p>
+                        <a href="#" class="action-button">
+                            <i class="fa-solid fa-link"></i>
+                            <span>Conectar</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SECÇÃO 2: MAGIC NAVIGATION MENU -->
+    <section class="section-magic">
+        <h2 class="section-title">Menu de Navegação Mágico</h2>
+        <div class="navigation">
+            <ul>
+                <li class="list active">
+                    <a href="#magic">
+                        <span class="icon"><i class="fa-solid fa-house"></i></span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#magic">
+                        <span class="icon"><i class="fa-regular fa-user"></i></span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#magic">
+                        <span class="icon"><i class="fa-regular fa-comment"></i></span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#magic">
+                        <span class="icon"><i class="fa-solid fa-camera"></i></span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#magic">
+                        <span class="icon"><i class="fa-solid fa-gear"></i></span>
+                    </a>
+                </li>
+                <!-- A bolha colorida que desliza e recorta o menu -->
+                <div class="indicator"></div>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        /* =========================================
+           SCRIPT DA SECÇÃO 1: CARDS HOVER
+           ========================================= */
+        const cardsContainer = document.getElementById('cards');
+        const cards = document.querySelectorAll('.card');
+
+        cardsContainer.addEventListener('mousemove', (e) => {
+            for (const card of cards) {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            }
+        });
+
+        /* =========================================
+           SCRIPT DA SECÇÃO 2: MAGIC MENU
+           ========================================= */
+        const listItems = document.querySelectorAll('.list');
+
+        function activeLink() {
+            // Remove a classe 'active' de todos os itens
+            listItems.forEach((item) => item.classList.remove('active'));
+            // Adiciona a classe 'active' ao item clicado
+            this.classList.add('active');
+        }
+
+        // Adiciona o evento de clique a cada item do menu
+        listItems.forEach((item) => item.addEventListener('click', activeLink));
+    </script>
+</body>
+</html>

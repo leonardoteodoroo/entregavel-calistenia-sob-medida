@@ -114,7 +114,7 @@ function RecipeCard({
     <button
       type="button"
       onClick={() => onSelect(recipe)}
-      className="page-card w-full overflow-hidden text-left transition-transform duration-200 hover:-translate-y-0.5"
+      className="inner-card w-full overflow-hidden text-left transition-transform duration-200 hover:-translate-y-0.5"
     >
       <div className="relative h-48 w-full overflow-hidden">
         <BonusVisual
@@ -186,7 +186,7 @@ function RecipeDetail({
   const stepsTotal = recipe.instructionsSteps.length;
 
   return (
-    <section className="page-card mb-8 overflow-hidden">
+    <section className="inner-card mb-8 overflow-hidden">
       <div className="relative h-64 md:h-80">
         <BonusVisual
           visual={recipe.visual}
@@ -785,7 +785,7 @@ export default function BonusRecipeBookApp({ book }: { book: RecipeBook }) {
               transition={{ duration: 0.22, ease: "easeOut" }}
             >
               <section
-                className="page-card mb-6"
+                className="inner-card mb-6"
                 style={{ padding: "clamp(1.1rem, 3vw, 1.8rem)" }}
               >
                 <p
@@ -867,7 +867,7 @@ export default function BonusRecipeBookApp({ book }: { book: RecipeBook }) {
 
                 {filteredRecipes.length === 0 ? (
                   <div
-                    className="page-card"
+                    className="inner-card"
                     style={{ padding: "1.1rem", textAlign: "center" }}
                   >
                     <p

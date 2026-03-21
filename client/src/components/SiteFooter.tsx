@@ -64,7 +64,7 @@ export default function SiteFooter() {
         style={{
           maxWidth: "1120px",
           margin: "0 auto",
-          padding: "clamp(1.5rem, 4vw, 2.5rem)",
+          padding: "clamp(5px, 4vw, 2.5rem)",
         }}
       >
         <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">

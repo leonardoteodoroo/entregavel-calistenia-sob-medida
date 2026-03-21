@@ -63,7 +63,7 @@ export default function DayCard({ plan, weekNumber }: DayCardProps) {
   return (
     <section
       id={`dia-${plan.day}`}
-      className="page-card mx-auto animate-fade-in"
+      className="inner-card mx-auto animate-fade-in"
       style={{
         maxWidth: "780px",
         padding: "clamp(1.5rem, 4vw, 3rem)",

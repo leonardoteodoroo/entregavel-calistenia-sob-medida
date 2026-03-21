@@ -97,8 +97,8 @@ export default function InstitutionalLayout({
         </div>
       </header>
 
-      <main className="flex-1" style={{ padding: "clamp(1rem, 3vw, 2rem)" }}>
-        <div style={{ maxWidth: "860px", margin: "0 auto" }}>{children}</div>
+      <main className="flex-1" style={{ padding: 0 }}>
+        <div style={{ maxWidth: "100%", margin: "0 auto" }}>{children}</div>
       </main>
 
       <SiteFooter />

@@ -260,6 +260,12 @@
 
   /* ---- Page card (A4-like) ---- */
   .page-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ---- Inner card (Bônus and smaller elements) ---- */
+  .inner-card {
     background: var(--color-ivory);
     border: 1px solid var(--color-taupe-light);
     border-radius: 4px;

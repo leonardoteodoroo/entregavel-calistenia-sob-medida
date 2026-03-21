@@ -105,8 +105,8 @@ export default function WeekPage({ params }: WeekPageProps) {
     <Layout>
       <div
         style={{
-          padding: "clamp(1rem, 3vw, 2rem)",
-          maxWidth: "860px",
+          padding: 0,
+          maxWidth: "100%",
           margin: "0 auto",
         }}
       >

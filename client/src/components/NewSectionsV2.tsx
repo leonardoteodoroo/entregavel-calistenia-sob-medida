@@ -32,7 +32,7 @@ export function SectionEncaixe() {
     <section
       id="encaixe"
       className="page-card mb-6 animate-fade-in"
-      style={{ padding: "clamp(2rem, 5vw, 3.5rem)" }}
+      style={{ padding: "clamp(5px, 3.5vw, 3.5rem)" }}
     >
       <SectionLabel>Encaixe do produto</SectionLabel>
       <h2
@@ -190,7 +190,7 @@ export function SectionCaminhos() {
     <section
       id="escolher-caminho"
       className="page-card mb-6 animate-fade-in"
-      style={{ padding: "clamp(2rem, 5vw, 3.5rem)" }}
+      style={{ padding: "clamp(5px, 3.5vw, 3.5rem)" }}
     >
       <SectionLabel>Autosegmentação</SectionLabel>
       <h2
@@ -354,7 +354,7 @@ export function SectionComecaHoje() {
     <section
       id="comeca-hoje"
       className="page-card mb-6 animate-fade-in"
-      style={{ padding: "clamp(2rem, 5vw, 3.5rem)" }}
+      style={{ padding: "clamp(5px, 3.5vw, 3.5rem)" }}
     >
       <SectionLabel>Ativação imediata</SectionLabel>
       <h2
@@ -485,7 +485,7 @@ export function SectionOQueEsperar() {
     <section
       id="o-que-esperar"
       className="page-card mb-6 animate-fade-in"
-      style={{ padding: "clamp(2rem, 5vw, 3.5rem)" }}
+      style={{ padding: "clamp(5px, 3.5vw, 3.5rem)" }}
     >
       <SectionLabel>Alinhamento de expectativa</SectionLabel>
       <h2
@@ -666,7 +666,7 @@ export function SectionSinaisProgresso() {
     <section
       id="sinais-progresso"
       className="page-card mb-6 animate-fade-in"
-      style={{ padding: "clamp(2rem, 5vw, 3.5rem)" }}
+      style={{ padding: "clamp(5px, 3.5vw, 3.5rem)" }}
     >
       <SectionLabel>Percepção de valor</SectionLabel>
       <h2

@@ -26,6 +26,7 @@ type BonusCard = {
   description?: string;
   href?: string;
   thumbnail?: RecipeVisual;
+  updatedAtLabel?: string;
   social?: {
     likesBase: number;
   };
@@ -53,14 +54,12 @@ const BONUS_RECIPES: BonusCard[] = [
       "Pra quando bater a vontade de doce sem sair do eixo: 12 sobremesas práticas, geladas, cremosas e pensadas para a vida real.",
     href: toPublicPath(standaloneRoutes.sobremesasSaudaveis),
     thumbnail: {
-      kind: "placeholder",
-      alt: "Miniatura editorial de sobremesas saudaveis",
-      prompt:
-        "Miniatura editorial de sobremesas saudaveis com tacas cremosas e atmosfera clara",
-      comment:
-        "Placeholder: 1376x768 (16:9) - composicao editorial de sobremesas saudaveis, fundo claro",
+      kind: "asset",
+      src: toPublicPath("bonus/sobremesas-saudaveis/01-mousse-maracuja.webp"),
+      alt: "Miniatura de sobremesas saudaveis",
     },
-    social: { likesBase: 241 },
+    updatedAtLabel: "18/03/2026",
+    social: { likesBase: 77 },
   },
   {
     id: "bonus-placeholder-2",
@@ -149,8 +148,8 @@ export default function Home() {
     <Layout>
       <div
         style={{
-          padding: "clamp(1rem, 3vw, 2rem)",
-          maxWidth: "860px",
+          padding: 0,
+          maxWidth: "100%",
           margin: "0 auto",
         }}
       >
@@ -165,20 +164,20 @@ export default function Home() {
               style={{
                 backgroundImage: `url(${HERO_IMG})`,
                 backgroundSize: "cover",
-                backgroundPosition: "center right",
-                opacity: 0.35,
+                backgroundPosition: "85% center",
+                opacity: 0.65,
               }}
             />
             <div
               className="absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(105deg, var(--color-ivory) 45%, transparent 80%)",
+                  "linear-gradient(110deg, var(--color-ivory) 35%, transparent 75%)",
               }}
             />
             <div
               className="relative z-10 flex flex-col justify-between"
-              style={{ minHeight: "520px", padding: "clamp(2rem, 5vw, 4rem)" }}
+              style={{ minHeight: "520px", padding: "clamp(5px, 4vw, 4rem)" }}
             >
               <div>
                 <p
@@ -244,10 +243,12 @@ export default function Home() {
                   <button
                     key={week.number}
                     onClick={() => setLocation(`/semana/${week.number}`)}
-                    className="px-4 py-3 rounded text-left"
+                    className="px-4 py-3 rounded text-left transition-all hover:scale-[1.02] active:scale-[0.98]"
                     style={{
-                      backgroundColor: "white",
-                      border: "1px solid var(--color-taupe-light)",
+                      backgroundColor: "rgba(255, 255, 255, 0.04)",
+                      backdropFilter: "blur(16px)",
+                      WebkitBackdropFilter: "blur(16px)",
+                      border: "1px solid rgba(181, 169, 154, 0.4)",
                     }}
                   >
                     <p
@@ -281,7 +282,7 @@ export default function Home() {
         <section
           id="como-funciona"
           className="page-card mb-6"
-          style={{ padding: "clamp(2rem, 5vw, 3.5rem)" }}
+          style={{ padding: "clamp(5px, 3.5vw, 3.5rem)" }}
         >
           <SectionLabel>Como funciona</SectionLabel>
           <h2
@@ -355,7 +356,7 @@ export default function Home() {
         <section
           id="visao-geral"
           className="page-card mb-6 overflow-hidden"
-          style={{ padding: "clamp(2rem, 5vw, 3.5rem)" }}
+          style={{ padding: "clamp(5px, 3.5vw, 3.5rem)" }}
         >
           <SectionLabel>Método em 4 etapas</SectionLabel>
           <h2
@@ -461,7 +462,7 @@ export default function Home() {
         <section
           id="bonus"
           className="page-card mb-6 overflow-hidden"
-          style={{ padding: "clamp(2rem, 5vw, 3.5rem)" }}
+          style={{ padding: "clamp(5px, 3.5vw, 3.5rem)" }}
         >
           <SectionLabel>Bônus</SectionLabel>
           <h2
@@ -524,11 +525,11 @@ export default function Home() {
                   onKeyDown={
                     isInteractive
                       ? event => {
-                          if (event.key === "Enter" || event.key === " ") {
-                            event.preventDefault();
-                            openBonusCard();
-                          }
+                        if (event.key === "Enter" || event.key === " ") {
+                          event.preventDefault();
+                          openBonusCard();
                         }
+                      }
                       : undefined
                   }
                 >
@@ -626,7 +627,8 @@ export default function Home() {
                             color: "var(--color-taupe)",
                           }}
                         >
-                          Atualização: {updatedAtLabel}, com carinho
+                          Atualização: {item.updatedAtLabel ?? updatedAtLabel},
+                          {" "}com carinho
                           <Heart
                             size={12}
                             style={{ color: "var(--color-rose)" }}
@@ -721,7 +723,7 @@ export default function Home() {
         <section
           id="navegacao-rapida"
           className="page-card mb-8"
-          style={{ padding: "clamp(2rem, 5vw, 3rem)" }}
+          style={{ padding: "clamp(5px, 3.5vw, 3rem)" }}
         >
           <SectionLabel>Navegação rápida</SectionLabel>
           <h2

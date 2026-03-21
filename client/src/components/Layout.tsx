@@ -319,7 +319,7 @@ export default function Layout({ children }: LayoutProps) {
       </aside>
 
       <header
-        className="fixed top-0 left-0 right-0 z-20 flex items-center justify-between px-4 py-3 lg:hidden"
+        className="fixed top-0 left-0 right-0 z-20 flex items-center justify-between px-[5px] sm:px-4 py-3 lg:hidden"
         style={{
           backgroundColor: "white",
           borderBottom: "1px solid var(--color-taupe-light)",

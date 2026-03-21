@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #f9f6f0;
+  --color-ivory-dark: #f0ebe3;
+  --color-taupe: #b5a99a;
+  --color-taupe-light: #d4ccc4;
+  --color-rose: #8b4a52;
+  --color-rose-light: #c4858e;
+  --color-rose-muted: #e8d5d7;
+  --color-teal: #5b8a8b;
+  --color-teal-light: #8bb5b6;
+  --color-teal-muted: #d0e4e4;
+  --color-charcoal: #2c2c2c;
+  --color-charcoal-light: #4a4a4a;
+  --color-warm-gray: #7a7570;
+
+  --color-background: oklch(0.978 0.006 75);
+  --color-foreground: oklch(0.22 0.008 60);
+  --color-card: oklch(0.99 0.003 75);
+  --color-card-foreground: oklch(0.22 0.008 60);
+  --color-popover: oklch(0.99 0.003 75);
+  --color-popover-foreground: oklch(0.22 0.008 60);
+  --color-primary: oklch(0.42 0.065 10);
+  --color-primary-foreground: oklch(0.98 0.003 75);
+  --color-secondary: oklch(0.93 0.008 75);
+  --color-secondary-foreground: oklch(0.35 0.01 60);
+  --color-muted: oklch(0.95 0.005 75);
+  --color-muted-foreground: oklch(0.52 0.015 60);
+  --color-accent: oklch(0.88 0.012 185);
+  --color-accent-foreground: oklch(0.3 0.04 185);
+  --color-destructive: oklch(0.577 0.245 27.325);
+  --color-destructive-foreground: oklch(0.985 0 0);
+  --color-border: oklch(0.88 0.008 75);
+  --color-input: oklch(0.88 0.008 75);
+  --color-ring: oklch(0.42 0.065 10);
+
+  --font-sans: "DM Sans", sans-serif;
+  --font-heading: "Playfair Display", serif;
+}
+
+:root {
+  --background: oklch(0.978 0.006 75);
+  --foreground: oklch(0.22 0.008 60);
+  --card: oklch(0.99 0.003 75);
+  --card-foreground: oklch(0.22 0.008 60);
+  --popover: oklch(0.99 0.003 75);
+  --popover-foreground: oklch(0.22 0.008 60);
+  --primary: oklch(0.42 0.065 10);
+  --primary-foreground: oklch(0.98 0.003 75);
+  --secondary: oklch(0.93 0.008 75);
+  --secondary-foreground: oklch(0.35 0.01 60);
+  --muted: oklch(0.95 0.005 75);
+  --muted-foreground: oklch(0.52 0.015 60);
+  --accent: oklch(0.88 0.012 185);
+  --accent-foreground: oklch(0.3 0.04 185);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.88 0.008 75);
+  --input: oklch(0.88 0.008 75);
+  --ring: oklch(0.42 0.065 10);
+}
+
+body {
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+}

@@ -21,7 +21,7 @@ export default function InstitutionalPageView({
     <section
       id={page.slug}
       className="page-card mb-8 mt-2"
-      style={{ padding: "clamp(2rem, 5vw, 3.5rem)" }}
+      style={{ padding: "clamp(5px, 3.5vw, 3.5rem)" }}
     >
       <p
         className="font-body mb-3"

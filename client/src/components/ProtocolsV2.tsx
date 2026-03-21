@@ -18,7 +18,7 @@ export function SectionPerdidias() {
     <section
       id="perdi-dias"
       className="page-card mb-6 animate-fade-in"
-      style={{ padding: "clamp(2rem, 5vw, 3.5rem)" }}
+      style={{ padding: "clamp(5px, 3.5vw, 3.5rem)" }}
     >
       <p
         className="font-body mb-3"
@@ -219,7 +219,7 @@ export function SectionApoioSuporte() {
     <section
       id="apoio-suporte"
       className="page-card mb-6 animate-fade-in"
-      style={{ padding: "clamp(2rem, 5vw, 3.5rem)" }}
+      style={{ padding: "clamp(5px, 3.5vw, 3.5rem)" }}
     >
       <p
         className="font-body mb-3"
