@@ -525,11 +525,11 @@ export default function Home() {
                   onKeyDown={
                     isInteractive
                       ? event => {
-                        if (event.key === "Enter" || event.key === " ") {
-                          event.preventDefault();
-                          openBonusCard();
+                          if (event.key === "Enter" || event.key === " ") {
+                            event.preventDefault();
+                            openBonusCard();
+                          }
                         }
-                      }
                       : undefined
                   }
                 >
@@ -627,8 +627,8 @@ export default function Home() {
                             color: "var(--color-taupe)",
                           }}
                         >
-                          Atualização: {item.updatedAtLabel ?? updatedAtLabel},
-                          {" "}com carinho
+                          Atualização: {item.updatedAtLabel ?? updatedAtLabel},{" "}
+                          com carinho
                           <Heart
                             size={12}
                             style={{ color: "var(--color-rose)" }}

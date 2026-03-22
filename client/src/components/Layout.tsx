@@ -94,6 +94,27 @@ export default function Layout({ children }: LayoutProps) {
     setExpandedWeeks(prev => expandWeekFromLocation(prev, location));
   }, [location]);
 
+  // Integração com o MobileStickyNav
+  useEffect(() => {
+    const handleToggleMenu = () => setSidebarOpen(prev => !prev);
+    window.addEventListener("mobile-sticky-nav-toggle-menu", handleToggleMenu);
+
+    return () => {
+      window.removeEventListener(
+        "mobile-sticky-nav-toggle-menu",
+        handleToggleMenu
+      );
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!sidebarOpen) {
+      window.dispatchEvent(new CustomEvent("mobile-menu-closed"));
+    } else {
+      window.dispatchEvent(new CustomEvent("mobile-menu-opened"));
+    }
+  }, [sidebarOpen]);
+
   const toggleWeek = (to: string) => {
     setExpandedWeeks(prev => toggleExpandedWeek(prev, to));
   };
@@ -319,7 +340,7 @@ export default function Layout({ children }: LayoutProps) {
       </aside>
 
       <header
-        className="fixed top-0 left-0 right-0 z-20 flex items-center justify-between px-[5px] sm:px-4 py-3 lg:hidden"
+        className="fixed top-0 left-0 right-0 z-20 hidden items-center justify-between px-[5px] sm:px-4 py-3 lg:hidden"
         style={{
           backgroundColor: "white",
           borderBottom: "1px solid var(--color-taupe-light)",
@@ -355,10 +376,10 @@ export default function Layout({ children }: LayoutProps) {
       </header>
 
       <main
-        className="flex-1 pt-16 lg:pt-0"
+        className="flex-1 pt-0 lg:pt-0"
         style={{ marginLeft: "0", paddingLeft: "0" }}
       >
-        <div className="lg:ml-[220px] min-h-[100dvh] flex flex-col">
+        <div className="mobile-sticky-nav-safe-area lg:ml-[220px] min-h-[100dvh] flex flex-col">
           <div className="flex-1">{children}</div>
           <SiteFooter />
         </div>

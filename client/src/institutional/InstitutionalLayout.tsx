@@ -1,4 +1,5 @@
 import SiteFooter from "@/components/SiteFooter";
+import MobileStickyNav from "@/components/navigation/MobileStickyNav";
 import {
   institutionalHeaderLinks,
   type InstitutionalSlug,
@@ -6,6 +7,7 @@ import {
   toPublicPath,
   toSpaHashPath,
 } from "@/content/siteConfig";
+import { useEffect } from "react";
 
 interface InstitutionalLayoutProps {
   children: React.ReactNode;
@@ -16,9 +18,27 @@ export default function InstitutionalLayout({
   children,
   currentSlug,
 }: InstitutionalLayoutProps) {
+  const currentPath = toPublicPath(currentSlug);
+  const navigateTo = (path: string) => {
+    window.location.assign(toSpaHashPath(path));
+  };
+
+  useEffect(() => {
+    const handleToggleMenu = () => {
+      window.location.assign(toSpaHashPath("/"));
+    };
+    window.addEventListener("mobile-sticky-nav-toggle-menu", handleToggleMenu);
+    return () => {
+      window.removeEventListener(
+        "mobile-sticky-nav-toggle-menu",
+        handleToggleMenu
+      );
+    };
+  }, []);
+
   return (
     <div
-      className="min-h-screen flex flex-col"
+      className="mobile-sticky-nav-safe-area min-h-screen flex flex-col"
       style={{ backgroundColor: "var(--color-ivory)" }}
     >
       <header
@@ -102,6 +122,7 @@ export default function InstitutionalLayout({
       </main>
 
       <SiteFooter />
+      <MobileStickyNav currentPath={currentPath} onNavigate={navigateTo} />
     </div>
   );
 }

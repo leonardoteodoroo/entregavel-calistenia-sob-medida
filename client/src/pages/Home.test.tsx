@@ -15,8 +15,6 @@ describe("Home bonus cards", () => {
     expect(markup).toContain("Miniatura de sobremesas saudaveis");
     expect(markup).not.toContain("Miniatura editorial de sobremesas saudaveis");
     expect(markup).toContain("77 curtidas");
-    expect(markup).toContain(
-      "Atualização: 18/03/2026, com carinho"
-    );
+    expect(markup).toContain("Atualização: 18/03/2026, com carinho");
   });
 });

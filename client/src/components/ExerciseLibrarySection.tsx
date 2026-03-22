@@ -207,8 +207,8 @@ export default function ExerciseLibrarySection() {
               mediaType: "single_image",
               image: {
                 src: "/exercises/placeholder-wide.png",
-                alt: "Referência visual de " + entry.display_name
-              }
+                alt: "Referência visual de " + entry.display_name,
+              },
             };
             const isHighlighted = highlightedExerciseId === entry.exercise_id;
 

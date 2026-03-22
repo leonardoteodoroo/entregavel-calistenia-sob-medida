@@ -9,6 +9,8 @@ export function readRecipeIdFromHash(hash: string): string | null {
     return null;
   }
 
-  const recipeId = decodeURIComponent(hash.slice(RECIPE_HASH_PREFIX.length)).trim();
+  const recipeId = decodeURIComponent(
+    hash.slice(RECIPE_HASH_PREFIX.length)
+  ).trim();
   return recipeId.length > 0 ? recipeId : null;
 }

@@ -28,6 +28,7 @@ export const productRoutes = {
   checklist: "/checklist",
   faq: "/faq",
   apoio: "/apoio",
+  bonus: "/bonus",
 } as const;
 
 export const standaloneRoutes = {

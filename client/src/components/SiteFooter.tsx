@@ -174,7 +174,14 @@ export default function SiteFooter() {
           >
             © {new Date().getFullYear()} {siteConfig.brandName} · CNPJ:{" "}
             {siteConfig.cnpj} · Todos os direitos reservados.
-            <span style={{ fontSize: "0.6rem", opacity: 0.5, marginLeft: "12px", letterSpacing: "0.05em" }}>
+            <span
+              style={{
+                fontSize: "0.6rem",
+                opacity: 0.5,
+                marginLeft: "12px",
+                letterSpacing: "0.05em",
+              }}
+            >
               VERSÃO v.1.0.1
             </span>
           </p>
