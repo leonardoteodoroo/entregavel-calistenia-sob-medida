@@ -1,5 +1,5 @@
 import { startTransition, useDeferredValue, useEffect, useState } from "react";
-import { Search } from "lucide-react";
+import { Search, Target, Activity, BarChart } from "lucide-react";
 import { SectionLabel } from "@/components/NewSectionsV2";
 import ExerciseGallery from "@/components/ExerciseGallery";
 import {
@@ -265,6 +265,77 @@ export default function ExerciseLibrarySection() {
                       exerciseName={entry.display_name}
                       media={media as any}
                     />
+                  </div>
+
+                  {/* Cards de Destaque (Resumo Rápido) */}
+                  <div
+                    className="grid grid-cols-3 gap-3 mb-6"
+                    style={{
+                      gridTemplateColumns: "repeat(3, 1fr)",
+                    }}
+                  >
+                    {[
+                      {
+                        label: "Bom para",
+                        value: entry.objetivo,
+                        icon: <Target size={14} />,
+                        bg: "var(--color-rose-muted)",
+                        color: "var(--color-rose)",
+                      },
+                      {
+                        label: "Foco",
+                        value: entry.musculos_capacidades[0] || "Geral",
+                        icon: <Activity size={14} />,
+                        bg: "var(--color-teal-muted)",
+                        color: "var(--color-teal)",
+                      },
+                      {
+                        label: "Nível",
+                        value: entry.nivel_complexidade,
+                        icon: <BarChart size={14} />,
+                        bg: "var(--color-ivory-dark)",
+                        color: "var(--color-taupe)",
+                      },
+                    ].map((card, i) => (
+                      <div
+                        key={i}
+                        className="flex flex-col items-center justify-center p-3 rounded-lg text-center transition-transform hover:scale-[1.02]"
+                        style={{
+                          backgroundColor: card.bg,
+                          border: `1px solid ${card.color}20`,
+                          minHeight: "85px",
+                        }}
+                      >
+                        <div
+                          className="mb-1.5 flex items-center gap-1.5"
+                          style={{ color: card.color }}
+                        >
+                          {card.icon}
+                          <span
+                            className="font-display"
+                            style={{
+                              fontSize: "0.6rem",
+                              fontWeight: 600,
+                              textTransform: "uppercase",
+                              letterSpacing: "0.08em",
+                              opacity: 0.8,
+                            }}
+                          >
+                            {card.label}
+                          </span>
+                        </div>
+                        <p
+                          className="font-body leading-tight"
+                          style={{
+                            fontSize: "0.76rem",
+                            color: "var(--color-charcoal-light)",
+                            fontWeight: 600,
+                          }}
+                        >
+                          {card.value}
+                        </p>
+                      </div>
+                    ))}
                   </div>
 
                   <div
