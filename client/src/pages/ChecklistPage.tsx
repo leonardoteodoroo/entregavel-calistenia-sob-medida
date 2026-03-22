@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import { SectionLabel } from "@/components/NewSectionsV2";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { useLocation } from "wouter";
 
@@ -66,87 +66,11 @@ export default function ChecklistPage() {
               width: "2.5rem",
               height: "1px",
               backgroundColor: "var(--color-rose)",
-              marginBottom: "2rem",
+              marginBottom: "1.75rem",
             }}
           />
 
-          <div
-            className="grid gap-3 mb-8"
-            style={{
-              gridTemplateColumns:
-                "repeat(auto-fit, minmax(min(180px, 100%), 1fr))",
-            }}
-          >
-            {[
-              { label: "Primeiro treino", day: 1, icon: "✦" },
-              { label: "Primeira semana", day: 7, icon: "✦✦" },
-              { label: "Metade do desafio", day: 14, icon: "✦✦✦" },
-              { label: "Desafio concluído", day: 28, icon: "✦✦✦✦" },
-            ].map(milestone => {
-              const achieved = checkedDays.includes(milestone.day);
-              return (
-                <div
-                  key={milestone.day}
-                  className="px-4 py-3 rounded text-center"
-                  style={{
-                    backgroundColor: achieved
-                      ? "var(--color-rose-muted)"
-                      : "white",
-                    border: `1px solid ${achieved ? "var(--color-rose-light)" : "var(--color-taupe-light)"}`,
-                    transition: "all 0.3s ease",
-                  }}
-                >
-                  <p
-                    className="font-display mb-1"
-                    style={{
-                      fontSize: "0.8rem",
-                      color: achieved
-                        ? "var(--color-rose)"
-                        : "var(--color-taupe-light)",
-                    }}
-                  >
-                    {milestone.icon}
-                  </p>
-                  <p
-                    className="font-body"
-                    style={{
-                      fontSize: "0.78rem",
-                      fontWeight: 500,
-                      color: achieved
-                        ? "var(--color-rose)"
-                        : "var(--color-taupe)",
-                    }}
-                  >
-                    {milestone.label}
-                  </p>
-                  <p
-                    className="font-body"
-                    style={{
-                      fontSize: "0.7rem",
-                      color: "var(--color-taupe)",
-                      marginTop: "0.2rem",
-                    }}
-                  >
-                    {achieved ? "Conquistado" : `Dia ${milestone.day}`}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-
-          <div>
-            <p
-              className="font-body mb-3"
-              style={{
-                fontSize: "0.65rem",
-                fontWeight: 500,
-                letterSpacing: "0.15em",
-                textTransform: "uppercase",
-                color: "var(--color-taupe)",
-              }}
-            >
-              Marque os dias concluídos
-            </p>
+          <div className="mb-8">
             <div className="flex flex-wrap gap-2">
               {Array.from({ length: 28 }, (_, i) => i + 1).map(day => {
                 const checked = checkedDays.includes(day);
@@ -189,6 +113,253 @@ export default function ChecklistPage() {
             </p>
           </div>
 
+          {/* Visão Semanal Inspirada no lab */}
+          <div
+            className="mb-10 px-5 py-6 rounded"
+            style={{
+              backgroundColor: "white",
+              border: "1px solid var(--color-taupe-light)",
+            }}
+          >
+            <p
+              className="font-body mb-1"
+              style={{
+                fontSize: "0.65rem",
+                fontWeight: 600,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "var(--color-rose)",
+              }}
+            >
+              Visão Semanal
+            </p>
+            <p
+              className="font-display mb-6"
+              style={{
+                fontSize: "0.95rem",
+                color: "var(--color-taupe)",
+                fontStyle: "italic",
+              }}
+            >
+              Sua regularidade dividida por fases
+            </p>
+
+            <div className="flex justify-between h-32 sm:h-36 gap-2 sm:gap-6 px-1">
+              {[1, 2, 3, 4].map(week => {
+                const daysInWeek = Array.from(
+                  { length: 7 },
+                  (_, i) => (week - 1) * 7 + i + 1
+                );
+                const completedCount = daysInWeek.filter(d =>
+                  checkedDays.includes(d)
+                ).length;
+                const percentage = (completedCount / 7) * 100;
+
+                return (
+                  <div
+                    key={week}
+                    className="flex-1 flex flex-col items-center h-full group"
+                  >
+                    <div
+                      className="relative w-full max-w-[2.2rem] sm:max-w-[3rem] h-full rounded sm:rounded-md overflow-hidden flex items-end"
+                      style={{
+                        backgroundColor: "var(--color-ivory-dark)",
+                        border: "1px solid var(--color-taupe-light)",
+                      }}
+                    >
+                      <div
+                        className="w-full rounded-sm transition-all duration-1000 ease-out"
+                        style={{
+                          height: `${percentage}%`,
+                          backgroundColor: "var(--color-rose)",
+                        }}
+                      />
+                      {percentage > 0 && (
+                        <div className="absolute inset-x-0 bottom-2 flex items-center justify-center">
+                          <span
+                            className="font-body"
+                            style={{
+                              fontSize: "0.65rem",
+                              fontWeight: 600,
+                              color: "white",
+                            }}
+                          >
+                            {completedCount}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                    <span
+                      className="font-body mt-3"
+                      style={{
+                        fontSize: "0.65rem",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.1em",
+                        fontWeight: 600,
+                        color: "var(--color-taupe)",
+                      }}
+                    >
+                      S0{week}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Estatísticas Atuais */}
+          <div className="mb-10">
+            <p
+              className="font-body mb-1"
+              style={{
+                fontSize: "0.65rem",
+                fontWeight: 600,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "var(--color-rose)",
+              }}
+            >
+              Estatística Atual
+            </p>
+            <p
+              className="font-display mb-4"
+              style={{
+                fontSize: "0.95rem",
+                color: "var(--color-taupe)",
+                fontStyle: "italic",
+              }}
+            >
+              Clareza de evolução em 28 dias
+            </p>
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                {
+                  label: "Dias concluídos",
+                  value: `${checkedDays.length}/28`,
+                },
+                {
+                  label: "Sequência",
+                  value: `${(() => {
+                    if (checkedDays.length === 0) return 0;
+                    const sorted = [...checkedDays].sort((a, b) => a - b);
+                    let maxStreak = 0;
+                    let currentStreak = 0;
+                    for (let i = 0; i < sorted.length; i++) {
+                      if (i > 0 && sorted[i] === sorted[i - 1] + 1) {
+                        currentStreak++;
+                      } else {
+                        currentStreak = 1;
+                      }
+                      maxStreak = Math.max(maxStreak, currentStreak);
+                    }
+                    return maxStreak;
+                  })()} dias`,
+                },
+                {
+                  label: "Semana atual",
+                  value: Math.ceil(
+                    (Math.max(...(checkedDays.length ? checkedDays : [0])) ||
+                      1) / 7
+                  ),
+                },
+                {
+                  label: "Próximo dia",
+                  value:
+                    Math.max(...(checkedDays.length ? checkedDays : [0])) + 1 >
+                    28
+                      ? 28
+                      : Math.max(...(checkedDays.length ? checkedDays : [0])) +
+                        1,
+                },
+              ].map((stat, i) => (
+                <div
+                  key={i}
+                  className="bg-white p-4 rounded sm:rounded-md border"
+                  style={{ borderColor: "var(--color-taupe-light)" }}
+                >
+                  <p
+                    className="font-body mb-1 uppercase"
+                    style={{
+                      fontSize: "0.65rem",
+                      fontWeight: 600,
+                      letterSpacing: "0.05em",
+                      color: "var(--color-taupe)",
+                    }}
+                  >
+                    {stat.label}
+                  </p>
+                  <p
+                    className="font-display font-medium leading-none"
+                    style={{
+                      fontSize: "1.45rem",
+                      color: "var(--color-charcoal)",
+                    }}
+                  >
+                    {stat.value}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+            {[
+              { label: "Primeiro treino", day: 1, icon: "✦" },
+              { label: "Primeira semana", day: 7, icon: "✦✦" },
+              { label: "Metade do desafio", day: 14, icon: "✦✦✦" },
+              { label: "Desafio concluído", day: 28, icon: "✦✦✦✦" },
+            ].map(milestone => {
+              const achieved = checkedDays.includes(milestone.day);
+              return (
+                <div
+                  key={milestone.day}
+                  className="px-4 py-3 rounded text-center"
+                  style={{
+                    backgroundColor: achieved
+                      ? "var(--color-rose-muted)"
+                      : "white",
+                    border: `1px solid ${achieved ? "var(--color-rose-light)" : "var(--color-taupe-light)"}`,
+                    transition: "all 0.3s ease",
+                  }}
+                >
+                  <p
+                    className="font-display mb-1"
+                    style={{
+                      fontSize: "0.80rem",
+                      color: achieved
+                        ? "var(--color-rose)"
+                        : "var(--color-taupe-light)",
+                    }}
+                  >
+                    {milestone.icon}
+                  </p>
+                  <p
+                    className="font-body"
+                    style={{
+                      fontSize: "0.78rem",
+                      fontWeight: 500,
+                      color: achieved
+                        ? "var(--color-rose)"
+                        : "var(--color-taupe)",
+                    }}
+                  >
+                    {milestone.label}
+                  </p>
+                  <p
+                    className="font-body"
+                    style={{
+                      fontSize: "0.7rem",
+                      color: "var(--color-taupe)",
+                      marginTop: "0.2rem",
+                    }}
+                  >
+                    {achieved ? "Conquistado" : `Dia ${milestone.day}`}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+
           <div
             className="mt-6 px-4 py-3 rounded"
             style={{
@@ -209,20 +380,31 @@ export default function ChecklistPage() {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-2 mt-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6">
             {[1, 2, 3, 4].map(week => (
               <button
                 key={week}
                 onClick={() => setLocation(`/semana/${week}`)}
-                className="px-3 py-2 rounded font-body"
+                className="group flex items-center justify-between px-4 py-3.5 rounded sm:rounded-md font-body transition-all duration-300 active:scale-95 bg-white border hover:shadow-md"
                 style={{
-                  fontSize: "0.72rem",
-                  backgroundColor: "white",
-                  border: "1px solid var(--color-taupe-light)",
-                  color: "var(--color-charcoal)",
+                  borderColor: "var(--color-taupe-light)",
+                  width: "100%",
                 }}
               >
-                Abrir semana {week}
+                <span
+                  className="font-medium transition-colors"
+                  style={{
+                    fontSize: "0.85rem",
+                    color: "var(--color-charcoal)",
+                  }}
+                >
+                  Semana {week}
+                </span>
+                <ChevronRight
+                  size={16}
+                  className="transition-all group-hover:translate-x-0.5"
+                  style={{ color: "var(--color-rose)" }}
+                />
               </button>
             ))}
           </div>
