@@ -91,6 +91,7 @@ export const planDays: PlanDay[] = Array.from({ length: 28 }, (_, index) => {
   const template = weekBlueprint[index % weekBlueprint.length];
 
   return {
+    planId: "default",
     dayNumber,
     weekNumber,
     workoutName: template.workoutName,

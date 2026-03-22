@@ -2,6 +2,7 @@ import { CheckCircle2, Flame, Lock, Play, Sparkles } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAppContext } from "../../context/AppContext";
 import { exerciseMap } from "../../data/exercises";
+import { plansMetadata } from "../../data/plans";
 import { getUpcomingDayItems } from "../../lib/planRules";
 
 export const TodayScreen = () => {
@@ -87,9 +88,14 @@ export const TodayScreen = () => {
         </article>
 
         <div className="mb-2 flex items-center justify-between">
-          <h2 className="text-lg font-bold text-[color:var(--color-text-primary)]">
-            Treino do Dia
-          </h2>
+          <div>
+            <h2 className="text-lg font-bold text-[color:var(--color-text-primary)]">
+              Treino do Dia
+            </h2>
+            <p className="text-xs text-[color:var(--color-text-secondary)]">
+              {plansMetadata.find((p) => p.id === state.activePlanId)?.name}
+            </p>
+          </div>
           <span className="rounded-full border border-[color:var(--color-border-default)] bg-[color:var(--color-surface-card)] px-3 py-1 text-xs font-semibold text-[color:var(--color-text-secondary)]">
             Dia {todayPlanDay.dayNumber} de 28
           </span>

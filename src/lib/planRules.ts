@@ -1,8 +1,10 @@
-import { planDays } from "../data/planDays";
 import type { PlanDay } from "../types/plan";
 
-export const getPlanDayByNumber = (dayNumber: number): PlanDay | undefined =>
-  planDays.find((day) => day.dayNumber === dayNumber);
+export const getPlanDayByNumber = (
+  allPlanDays: PlanDay[],
+  dayNumber: number,
+): PlanDay | undefined =>
+  allPlanDays.find((day) => day.dayNumber === dayNumber);
 
 export const getTodayDayNumber = (completedDays: number[]): number => {
   const next = completedDays.length + 1;

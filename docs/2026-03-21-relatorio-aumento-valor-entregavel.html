@@ -1,0 +1,1571 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relatório Estratégico · Valor do Entregável</title>
+    <style>
+      :root {
+        --bg: #f5efe8;
+        --bg-soft: rgba(255, 251, 246, 0.82);
+        --panel: rgba(255, 249, 242, 0.88);
+        --panel-strong: #fffaf5;
+        --ink: #2f2724;
+        --muted: #6f625b;
+        --line: rgba(104, 83, 74, 0.12);
+        --sage: #6e8b83;
+        --sage-deep: #4f6f67;
+        --rose: #b66b73;
+        --rose-soft: rgba(182, 107, 115, 0.12);
+        --amber: #d39c54;
+        --shadow: 0 22px 60px rgba(69, 45, 36, 0.12);
+        --radius-xl: 28px;
+        --radius-lg: 22px;
+        --radius-md: 16px;
+        --max: 1240px;
+        --toc-width: 300px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(255, 255, 255, 0.9),
+            transparent 32%
+          ),
+          radial-gradient(
+            circle at 82% 18%,
+            rgba(182, 107, 115, 0.16),
+            transparent 28%
+          ),
+          radial-gradient(
+            circle at 76% 82%,
+            rgba(110, 139, 131, 0.14),
+            transparent 26%
+          ),
+          linear-gradient(180deg, #f7f1eb 0%, #f4ece4 52%, #f2e8df 100%);
+        font-family: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+        background-size: 44px 44px;
+        mask-image: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.2),
+          transparent 84%
+        );
+        opacity: 0.18;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .progress-bar {
+        position: fixed;
+        inset: 0 0 auto 0;
+        height: 4px;
+        transform-origin: left center;
+        transform: scaleX(0);
+        background: linear-gradient(90deg, var(--sage-deep), var(--rose));
+        z-index: 100;
+      }
+
+      .page-shell {
+        width: min(calc(100% - 2rem), var(--max));
+        margin: 0 auto;
+        padding: 1.2rem 0 4rem;
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        background:
+          linear-gradient(
+            145deg,
+            rgba(255, 251, 247, 0.96),
+            rgba(248, 240, 233, 0.82)
+          ),
+          linear-gradient(
+            120deg,
+            rgba(110, 139, 131, 0.18),
+            rgba(182, 107, 115, 0.12)
+          );
+        box-shadow: var(--shadow);
+        border-radius: 34px;
+        padding: clamp(1.6rem, 4vw, 3.2rem);
+        margin-bottom: 1.4rem;
+      }
+
+      .hero::after,
+      .hero::before {
+        content: "";
+        position: absolute;
+        border-radius: 999px;
+        filter: blur(6px);
+        opacity: 0.75;
+      }
+
+      .hero::before {
+        width: 18rem;
+        height: 18rem;
+        right: -4rem;
+        top: -5rem;
+        background: radial-gradient(
+          circle,
+          rgba(182, 107, 115, 0.18),
+          transparent 68%
+        );
+      }
+
+      .hero::after {
+        width: 16rem;
+        height: 16rem;
+        left: -5rem;
+        bottom: -6rem;
+        background: radial-gradient(
+          circle,
+          rgba(110, 139, 131, 0.2),
+          transparent 64%
+        );
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(182, 107, 115, 0.2);
+        padding: 0.48rem 0.82rem;
+        color: var(--rose);
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .hero-grid {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.85fr);
+        gap: 1.3rem;
+        margin-top: 1.1rem;
+      }
+
+      .hero-copy h1 {
+        margin: 0 0 1rem;
+        font-family: "Fraunces", "Iowan Old Style", "Palatino Linotype", serif;
+        font-size: clamp(2.3rem, 5vw, 5rem);
+        line-height: 0.95;
+        letter-spacing: -0.04em;
+        max-width: 11ch;
+      }
+
+      .hero-copy p {
+        margin: 0 0 1.25rem;
+        max-width: 64ch;
+        color: var(--muted);
+        font-size: clamp(1rem, 1.4vw, 1.08rem);
+      }
+
+      .hero-stack {
+        display: grid;
+        gap: 0.9rem;
+        align-content: start;
+      }
+
+      .metric-card,
+      .glass-card,
+      .section,
+      .priority-card,
+      .idea-card,
+      .matrix-card,
+      .roadmap-card,
+      .source-card {
+        border-radius: var(--radius-xl);
+        border: 1px solid rgba(255, 255, 255, 0.52);
+        background: var(--panel);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(18px);
+      }
+
+      .metric-card {
+        padding: 1.1rem 1.15rem;
+        display: grid;
+        gap: 0.35rem;
+      }
+
+      .metric-label {
+        color: var(--muted);
+        font-size: 0.77rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .metric-value {
+        font-size: clamp(1.7rem, 3vw, 2.45rem);
+        line-height: 1;
+        font-weight: 800;
+      }
+
+      .metric-note {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: var(--toc-width) minmax(0, 1fr);
+        gap: 1.3rem;
+      }
+
+      .toc {
+        position: sticky;
+        top: 1rem;
+        align-self: start;
+        padding: 1rem;
+      }
+
+      .toc h2 {
+        margin: 0 0 0.9rem;
+        font-family: "Fraunces", "Iowan Old Style", serif;
+        font-size: 1.2rem;
+        line-height: 1.05;
+      }
+
+      .toc p {
+        margin: 0 0 1rem;
+        font-size: 0.92rem;
+        color: var(--muted);
+      }
+
+      .toc nav {
+        display: grid;
+        gap: 0.45rem;
+      }
+
+      .toc a {
+        display: block;
+        text-decoration: none;
+        padding: 0.58rem 0.72rem;
+        border-radius: 12px;
+        color: var(--muted);
+        font-size: 0.92rem;
+        transition:
+          transform 180ms ease,
+          color 180ms ease,
+          background-color 180ms ease;
+      }
+
+      .toc a:hover,
+      .toc a.active {
+        color: var(--ink);
+        background: rgba(255, 255, 255, 0.72);
+        transform: translateX(4px);
+      }
+
+      .content {
+        display: grid;
+        gap: 1.2rem;
+      }
+
+      .section {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(1.25rem, 2.5vw, 2rem);
+      }
+
+      .section::after {
+        content: "";
+        position: absolute;
+        inset: auto 1.2rem 0.9rem auto;
+        width: 7rem;
+        height: 7rem;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(110, 139, 131, 0.08),
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .section-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .section-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        border-radius: 999px;
+        padding: 0.45rem 0.72rem;
+        background: var(--rose-soft);
+        color: var(--rose);
+        font-size: 0.73rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+
+      .section h2,
+      .section h3 {
+        margin: 0;
+        font-family: "Fraunces", "Iowan Old Style", serif;
+        letter-spacing: -0.03em;
+      }
+
+      .section h2 {
+        font-size: clamp(1.65rem, 2vw, 2.25rem);
+        line-height: 1.02;
+      }
+
+      .section p {
+        margin: 0 0 1rem;
+        color: var(--muted);
+      }
+
+      .lede {
+        font-size: 1.08rem;
+        color: var(--ink);
+        max-width: 66ch;
+      }
+
+      .two-col,
+      .three-col,
+      .cards-grid,
+      .matrix-grid,
+      .source-grid,
+      .priority-grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .two-col {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .three-col {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .matrix-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .priority-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .source-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .glass-card,
+      .priority-card,
+      .matrix-card,
+      .roadmap-card,
+      .source-card,
+      .idea-card {
+        padding: 1rem 1rem 1.05rem;
+      }
+
+      .glass-card h3,
+      .priority-card h3,
+      .matrix-card h3,
+      .roadmap-card h3,
+      .source-card h3,
+      .idea-card h3 {
+        font-size: 1.08rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .glass-card ul,
+      .idea-card ul,
+      .source-card ul,
+      .roadmap-card ul,
+      .matrix-card ul,
+      .priority-card ul,
+      .section ul {
+        margin: 0;
+        padding-left: 1.1rem;
+        color: var(--muted);
+      }
+
+      .glass-card li,
+      .idea-card li,
+      .source-card li,
+      .roadmap-card li,
+      .matrix-card li,
+      .priority-card li,
+      .section li {
+        margin-bottom: 0.45rem;
+      }
+
+      .value-shift {
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.44rem 0.7rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.74);
+        border: 1px solid var(--line);
+        color: var(--ink);
+        font-size: 0.82rem;
+        font-weight: 700;
+      }
+
+      .difference-panel {
+        display: grid;
+        gap: 0.7rem;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--line);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.76),
+          rgba(255, 255, 255, 0.42)
+        );
+        padding: 1rem;
+      }
+
+      .difference-line {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 0.8rem;
+        align-items: baseline;
+      }
+
+      .difference-line strong {
+        color: var(--rose);
+      }
+
+      .subdued {
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .idea-card {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .idea-card::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto auto 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--sage-deep), var(--rose));
+      }
+
+      .idea-index {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.1rem;
+        height: 2.1rem;
+        border-radius: 999px;
+        background: rgba(110, 139, 131, 0.12);
+        color: var(--sage-deep);
+        font-size: 0.9rem;
+        font-weight: 800;
+        margin-bottom: 0.65rem;
+      }
+
+      .meta-strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.8rem;
+      }
+
+      .meta-chip {
+        border-radius: 999px;
+        padding: 0.35rem 0.65rem;
+        font-size: 0.77rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+      }
+
+      .impact-high {
+        background: rgba(110, 139, 131, 0.16);
+        color: var(--sage-deep);
+      }
+
+      .cost-low {
+        background: rgba(211, 156, 84, 0.15);
+        color: #8a5c1f;
+      }
+
+      .cost-medium {
+        background: rgba(182, 107, 115, 0.12);
+        color: #8d4e56;
+      }
+
+      .doable {
+        background: rgba(47, 39, 36, 0.08);
+        color: var(--ink);
+      }
+
+      .priority-card {
+        text-align: center;
+        padding-top: 1.2rem;
+      }
+
+      .priority-rank {
+        display: inline-block;
+        margin-bottom: 0.45rem;
+        color: var(--rose);
+        font-size: 0.74rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+
+      .priority-number {
+        display: block;
+        font-family: "Fraunces", "Iowan Old Style", serif;
+        font-size: clamp(2rem, 3vw, 2.8rem);
+        line-height: 1;
+        margin-bottom: 0.45rem;
+      }
+
+      .roadmap {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .roadmap-card {
+        position: relative;
+        padding-left: 1.4rem;
+      }
+
+      .roadmap-card::before {
+        content: "";
+        position: absolute;
+        left: 0.95rem;
+        top: 1rem;
+        bottom: -1rem;
+        width: 1px;
+        background: linear-gradient(
+          180deg,
+          rgba(110, 139, 131, 0.45),
+          transparent
+        );
+      }
+
+      .roadmap-card:last-child::before {
+        display: none;
+      }
+
+      .roadmap-card::after {
+        content: "";
+        position: absolute;
+        left: 0.72rem;
+        top: 1rem;
+        width: 0.46rem;
+        height: 0.46rem;
+        border-radius: 999px;
+        background: var(--sage-deep);
+        box-shadow: 0 0 0 8px rgba(110, 139, 131, 0.12);
+      }
+
+      .roadmap-card h3 {
+        margin-top: -0.15rem;
+      }
+
+      .warning-panel {
+        border-radius: var(--radius-xl);
+        background:
+          linear-gradient(
+            180deg,
+            rgba(79, 111, 103, 0.07),
+            rgba(182, 107, 115, 0.06)
+          ),
+          rgba(255, 251, 247, 0.72);
+        border: 1px solid rgba(182, 107, 115, 0.15);
+        padding: 1rem 1.05rem;
+      }
+
+      .source-card small {
+        display: block;
+        margin-top: 0.45rem;
+        color: var(--muted);
+      }
+
+      .quote-band {
+        padding: 1.2rem 1.4rem;
+        border-radius: var(--radius-lg);
+        background:
+          linear-gradient(
+            120deg,
+            rgba(110, 139, 131, 0.12),
+            rgba(182, 107, 115, 0.09)
+          ),
+          rgba(255, 255, 255, 0.54);
+        border: 1px solid rgba(255, 255, 255, 0.56);
+      }
+
+      .quote-band p {
+        margin: 0;
+        color: var(--ink);
+        font-family: "Fraunces", "Iowan Old Style", serif;
+        font-size: clamp(1.3rem, 2vw, 1.8rem);
+        line-height: 1.2;
+        letter-spacing: -0.03em;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+          transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .reveal,
+        .toc a,
+        .progress-bar {
+          transition: none;
+        }
+
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      @media (max-width: 1100px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+
+        .toc {
+          position: relative;
+          top: auto;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid,
+        .two-col,
+        .three-col,
+        .cards-grid,
+        .matrix-grid,
+        .source-grid,
+        .priority-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .difference-line {
+          grid-template-columns: 1fr;
+          gap: 0.2rem;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .page-shell {
+          width: min(calc(100% - 1rem), var(--max));
+          padding-top: 0.6rem;
+        }
+
+        .hero,
+        .section,
+        .toc {
+          border-radius: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <div class="page-shell">
+      <header class="hero reveal">
+        <span class="eyebrow">Analise Estrategica · 21/03/2026</span>
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1>Como fazer este entregavel valer R$ 50+</h1>
+            <p>
+              Relatorio pratico para transformar o projeto atual em um programa
+              guiado com mais valor percebido, mais seguranca de entrega e menos
+              arrependimento de compra, sem depender agora de personal, gravacao
+              completa ou aumento relevante de caixa.
+            </p>
+
+            <div class="pill-row">
+              <span class="pill">Sem contratar gente agora</span>
+              <span class="pill">Sem reescrever o produto do zero</span>
+              <span class="pill">Com foco em UX, copy e estrutura</span>
+            </div>
+          </div>
+
+          <div class="hero-stack">
+            <article class="metric-card">
+              <span class="metric-label">Ticket atual percebido</span>
+              <strong class="metric-value">R$ 19,90</strong>
+              <span class="metric-note"
+                >bom conteudo, mas ainda com cara de material organizado</span
+              >
+            </article>
+
+            <article class="metric-card">
+              <span class="metric-label">Meta de percepcao</span>
+              <strong class="metric-value">R$ 49,90+</strong>
+              <span class="metric-note"
+                >programa guiado com progresso, apoio e extras uteis</span
+              >
+            </article>
+
+            <article class="metric-card">
+              <span class="metric-label">Tese central</span>
+              <strong class="metric-value">Direcao > volume</strong>
+              <span class="metric-note"
+                >o salto de valor vem de conduzir melhor, nao de empilhar
+                paginas</span
+              >
+            </article>
+          </div>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="toc glass-card reveal">
+          <h2>Mapa do relatorio</h2>
+          <p>
+            Navegacao rapida para avaliar onde o produto ja esta forte, o que
+            derruba valor e o que gera alavanca com menor custo.
+          </p>
+          <nav>
+            <a href="#leitura">Leitura franca</a>
+            <a href="#reposicionamento">Reposicionamento</a>
+            <a href="#fontes">O que as fontes reforcam</a>
+            <a href="#recomendacao">Recomendacao principal</a>
+            <a href="#ideias">12 ideias de maior impacto</a>
+            <a href="#plano-14-dias">Plano em 14 dias</a>
+            <a href="#evitar">O que nao fazer</a>
+            <a href="#videos">Sem personal: como compensar</a>
+            <a href="#oferta">Pacote ideal de oferta</a>
+            <a href="#conclusao">Conclusao</a>
+            <a href="#referencias">Referencias</a>
+          </nav>
+        </aside>
+
+        <main class="content">
+          <section class="section reveal" id="leitura">
+            <div class="section-header">
+              <span class="section-kicker">Diagnostico atual</span>
+              <h2>Leitura franca do que o projeto ja entrega hoje</h2>
+            </div>
+
+            <p class="lede">
+              O produto ja tem base suficiente para vender barato com dignidade.
+              O problema nao e falta de conteudo. O problema e que o valor ainda
+              aparece mais como <strong>conteudo organizado</strong> do que como
+              <strong>programa guiado</strong>.
+            </p>
+
+            <div class="two-col">
+              <article class="glass-card">
+                <h3>O que ja esta forte</h3>
+                <ul>
+                  <li>
+                    Posicionamento muito bom para mulheres reais, iniciantes e
+                    retomada.
+                  </li>
+                  <li>Linguagem acolhedora, feminina e acessivel.</li>
+                  <li>Estrutura de 28 dias facil de entender.</li>
+                  <li>Bonus que ajudam na percepcao de pacote completo.</li>
+                  <li>Sensacao editorial melhor do que um PDF cru.</li>
+                  <li>
+                    Biblioteca de exercicios e materiais complementares em
+                    desenvolvimento.
+                  </li>
+                  <li>
+                    Projeto web com cara de produto, nao apenas arquivo solto.
+                  </li>
+                </ul>
+              </article>
+
+              <article class="glass-card">
+                <h3>O que ainda puxa o valor para baixo</h3>
+                <ul>
+                  <li>Falta uma entrada clara de "comece aqui".</li>
+                  <li>Falta personalizacao leve logo no inicio.</li>
+                  <li>
+                    Falta uma tela "Hoje" ou um primeiro passo que entregue
+                    valor em minutos.
+                  </li>
+                  <li>Falta um sistema mais forte de progresso.</li>
+                  <li>Falta um plano de continuidade apos o dia 28.</li>
+                  <li>
+                    Falta estrategia melhor para compensar a ausencia de videos
+                    humanos completos.
+                  </li>
+                  <li>
+                    Falta um pacote de artefatos que faca a aluna sentir que
+                    recebeu muita coisa util.
+                  </li>
+                  <li>
+                    Falta uma camada anti-reembolso baseada em ativacao, prova
+                    de acesso e clareza.
+                  </li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <section class="section reveal" id="reposicionamento">
+            <div class="section-header">
+              <span class="section-kicker">Tese de valor</span>
+              <h2>Reposicionar de "conteudo" para "programa"</h2>
+            </div>
+
+            <div class="value-shift">
+              <div class="difference-panel">
+                <div class="difference-line">
+                  <strong>Hoje</strong>
+                  <span class="subdued"
+                    >"um desafio bem feito com bonus legais"</span
+                  >
+                </div>
+                <div class="difference-line">
+                  <strong>Meta</strong>
+                  <span class="subdued"
+                    >"um programa de reativacao corporal feminina com orientacao
+                    pratica, progresso, apoio e extras que simplificam a
+                    rotina"</span
+                  >
+                </div>
+                <div class="difference-line">
+                  <strong>Traducao</strong>
+                  <span class="subdued"
+                    >R$ 19,90 compra conteudo. R$ 49,90 compra direcao. R$ 59,90
+                    compra acompanhamento percebido.</span
+                  >
+                </div>
+              </div>
+
+              <div class="quote-band">
+                <p>
+                  Como voce ainda nao tem caixa para acompanhamento humano real
+                  em escala, o caminho mais inteligente e criar
+                  <strong> acompanhamento percebido por design</strong>.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="section reveal" id="fontes">
+            <div class="section-header">
+              <span class="section-kicker">Leitura de mercado</span>
+              <h2>O que as fontes e referencias reforcam</h2>
+            </div>
+
+            <div class="three-col">
+              <article class="glass-card">
+                <h3>Time to value</h3>
+                <p>
+                  Produtos que entregam valor cedo retêm melhor. No seu caso,
+                  isso significa uma aluna que sente em 24 horas que "ja
+                  conseguiu comecar".
+                </p>
+              </article>
+
+              <article class="glass-card">
+                <h3>Onboarding simples</h3>
+                <p>
+                  Quanto menos a pessoa se sente perdida no primeiro contato,
+                  maior a chance de adotar o produto de verdade e nao deixar
+                  para depois.
+                </p>
+              </article>
+
+              <article class="glass-card">
+                <h3>Suporte e comunidade</h3>
+                <p>
+                  Em produtos educacionais, apoio percebido e sensacao de
+                  pertencimento aumentam valor e diminuem a sensacao de compra
+                  "solta".
+                </p>
+              </article>
+            </div>
+
+            <div class="glass-card">
+              <h3>Traduzindo para o seu produto</h3>
+              <ul>
+                <li>A aluna precisa sentir ganho em 24 horas.</li>
+                <li>Ela nao pode entrar e se sentir largada.</li>
+                <li>Precisa existir ritual de progresso.</li>
+                <li>
+                  Precisa existir prova do que recebeu, acessou e concluiu.
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="section reveal" id="recomendacao">
+            <div class="section-header">
+              <span class="section-kicker">Direcao principal</span>
+              <h2>Minha recomendacao central</h2>
+            </div>
+
+            <p class="lede">
+              Se eu tivesse que escolher uma unica direcao sem gastar caixa
+              novo, eu faria o seguinte:
+            </p>
+
+            <div class="quote-band">
+              <p>
+                Transformar o entregavel em um
+                <strong>
+                  programa guiado de 28 dias com onboarding leve, progresso
+                  visivel, biblioteca confiavel e plano de continuidade </strong
+                >.
+              </p>
+            </div>
+
+            <p>
+              Isso vale mais do que tentar encher o produto de abas extras ou de
+              bonus aleatorios. O salto de valor vem de conduzir melhor,
+              personalizar de forma leve, provar progresso e reduzir a
+              inseguranca da aluna logo no primeiro acesso.
+            </p>
+          </section>
+
+          <section class="section reveal" id="ideias">
+            <div class="section-header">
+              <span class="section-kicker">Alavancas reais</span>
+              <h2>12 ideias com melhor relacao valor x custo</h2>
+            </div>
+
+            <div class="cards-grid">
+              <article class="idea-card">
+                <span class="idea-index">01</span>
+                <h3>Fluxo "Comece aqui" em 3 passos</h3>
+                <p>
+                  Bem-vinda, qual seu momento hoje e seu primeiro treino
+                  recomendado. Segmentacao leve: iniciante total, retomada,
+                  pouco tempo, joelho sensivel, punho sensivel.
+                </p>
+                <div class="meta-strip">
+                  <span class="meta-chip impact-high">Impacto: altissimo</span>
+                  <span class="meta-chip cost-low">Custo: baixo</span>
+                  <span class="meta-chip doable"
+                    >Da para fazer com nossa ajuda</span
+                  >
+                </div>
+              </article>
+
+              <article class="idea-card">
+                <span class="idea-index">02</span>
+                <h3>Primeira vitoria em 24h</h3>
+                <p>
+                  Fazer a aluna concluir um primeiro treino, marcar progresso e
+                  sentir que realmente comecou, com versao leve por padrao e
+                  mensagem de conclusao.
+                </p>
+                <div class="meta-strip">
+                  <span class="meta-chip impact-high">Impacto: altissimo</span>
+                  <span class="meta-chip cost-low">Custo: baixo</span>
+                </div>
+              </article>
+
+              <article class="idea-card">
+                <span class="idea-index">03</span>
+                <h3>Migrar o que o app de referencia ja resolve</h3>
+                <p>
+                  Trazer primeiro welcome, ajustes rapidos, tela Hoje, progresso
+                  e reativacao. O app de referencia ja prova que esse caminho
+                  sobe muito a percepcao de produto premium acessivel.
+                </p>
+                <div class="meta-strip">
+                  <span class="meta-chip impact-high">Impacto: altissimo</span>
+                  <span class="meta-chip cost-medium">Custo: medio</span>
+                  <span class="meta-chip doable"
+                    >Da para fazer com nossa ajuda</span
+                  >
+                </div>
+              </article>
+
+              <article class="idea-card">
+                <span class="idea-index">04</span>
+                <h3>Biblioteca confiavel sem depender de todos os videos</h3>
+                <p>
+                  Priorizar nome, objetivo, musculos, inicio/meio/fim, erros,
+                  adaptacoes, sinais de atencao, cues curtos e visual
+                  ilustrativo. Melhor biblioteca confiavel do que videoteca
+                  incompleta.
+                </p>
+                <div class="meta-strip">
+                  <span class="meta-chip impact-high">Impacto: altissimo</span>
+                  <span class="meta-chip cost-medium">Custo: medio</span>
+                </div>
+              </article>
+
+              <article class="idea-card">
+                <span class="idea-index">05</span>
+                <h3>Progresso visivel</h3>
+                <p>
+                  Dia atual, treinos concluidos, semana atual, dias em
+                  sequencia, marcos de 7, 14, 21 e 28 dias, certificado simples
+                  e resumo final.
+                </p>
+                <div class="meta-strip">
+                  <span class="meta-chip impact-high">Impacto: altissimo</span>
+                  <span class="meta-chip cost-medium"
+                    >Custo: baixo a medio</span
+                  >
+                </div>
+              </article>
+
+              <article class="idea-card">
+                <span class="idea-index">06</span>
+                <h3>Protocolo de reativacao</h3>
+                <p>
+                  Caminhos claros para quem sumiu por 1 a 3 dias, 4 a 7 dias ou
+                  travou por cansaco. Isso reduz abandono envergonhado e aumenta
+                  sensacao de acolhimento.
+                </p>
+                <div class="meta-strip">
+                  <span class="meta-chip impact-high">Impacto: alto</span>
+                  <span class="meta-chip cost-low">Custo: baixo</span>
+                </div>
+              </article>
+
+              <article class="idea-card">
+                <span class="idea-index">07</span>
+                <h3>Pacote de artefatos extras premium</h3>
+                <p>
+                  Checklist imprimivel, planner semanal, guia de recomeço, guia
+                  de treino em dia de cansaco, viagem, TPM e sinais de evolucao
+                  sem foco em emagrecimento extremo.
+                </p>
+                <div class="meta-strip">
+                  <span class="meta-chip impact-high">Impacto: alto</span>
+                  <span class="meta-chip cost-low">Custo: baixo</span>
+                  <span class="meta-chip doable"
+                    >Da para fazer com nossa ajuda</span
+                  >
+                </div>
+              </article>
+
+              <article class="idea-card">
+                <span class="idea-index">08</span>
+                <h3>Plano de continuidade apos o dia 28</h3>
+                <p>
+                  Adicionar o "e depois?": manutencao, intensificar ou recomecar
+                  com mais controle. Isso aumenta muito o valor percebido do
+                  produto principal.
+                </p>
+                <div class="meta-strip">
+                  <span class="meta-chip impact-high">Impacto: alto</span>
+                  <span class="meta-chip cost-low">Custo: baixo</span>
+                </div>
+              </article>
+
+              <article class="idea-card">
+                <span class="idea-index">09</span>
+                <h3>FAQ operacional muito mais forte</h3>
+                <p>
+                  Nao so FAQ de acesso: e se eu perder dias, sentir dor, nao
+                  conseguir tudo, travar, querer repetir semana, encaixar com
+                  caminhada ou estiver muito cansada.
+                </p>
+                <div class="meta-strip">
+                  <span class="meta-chip impact-high">Impacto: medio-alto</span>
+                  <span class="meta-chip cost-low">Custo: baixo</span>
+                </div>
+              </article>
+
+              <article class="idea-card">
+                <span class="idea-index">10</span>
+                <h3>Assistente simples por intencao</h3>
+                <p>
+                  Respostas prontas para situacoes como "hoje tenho so 10
+                  minutos", "meu joelho incomoda" e "fiquei 4 dias sem treinar".
+                  Nao precisa ser IA pesada para parecer apoio.
+                </p>
+                <div class="meta-strip">
+                  <span class="meta-chip impact-high">Impacto: medio-alto</span>
+                  <span class="meta-chip cost-medium">Custo: medio</span>
+                </div>
+              </article>
+
+              <article class="idea-card">
+                <span class="idea-index">11</span>
+                <h3>Ritual semanal de celebracao</h3>
+                <p>
+                  Fechamento de semana com mensagem de progresso, foco da
+                  proxima etapa e micro premio visual. Quase ninguem faz isso em
+                  produtos baratos.
+                </p>
+                <div class="meta-strip">
+                  <span class="meta-chip impact-high">Impacto: medio-alto</span>
+                  <span class="meta-chip cost-low">Custo: baixo</span>
+                </div>
+              </article>
+
+              <article class="idea-card">
+                <span class="idea-index">12</span>
+                <h3>Clareza anti-reembolso</h3>
+                <p>
+                  Tela clara do que a compra inclui, email de boas-vindas, como
+                  usar, progresso salvo, ultimo acesso, bonus acessados e prova
+                  de uso para reduzir arrependimento e disputa.
+                </p>
+                <div class="meta-strip">
+                  <span class="meta-chip impact-high">Impacto: alto</span>
+                  <span class="meta-chip cost-medium"
+                    >Custo: baixo a medio</span
+                  >
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="section reveal" id="plano-14-dias">
+            <div class="section-header">
+              <span class="section-kicker">Execucao inteligente</span>
+              <h2>O que eu faria nos proximos 14 dias</h2>
+            </div>
+
+            <div class="roadmap">
+              <article class="roadmap-card">
+                <h3>Bloco 1 · valor percebido imediato</h3>
+                <ul>
+                  <li>Criar fluxo "comece aqui".</li>
+                  <li>Criar tela Hoje ou bloco equivalente.</li>
+                  <li>Destacar primeira vitoria em 24h.</li>
+                  <li>Melhorar FAQ operacional.</li>
+                </ul>
+              </article>
+
+              <article class="roadmap-card">
+                <h3>Bloco 2 · confianca e progresso</h3>
+                <ul>
+                  <li>Barra de progresso.</li>
+                  <li>Marcos semanais.</li>
+                  <li>Protocolo de reativacao.</li>
+                  <li>Certificado ou resumo final.</li>
+                </ul>
+              </article>
+
+              <article class="roadmap-card">
+                <h3>Bloco 3 · compensar falta de videos humanos</h3>
+                <ul>
+                  <li>
+                    Biblioteca visual de exercicios com inicio, meio e fim.
+                  </li>
+                  <li>Adaptacoes e erros comuns em destaque.</li>
+                  <li>
+                    Clips IA curtos apenas como apoio, nao como base unica.
+                  </li>
+                </ul>
+              </article>
+
+              <article class="roadmap-card">
+                <h3>Bloco 4 · empilhamento de valor</h3>
+                <ul>
+                  <li>Planner imprimivel.</li>
+                  <li>Guia de continuidade.</li>
+                  <li>Extras de uso real e contexto, nao bonus aleatorios.</li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <section class="section reveal" id="evitar">
+            <div class="section-header">
+              <span class="section-kicker">Cortes de escopo</span>
+              <h2>O que eu nao faria agora</h2>
+            </div>
+
+            <div class="warning-panel">
+              <ul>
+                <li>Contratar gente cedo demais.</li>
+                <li>Tentar gravar 100 videos antes de validar o resto.</li>
+                <li>Criar comunidade grande sem processo.</li>
+                <li>
+                  Adicionar bonus aleatorios sem relacao com a promessa
+                  principal.
+                </li>
+                <li>Encher o produto de abas sem prioridade.</li>
+                <li>Prometer resultado estetico extremo.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="section reveal" id="videos">
+            <div class="section-header">
+              <span class="section-kicker">Restricao real</span>
+              <h2>Enquanto voce ainda nao tem personal para gravar tudo</h2>
+            </div>
+
+            <p class="lede">
+              O erro aqui seria tentar compensar isso com muito video mediano. O
+              caminho melhor e aumentar a
+              <strong>confianca de execucao</strong>.
+            </p>
+
+            <div class="matrix-grid">
+              <article class="matrix-card">
+                <h3>Nivel 1 · obrigatorio</h3>
+                <ul>
+                  <li>Descricao clara.</li>
+                  <li>Execucao correta.</li>
+                  <li>Adaptacao.</li>
+                  <li>Erro comum.</li>
+                  <li>Cue curto.</li>
+                  <li>Alerta de seguranca.</li>
+                </ul>
+              </article>
+
+              <article class="matrix-card">
+                <h3>Nivel 2 · muito desejavel</h3>
+                <ul>
+                  <li>3 imagens ou 3 frames por exercicio.</li>
+                  <li>Mini animacao leve.</li>
+                  <li>Indicacao visual de amplitude.</li>
+                </ul>
+              </article>
+
+              <article class="matrix-card">
+                <h3>Nivel 3 · opcional</h3>
+                <ul>
+                  <li>Video curto IA apenas como apoio visual.</li>
+                  <li>
+                    Nao usar clip bonito para mascarar falta de clareza tecnica.
+                  </li>
+                </ul>
+              </article>
+
+              <article class="matrix-card">
+                <h3>Decisao correta por agora</h3>
+                <p>
+                  Melhor entregar 24 exercicios muito bem documentados com
+                  inicio, meio e fim do que 24 videos medianos e pouco
+                  confiaveis.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section class="section reveal" id="oferta">
+            <div class="section-header">
+              <span class="section-kicker">Empilhamento de valor</span>
+              <h2>Pacote ideal de oferta sem contratar ninguem agora</h2>
+            </div>
+
+            <div class="priority-grid">
+              <article class="priority-card">
+                <span class="priority-rank">Prioridade 1</span>
+                <span class="priority-number">Hoje</span>
+                <p class="subdued">
+                  Treino atual, entrada clara e primeira vitoria.
+                </p>
+              </article>
+              <article class="priority-card">
+                <span class="priority-rank">Prioridade 2</span>
+                <span class="priority-number">Progresso</span>
+                <p class="subdued">
+                  Barra geral, marcos semanais e reativacao.
+                </p>
+              </article>
+              <article class="priority-card">
+                <span class="priority-rank">Prioridade 3</span>
+                <span class="priority-number">Biblioteca</span>
+                <p class="subdued">
+                  Execucao confiavel sem depender de tudo em video.
+                </p>
+              </article>
+              <article class="priority-card">
+                <span class="priority-rank">Prioridade 4</span>
+                <span class="priority-number">Extras</span>
+                <p class="subdued">
+                  Planner, checklists, FAQ, apoios e bonus uteis.
+                </p>
+              </article>
+              <article class="priority-card">
+                <span class="priority-rank">Prioridade 5</span>
+                <span class="priority-number">Depois</span>
+                <p class="subdued">
+                  Continuidade apos o dia 28 e proximo passo.
+                </p>
+              </article>
+            </div>
+
+            <div class="glass-card">
+              <h3>Se eu fosse descrever a oferta final desejada</h3>
+              <ul>
+                <li>Desafio de 28 dias com treinos curtos em casa.</li>
+                <li>Intensidades e adaptacoes.</li>
+                <li>Checklist interativo e progresso salvo.</li>
+                <li>Biblioteca de exercicios confiavel.</li>
+                <li>Onboarding de entrada e orientacao por perfil.</li>
+                <li>Protocolo de reativacao.</li>
+                <li>FAQ e apoios.</li>
+                <li>Bonus de receitas low carb e sobremesas.</li>
+                <li>Planner imprimivel.</li>
+                <li>Guia de continuidade.</li>
+                <li>Certificado final.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="section reveal" id="conclusao">
+            <div class="section-header">
+              <span class="section-kicker">Fechamento</span>
+              <h2>Conclusao objetiva</h2>
+            </div>
+
+            <p class="lede">
+              O seu entregavel ja tem base para ser muito melhor do que um
+              produto de R$ 19,90. O que falta nao e mais conteudo bruto. O que
+              falta e conduzir melhor, personalizar melhor, provar progresso,
+              reduzir inseguranca e empilhar valor util.
+            </p>
+
+            <div class="quote-band">
+              <p>
+                Da para reduzir muito o arrependimento e aumentar muito a
+                seguranca de entrega se o produto fizer a aluna sentir que foi
+                <strong>acolhida, guiada e acompanhada</strong> desde o primeiro
+                acesso.
+              </p>
+            </div>
+          </section>
+
+          <section class="section reveal" id="referencias">
+            <div class="section-header">
+              <span class="section-kicker">Fontes</span>
+              <h2>Referencias usadas</h2>
+            </div>
+
+            <div class="source-grid">
+              <article class="source-card">
+                <h3>Referencias locais</h3>
+                <ul>
+                  <li>
+                    <a href="./calistenia-feminina-conteudo-entregavel.txt"
+                      >Conteudo principal do produto</a
+                    >
+                  </li>
+                  <li>
+                    <a href="./diretrizes_da_marca.md">Diretrizes da marca</a>
+                  </li>
+                  <li>
+                    <a
+                      href="./research/2026-03-08-relatorio-execucao-24-exercicios.md"
+                      >Relatorio tecnico de exercicios</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/home/leonardotl/Área%20de%20trabalho/calistenia-sob-medida-app/README.md"
+                      >App de referencia</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/home/leonardotl/Área%20de%20trabalho/calistenia-sob-medida-app/src/App.tsx"
+                      >Fluxo do app de referencia</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/home/leonardotl/Área%20de%20trabalho/calistenia-sob-medida-app/docs/qa-checklist.md"
+                      >QA checklist do app de referencia</a
+                    >
+                  </li>
+                </ul>
+              </article>
+
+              <article class="source-card">
+                <h3>Referencias externas</h3>
+                <ul>
+                  <li>
+                    <a
+                      href="https://amplitude.com/blog/time-to-value-drives-user-retention"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      >Amplitude · Time to Value</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://contentsquare.com/guides/user-onboarding/checklist/"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      >Contentsquare · User onboarding checklist</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.thinkific.com/features/learning-communities/"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      >Thinkific · Learning communities</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.thinkific.com/blog/togetherness-with-communities/"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      >Thinkific · Communities and retention</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://docs.stripe.com/customer-management"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      >Stripe · Customer management</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://docs.stripe.com/disputes/reason-codes-defense-requirements"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      >Stripe · Dispute evidence</a
+                    >
+                  </li>
+                </ul>
+                <small>
+                  O objetivo das fontes externas aqui nao foi "copiar formula",
+                  mas validar principios atuais de onboarding, retencao, suporte
+                  e prova de entrega em produto digital.
+                </small>
+              </article>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      const progressBar = document.getElementById("progressBar");
+      const revealElements = document.querySelectorAll(".reveal");
+      const tocLinks = Array.from(document.querySelectorAll(".toc a"));
+      const sections = tocLinks
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      if (!reduceMotion) {
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.14 },
+        );
+
+        revealElements.forEach((element, index) => {
+          element.style.transitionDelay = `${Math.min(index * 35, 220)}ms`;
+          revealObserver.observe(element);
+        });
+      } else {
+        revealElements.forEach((element) =>
+          element.classList.add("is-visible"),
+        );
+      }
+
+      const updateActiveSection = () => {
+        const scrollBottom = window.scrollY + window.innerHeight * 0.28;
+        let activeId = sections[0]?.id ?? "";
+
+        sections.forEach((section) => {
+          if (section.offsetTop <= scrollBottom) {
+            activeId = section.id;
+          }
+        });
+
+        tocLinks.forEach((link) => {
+          const isActive = link.getAttribute("href") === `#${activeId}`;
+          link.classList.toggle("active", isActive);
+        });
+      };
+
+      const updateProgressBar = () => {
+        const scrollable =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+        progressBar.style.transform = `scaleX(${Math.min(Math.max(ratio, 0), 1)})`;
+      };
+
+      const onScroll = () => {
+        updateProgressBar();
+        updateActiveSection();
+      };
+
+      updateProgressBar();
+      updateActiveSection();
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+    </script>
+  </body>
+</html>

@@ -2,7 +2,9 @@ import { useState } from "react";
 import type { FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../../context/AppContext";
+import { plansMetadata } from "../../data/plans";
 import type { OnboardingAdjustments } from "../../types/profile";
+import type { allPlans } from "../../data/plans";
 
 const defaultAdjustments: OnboardingAdjustments = {
   trainingDaysPerWeek: 4,
@@ -18,8 +20,11 @@ type ToggleField = "floorTraining" | "kneePain" | "wristPain" | "lowImpact";
 
 export const OnboardingAdjustmentsScreen = () => {
   const navigate = useNavigate();
-  const { applyAdjustments } = useAppContext();
+  const { applyAdjustments, switchPlan, state } = useAppContext();
   const [form, setForm] = useState<OnboardingAdjustments>(defaultAdjustments);
+  const [selectedPlanId, setSelectedPlanId] = useState<keyof typeof allPlans>(
+    state.activePlanId,
+  );
 
   const updateBoolean = (field: ToggleField) => {
     setForm((previous) => ({ ...previous, [field]: !previous[field] }));
@@ -27,6 +32,7 @@ export const OnboardingAdjustmentsScreen = () => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    switchPlan(selectedPlanId);
     applyAdjustments(form);
     navigate("/plano-montado");
   };
@@ -40,10 +46,32 @@ export const OnboardingAdjustmentsScreen = () => {
         Ajustes rápidos
       </h1>
       <p className="mt-2 text-sm text-[color:var(--color-text-secondary)]">
-        Coletamos só o necessário para montar sua semana 1 com segurança.
+        Coletamos só o necessário para montar seu plano com segurança.
       </p>
 
       <div className="mt-6 space-y-4">
+        <label className="block">
+          <span className="mb-2 block text-sm text-[color:var(--color-text-secondary)]">
+            Escolha seu plano
+          </span>
+          <select
+            value={selectedPlanId}
+            onChange={(event) =>
+              setSelectedPlanId(event.target.value as keyof typeof allPlans)
+            }
+            className="w-full rounded-md border border-[color:var(--color-border-default)] bg-[color:var(--color-surface-card)] px-3 py-2 text-[color:var(--color-text-primary)]"
+          >
+            {plansMetadata.map((plan) => (
+              <option key={plan.id} value={plan.id}>
+                {plan.name}
+              </option>
+            ))}
+          </select>
+          <p className="mt-1 text-xs text-[color:var(--color-text-tertiary)]">
+            {plansMetadata.find((p) => p.id === selectedPlanId)?.description}
+          </p>
+        </label>
+
         <label className="block">
           <span className="mb-2 block text-sm text-[color:var(--color-text-secondary)]">
             Dias por semana
@@ -133,7 +161,7 @@ export const OnboardingAdjustmentsScreen = () => {
 
       <button
         type="submit"
-        className="mt-auto rounded-lg bg-[color:var(--color-action-primary)] px-4 py-3 font-bold text-[color:var(--color-text-on-brand)]"
+        className="mt-6 rounded-lg bg-[color:var(--color-action-primary)] px-4 py-3 font-bold text-[color:var(--color-text-on-brand)]"
       >
         Gerar meu plano
       </button>

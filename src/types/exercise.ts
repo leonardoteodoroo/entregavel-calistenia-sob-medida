@@ -3,7 +3,10 @@ export type ExerciseCategory =
   | "Empurrar"
   | "Pernas"
   | "Core"
-  | "Mobilidade";
+  | "Mobilidade"
+  | "Aquecimento"
+  | "Alongamento"
+  | "Recuperação";
 
 export interface Exercise {
   id: number;
@@ -14,6 +17,6 @@ export interface Exercise {
   equipment: string;
   image: string;
   progressionTips: string[];
-  adaptation: string;
-  substituteWith: string;
+  adaptation?: string;
+  substituteWith?: string;
 }

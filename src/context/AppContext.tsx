@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import { planDays } from "../data/planDays";
+import { allPlans } from "../data/plans";
 import { quizProfileMock } from "../data/quizProfile";
 import { deriveProfile } from "../lib/profileRules";
 import { buildProgressSnapshot } from "../lib/progress";
@@ -25,6 +25,7 @@ interface OnboardingState {
 
 export interface AppState {
   quizProfile: QuizProfileInput;
+  activePlanId: keyof typeof allPlans;
   onboarding: OnboardingState;
   derivedProfile?: DerivedProfile;
   completedDays: number[];
@@ -47,10 +48,12 @@ interface AppContextValue {
   markPlanReasonSeen: () => void;
   completeWorkoutDay: (dayNumber: number, feedback: WorkoutFeedback) => void;
   resetProgress: () => void;
+  switchPlan: (planId: keyof typeof allPlans) => void;
 }
 
 const initialState: AppState = {
   quizProfile: quizProfileMock,
+  activePlanId: "default",
   onboarding: {
     accessGranted: false,
     welcomeSeen: false,
@@ -68,13 +71,26 @@ const initialState: AppState = {
 const AppContext = createContext<AppContextValue | undefined>(undefined);
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
-  const [state, setState] = useState<AppState>(
-    () => loadAppState() ?? initialState,
-  );
+  const [state, setState] = useState<AppState>(() => {
+    const saved = loadAppState();
+    if (!saved) return initialState;
+    // Merge to ensure new fields like activePlanId exist even on old saved states
+    return {
+      ...initialState,
+      ...saved,
+      activePlanId: saved.activePlanId ?? initialState.activePlanId,
+      onboarding: { ...initialState.onboarding, ...saved.onboarding },
+    };
+  });
 
   useEffect(() => {
     saveAppState(state);
   }, [state]);
+
+  const planDays = useMemo(
+    () => allPlans[state.activePlanId],
+    [state.activePlanId],
+  );
 
   const isOnboardingComplete =
     state.onboarding.accessGranted &&
@@ -84,7 +100,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     state.onboarding.planReasonSeen;
 
   const todayDayNumber = getTodayDayNumber(state.completedDays);
-  const todayPlanDay = getPlanDayByNumber(todayDayNumber);
+  const todayPlanDay = getPlanDayByNumber(planDays, todayDayNumber);
 
   const progressSnapshot = useMemo(
     () =>
@@ -169,6 +185,15 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     }));
   };
 
+  const switchPlan = (planId: keyof typeof allPlans) => {
+    setState((previous) => ({
+      ...previous,
+      activePlanId: planId,
+      completedDays: [],
+      streak: 0,
+    }));
+  };
+
   const value: AppContextValue = {
     state,
     isOnboardingComplete,
@@ -183,6 +208,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     markPlanReasonSeen,
     completeWorkoutDay,
     resetProgress,
+    switchPlan,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

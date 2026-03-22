@@ -5,4 +5,5 @@ export interface WorkoutSessionState {
   currentExerciseIndex: number;
   finished: boolean;
   usedAdaptationIds: number[];
+  intensityLevel?: "leve" | "padrao" | "maisIntensa";
 }
