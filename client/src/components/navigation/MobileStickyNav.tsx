@@ -2,6 +2,7 @@ import { Menu, Sparkles } from "lucide-react";
 import { useEffect, useState, type MouseEvent as ReactMouseEvent } from "react";
 
 import { isMenuTriggerActive, stickyNavItems } from "@/content/navigation";
+import { getNextWorkoutPath } from "@/lib/weekMenuState";
 
 export interface MobileStickyNavProps {
   currentPath: string;
@@ -74,6 +75,14 @@ export function MobileStickyNav({
     index: number,
     path: string
   ) => {
+    const item = stickyNavItems[index];
+    let targetPath = path;
+
+    // Se o item for "treino", calculamos o próximo dia dinamicamente
+    if (item.key === "treino") {
+      targetPath = getNextWorkoutPath();
+    }
+
     const rect = event.currentTarget.getBoundingClientRect();
     const rippleId = Date.now();
     const ripple = createStickyNavRipple(rect, event, rippleId);
@@ -83,7 +92,7 @@ export function MobileStickyNav({
       [index]: [...(prev[index] || []), ripple],
     }));
 
-    navigateStickyNavItem(path, onNavigate);
+    navigateStickyNavItem(targetPath, onNavigate);
 
     window.setTimeout(() => {
       setRipples(prev => {

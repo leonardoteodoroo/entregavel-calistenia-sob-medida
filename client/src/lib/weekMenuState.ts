@@ -29,3 +29,24 @@ export function toggleExpandedWeek(
     ? expandedWeeks.filter(item => item !== weekPath)
     : [...expandedWeeks, weekPath];
 }
+
+/**
+ * Retorna o caminho para o próximo treino pendente com base no localStorage.
+ */
+export function getNextWorkoutPath(): string {
+  try {
+    const saved = localStorage.getItem("cf-checked-days");
+    const checkedDays: number[] = saved ? JSON.parse(saved) : [];
+
+    // Encontrar o primeiro dia (1-28) não concluído
+    const firstMissing =
+      Array.from({ length: 28 }, (_, i) => i + 1).find(
+        d => !checkedDays.includes(d)
+      ) || 1;
+
+    const week = Math.ceil(firstMissing / 7);
+    return `/semana/${week}/dia/${firstMissing}`;
+  } catch {
+    return "/semana/1";
+  }
+}
