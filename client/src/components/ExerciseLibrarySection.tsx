@@ -1,5 +1,104 @@
 import { startTransition, useDeferredValue, useEffect, useState } from "react";
 import { Search, Target, Activity, BarChart } from "lucide-react";
+
+const EXERCISE_METADATA: Record<string, { benefit: string; focus: string }> = {
+  "agachamento-assistido": {
+    benefit: "Sentar e levantar com mais segurança.",
+    focus: "Coxas e Bumbum",
+  },
+  "agachamento-parcial": {
+    benefit: "Fortalecer as pernas sem forçar joelhos.",
+    focus: "Coxas e Pernas",
+  },
+  "alongamento-de-quadril": {
+    benefit: "Aliviar o peso na frente da coxa.",
+    focus: "Quadril e Coxas",
+  },
+  "alongamento-posterior": {
+    benefit: "Soltar a parte de trás das pernas.",
+    focus: "Atrás das Coxas",
+  },
+  "avanco-curto-com-apoio": {
+    benefit: "Ganhar firmeza e fôlego ao caminhar.",
+    focus: "Pernas e Equilíbrio",
+  },
+  "bird-dog": {
+    benefit: "Proteção e força para sua coluna.",
+    focus: "Costas e Bumbum",
+  },
+  "dead-bug": {
+    benefit: "Fortalecer a barriga protegendo a lombar.",
+    focus: "Abdômen e Coluna",
+  },
+  "elevacao-de-joelhos-leve": {
+    benefit: "Aquecer o corpo e melhorar fôlego.",
+    focus: "Respiração e Pernas",
+  },
+  "elevacao-de-panturrilha": {
+    benefit: "Fortalecer as canelas e tornozelos.",
+    focus: "Panturrilhas",
+  },
+  "elevacao-pelvica": {
+    benefit: "Firmeza no quadril e postura alinhada.",
+    focus: "Bumbum e Quadris",
+  },
+  "good-morning-sem-peso": {
+    benefit: "Aprender a inclinar o corpo sem dor.",
+    focus: "Costas e Bumbum",
+  },
+  "marcha-parada": {
+    benefit: "Ativar a circulação e aquecer corpo.",
+    focus: "Fôlego e Pernas",
+  },
+  "marcha-parada-leve": {
+    benefit: "Despertar o corpo com movimentos suaves.",
+    focus: "Circulação e Pernas",
+  },
+  "mobilidade-de-coluna": {
+    benefit: "Destravar as costas e ombros travados.",
+    focus: "Meio das Costas",
+  },
+  "mobilidade-de-quadril": {
+    benefit: "Soltar o quadril para caminhar melhor.",
+    focus: "Juntas do Quadril",
+  },
+  "polichinelo-sem-salto": {
+    benefit: "Melhorar o fôlego sem pular.",
+    focus: "Fôlego e Ombros",
+  },
+  "ponte-de-gluteos": {
+    benefit: "Fortalecer bumbum deitada e sem impacto.",
+    focus: "Bumbum e Coxas",
+  },
+  "ponte-de-gluteos-com-pausa": {
+    benefit: "Sentir o bumbum trabalhar de verdade.",
+    focus: "Bumbum Firme",
+  },
+  "prancha-adaptada": {
+    benefit: "Sustentação do corpo com mais facilidade.",
+    focus: "Barriga e Costas",
+  },
+  "push-up-inclinada": {
+    benefit: "Firmeza nos braços e peitoral.",
+    focus: "Braços e Peito",
+  },
+  "respiracao-e-mobilidade-leve": {
+    benefit: "Relaxar e aliviar tensões do dia.",
+    focus: "Alívio e Respiração",
+  },
+  "respiracao-profunda": {
+    benefit: "Acalmar a mente e soltar corpo.",
+    focus: "Calma e Pulmões",
+  },
+  "step-touch-lateral": {
+    benefit: "Aquecer com passos para os lados.",
+    focus: "Fôlego e Quadril",
+  },
+  "wall-push-up": {
+    benefit: "Fortalecer braços usando só a parede.",
+    focus: "Braços e Peito",
+  },
+};
 import { SectionLabel } from "@/components/NewSectionsV2";
 import ExerciseGallery from "@/components/ExerciseGallery";
 import {
@@ -278,64 +377,75 @@ export default function ExerciseLibrarySection() {
                       {
                         label: "Bom para",
                         value: entry.objetivo,
-                        icon: <Target size={14} />,
+                        icon: Target,
                         bg: "var(--color-rose-muted)",
                         color: "var(--color-rose)",
                       },
                       {
                         label: "Foco",
                         value: entry.musculos_capacidades[0] || "Geral",
-                        icon: <Activity size={14} />,
+                        icon: Activity,
                         bg: "var(--color-teal-muted)",
                         color: "var(--color-teal)",
                       },
                       {
                         label: "Nível",
                         value: entry.nivel_complexidade,
-                        icon: <BarChart size={14} />,
+                        icon: BarChart,
                         bg: "var(--color-ivory-dark)",
                         color: "var(--color-taupe)",
                       },
-                    ].map((card, i) => (
-                      <div
-                        key={i}
-                        className="flex flex-col items-center justify-center p-3 rounded-lg text-center transition-transform hover:scale-[1.02]"
-                        style={{
-                          backgroundColor: card.bg,
-                          border: `1px solid ${card.color}20`,
-                          minHeight: "85px",
-                        }}
-                      >
+                    ].map((card, i) => {
+                      // Busca os metadados humanizados para o exercício
+                      const metadata = EXERCISE_METADATA[entry.exercise_id];
+
+                      const displayValue =
+                        card.label === "Bom para"
+                          ? metadata?.benefit || card.value
+                          : card.label === "Foco"
+                            ? metadata?.focus || card.value
+                            : card.value;
+
+                      return (
                         <div
-                          className="mb-1.5 flex items-center gap-1.5"
-                          style={{ color: card.color }}
-                        >
-                          {card.icon}
-                          <span
-                            className="font-display"
-                            style={{
-                              fontSize: "0.6rem",
-                              fontWeight: 600,
-                              textTransform: "uppercase",
-                              letterSpacing: "0.08em",
-                              opacity: 0.8,
-                            }}
-                          >
-                            {card.label}
-                          </span>
-                        </div>
-                        <p
-                          className="font-body leading-tight"
+                          key={i}
+                          className="flex flex-col items-center justify-center p-2 rounded-lg text-center transition-transform hover:scale-[1.02]"
                           style={{
-                            fontSize: "0.76rem",
-                            color: "var(--color-charcoal-light)",
-                            fontWeight: 600,
+                            backgroundColor: card.bg,
+                            border: `1px solid ${card.color}20`,
+                            minHeight: "52px",
                           }}
                         >
-                          {card.value}
-                        </p>
-                      </div>
-                    ))}
+                          <div
+                            className="mb-1 flex items-center gap-1.5"
+                            style={{ color: card.color }}
+                          >
+                            <card.icon size={12} strokeWidth={2.5} />
+                            <span
+                              className="font-display uppercase"
+                              style={{
+                                fontSize: "0.55rem",
+                                fontWeight: 700,
+                                letterSpacing: "0.05em",
+                                opacity: 0.8,
+                              }}
+                            >
+                              {card.label}
+                            </span>
+                          </div>
+                          <p
+                            className="font-body leading-tight"
+                            style={{
+                              fontSize: "0.68rem",
+                              color: "var(--color-charcoal-light)",
+                              fontWeight: 600,
+                            }}
+                          >
+                            {displayValue}
+                          </p>
+                        </div>
+                      );
+                    })}
                   </div>
 
                   <div
