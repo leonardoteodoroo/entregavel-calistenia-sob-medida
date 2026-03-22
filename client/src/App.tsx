@@ -13,6 +13,8 @@ import { useHashLocation } from "wouter/use-hash-location";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
+import ScrollToTop from "@/components/navigation/ScrollToTop";
+
 function ProductMobileNavShell() {
   const [location, setLocation] = useLocation();
 
@@ -39,6 +41,7 @@ function ProductMobileNavShell() {
 function AppRouter() {
   return (
     <WouterRouter hook={useHashLocation}>
+      <ScrollToTop />
       <Switch>
         <Route path="/bonus" component={Home} />
         <Route path="/" component={Home} />
