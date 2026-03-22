@@ -72,9 +72,9 @@ export default function ChecklistPage() {
 
           <div className="mb-8">
             <div
-              className="grid grid-cols-7 gap-1.5 sm:gap-3 mx-auto"
+              className="grid grid-cols-7 gap-1.5 sm:flex sm:flex-wrap sm:gap-3 sm:justify-center mx-auto"
               style={{
-                maxWidth: "420px",
+                maxWidth: "800px",
                 justifyItems: "center",
               }}
             >
@@ -95,6 +95,7 @@ export default function ChecklistPage() {
                       height: "auto",
                       aspectRatio: "1/1",
                       maxWidth: "42px",
+                      minWidth: "36px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
