@@ -644,7 +644,6 @@ export default function BonusRecipeBookApp({ book }: { book: RecipeBook }) {
   const selectRecipe = (recipe: Recipe) => {
     setSavedScrollY(window.scrollY);
     setSelectedRecipe(recipe);
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const goBackToList = () => {
@@ -770,6 +769,9 @@ export default function BonusRecipeBookApp({ book }: { book: RecipeBook }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.24, ease: "easeOut" }}
+              onAnimationStart={() => {
+                window.scrollTo({ top: 0, behavior: "auto" });
+              }}
             >
               <RecipeDetail
                 recipe={selectedRecipe}
