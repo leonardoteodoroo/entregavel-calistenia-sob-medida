@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { ensureGtm } from "@/lib/gtm";
 import "@/index.css";
 import ReceitasLowCarbApp from "../ReceitasLowCarbApp";
+import StandaloneLayout from "../StandaloneLayout";
 
 const root = document.getElementById("root");
 if (!root) {
@@ -13,6 +14,8 @@ ensureGtm();
 
 createRoot(root).render(
   <StrictMode>
-    <ReceitasLowCarbApp />
+    <StandaloneLayout currentPath="/receitas-low-carb">
+      <ReceitasLowCarbApp />
+    </StandaloneLayout>
   </StrictMode>
 );

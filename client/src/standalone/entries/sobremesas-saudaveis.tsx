@@ -4,6 +4,7 @@ import { createRoot } from "react-dom/client";
 import { ensureGtm } from "@/lib/gtm";
 import "@/index.css";
 import SobremesasSaudaveisApp from "../SobremesasSaudaveisApp";
+import StandaloneLayout from "../StandaloneLayout";
 
 const root = document.getElementById("root");
 if (!root) {
@@ -14,6 +15,8 @@ ensureGtm();
 
 createRoot(root).render(
   <StrictMode>
-    <SobremesasSaudaveisApp />
+    <StandaloneLayout currentPath="/sobremesas-saudaveis">
+      <SobremesasSaudaveisApp />
+    </StandaloneLayout>
   </StrictMode>
 );

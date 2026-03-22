@@ -1,49 +1,98 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle, Home } from "lucide-react";
+import Layout from "@/components/Layout";
+import { SectionLabel } from "@/components/NewSectionsV2";
+import { ChevronRight } from "lucide-react";
 import { useLocation } from "wouter";
 
 export default function NotFound() {
   const [, setLocation] = useLocation();
 
-  const handleGoHome = () => {
-    setLocation("/");
-  };
-
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
-      <Card className="w-full max-w-lg mx-4 shadow-lg border-0 bg-white/80 backdrop-blur-sm">
-        <CardContent className="pt-8 pb-8 text-center">
-          <div className="flex justify-center mb-6">
-            <div className="relative">
-              <div className="absolute inset-0 bg-red-100 rounded-full animate-pulse" />
-              <AlertCircle className="relative h-16 w-16 text-red-500" />
-            </div>
-          </div>
-
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">404</h1>
-
-          <h2 className="text-xl font-semibold text-slate-700 mb-4">
-            Page Not Found
+    <Layout>
+      <div
+        style={{
+          padding: 0,
+          maxWidth: "100%",
+          margin: "0 auto",
+        }}
+      >
+        <section
+          className="page-card mb-6 mt-2"
+          style={{ padding: "clamp(5px, 3.5vw, 3.5rem)" }}
+        >
+          <SectionLabel>Oops</SectionLabel>
+          <h1
+            className="font-display mb-2"
+            style={{
+              fontSize: "clamp(2.5rem, 8vw, 4rem)",
+              color: "var(--color-rose)",
+              fontWeight: 300,
+              lineHeight: 1,
+            }}
+          >
+            404
+          </h1>
+          <h2
+            className="font-display mb-4"
+            style={{
+              fontSize: "clamp(1.2rem, 3.5vw, 1.75rem)",
+              color: "var(--color-charcoal)",
+              fontWeight: 400,
+            }}
+          >
+            Página não encontrada
           </h2>
-
-          <p className="text-slate-600 mb-8 leading-relaxed">
-            Sorry, the page you are looking for doesn't exist.
-            <br />
-            It may have been moved or deleted.
+          <p
+            className="font-body mb-8"
+            style={{
+              fontSize: "0.92rem",
+              color: "var(--color-taupe)",
+              lineHeight: 1.7,
+              maxWidth: "420px",
+            }}
+          >
+            O conteúdo que você procura pode ter sido movido ou não existe mais.
+            Volte ao início para continuar seu desafio.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button
-              onClick={handleGoHome}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+          <button
+            onClick={() => setLocation("/")}
+            className="group flex items-center gap-2 px-5 py-3 rounded font-body transition-all duration-300 active:scale-95"
+            style={{
+              backgroundColor: "var(--color-rose)",
+              color: "white",
+              fontSize: "0.85rem",
+              fontWeight: 600,
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            Voltar ao início
+            <ChevronRight
+              size={16}
+              className="transition-transform group-hover:translate-x-0.5"
+            />
+          </button>
+
+          <div
+            className="mt-10 px-4 py-3 rounded"
+            style={{
+              backgroundColor: "var(--color-ivory-dark)",
+              borderLeft: "3px solid var(--color-taupe)",
+            }}
+          >
+            <p
+              className="font-body"
+              style={{
+                fontSize: "0.85rem",
+                color: "var(--color-charcoal-light)",
+                lineHeight: 1.6,
+              }}
             >
-              <Home className="w-4 h-4 mr-2" />
-              Go Home
-            </Button>
+              Cada passo conta — mesmo os que parecem não levar a lugar nenhum.
+            </p>
           </div>
-        </CardContent>
-      </Card>
-    </div>
+        </section>
+      </div>
+    </Layout>
   );
 }

@@ -232,46 +232,41 @@ export default function ChecklistPage() {
               Clareza de evolução em 28 dias
             </p>
             <div className="grid grid-cols-2 gap-3">
-              {[
-                {
-                  label: "Dias concluídos",
-                  value: `${checkedDays.length}/28`,
-                },
-                {
-                  label: "Sequência",
-                  value: `${(() => {
-                    if (checkedDays.length === 0) return 0;
-                    const sorted = [...checkedDays].sort((a, b) => a - b);
-                    let maxStreak = 0;
-                    let currentStreak = 0;
-                    for (let i = 0; i < sorted.length; i++) {
-                      if (i > 0 && sorted[i] === sorted[i - 1] + 1) {
-                        currentStreak++;
-                      } else {
-                        currentStreak = 1;
-                      }
-                      maxStreak = Math.max(maxStreak, currentStreak);
-                    }
-                    return maxStreak;
-                  })()} dias`,
-                },
-                {
-                  label: "Semana atual",
-                  value: Math.ceil(
-                    (Math.max(...(checkedDays.length ? checkedDays : [0])) ||
-                      1) / 7
-                  ),
-                },
-                {
-                  label: "Próximo dia",
-                  value:
-                    Math.max(...(checkedDays.length ? checkedDays : [0])) + 1 >
-                    28
-                      ? 28
-                      : Math.max(...(checkedDays.length ? checkedDays : [0])) +
-                        1,
-                },
-              ].map((stat, i) => (
+              {(() => {
+                const firstMissing = Array.from(
+                  { length: 28 },
+                  (_, i) => i + 1
+                ).find(d => !checkedDays.includes(d));
+
+                let currentStreak = 0;
+                if (checkedDays.length > 0) {
+                  const sorted = [...checkedDays].sort((a, b) => b - a);
+                  currentStreak = 1;
+                  for (let i = 1; i < sorted.length; i++) {
+                    if (sorted[i] === sorted[i - 1] - 1) currentStreak++;
+                    else break;
+                  }
+                }
+
+                return [
+                  {
+                    label: "Dias concluídos",
+                    value: `${checkedDays.length}/28`,
+                  },
+                  {
+                    label: "Sequência",
+                    value: `${currentStreak} dias`,
+                  },
+                  {
+                    label: "Semana atual",
+                    value: Math.ceil((firstMissing || 28) / 7),
+                  },
+                  {
+                    label: "Próximo dia",
+                    value: firstMissing || "Fim",
+                  },
+                ];
+              })().map((stat, i) => (
                 <div
                   key={i}
                   className="bg-white p-4 rounded sm:rounded-md border"
