@@ -649,9 +649,6 @@ export default function BonusRecipeBookApp({ book }: { book: RecipeBook }) {
 
   const goBackToList = () => {
     setSelectedRecipe(null);
-    requestAnimationFrame(() => {
-      window.scrollTo({ top: savedScrollY, behavior: "smooth" });
-    });
   };
 
   const filteredRecipes = book.recipes.filter(recipe =>
@@ -797,6 +794,11 @@ export default function BonusRecipeBookApp({ book }: { book: RecipeBook }) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.22, ease: "easeOut" }}
+              onAnimationStart={() => {
+                if (!selectedRecipe && savedScrollY > 0) {
+                  window.scrollTo({ top: savedScrollY, behavior: "auto" });
+                }
+              }}
             >
               <section
                 className="inner-card mb-6"
