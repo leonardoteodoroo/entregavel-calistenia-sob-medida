@@ -638,7 +638,21 @@ export default function BonusRecipeBookApp({ book }: { book: RecipeBook }) {
   const [recipeProgress, setRecipeProgress] = useState<RecipeProgressMap>(() =>
     readRecipeProgressMap(book.storageKey)
   );
+  const [savedScrollY, setSavedScrollY] = useState(0);
   const normalizedQuery = useDeferredValue(searchQuery.trim().toLowerCase());
+
+  const selectRecipe = (recipe: Recipe) => {
+    setSavedScrollY(window.scrollY);
+    setSelectedRecipe(recipe);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const goBackToList = () => {
+    setSelectedRecipe(null);
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: savedScrollY, behavior: "smooth" });
+    });
+  };
 
   const filteredRecipes = book.recipes.filter(recipe =>
     matchesQuery(recipe, normalizedQuery)
@@ -762,7 +776,7 @@ export default function BonusRecipeBookApp({ book }: { book: RecipeBook }) {
             >
               <RecipeDetail
                 recipe={selectedRecipe}
-                onBack={() => setSelectedRecipe(null)}
+                onBack={goBackToList}
                 progress={getRecipeProgress(recipeProgress, selectedRecipe)}
                 onToggleIngredient={index =>
                   toggleRecipeProgress(
@@ -886,7 +900,7 @@ export default function BonusRecipeBookApp({ book }: { book: RecipeBook }) {
                       <RecipeCard
                         key={recipe.id}
                         recipe={recipe}
-                        onSelect={setSelectedRecipe}
+                        onSelect={selectRecipe}
                       />
                     ))}
                   </div>
