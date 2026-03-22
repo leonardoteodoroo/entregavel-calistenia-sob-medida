@@ -71,7 +71,13 @@ export default function ChecklistPage() {
           />
 
           <div className="mb-8">
-            <div className="flex flex-wrap gap-2">
+            <div
+              className="grid grid-cols-7 gap-1.5 sm:gap-3 mx-auto"
+              style={{
+                maxWidth: "420px",
+                justifyItems: "center",
+              }}
+            >
               {Array.from({ length: 28 }, (_, i) => i + 1).map(day => {
                 const checked = checkedDays.includes(day);
                 return (
@@ -85,6 +91,13 @@ export default function ChecklistPage() {
                         ? "var(--color-rose)"
                         : "var(--color-taupe-light)",
                       color: checked ? "white" : "var(--color-taupe)",
+                      width: "100%",
+                      height: "auto",
+                      aspectRatio: "1/1",
+                      maxWidth: "42px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
                     }}
                     title={`Dia ${day}`}
                   >

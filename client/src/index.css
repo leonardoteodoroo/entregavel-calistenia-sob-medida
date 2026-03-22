@@ -501,8 +501,6 @@
 
   /* ---- Checklist day box ---- */
   .day-check {
-    width: 2.5rem;
-    height: 2.5rem;
     border: 1.5px solid var(--color-taupe-light);
     border-radius: 3px;
     display: flex;
