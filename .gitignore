@@ -107,3 +107,6 @@ temp/
 
 # Webdev artifacts (checkpoint zips, migrations, etc.)
 .webdev/
+
+# Arquivos de teste e legado
+arquivei para teste/
