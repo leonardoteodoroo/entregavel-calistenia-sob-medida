@@ -2,6 +2,8 @@ export interface BonusAssetVisual {
   kind: "asset";
   src: string;
   alt: string;
+  width?: number;
+  height?: number;
 }
 
 export interface BonusPlaceholderVisual {
@@ -10,6 +12,8 @@ export interface BonusPlaceholderVisual {
   prompt: string;
   comment: string;
   aspectRatio?: string;
+  width?: number;
+  height?: number;
 }
 
 export type RecipeVisual = BonusAssetVisual | BonusPlaceholderVisual;

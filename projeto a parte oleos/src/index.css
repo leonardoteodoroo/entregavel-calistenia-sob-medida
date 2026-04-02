@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Newsreader", serif;
+  --font-sans: "Manrope", sans-serif;
+  --color-bg-warm: #fbf9f8;
+  --color-primary-dark: #425646;
+  --color-primary-light: #d2e8d3;
+  --color-card-1: #f6f3f2;
+  --color-card-2: #5a6e5d;
+  --color-card-3: #fadcd3;
+  --color-card-4: #e4e2e1;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

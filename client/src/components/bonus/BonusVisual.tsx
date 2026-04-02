@@ -26,6 +26,8 @@ export default function BonusVisual({
       <img
         src={visual.src}
         alt={visual.alt}
+        width={visual.width}
+        height={visual.height}
         loading={loading}
         decoding={decoding}
         fetchPriority={fetchPriority}

@@ -10,7 +10,7 @@ import {
   Users,
 } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useDeferredValue, useState } from "react";
+import { useDeferredValue, useState, useMemo } from "react";
 
 import type { Recipe, RecipeBook } from "@/content/bonus/bonusRecipeTypes";
 import BonusVisual from "./BonusVisual";
@@ -635,11 +635,14 @@ function RecipeDetail({
 export default function BonusRecipeBookApp({ book }: { book: RecipeBook }) {
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
   const [recipeProgress, setRecipeProgress] = useState<RecipeProgressMap>(() =>
     readRecipeProgressMap(book.storageKey)
   );
   const [savedScrollY, setSavedScrollY] = useState(0);
   const normalizedQuery = useDeferredValue(searchQuery.trim().toLowerCase());
+
+  const RECIPES_PER_PAGE = 10;
 
   const selectRecipe = (recipe: Recipe) => {
     setSavedScrollY(window.scrollY);
@@ -650,9 +653,19 @@ export default function BonusRecipeBookApp({ book }: { book: RecipeBook }) {
     setSelectedRecipe(null);
   };
 
-  const filteredRecipes = book.recipes.filter(recipe =>
-    matchesQuery(recipe, normalizedQuery)
-  );
+  const allFilteredRecipes = useMemo(() => {
+    return book.recipes.filter(recipe =>
+      matchesQuery(recipe, normalizedQuery)
+    );
+  }, [book.recipes, normalizedQuery]);
+
+  const totalPages = Math.max(1, Math.ceil(allFilteredRecipes.length / RECIPES_PER_PAGE));
+  const validCurrentPage = Math.min(currentPage, totalPages);
+
+  const paginatedRecipes = useMemo(() => {
+    const startIndex = (validCurrentPage - 1) * RECIPES_PER_PAGE;
+    return allFilteredRecipes.slice(startIndex, startIndex + RECIPES_PER_PAGE);
+  }, [allFilteredRecipes, validCurrentPage, RECIPES_PER_PAGE]);
 
   const toggleRecipeProgress = (
     recipe: Recipe,
@@ -869,7 +882,10 @@ export default function BonusRecipeBookApp({ book }: { book: RecipeBook }) {
                       id="recipe-search"
                       type="text"
                       value={searchQuery}
-                      onChange={event => setSearchQuery(event.target.value)}
+                      onChange={event => {
+                        setSearchQuery(event.target.value);
+                        setCurrentPage(1);
+                      }}
                       placeholder={book.searchPlaceholder}
                       className="w-full rounded px-3 py-2.5 font-body"
                       style={{
@@ -883,7 +899,7 @@ export default function BonusRecipeBookApp({ book }: { book: RecipeBook }) {
                   </div>
                 </div>
 
-                {filteredRecipes.length === 0 ? (
+                {allFilteredRecipes.length === 0 ? (
                   <div
                     className="inner-card"
                     style={{ padding: "1.1rem", textAlign: "center" }}
@@ -899,15 +915,61 @@ export default function BonusRecipeBookApp({ book }: { book: RecipeBook }) {
                     </p>
                   </div>
                 ) : (
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    {filteredRecipes.map(recipe => (
-                      <RecipeCard
-                        key={recipe.id}
-                        recipe={recipe}
-                        onSelect={selectRecipe}
-                      />
-                    ))}
-                  </div>
+                  <>
+                    <div className="grid gap-4 sm:grid-cols-2 mb-8">
+                      {paginatedRecipes.map(recipe => (
+                        <RecipeCard
+                          key={recipe.id}
+                          recipe={recipe}
+                          onSelect={selectRecipe}
+                        />
+                      ))}
+                    </div>
+                    
+                    {totalPages > 1 && (
+                      <div className="flex items-center justify-center gap-2 mt-2 mb-8">
+                        <button
+                          onClick={() => {
+                            setCurrentPage(p => Math.max(1, p - 1));
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                          disabled={validCurrentPage === 1}
+                          className="px-4 py-2 font-body rounded disabled:opacity-50 transition-colors"
+                          style={{
+                            fontSize: "0.85rem",
+                            backgroundColor: validCurrentPage === 1 ? "transparent" : "var(--color-ivory-dark)",
+                            color: "var(--color-charcoal)",
+                            border: "1px solid var(--color-taupe-light)",
+                            cursor: validCurrentPage === 1 ? "not-allowed" : "pointer"
+                          }}
+                        >
+                          Anterior
+                        </button>
+                        
+                        <span className="font-body mx-3" style={{ fontSize: "0.85rem", color: "var(--color-taupe)" }}>
+                          Página {validCurrentPage} de {totalPages}
+                        </span>
+
+                        <button
+                          onClick={() => {
+                            setCurrentPage(p => Math.min(totalPages, p + 1));
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                          disabled={validCurrentPage === totalPages}
+                          className="px-4 py-2 font-body rounded disabled:opacity-50 transition-colors"
+                          style={{
+                            fontSize: "0.85rem",
+                            backgroundColor: validCurrentPage === totalPages ? "transparent" : "var(--color-ivory-dark)",
+                            color: "var(--color-charcoal)",
+                            border: "1px solid var(--color-taupe-light)",
+                            cursor: validCurrentPage === totalPages ? "not-allowed" : "pointer"
+                          }}
+                        >
+                          Próxima
+                        </button>
+                      </div>
+                    )}
+                  </>
                 )}
               </section>
             </motion.div>

@@ -15,6 +15,8 @@ const slashRedirectPaths = new Set([
   "/aviso-legal",
   "/receitas-low-carb",
   "/sobremesas-saudaveis",
+  "/oleos-essenciais-emagrecimento",
+  "/oleos-essenciais-emagrecimento-granola-salgada",
 ]);
 
 const multipageInputs = {
@@ -33,6 +35,16 @@ const multipageInputs = {
   sobremesasSaudaveis: path.resolve(
     clientRoot,
     "sobremesas-saudaveis",
+    "index.html"
+  ),
+  oleosEssenciaisEmagrecimento: path.resolve(
+    clientRoot,
+    "oleos-essenciais-emagrecimento",
+    "index.html"
+  ),
+  oleosEssenciaisGranolaSalgada: path.resolve(
+    clientRoot,
+    "oleos-essenciais-emagrecimento-granola-salgada",
     "index.html"
   ),
 };
@@ -84,6 +96,7 @@ export default defineConfig({
       "@shared": path.resolve(import.meta.dirname, "shared"),
       "@assets": path.resolve(import.meta.dirname, "attached_assets"),
     },
+    dedupe: ["react", "react-dom"],
   },
   envDir: path.resolve(import.meta.dirname),
   root: clientRoot,
