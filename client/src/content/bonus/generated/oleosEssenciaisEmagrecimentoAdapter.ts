@@ -8,8 +8,7 @@ import type {
   SemanticEntityKind,
 } from "../../../../../shared/bonus/oleosEssenciaisEmagrecimentoSchema";
 
-export const oleosEssenciaisEmagrecimentoMaster =
-  masterData as DocumentMaster;
+export const oleosEssenciaisEmagrecimentoMaster = masterData as DocumentMaster;
 export const oleosEssenciaisEmagrecimentoContent =
   contentData as SemanticDocumentContent;
 export const oleosEssenciaisEmagrecimentoEntities =
@@ -31,13 +30,17 @@ export function getOleosEssenciaisEntityById(
 export function getOleosEssenciaisEntitiesByKind(
   kind: SemanticEntityKind
 ): ContentEntity[] {
-  return oleosEssenciaisEmagrecimentoEntities.filter(entity => entity.kind === kind);
+  return oleosEssenciaisEmagrecimentoEntities.filter(
+    entity => entity.kind === kind
+  );
 }
 
 export function getOleosEssenciaisEntitiesByTag(tag: string): ContentEntity[] {
   const normalizedTag = normalizeQuery(tag);
   return oleosEssenciaisEmagrecimentoEntities.filter(entity =>
-    entity.semanticTags.some(candidate => normalizeQuery(candidate) === normalizedTag)
+    entity.semanticTags.some(
+      candidate => normalizeQuery(candidate) === normalizedTag
+    )
   );
 }
 
@@ -46,7 +49,8 @@ export function getOleosEssenciaisEntitiesByCanonicalName(
 ): ContentEntity[] {
   const normalizedCanonicalName = normalizeQuery(canonicalName);
   return oleosEssenciaisEmagrecimentoEntities.filter(
-    entity => normalizeQuery(entity.canonicalName ?? "") === normalizedCanonicalName
+    entity =>
+      normalizeQuery(entity.canonicalName ?? "") === normalizedCanonicalName
   );
 }
 
@@ -75,9 +79,10 @@ export function searchOleosEssenciaisEntities(query: string): ContentEntity[] {
 function scoreEntity(entity: ContentEntity, normalizedQuery: string): number {
   const title = normalizeQuery(entity.title);
   const canonicalName = normalizeQuery(entity.canonicalName ?? "");
-  const aliases = (entity.canonicalName
-    ? aliasesByCanonicalName.get(entity.canonicalName) ?? []
-    : []
+  const aliases = (
+    entity.canonicalName
+      ? (aliasesByCanonicalName.get(entity.canonicalName) ?? [])
+      : []
   ).map(alias => normalizeQuery(alias));
   const retrievalText = normalizeQuery(entity.retrievalText);
 

@@ -2,9 +2,16 @@ import Layout from "@/components/Layout";
 import { SectionLabel } from "@/components/NewSectionsV2";
 import { ChevronRight } from "lucide-react";
 import { useLocation } from "wouter";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function NotFound() {
   const [, setLocation] = useLocation();
+
+  useSEO({
+    title: "Página não encontrada | Calistenia Feminina",
+    description: "A página que você está procurando não foi encontrada.",
+    preventIndex: true,
+  });
 
   return (
     <Layout>

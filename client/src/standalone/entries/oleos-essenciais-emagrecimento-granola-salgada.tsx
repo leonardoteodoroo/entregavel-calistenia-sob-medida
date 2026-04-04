@@ -6,7 +6,9 @@ import OleosEssenciaisGranolaApp from "../OleosEssenciaisGranolaApp";
 
 const root = document.getElementById("root");
 if (!root) {
-  throw new Error("Elemento #root não encontrado na página da Granola Salgada.");
+  throw new Error(
+    "Elemento #root não encontrado na página da Granola Salgada."
+  );
 }
 
 ensureGtm();

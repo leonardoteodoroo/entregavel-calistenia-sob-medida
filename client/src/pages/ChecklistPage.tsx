@@ -3,8 +3,15 @@ import { SectionLabel } from "@/components/NewSectionsV2";
 import { CheckCircle2, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { useLocation } from "wouter";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function ChecklistPage() {
+  useSEO({
+    title: "Checklist de 28 Dias | Calistenia Feminina",
+    description:
+      "Acompanhe e marque a sua constância durante o desafio de 28 dias do treino feminino.",
+  });
+
   const [, setLocation] = useLocation();
   const [checkedDays, setCheckedDays] = useState<number[]>(() => {
     try {

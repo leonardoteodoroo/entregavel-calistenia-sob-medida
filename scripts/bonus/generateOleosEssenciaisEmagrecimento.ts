@@ -11,10 +11,7 @@ const sourcePath = path.resolve(
   repoRoot,
   "docs/Transformar em Bonus/Óleos Essenciais e Emoções no Emagrecimento/Óleos Essenciais e Emoções no Emagrecimento.txt"
 );
-const outputDir = path.resolve(
-  repoRoot,
-  "client/src/content/bonus/generated"
-);
+const outputDir = path.resolve(repoRoot, "client/src/content/bonus/generated");
 
 async function main() {
   const text = await fs.readFile(sourcePath, "utf-8");
@@ -35,7 +32,10 @@ async function main() {
     "oleos-essenciais-emocoes-emagrecimento.content.json"
   );
 
-  await fs.writeFile(`${masterPath}`, `${JSON.stringify(artifacts.master, null, 2)}\n`);
+  await fs.writeFile(
+    `${masterPath}`,
+    `${JSON.stringify(artifacts.master, null, 2)}\n`
+  );
   await fs.writeFile(
     `${contentPath}`,
     `${JSON.stringify(artifacts.content, null, 2)}\n`

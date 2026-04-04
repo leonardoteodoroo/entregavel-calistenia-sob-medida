@@ -1,255 +1,470 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Analytical Botanical - Physiological Regulation</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&amp;family=IBM+Plex+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "error": "#ba1a1a",
-                        "surface-container-low": "#f7f3ee",
-                        "surface-bright": "#fdf9f4",
-                        "on-primary-fixed-variant": "#3b4b37",
-                        "primary": "#50604b",
-                        "primary-fixed-dim": "#baccb1",
-                        "surface-container-highest": "#e6e2dd",
-                        "outline-variant": "#c4c8be",
-                        "surface-container": "#f1ede8",
-                        "on-secondary-fixed-variant": "#3c4a3c",
-                        "tertiary-fixed": "#ffdbc9",
-                        "on-tertiary-fixed-variant": "#6f3813",
-                        "on-tertiary-container": "#fffbff",
-                        "surface-container-lowest": "#ffffff",
-                        "primary-fixed": "#d6e8cc",
-                        "secondary-container": "#d4e4d0",
-                        "on-secondary": "#ffffff",
-                        "on-tertiary": "#ffffff",
-                        "tertiary-fixed-dim": "#ffb68d",
-                        "on-background": "#1c1c19",
-                        "on-tertiary-fixed": "#321200",
-                        "on-primary-fixed": "#111f0e",
-                        "on-primary": "#ffffff",
-                        "primary-container": "#50604b",
-                        "on-secondary-container": "#586757",
-                        "surface-dim": "#ddd9d5",
-                        "inverse-primary": "#baccb1",
-                        "outline": "#747870",
-                        "surface": "#fdf9f4",
-                        "surface-tint": "#53634d",
-                        "error-container": "#ffdad6",
-                        "on-error-container": "#93000a",
-                        "secondary-fixed": "#d7e7d3",
-                        "surface-variant": "#e6e2dd",
-                        "on-error": "#ffffff",
-                        "on-secondary-fixed": "#111f12",
-                        "tertiary-container": "#a6643c",
-                        "on-primary-container": "#f8fff0",
-                        "on-surface-variant": "#444841",
-                        "secondary-fixed-dim": "#bbcbb8",
-                        "inverse-on-surface": "#f4f0eb",
-                        "background": "#fdf9f4",
-                        "inverse-surface": "#31302d",
-                        "on-surface": "#1c1c19",
-                        "secondary": "#536252",
-                        "surface-container-high": "#ebe8e3",
-                        "tertiary": "#884d27"
-                    },
-                    fontFamily: {
-                        "headline": ["Libre Baskerville"],
-                        "body": ["IBM Plex Sans"],
-                        "label": ["IBM Plex Sans"]
-                    },
-                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
-                },
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Analytical Botanical - Physiological Regulation</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&amp;family=IBM+Plex+Sans:wght@300;400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              error: "#ba1a1a",
+              "surface-container-low": "#f7f3ee",
+              "surface-bright": "#fdf9f4",
+              "on-primary-fixed-variant": "#3b4b37",
+              primary: "#50604b",
+              "primary-fixed-dim": "#baccb1",
+              "surface-container-highest": "#e6e2dd",
+              "outline-variant": "#c4c8be",
+              "surface-container": "#f1ede8",
+              "on-secondary-fixed-variant": "#3c4a3c",
+              "tertiary-fixed": "#ffdbc9",
+              "on-tertiary-fixed-variant": "#6f3813",
+              "on-tertiary-container": "#fffbff",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#d6e8cc",
+              "secondary-container": "#d4e4d0",
+              "on-secondary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed-dim": "#ffb68d",
+              "on-background": "#1c1c19",
+              "on-tertiary-fixed": "#321200",
+              "on-primary-fixed": "#111f0e",
+              "on-primary": "#ffffff",
+              "primary-container": "#50604b",
+              "on-secondary-container": "#586757",
+              "surface-dim": "#ddd9d5",
+              "inverse-primary": "#baccb1",
+              outline: "#747870",
+              surface: "#fdf9f4",
+              "surface-tint": "#53634d",
+              "error-container": "#ffdad6",
+              "on-error-container": "#93000a",
+              "secondary-fixed": "#d7e7d3",
+              "surface-variant": "#e6e2dd",
+              "on-error": "#ffffff",
+              "on-secondary-fixed": "#111f12",
+              "tertiary-container": "#a6643c",
+              "on-primary-container": "#f8fff0",
+              "on-surface-variant": "#444841",
+              "secondary-fixed-dim": "#bbcbb8",
+              "inverse-on-surface": "#f4f0eb",
+              background: "#fdf9f4",
+              "inverse-surface": "#31302d",
+              "on-surface": "#1c1c19",
+              secondary: "#536252",
+              "surface-container-high": "#ebe8e3",
+              tertiary: "#884d27",
             },
-        }
+            fontFamily: {
+              headline: ["Libre Baskerville"],
+              body: ["IBM Plex Sans"],
+              label: ["IBM Plex Sans"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "1rem",
+              xl: "1.5rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
     </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
   </head>
-<body class="bg-surface text-on-surface font-body antialiased selection:bg-tertiary-fixed">
-<header class="fixed top-0 w-full z-50 bg-stone-50/90 backdrop-blur-md border-b border-outline-variant/30 flex justify-between items-center px-6 py-4">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-primary">analytics</span>
-<h1 class="text-lg font-headline font-bold text-primary tracking-tight">Botanical Systems</h1>
-</div>
-<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden border border-outline-variant">
-<img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0eBueN4prqiBhec-xZANmx4yQZGhpa3GHyAazb-irop66IZY8xZQnq65aMlC3u7DGHgUKn3btwXPGLaUO5b-Y6jgM02n-SveE_2Fsm6tLX8sdOUrST3FC3gvMfX82II4VVvOtUdmca4W_mfmzOVPQUGggMDL-A8jEQuzAwamKRDZ2TMVaR7aIjezmYvpU5GaRS0Kuol0DCmiFBxPFmKBViloOhK7SiKUo3Oy8F4NVocVAqOV2WiNqchyxL4aZRuEOpSSnCeWloEN_"/>
-</div>
-</header>
-<main class="pt-24 pb-32">
-<section class="px-6 mb-16">
-<div class="max-w-md mx-auto">
-<span class="label-md text-tertiary uppercase tracking-wider font-semibold text-xs mb-3 block">Physiological Mechanics</span>
-<h2 class="text-3xl font-headline font-bold text-primary leading-tight mb-6">Quantifying the Link: Neurobiology &amp; Weight Regulation</h2>
-<div class="mb-8">
-<div class="relative w-full aspect-[16/9] rounded-lg overflow-hidden mb-6">
-<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7Eo0vxyYGi_caqtN3hjcr9YRaYBwrTXfQBEPRgSD4c27SfZrwJHqsTBPQHmP16hDlZgvpCjWRtUe3JamDz1wSxhaEymbjOaqzU1Lfxbr2uAzFwUPVTa2-Ku_irZqvmGNggeLFwPV57Aq1Nzyzuk1ddsFSPZtHf2OjivjcPW3SgWQppi6rZwo1w9ElWICtNh-1zNMyNfr7L9Wbg6bRFIYi8F2IeIJPMO1qnrNcbjgkiCb0xRMcU0dTY7O2uJ_CMrrNsoe6pOdb0Wls"/>
-</div>
-<p class="text-on-surface-variant leading-relaxed text-sm">
-                    Effective weight management requires a systemic approach beyond caloric deficits. The limbic system directly regulates hunger signaling and impulse control. Volatile organic compounds from essential oils serve as direct chemical messengers to the olfactory bulb, modulating neuro-responses that trigger reactive eating behaviors.
-                </p>
-</div>
-</div>
-</section>
-<section class="mb-20">
-<div class="px-6 mb-6 flex items-end justify-between">
-<div>
-<span class="label-md text-tertiary uppercase tracking-widest text-[10px] block mb-1">Bio-Active Compounds</span>
-<h3 class="text-xl font-headline font-bold text-on-surface">Functional Extracts</h3>
-</div>
-<span class="text-primary text-xs font-semibold uppercase tracking-tighter">Slide to Compare</span>
-</div>
-<div class="flex overflow-x-auto gap-4 px-6 hide-scrollbar snap-x snap-mandatory">
-<div class="min-w-[260px] snap-start border border-outline-variant bg-surface-container-low rounded-lg p-5 flex flex-col">
-<div class="h-32 rounded bg-surface overflow-hidden mb-4">
-<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx1CenoH0ujbE1et0vI1wg4A11pLA6mg5rz9uTnuUtprZeFlOjW5zo17M0tQxnCuxeGgBpztaFd2Bs3q1F-h4aI9o_UsXKzcko-_VOPlGnA3j_LxnP4W8Gv2glRaSzKY2srdIrMrk6PQGks6sxdEXmWuKBLVdxVyCNpThwKqYicHEnis7laIQotsKaSW12Zk3ecQSbdW5gzdkOwgNkWTxbun_sIFzO6L-PK-uvI63mGjJ8C51q2UAUcUgeJdpcziAJ2rZewZg5LMcS"/>
-</div>
-<h4 class="text-lg font-headline font-bold text-primary mb-1">Mentha Piperita</h4>
-<p class="text-xs text-on-surface-variant leading-normal mb-4">Targeting the ventromedial nucleus of the hypothalamus to suppress appetite signals.</p>
-<div class="mt-auto flex gap-2">
-<span class="px-2 py-0.5 border border-primary text-primary text-[9px] rounded uppercase font-bold tracking-tight">Metabolic</span>
-<span class="px-2 py-0.5 border border-primary text-primary text-[9px] rounded uppercase font-bold tracking-tight">Stimulant</span>
-</div>
-</div>
-<div class="min-w-[260px] snap-start border border-outline-variant bg-surface-container-low rounded-lg p-5 flex flex-col">
-<div class="h-32 rounded bg-surface overflow-hidden mb-4">
-<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkJ15MKnuTOgxdQFV3DPJTnXRn_Gh2eBzt3wForLRNDzW1CTTwpPrWqR1afg0UTpmfrMB0ZgL5UMOaHscFozE-3BYZqalNbDaiAG40yAfMRqq6sHtcSxZEGwahC4bJ_xUl6vmNdYtgUPt3OzOQWT_fzt8iwnlJcgXcCTyKb0Oc8WUI3aKoBD2xUgMxUQtgQTy-IkHvQL2niX35y6oZ0n1Mt1SCjJkpNKigLM--gYc0Ay5Uv-PJRFXxDCXQl7_zP-u4YhbKrRmhDbJ-"/>
-</div>
-<h4 class="text-lg font-headline font-bold text-primary mb-1">Citrus Bergamia</h4>
-<p class="text-xs text-on-surface-variant leading-normal mb-4">Facilitates GABAergic activity, reducing HPA-axis activation and subsequent cortisol release.</p>
-<div class="mt-auto flex gap-2">
-<span class="px-2 py-0.5 border border-tertiary text-tertiary text-[9px] rounded uppercase font-bold tracking-tight">Cortisol</span>
-<span class="px-2 py-0.5 border border-tertiary text-tertiary text-[9px] rounded uppercase font-bold tracking-tight">Inhibition</span>
-</div>
-</div>
-<div class="min-w-[260px] snap-start border border-outline-variant bg-surface-container-low rounded-lg p-5 flex flex-col">
-<div class="h-32 rounded bg-surface overflow-hidden mb-4">
-<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqUp88YBYPHFPJRR8u-9G9m4pbfkD_9TTkwDiWSEk1COTMwGTOXsmQfXG4gGxsyliWdsu9hA74CKo5pGE2uI0yLGl4yrksEjfWS_jXKyMeTFlXQ3W2b8ngkbETn3CEzOdPfu4l0PASEqZNWB4Wyu_IOCH_X-q8UMHJElFuc-7yvOzsM7omtA8joaw-Lz5oahZhOpJpNTd3MEdldS8_SUK8RS_rHr3kGKKYc7_p_0FqYlNgwAacJkTPxX3rKyf3dE4Iq9JzDQdQ6CxX"/>
-</div>
-<h4 class="text-lg font-headline font-bold text-primary mb-1">Citrus Paradisi</h4>
-<p class="text-xs text-on-surface-variant leading-normal mb-4">High D-limonene content initiates lipase enzyme activity for adipose tissue breakdown.</p>
-<div class="mt-auto flex gap-2">
-<span class="px-2 py-0.5 border border-primary text-primary text-[9px] rounded uppercase font-bold tracking-tight">Lipolysis</span>
-<span class="px-2 py-0.5 border border-primary text-primary text-[9px] rounded uppercase font-bold tracking-tight">Drainage</span>
-</div>
-</div>
-</div>
-</section>
-<section class="px-6 mb-20">
-<div class="bg-primary text-on-primary rounded-lg p-8 relative overflow-hidden">
-<h3 class="text-xl font-headline font-bold mb-8 uppercase tracking-widest text-primary-fixed border-b border-primary-fixed/20 pb-4 text-center">Neural Transmission Flow</h3>
-<div class="relative">
-<div class="absolute left-[15px] top-4 bottom-4 w-0.5 bg-primary-fixed/40"></div>
-<div class="space-y-12">
-<div class="flex items-start gap-6 relative z-10">
-<div class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold flex-shrink-0 text-sm ring-4 ring-primary">01</div>
-<div>
-<h5 class="font-semibold text-base mb-1">Amygdala Response</h5>
-<p class="text-xs text-primary-fixed/80 leading-relaxed">The amygdala interprets psychological stressors as physiological threats, triggering glucose demand.</p>
-</div>
-</div>
-<div class="flex items-start gap-6 relative z-10">
-<div class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold flex-shrink-0 text-sm ring-4 ring-primary">02</div>
-<div>
-<h5 class="font-semibold text-base mb-1">VOC Signal Transmission</h5>
-<p class="text-xs text-primary-fixed/80 leading-relaxed">Olfactory receptors bypass the thalamus, providing direct inhibitory feedback to the stress center.</p>
-</div>
-</div>
-<div class="flex items-start gap-6 relative z-10">
-<div class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold flex-shrink-0 text-sm ring-4 ring-primary">03</div>
-<div>
-<h5 class="font-semibold text-base mb-1">Dopaminergic Regulation</h5>
-<p class="text-xs text-primary-fixed/80 leading-relaxed">Stabilization of neurotransmitter levels reduces the intensity of cravings by satisfying the reward circuit.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="px-6 mb-16">
-<h3 class="text-xl font-headline font-bold text-on-surface mb-6 border-l-4 border-primary pl-4">Standard Operational Protocols</h3>
-<div class="space-y-3">
-<details class="group bg-surface-container rounded border border-outline-variant">
-<summary class="flex justify-between items-center px-6 py-4 cursor-pointer list-none">
-<span class="font-bold text-sm text-primary uppercase tracking-wide">Metabolic Induction (AM)</span>
-<span class="material-symbols-outlined text-sm group-open:rotate-180">expand_more</span>
-</summary>
-<div class="px-6 pb-6 text-xs text-on-surface-variant leading-relaxed">
-                    Procedure: Steam inhalation of Peppermint (0.1ml) + Lemon (0.05ml). 
-                    Function: Acute mental alertness and preemptive hunger signal suppression before first nutrient intake.
+  <body
+    class="bg-surface text-on-surface font-body antialiased selection:bg-tertiary-fixed"
+  >
+    <header
+      class="fixed top-0 w-full z-50 bg-stone-50/90 backdrop-blur-md border-b border-outline-variant/30 flex justify-between items-center px-6 py-4"
+    >
+      <div class="flex items-center gap-4">
+        <span class="material-symbols-outlined text-primary">analytics</span>
+        <h1 class="text-lg font-headline font-bold text-primary tracking-tight">
+          Botanical Systems
+        </h1>
+      </div>
+      <div
+        class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden border border-outline-variant"
+      >
+        <img
+          alt="User profile"
+          class="w-full h-full object-cover"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0eBueN4prqiBhec-xZANmx4yQZGhpa3GHyAazb-irop66IZY8xZQnq65aMlC3u7DGHgUKn3btwXPGLaUO5b-Y6jgM02n-SveE_2Fsm6tLX8sdOUrST3FC3gvMfX82II4VVvOtUdmca4W_mfmzOVPQUGggMDL-A8jEQuzAwamKRDZ2TMVaR7aIjezmYvpU5GaRS0Kuol0DCmiFBxPFmKBViloOhK7SiKUo3Oy8F4NVocVAqOV2WiNqchyxL4aZRuEOpSSnCeWloEN_"
+        />
+      </div>
+    </header>
+    <main class="pt-24 pb-32">
+      <section class="px-6 mb-16">
+        <div class="max-w-md mx-auto">
+          <span
+            class="label-md text-tertiary uppercase tracking-wider font-semibold text-xs mb-3 block"
+            >Physiological Mechanics</span
+          >
+          <h2
+            class="text-3xl font-headline font-bold text-primary leading-tight mb-6"
+          >
+            Quantifying the Link: Neurobiology &amp; Weight Regulation
+          </h2>
+          <div class="mb-8">
+            <div
+              class="relative w-full aspect-[16/9] rounded-lg overflow-hidden mb-6"
+            >
+              <img
+                class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7Eo0vxyYGi_caqtN3hjcr9YRaYBwrTXfQBEPRgSD4c27SfZrwJHqsTBPQHmP16hDlZgvpCjWRtUe3JamDz1wSxhaEymbjOaqzU1Lfxbr2uAzFwUPVTa2-Ku_irZqvmGNggeLFwPV57Aq1Nzyzuk1ddsFSPZtHf2OjivjcPW3SgWQppi6rZwo1w9ElWICtNh-1zNMyNfr7L9Wbg6bRFIYi8F2IeIJPMO1qnrNcbjgkiCb0xRMcU0dTY7O2uJ_CMrrNsoe6pOdb0Wls"
+              />
+            </div>
+            <p class="text-on-surface-variant leading-relaxed text-sm">
+              Effective weight management requires a systemic approach beyond
+              caloric deficits. The limbic system directly regulates hunger
+              signaling and impulse control. Volatile organic compounds from
+              essential oils serve as direct chemical messengers to the
+              olfactory bulb, modulating neuro-responses that trigger reactive
+              eating behaviors.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="mb-20">
+        <div class="px-6 mb-6 flex items-end justify-between">
+          <div>
+            <span
+              class="label-md text-tertiary uppercase tracking-widest text-[10px] block mb-1"
+              >Bio-Active Compounds</span
+            >
+            <h3 class="text-xl font-headline font-bold text-on-surface">
+              Functional Extracts
+            </h3>
+          </div>
+          <span
+            class="text-primary text-xs font-semibold uppercase tracking-tighter"
+            >Slide to Compare</span
+          >
+        </div>
+        <div
+          class="flex overflow-x-auto gap-4 px-6 hide-scrollbar snap-x snap-mandatory"
+        >
+          <div
+            class="min-w-[260px] snap-start border border-outline-variant bg-surface-container-low rounded-lg p-5 flex flex-col"
+          >
+            <div class="h-32 rounded bg-surface overflow-hidden mb-4">
+              <img
+                class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx1CenoH0ujbE1et0vI1wg4A11pLA6mg5rz9uTnuUtprZeFlOjW5zo17M0tQxnCuxeGgBpztaFd2Bs3q1F-h4aI9o_UsXKzcko-_VOPlGnA3j_LxnP4W8Gv2glRaSzKY2srdIrMrk6PQGks6sxdEXmWuKBLVdxVyCNpThwKqYicHEnis7laIQotsKaSW12Zk3ecQSbdW5gzdkOwgNkWTxbun_sIFzO6L-PK-uvI63mGjJ8C51q2UAUcUgeJdpcziAJ2rZewZg5LMcS"
+              />
+            </div>
+            <h4 class="text-lg font-headline font-bold text-primary mb-1">
+              Mentha Piperita
+            </h4>
+            <p class="text-xs text-on-surface-variant leading-normal mb-4">
+              Targeting the ventromedial nucleus of the hypothalamus to suppress
+              appetite signals.
+            </p>
+            <div class="mt-auto flex gap-2">
+              <span
+                class="px-2 py-0.5 border border-primary text-primary text-[9px] rounded uppercase font-bold tracking-tight"
+                >Metabolic</span
+              >
+              <span
+                class="px-2 py-0.5 border border-primary text-primary text-[9px] rounded uppercase font-bold tracking-tight"
+                >Stimulant</span
+              >
+            </div>
+          </div>
+          <div
+            class="min-w-[260px] snap-start border border-outline-variant bg-surface-container-low rounded-lg p-5 flex flex-col"
+          >
+            <div class="h-32 rounded bg-surface overflow-hidden mb-4">
+              <img
+                class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkJ15MKnuTOgxdQFV3DPJTnXRn_Gh2eBzt3wForLRNDzW1CTTwpPrWqR1afg0UTpmfrMB0ZgL5UMOaHscFozE-3BYZqalNbDaiAG40yAfMRqq6sHtcSxZEGwahC4bJ_xUl6vmNdYtgUPt3OzOQWT_fzt8iwnlJcgXcCTyKb0Oc8WUI3aKoBD2xUgMxUQtgQTy-IkHvQL2niX35y6oZ0n1Mt1SCjJkpNKigLM--gYc0Ay5Uv-PJRFXxDCXQl7_zP-u4YhbKrRmhDbJ-"
+              />
+            </div>
+            <h4 class="text-lg font-headline font-bold text-primary mb-1">
+              Citrus Bergamia
+            </h4>
+            <p class="text-xs text-on-surface-variant leading-normal mb-4">
+              Facilitates GABAergic activity, reducing HPA-axis activation and
+              subsequent cortisol release.
+            </p>
+            <div class="mt-auto flex gap-2">
+              <span
+                class="px-2 py-0.5 border border-tertiary text-tertiary text-[9px] rounded uppercase font-bold tracking-tight"
+                >Cortisol</span
+              >
+              <span
+                class="px-2 py-0.5 border border-tertiary text-tertiary text-[9px] rounded uppercase font-bold tracking-tight"
+                >Inhibition</span
+              >
+            </div>
+          </div>
+          <div
+            class="min-w-[260px] snap-start border border-outline-variant bg-surface-container-low rounded-lg p-5 flex flex-col"
+          >
+            <div class="h-32 rounded bg-surface overflow-hidden mb-4">
+              <img
+                class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqUp88YBYPHFPJRR8u-9G9m4pbfkD_9TTkwDiWSEk1COTMwGTOXsmQfXG4gGxsyliWdsu9hA74CKo5pGE2uI0yLGl4yrksEjfWS_jXKyMeTFlXQ3W2b8ngkbETn3CEzOdPfu4l0PASEqZNWB4Wyu_IOCH_X-q8UMHJElFuc-7yvOzsM7omtA8joaw-Lz5oahZhOpJpNTd3MEdldS8_SUK8RS_rHr3kGKKYc7_p_0FqYlNgwAacJkTPxX3rKyf3dE4Iq9JzDQdQ6CxX"
+              />
+            </div>
+            <h4 class="text-lg font-headline font-bold text-primary mb-1">
+              Citrus Paradisi
+            </h4>
+            <p class="text-xs text-on-surface-variant leading-normal mb-4">
+              High D-limonene content initiates lipase enzyme activity for
+              adipose tissue breakdown.
+            </p>
+            <div class="mt-auto flex gap-2">
+              <span
+                class="px-2 py-0.5 border border-primary text-primary text-[9px] rounded uppercase font-bold tracking-tight"
+                >Lipolysis</span
+              >
+              <span
+                class="px-2 py-0.5 border border-primary text-primary text-[9px] rounded uppercase font-bold tracking-tight"
+                >Drainage</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="px-6 mb-20">
+        <div
+          class="bg-primary text-on-primary rounded-lg p-8 relative overflow-hidden"
+        >
+          <h3
+            class="text-xl font-headline font-bold mb-8 uppercase tracking-widest text-primary-fixed border-b border-primary-fixed/20 pb-4 text-center"
+          >
+            Neural Transmission Flow
+          </h3>
+          <div class="relative">
+            <div
+              class="absolute left-[15px] top-4 bottom-4 w-0.5 bg-primary-fixed/40"
+            ></div>
+            <div class="space-y-12">
+              <div class="flex items-start gap-6 relative z-10">
+                <div
+                  class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold flex-shrink-0 text-sm ring-4 ring-primary"
+                >
+                  01
                 </div>
-</details>
-<details class="group bg-surface-container rounded border border-outline-variant">
-<summary class="flex justify-between items-center px-6 py-4 cursor-pointer list-none">
-<span class="font-bold text-sm text-primary uppercase tracking-wide">Cortisol Stabilization (16:00)</span>
-<span class="material-symbols-outlined text-sm group-open:rotate-180">expand_more</span>
-</summary>
-<div class="px-6 pb-6 text-xs text-on-surface-variant leading-relaxed">
-                    Procedure: Passive diffusion of Bergamot in high-stress environments. 
-                    Function: Mitigation of the afternoon circadian cortisol dip which leads to compensatory sugar consumption.
+                <div>
+                  <h5 class="font-semibold text-base mb-1">
+                    Amygdala Response
+                  </h5>
+                  <p class="text-xs text-primary-fixed/80 leading-relaxed">
+                    The amygdala interprets psychological stressors as
+                    physiological threats, triggering glucose demand.
+                  </p>
                 </div>
-</details>
-<details class="group bg-surface-container rounded border border-outline-variant">
-<summary class="flex justify-between items-center px-6 py-4 cursor-pointer list-none">
-<span class="font-bold text-sm text-primary uppercase tracking-wide">Endocrine Recovery (PM)</span>
-<span class="material-symbols-outlined text-sm group-open:rotate-180">expand_more</span>
-</summary>
-<div class="px-6 pb-6 text-xs text-on-surface-variant leading-relaxed">
-                    Procedure: Topical application (diluted) of Lavandula to primary pulse points. 
-                    Function: Optimization of Delta-wave sleep to maintain healthy Leptin/Ghrelin hormone ratios for the following 24h cycle.
+              </div>
+              <div class="flex items-start gap-6 relative z-10">
+                <div
+                  class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold flex-shrink-0 text-sm ring-4 ring-primary"
+                >
+                  02
                 </div>
-</details>
-</div>
-</section>
-<section class="px-6 mb-12">
-<div class="bg-surface-container-low border border-outline-variant p-8 rounded-lg flex flex-col md:flex-row gap-8 items-center">
-<div class="flex-1">
-<h4 class="text-2xl font-headline font-bold text-primary mb-4">Access the Full Empirical Data.</h4>
-<p class="text-sm text-on-surface-variant mb-6">Download the comprehensive white paper on botanical chemical pathways and metabolic results.</p>
-<button class="w-full bg-primary text-on-primary px-6 py-3 rounded font-bold text-xs uppercase tracking-widest shadow-lg">
-                    Request Full Report
-                </button>
-</div>
-<div class="w-full md:w-1/3 h-40 rounded overflow-hidden opacity-60">
-<img class="w-full h-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8qFoZ-VVnHr6A8vw1CDfAhcNlPcDz-cMK9iYzXAtdTosErIcj6Wd991pNK_elel2RW7t7eQp3d5ZQBWkgx_th0ULG0vk2d4SJ0tgsdcOtzYUNl2Ifms2a-Akko2ZZgPsYfJuOSDClfofCK9s-x02CsLJEqqxt7aptIs-nht8WMQqhCd5unyK5QOXNbQqn6Y5ZjpqLloh6hltH6kwKcq7dL96L14zOQnOs2-Yl6tPwt3hKUrOsb1Mm5x70te-9t22CoemnHxxICF16"/>
-</div>
-</div>
-</section>
-</main>
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-stone-50/95 backdrop-blur-md border-t border-outline-variant">
-<div class="flex flex-col items-center justify-center text-primary p-2">
-<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">monitoring</span>
-<span class="text-[9px] uppercase tracking-wider font-bold mt-1">Regulate</span>
-</div>
-<div class="flex flex-col items-center justify-center text-stone-400 p-2">
-<span class="material-symbols-outlined text-[20px]">biotech</span>
-<span class="text-[9px] uppercase tracking-wider font-bold mt-1">Science</span>
-</div>
-<div class="flex flex-col items-center justify-center text-stone-400 p-2">
-<span class="material-symbols-outlined text-[20px]">clinical_notes</span>
-<span class="text-[9px] uppercase tracking-wider font-bold mt-1">Protocols</span>
-</div>
-<div class="flex flex-col items-center justify-center text-stone-400 p-2">
-<span class="material-symbols-outlined text-[20px]">hub</span>
-<span class="text-[9px] uppercase tracking-wider font-bold mt-1">Systems</span>
-</div>
-</nav>
-
-</body></html>
+                <div>
+                  <h5 class="font-semibold text-base mb-1">
+                    VOC Signal Transmission
+                  </h5>
+                  <p class="text-xs text-primary-fixed/80 leading-relaxed">
+                    Olfactory receptors bypass the thalamus, providing direct
+                    inhibitory feedback to the stress center.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-6 relative z-10">
+                <div
+                  class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold flex-shrink-0 text-sm ring-4 ring-primary"
+                >
+                  03
+                </div>
+                <div>
+                  <h5 class="font-semibold text-base mb-1">
+                    Dopaminergic Regulation
+                  </h5>
+                  <p class="text-xs text-primary-fixed/80 leading-relaxed">
+                    Stabilization of neurotransmitter levels reduces the
+                    intensity of cravings by satisfying the reward circuit.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="px-6 mb-16">
+        <h3
+          class="text-xl font-headline font-bold text-on-surface mb-6 border-l-4 border-primary pl-4"
+        >
+          Standard Operational Protocols
+        </h3>
+        <div class="space-y-3">
+          <details
+            class="group bg-surface-container rounded border border-outline-variant"
+          >
+            <summary
+              class="flex justify-between items-center px-6 py-4 cursor-pointer list-none"
+            >
+              <span
+                class="font-bold text-sm text-primary uppercase tracking-wide"
+                >Metabolic Induction (AM)</span
+              >
+              <span
+                class="material-symbols-outlined text-sm group-open:rotate-180"
+                >expand_more</span
+              >
+            </summary>
+            <div
+              class="px-6 pb-6 text-xs text-on-surface-variant leading-relaxed"
+            >
+              Procedure: Steam inhalation of Peppermint (0.1ml) + Lemon
+              (0.05ml). Function: Acute mental alertness and preemptive hunger
+              signal suppression before first nutrient intake.
+            </div>
+          </details>
+          <details
+            class="group bg-surface-container rounded border border-outline-variant"
+          >
+            <summary
+              class="flex justify-between items-center px-6 py-4 cursor-pointer list-none"
+            >
+              <span
+                class="font-bold text-sm text-primary uppercase tracking-wide"
+                >Cortisol Stabilization (16:00)</span
+              >
+              <span
+                class="material-symbols-outlined text-sm group-open:rotate-180"
+                >expand_more</span
+              >
+            </summary>
+            <div
+              class="px-6 pb-6 text-xs text-on-surface-variant leading-relaxed"
+            >
+              Procedure: Passive diffusion of Bergamot in high-stress
+              environments. Function: Mitigation of the afternoon circadian
+              cortisol dip which leads to compensatory sugar consumption.
+            </div>
+          </details>
+          <details
+            class="group bg-surface-container rounded border border-outline-variant"
+          >
+            <summary
+              class="flex justify-between items-center px-6 py-4 cursor-pointer list-none"
+            >
+              <span
+                class="font-bold text-sm text-primary uppercase tracking-wide"
+                >Endocrine Recovery (PM)</span
+              >
+              <span
+                class="material-symbols-outlined text-sm group-open:rotate-180"
+                >expand_more</span
+              >
+            </summary>
+            <div
+              class="px-6 pb-6 text-xs text-on-surface-variant leading-relaxed"
+            >
+              Procedure: Topical application (diluted) of Lavandula to primary
+              pulse points. Function: Optimization of Delta-wave sleep to
+              maintain healthy Leptin/Ghrelin hormone ratios for the following
+              24h cycle.
+            </div>
+          </details>
+        </div>
+      </section>
+      <section class="px-6 mb-12">
+        <div
+          class="bg-surface-container-low border border-outline-variant p-8 rounded-lg flex flex-col md:flex-row gap-8 items-center"
+        >
+          <div class="flex-1">
+            <h4 class="text-2xl font-headline font-bold text-primary mb-4">
+              Access the Full Empirical Data.
+            </h4>
+            <p class="text-sm text-on-surface-variant mb-6">
+              Download the comprehensive white paper on botanical chemical
+              pathways and metabolic results.
+            </p>
+            <button
+              class="w-full bg-primary text-on-primary px-6 py-3 rounded font-bold text-xs uppercase tracking-widest shadow-lg"
+            >
+              Request Full Report
+            </button>
+          </div>
+          <div class="w-full md:w-1/3 h-40 rounded overflow-hidden opacity-60">
+            <img
+              class="w-full h-full object-cover grayscale"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8qFoZ-VVnHr6A8vw1CDfAhcNlPcDz-cMK9iYzXAtdTosErIcj6Wd991pNK_elel2RW7t7eQp3d5ZQBWkgx_th0ULG0vk2d4SJ0tgsdcOtzYUNl2Ifms2a-Akko2ZZgPsYfJuOSDClfofCK9s-x02CsLJEqqxt7aptIs-nht8WMQqhCd5unyK5QOXNbQqn6Y5ZjpqLloh6hltH6kwKcq7dL96L14zOQnOs2-Yl6tPwt3hKUrOsb1Mm5x70te-9t22CoemnHxxICF16"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+    <nav
+      class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-stone-50/95 backdrop-blur-md border-t border-outline-variant"
+    >
+      <div class="flex flex-col items-center justify-center text-primary p-2">
+        <span
+          class="material-symbols-outlined text-[20px]"
+          style="font-variation-settings: &quot;FILL&quot; 1"
+          >monitoring</span
+        >
+        <span class="text-[9px] uppercase tracking-wider font-bold mt-1"
+          >Regulate</span
+        >
+      </div>
+      <div class="flex flex-col items-center justify-center text-stone-400 p-2">
+        <span class="material-symbols-outlined text-[20px]">biotech</span>
+        <span class="text-[9px] uppercase tracking-wider font-bold mt-1"
+          >Science</span
+        >
+      </div>
+      <div class="flex flex-col items-center justify-center text-stone-400 p-2">
+        <span class="material-symbols-outlined text-[20px]"
+          >clinical_notes</span
+        >
+        <span class="text-[9px] uppercase tracking-wider font-bold mt-1"
+          >Protocols</span
+        >
+      </div>
+      <div class="flex flex-col items-center justify-center text-stone-400 p-2">
+        <span class="material-symbols-outlined text-[20px]">hub</span>
+        <span class="text-[9px] uppercase tracking-wider font-bold mt-1"
+          >Systems</span
+        >
+      </div>
+    </nav>
+  </body>
+</html>

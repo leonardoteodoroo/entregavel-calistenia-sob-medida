@@ -27,7 +27,9 @@ O doTERRA Serenity™ possui um aroma calmante e relaxante.
 Quando utilizado aromaticamente, promove um sono tranquilo.
 `);
 
-    const serenity = content.entities.find(entity => entity.id === "oil-profile:serenity");
+    const serenity = content.entities.find(
+      entity => entity.id === "oil-profile:serenity"
+    );
 
     expect(serenity).toBeDefined();
     expect(serenity?.kind).toBe("oil_profile");
@@ -60,7 +62,9 @@ Misture os ingredientes secos.
 Junte os ingredientes úmidos, inclusive o óleo essencial Basil.
 `);
 
-    const recipe = content.entities.find(entity => entity.id === "recipe:pao-de-abobora");
+    const recipe = content.entities.find(
+      entity => entity.id === "recipe:pao-de-abobora"
+    );
 
     expect(recipe).toBeDefined();
     expect(recipe?.kind).toBe("recipe");
@@ -126,7 +130,9 @@ Algumas combinações para utilizar no difusor ultrassônico:
 2 gotas de Ylang Ylang
 `);
 
-    const blends = content.entities.filter(entity => entity.kind === "diffuser_blend");
+    const blends = content.entities.filter(
+      entity => entity.kind === "diffuser_blend"
+    );
 
     expect(blends).toHaveLength(2);
     expect(blends[0]?.fields.ingredients).toEqual([
@@ -159,8 +165,12 @@ Nossa mente
 "Eu posso, eu consigo!"
 `);
 
-    const tipItems = content.entities.filter(entity => entity.kind === "tip_item");
-    const mindsetItems = content.entities.filter(entity => entity.kind === "mindset_item");
+    const tipItems = content.entities.filter(
+      entity => entity.kind === "tip_item"
+    );
+    const mindsetItems = content.entities.filter(
+      entity => entity.kind === "mindset_item"
+    );
 
     expect(tipItems.map(entity => entity.fields.sentence)).toEqual([
       "Beba água, isso é essencial.",
@@ -211,7 +221,9 @@ PubMed Brasil
     );
     expect(
       firstRun.master.blocks.every(
-        block => typeof block.classification === "string" && block.classification.length > 0
+        block =>
+          typeof block.classification === "string" &&
+          block.classification.length > 0
       )
     ).toBe(true);
     expect(firstRun.master.stats.unclassifiedBlockCount).toBe(0);

@@ -33,7 +33,7 @@ Ele é menos forte em:
 
 **Como plano de iniciação / recondicionamento:** muito bom.  
 **Como plano de força / hipertrofia propriamente dita:** limitado.  
-**Como plano de aderência e retomada com baixo risco:** forte.  
+**Como plano de aderência e retomada com baixo risco:** forte.
 
 Em uma frase: **é um plano competente para começar e sustentar consistência, mas ainda não é um sistema completo de progressão física de médio prazo.**
 
@@ -257,6 +257,7 @@ Isso é um mérito real.
 Aqui é importante ser franco.
 
 ### Força
+
 O plano melhora força inicial e coordenação, principalmente em iniciantes.  
 Mas ele **não é forte o bastante**, sozinho, para maximizar força de forma contínua por muito tempo, porque:
 
@@ -266,6 +267,7 @@ Mas ele **não é forte o bastante**, sozinho, para maximizar força de forma co
 - não há estrutura de progressão orientada por desempenho.
 
 ### Hipertrofia
+
 Pode haver algum ganho inicial, especialmente em pessoas destreinadas.  
 Mas o potencial é limitado porque:
 
@@ -275,6 +277,7 @@ Mas o potencial é limitado porque:
 - membros superiores recebem estímulo insuficiente, principalmente em puxadas.
 
 ### Condicionamento
+
 Há melhora básica de condicionamento geral, tolerância ao movimento e ritmo.  
 Mas não há prescrição cardiorrespiratória suficientemente organizada para chamar isso de plano cardiovascular estruturado.
 
@@ -287,24 +290,31 @@ O programa é melhor para **movimentar, reintroduzir, consolidar rotina e prepar
 ## 6. Pontos fortes do plano
 
 ## 6.1 Excelente barreira de entrada
+
 Você consegue começar sem precisar de academia, equipamentos ou grande experiência.
 
 ## 6.2 Boa inteligência comportamental
+
 O plano entende que consistência vem antes de sofisticação.
 
 ## 6.3 Boa alternância entre estímulo e recuperação
+
 Isso reduz abandono e melhora tolerância ao processo.
 
 ## 6.4 Linguagem acessível e boa didática
+
 As instruções são fáceis de entender e executar.
 
 ## 6.5 Progressão simples e perceptível
+
 A pessoa sente que está “fazendo mais” ao longo das semanas.
 
 ## 6.6 Adaptações úteis
+
 Joelho e punho recebem atenção, o que melhora inclusão e segurança.
 
 ## 6.7 Foco relevante em core, postura e mobilidade
+
 Isso ajuda muito iniciantes, sobretudo quem passa muitas horas sentado.
 
 ---
@@ -312,10 +322,13 @@ Isso ajuda muito iniciantes, sobretudo quem passa muitas horas sentado.
 ## 7. Limitações e lacunas
 
 ## 7.1 Falta de progressão objetiva de esforço
+
 O plano usa “leve / padrão / mais intensa”, mas não explica com precisão quando subir de nível.
 
 ### Problema prático
+
 Sem uma regra clara, a pessoa pode:
+
 - ficar fácil demais cedo;
 - insistir num nível acima do ideal;
 - progredir devagar demais;
@@ -324,10 +337,13 @@ Sem uma regra clara, a pessoa pode:
 ---
 
 ## 7.2 Ausência de trabalho de puxada
+
 Há empurrar leve, mas quase nada de puxar.
 
 ### Problema prático
+
 Isso pode gerar:
+
 - desenvolvimento incompleto de membros superiores;
 - menor estímulo para dorsais e romboides;
 - menor equilíbrio escapular;
@@ -336,17 +352,21 @@ Isso pode gerar:
 ---
 
 ## 7.3 Pouca sobrecarga externa
+
 Quase todo o plano depende de peso corporal e variações simples.
 
 ### Problema prático
+
 Depois do ganho inicial, o corpo se adapta e o progresso desacelera.
 
 ---
 
 ## 7.4 Métrica de progresso insuficiente
+
 O plano incentiva check-in, mas ainda não define métricas práticas de acompanhamento.
 
 ### O que falta medir
+
 - qual intensidade foi escolhida;
 - quão difícil foi a sessão;
 - dor ou desconforto;
@@ -357,11 +377,13 @@ O plano incentiva check-in, mas ainda não define métricas práticas de acompan
 ---
 
 ## 7.5 Membros inferiores recebem mais robustez que membros superiores
+
 Isso não é errado, mas deixa o plano menos equilibrado para continuidade.
 
 ---
 
 ## 7.6 Objetivo físico fica implícito, não explícito
+
 O plano funciona bem para “mexer o corpo e criar constância”, mas não traduz isso em meta física objetiva, por exemplo:
 
 - melhorar força básica;
@@ -377,31 +399,38 @@ O plano funciona bem para “mexer o corpo e criar constância”, mas não trad
 Esses não são defeitos graves do plano, mas são pontos que merecem monitoramento.
 
 ### 8.1 Agachamento e avanço
+
 Se houver joelho sensível, valgo dinâmico ou pouca mobilidade, a técnica pode degradar.
 
 **Cuidados:**
+
 - joelhos alinhados com os pés;
 - amplitude tolerável;
 - usar apoio sem vergonha;
 - priorizar controle.
 
 ### 8.2 Good morning sem peso
+
 É útil como padrão de hinge, mas pode virar compensação lombar se a pessoa não entender bem o movimento.
 
 **Cuidados:**
+
 - coluna neutra;
 - inclinar no quadril, não “dobrar nas costas”;
 - amplitude curta no início.
 
 ### 8.3 Prancha e push-ups
+
 Punhos, ombros e lombar podem compensar.
 
 **Cuidados:**
+
 - usar antebraços quando necessário;
 - reduzir alavanca;
 - buscar linha corporal e respiração.
 
 ### 8.4 Volume total para iniciantes muito sensíveis
+
 Mesmo sendo moderado, 28 dias com alta frequência podem ser desafiadores para quem vem de total inatividade.
 
 **Ajuste sensato:**
@@ -437,6 +466,7 @@ Abaixo estão as melhorias mais valiosas.
 ## 10.1 Criar uma regra objetiva para escolher a intensidade
 
 ### Sugestão prática
+
 No final de cada sessão, responder:
 
 - **Fácil**
@@ -444,6 +474,7 @@ No final de cada sessão, responder:
 - **Difícil demais**
 
 ### Regra
+
 - se 2 sessões seguidas ficarem “fáceis”, subir um nível;
 - se a técnica quebrar, manter ou descer;
 - se houver dor articular crescente, reduzir.
@@ -466,9 +497,11 @@ Use uma escala de 1 a 10 no fim da sessão:
 ---
 
 ## 10.3 Inserir pelo menos 1 padrão de puxada
+
 Mesmo em casa, isso pode ser resolvido de forma simples com algum recurso disponível.
 
 ### Exemplos possíveis
+
 - remada com elástico;
 - remada com toalha em ponto seguro;
 - remada com mochila;
@@ -483,6 +516,7 @@ Se não houver material, isso vira prioridade para a próxima fase do plano.
 Hoje o plano encerra bem, mas precisa deixar clara a ponte para a fase 2.
 
 ### Próxima fase ideal
+
 Uma progressão de 3 a 4 semanas com:
 
 - 3 dias de treino principal;
@@ -497,12 +531,13 @@ Uma progressão de 3 a 4 semanas com:
 
 Sugestão de painel simples:
 
-1. dias concluídos / 28  
-2. intensidade escolhida (leve, padrão, mais intensa)  
-3. esforço percebido da sessão (1–10)  
-4. dor articular (0–10)  
+1. dias concluídos / 28
+2. intensidade escolhida (leve, padrão, mais intensa)
+3. esforço percebido da sessão (1–10)
+4. dor articular (0–10)
 
 Opcionalmente:
+
 - sono;
 - passos;
 - circunferência abdominal;
@@ -512,6 +547,7 @@ Opcionalmente:
 ---
 
 ## 10.6 Padronizar critérios de progressão técnica
+
 Antes de subir intensidade, confirmar:
 
 - boa postura;
@@ -551,25 +587,28 @@ Ele é **menos adequado como destino final** para quem quer:
 **Progressão:** adequada para iniciantes, limitada para continuidade  
 **Equilíbrio muscular:** razoável, com falta de puxadas  
 **Potencial de transformação inicial:** bom  
-**Potencial de longo prazo sem ajustes:** moderado para baixo  
+**Potencial de longo prazo sem ajustes:** moderado para baixo
 
 ---
 
 ## 12. Recomendação objetiva
 
 ### Mantenha esse plano se:
+
 - você ainda está construindo o hábito;
 - sente que treinos longos te afastam;
 - está retomando do zero;
 - precisa de algo simples e executável.
 
 ### Evolua esse plano se:
+
 - ele já ficou “fácil” em boa parte dos dias;
 - você quer mais resultado físico visível;
 - você consegue sustentar 3 a 5 treinos por semana;
 - você quer progresso mais mensurável.
 
 ### Melhor upgrade possível sem complicar:
+
 1. manter a base atual;
 2. registrar intensidade e esforço;
 3. incluir puxada;
@@ -592,15 +631,19 @@ Ou seja: **é um bom começo, mas não deve ser o último estágio.**
 ## 14. Apêndice — leitura rápida da periodização
 
 ### Semana 1
+
 Objetivo principal: adaptação, familiarização e redução da fricção de início.
 
 ### Semana 2
+
 Objetivo principal: consolidar padrões, ganhar estabilidade e suportar mais volume.
 
 ### Semana 3
+
 Objetivo principal: aumentar densidade, ritmo e sensação de progresso.
 
 ### Semana 4
+
 Objetivo principal: consolidar confiança, integrar padrões e fechar o ciclo com adesão alta.
 
 ---

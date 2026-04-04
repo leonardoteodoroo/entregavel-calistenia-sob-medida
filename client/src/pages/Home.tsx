@@ -14,6 +14,7 @@ import {
 import { weeks } from "@/lib/planData";
 import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
+import { useSEO } from "@/hooks/useSEO";
 
 const HERO_IMG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/capa-hero-cbNx8vkc9mpUh3EgwHquFC.webp";
@@ -121,6 +122,12 @@ export default function Home() {
   const [bonusLikes, setBonusLikes] = useState<BonusLikesState>(() =>
     readBonusLikesState()
   );
+
+  useSEO({
+    title: "Início | Calistenia Feminina Sob Medida",
+    description:
+      "Método de 28 dias para criar constância e ganhar força com sessões curtas de calistenia feminina em casa.",
+  });
   const updatedAtLabel = new Intl.DateTimeFormat("pt-BR", {
     day: "2-digit",
     month: "2-digit",

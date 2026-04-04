@@ -4,6 +4,7 @@ import { weeks, days } from "@/lib/planData";
 import { useEffect, useMemo } from "react";
 import { useLocation } from "wouter";
 import NotFound from "./NotFound";
+import { useSEO } from "@/hooks/useSEO";
 
 interface WeekPageProps {
   params: {
@@ -66,6 +67,15 @@ export default function WeekPage({ params }: WeekPageProps) {
   const dayParam = params.day ? Number(params.day) : undefined;
 
   const week = weeks.find(item => item.number === weekNumber);
+
+  useSEO({
+    title: week
+      ? `Semana ${week.number} — ${week.title} | Calistenia Feminina`
+      : "Semana de Treino | Calistenia Feminina",
+    description: week
+      ? week.description
+      : "Inicie sua semana de exercícios de calistenia feminina sob medida.",
+  });
   const weekDays = useMemo(
     () => days.filter(day => Math.ceil(day.day / 7) === weekNumber),
     [weekNumber]

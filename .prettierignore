@@ -3,3 +3,5 @@ node_modules
 .git
 *.min.js
 *.min.css
+71-80-raw.json
+*-raw.json

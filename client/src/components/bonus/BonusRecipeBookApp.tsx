@@ -654,12 +654,13 @@ export default function BonusRecipeBookApp({ book }: { book: RecipeBook }) {
   };
 
   const allFilteredRecipes = useMemo(() => {
-    return book.recipes.filter(recipe =>
-      matchesQuery(recipe, normalizedQuery)
-    );
+    return book.recipes.filter(recipe => matchesQuery(recipe, normalizedQuery));
   }, [book.recipes, normalizedQuery]);
 
-  const totalPages = Math.max(1, Math.ceil(allFilteredRecipes.length / RECIPES_PER_PAGE));
+  const totalPages = Math.max(
+    1,
+    Math.ceil(allFilteredRecipes.length / RECIPES_PER_PAGE)
+  );
   const validCurrentPage = Math.min(currentPage, totalPages);
 
   const paginatedRecipes = useMemo(() => {
@@ -925,7 +926,7 @@ export default function BonusRecipeBookApp({ book }: { book: RecipeBook }) {
                         />
                       ))}
                     </div>
-                    
+
                     {totalPages > 1 && (
                       <div className="flex items-center justify-center gap-2 mt-2 mb-8">
                         <button
@@ -937,16 +938,28 @@ export default function BonusRecipeBookApp({ book }: { book: RecipeBook }) {
                           className="px-4 py-2 font-body rounded disabled:opacity-50 transition-colors"
                           style={{
                             fontSize: "0.85rem",
-                            backgroundColor: validCurrentPage === 1 ? "transparent" : "var(--color-ivory-dark)",
+                            backgroundColor:
+                              validCurrentPage === 1
+                                ? "transparent"
+                                : "var(--color-ivory-dark)",
                             color: "var(--color-charcoal)",
                             border: "1px solid var(--color-taupe-light)",
-                            cursor: validCurrentPage === 1 ? "not-allowed" : "pointer"
+                            cursor:
+                              validCurrentPage === 1
+                                ? "not-allowed"
+                                : "pointer",
                           }}
                         >
                           Anterior
                         </button>
-                        
-                        <span className="font-body mx-3" style={{ fontSize: "0.85rem", color: "var(--color-taupe)" }}>
+
+                        <span
+                          className="font-body mx-3"
+                          style={{
+                            fontSize: "0.85rem",
+                            color: "var(--color-taupe)",
+                          }}
+                        >
                           Página {validCurrentPage} de {totalPages}
                         </span>
 
@@ -959,10 +972,16 @@ export default function BonusRecipeBookApp({ book }: { book: RecipeBook }) {
                           className="px-4 py-2 font-body rounded disabled:opacity-50 transition-colors"
                           style={{
                             fontSize: "0.85rem",
-                            backgroundColor: validCurrentPage === totalPages ? "transparent" : "var(--color-ivory-dark)",
+                            backgroundColor:
+                              validCurrentPage === totalPages
+                                ? "transparent"
+                                : "var(--color-ivory-dark)",
                             color: "var(--color-charcoal)",
                             border: "1px solid var(--color-taupe-light)",
-                            cursor: validCurrentPage === totalPages ? "not-allowed" : "pointer"
+                            cursor:
+                              validCurrentPage === totalPages
+                                ? "not-allowed"
+                                : "pointer",
                           }}
                         >
                           Próxima

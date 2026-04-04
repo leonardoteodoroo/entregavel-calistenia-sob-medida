@@ -173,7 +173,9 @@ const TOC_TARGETS = [
 
 const SECTION_LOOKUP = new Map(
   SECTION_DEFINITIONS.flatMap(section =>
-    section.actualHeadings.map(heading => [normalizeForLookup(heading), section] as const)
+    section.actualHeadings.map(
+      heading => [normalizeForLookup(heading), section] as const
+    )
   )
 );
 
@@ -288,7 +290,9 @@ export function generateOleosEssenciaisEmagrecimentoArtifacts(
     ...createRecipeEntities(blocks, "receitas_trimshake", "trimshake_recipe")
   );
   entities.push(...createRecipeEntities(blocks, "bebidas_oleos", "drink"));
-  entities.push(...createRecipeEntities(blocks, "uso_topico", "topical_formula"));
+  entities.push(
+    ...createRecipeEntities(blocks, "uso_topico", "topical_formula")
+  );
   entities.push(
     ...createIngestionAndDiffuserEntities(blocks, "ingestao_aromaterapia")
   );
@@ -305,7 +309,9 @@ export function generateOleosEssenciaisEmagrecimentoArtifacts(
     sourceChecksum
   );
 
-  const classificationCounts = countBy(blocks.map(block => block.classification));
+  const classificationCounts = countBy(
+    blocks.map(block => block.classification)
+  );
   const master: DocumentMaster = {
     documentId: input.documentId,
     sourcePath: input.sourcePath,
@@ -319,14 +325,17 @@ export function generateOleosEssenciaisEmagrecimentoArtifacts(
       nonBoilerplateBlockCount: blocks.length,
       removedBoilerplateLineCount,
       classificationCounts,
-      unclassifiedBlockCount: blocks.filter(block => !block.classification).length,
+      unclassifiedBlockCount: blocks.filter(block => !block.classification)
+        .length,
     },
   };
 
   return { master, content };
 }
 
-function splitPages(text: string): Array<{ pageIndex: number; rawText: string; lines: string[] }> {
+function splitPages(
+  text: string
+): Array<{ pageIndex: number; rawText: string; lines: string[] }> {
   return text
     .split("\f")
     .map(rawText => rawText.replace(/^\n+|\n+$/g, ""))
@@ -338,7 +347,10 @@ function splitPages(text: string): Array<{ pageIndex: number; rawText: string; l
     }));
 }
 
-function buildBlocksFromLines(pageIndex: number, lines: string[]): SourceBlock[] {
+function buildBlocksFromLines(
+  pageIndex: number,
+  lines: string[]
+): SourceBlock[] {
   const blocks: SourceBlock[] = [];
   let blockStart = -1;
   let currentLines: string[] = [];
@@ -397,7 +409,11 @@ function expandCompositeBlocks(blocks: SourceBlock[]): SourceBlock[] {
     }
 
     const lines = block.rawText.split("\n").map(line => line.trimEnd());
-    const segments: Array<{ lines: string[]; lineStart: number; lineEnd: number }> = [];
+    const segments: Array<{
+      lines: string[];
+      lineStart: number;
+      lineEnd: number;
+    }> = [];
     let currentSegment: string[] = [];
     let currentStart = block.lineStart;
 
@@ -444,7 +460,8 @@ function expandCompositeBlocks(blocks: SourceBlock[]): SourceBlock[] {
       if (!rawText) return;
       expanded.push({
         ...block,
-        id: cleanedSegments.length === 1 ? block.id : `${block.id}.${index + 1}`,
+        id:
+          cleanedSegments.length === 1 ? block.id : `${block.id}.${index + 1}`,
         lineStart: segment.lineStart,
         lineEnd: segment.lineEnd,
         rawText,
@@ -502,7 +519,9 @@ function shouldPromoteToActualSectionHeading(
     return true;
   }
 
-  const nextNormalized = normalizeForLookup(collapseWhitespace(nextBlock.normalizedText));
+  const nextNormalized = normalizeForLookup(
+    collapseWhitespace(nextBlock.normalizedText)
+  );
   if (SECTION_LOOKUP.has(nextNormalized) || /^\d+$/.test(nextNormalized)) {
     return false;
   }
@@ -511,10 +530,15 @@ function shouldPromoteToActualSectionHeading(
 }
 
 function createSectionEntities(blocks: SourceBlock[]): ContentEntity[] {
-  const sectionBlocks = blocks.filter(block => block.classification === "section_heading");
+  const sectionBlocks = blocks.filter(
+    block => block.classification === "section_heading"
+  );
 
   return sectionBlocks
-    .filter(block => block.sectionContext && block.sectionContext !== "table_of_contents")
+    .filter(
+      block =>
+        block.sectionContext && block.sectionContext !== "table_of_contents"
+    )
     .map(block => {
       const sectionId = block.sectionContext as SectionId;
       const relevantBlocks = collectSectionBlocks(blocks, sectionId);
@@ -523,7 +547,10 @@ function createSectionEntities(blocks: SourceBlock[]): ContentEntity[] {
       const sourceBlockIds = relevantBlocks.map(candidate => candidate.id);
       const rawExcerpt = joinBlockText(relevantBlocks, true);
       const displayText = joinBlockText(relevantBlocks, false);
-      const semanticTags = uniqueStrings([`format:section`, `section:${slugify(title)}`]);
+      const semanticTags = uniqueStrings([
+        `format:section`,
+        `section:${slugify(title)}`,
+      ]);
 
       const entity: ContentEntity = {
         id: `section:${slugify(title)}`,
@@ -551,7 +578,9 @@ function createTocEntities(
   sourceChecksum: string,
   sourcePath: string
 ): ContentEntity[] {
-  const tocBlocks = blocks.filter(block => block.sectionContext === "table_of_contents");
+  const tocBlocks = blocks.filter(
+    block => block.sectionContext === "table_of_contents"
+  );
   if (!tocBlocks.length) {
     return [];
   }
@@ -638,7 +667,9 @@ function createFrontMatterWarnings(blocks: SourceBlock[]): ContentEntity[] {
 }
 
 function createOilProfileEntities(blocks: SourceBlock[]): ContentEntity[] {
-  const oilBlocks = blocks.filter(block => block.sectionContext === "oleos_essenciais");
+  const oilBlocks = blocks.filter(
+    block => block.sectionContext === "oleos_essenciais"
+  );
   const items = groupItemsByTitle(oilBlocks, "oleos_essenciais");
 
   return items.map(item => {
@@ -687,7 +718,9 @@ function createRecipeEntities(
     "recipe" | "trimshake_recipe" | "drink" | "topical_formula"
   >
 ): ContentEntity[] {
-  const sectionBlocks = blocks.filter(block => block.sectionContext === sectionId);
+  const sectionBlocks = blocks.filter(
+    block => block.sectionContext === sectionId
+  );
   const items = groupItemsByTitle(sectionBlocks, sectionId);
 
   return items.map(item => {
@@ -700,7 +733,9 @@ function createIngestionAndDiffuserEntities(
   blocks: SourceBlock[],
   sectionId: Extract<SectionId, "ingestao_aromaterapia">
 ): ContentEntity[] {
-  const sectionBlocks = blocks.filter(block => block.sectionContext === sectionId);
+  const sectionBlocks = blocks.filter(
+    block => block.sectionContext === sectionId
+  );
   const items = groupItemsByTitle(sectionBlocks, sectionId);
   const entities: ContentEntity[] = [];
 
@@ -710,13 +745,16 @@ function createIngestionAndDiffuserEntities(
       continue;
     }
 
-    entities.push(withRetrievalText(parseStructuredItem(item, "ingestion_formula")));
+    entities.push(
+      withRetrievalText(parseStructuredItem(item, "ingestion_formula"))
+    );
   }
 
   const warningBlocks = sectionBlocks.filter(
     block =>
-      !items.some(item => item.blocks.some(candidate => candidate.id === block.id)) &&
-      block.classification === "content_block"
+      !items.some(item =>
+        item.blocks.some(candidate => candidate.id === block.id)
+      ) && block.classification === "content_block"
   );
 
   warningBlocks.forEach((block, index) => {
@@ -804,7 +842,9 @@ function createTipEntities(blocks: SourceBlock[]): ContentEntity[] {
 }
 
 function createMindsetEntities(blocks: SourceBlock[]): ContentEntity[] {
-  const mindsetBlocks = blocks.filter(block => block.sectionContext === "nossa_mente");
+  const mindsetBlocks = blocks.filter(
+    block => block.sectionContext === "nossa_mente"
+  );
   const entities: ContentEntity[] = [];
   let positiveMode = false;
   let mindsetIndex = 1;
@@ -851,7 +891,9 @@ function createMindsetEntities(blocks: SourceBlock[]): ContentEntity[] {
           },
           semanticTags: uniqueStrings([
             "format:mindset_item",
-            polarity === "positive" ? "emotion:positive_reframe" : "emotion:self_sabotage",
+            polarity === "positive"
+              ? "emotion:positive_reframe"
+              : "emotion:self_sabotage",
           ]),
           relations: [],
           retrievalText: "",
@@ -865,7 +907,9 @@ function createMindsetEntities(blocks: SourceBlock[]): ContentEntity[] {
 }
 
 function createClosingEntities(blocks: SourceBlock[]): ContentEntity[] {
-  const conclusionBlocks = blocks.filter(block => block.sectionContext === "conclusao");
+  const conclusionBlocks = blocks.filter(
+    block => block.sectionContext === "conclusao"
+  );
   const entities: ContentEntity[] = [];
   const sourceLines: string[] = [];
   const sourceBlockIds: string[] = [];
@@ -883,7 +927,12 @@ function createClosingEntities(blocks: SourceBlock[]): ContentEntity[] {
     }
 
     if (sourceBlockIds.length > 0) {
-      sourceLines.push(...block.rawText.split("\n").map(line => line.trim()).filter(Boolean));
+      sourceLines.push(
+        ...block.rawText
+          .split("\n")
+          .map(line => line.trim())
+          .filter(Boolean)
+      );
       sourceBlockIds.push(block.id);
       return;
     }
@@ -892,7 +941,9 @@ function createClosingEntities(blocks: SourceBlock[]): ContentEntity[] {
   });
 
   if (noteBlockIds.length) {
-    const noteBlocks = conclusionBlocks.filter(block => noteBlockIds.includes(block.id));
+    const noteBlocks = conclusionBlocks.filter(block =>
+      noteBlockIds.includes(block.id)
+    );
     entities.push(
       withRetrievalText({
         id: "closing-note:conclusao",
@@ -933,8 +984,13 @@ function createClosingEntities(blocks: SourceBlock[]): ContentEntity[] {
   return entities;
 }
 
-function groupItemsByTitle(blocks: SourceBlock[], sectionId: SectionId): ItemGroup[] {
-  const relevantBlocks = blocks.filter(block => block.classification !== "section_heading");
+function groupItemsByTitle(
+  blocks: SourceBlock[],
+  sectionId: SectionId
+): ItemGroup[] {
+  const relevantBlocks = blocks.filter(
+    block => block.classification !== "section_heading"
+  );
   const groups: ItemGroup[] = [];
   let current: ItemGroup | null = null;
   let pendingPrefixBlocks: SourceBlock[] = [];
@@ -953,7 +1009,9 @@ function groupItemsByTitle(blocks: SourceBlock[], sectionId: SectionId): ItemGro
       const prefixBlocks =
         pendingPrefixBlocks.length > 0 &&
         pendingPrefixBlocks.every(candidate =>
-          ["ingredients_heading", "content_block"].includes(candidate.classification)
+          ["ingredients_heading", "content_block"].includes(
+            candidate.classification
+          )
         )
           ? pendingPrefixBlocks
           : [];
@@ -986,11 +1044,18 @@ function parseStructuredItem(
   item: ItemGroup,
   kind: Extract<
     SemanticEntityKind,
-    "recipe" | "trimshake_recipe" | "drink" | "topical_formula" | "ingestion_formula"
+    | "recipe"
+    | "trimshake_recipe"
+    | "drink"
+    | "topical_formula"
+    | "ingestion_formula"
   >
 ): ContentEntity {
   const lines = item.blocks.flatMap(block =>
-    block.rawText.split("\n").map(line => line.trim()).filter(Boolean)
+    block.rawText
+      .split("\n")
+      .map(line => line.trim())
+      .filter(Boolean)
   );
   const title = item.title;
   const bodyLines = removeLeadingTitleLines(lines, title);
@@ -1020,7 +1085,11 @@ function parseStructuredItem(
       return;
     }
 
-    if (mode === "ingredients" && !hasPreparationMarker && looksLikeInstructionLine(line)) {
+    if (
+      mode === "ingredients" &&
+      !hasPreparationMarker &&
+      looksLikeInstructionLine(line)
+    ) {
       mode = "instructions";
     }
 
@@ -1068,9 +1137,14 @@ function parseStructuredItem(
 
 function parseDiffuserItem(item: ItemGroup): ContentEntity[] {
   const groups: Array<{ ingredients: string[]; sourceBlockIds: string[] }> = [];
-  const contentBlocks = item.blocks.filter(block => collapseWhitespace(block.normalizedText) !== item.title);
+  const contentBlocks = item.blocks.filter(
+    block => collapseWhitespace(block.normalizedText) !== item.title
+  );
   contentBlocks.forEach(block => {
-    const lines = block.rawText.split("\n").map(line => line.trim()).filter(Boolean);
+    const lines = block.rawText
+      .split("\n")
+      .map(line => line.trim())
+      .filter(Boolean);
     if (!lines.length) {
       return;
     }
@@ -1132,7 +1206,9 @@ function linkEntityRelations(entities: ContentEntity[]): ContentEntity[] {
       });
     }
 
-    const referencedCanonicalNames = Array.isArray(entity.fields.referencedCanonicalNames)
+    const referencedCanonicalNames = Array.isArray(
+      entity.fields.referencedCanonicalNames
+    )
       ? (entity.fields.referencedCanonicalNames as string[])
       : [];
 
@@ -1183,8 +1259,13 @@ function buildContentDocument(
   };
 }
 
-function collectSectionBlocks(blocks: SourceBlock[], sectionId: SectionId): SourceBlock[] {
-  const sectionBlocks = blocks.filter(block => block.sectionContext === sectionId);
+function collectSectionBlocks(
+  blocks: SourceBlock[],
+  sectionId: SectionId
+): SourceBlock[] {
+  const sectionBlocks = blocks.filter(
+    block => block.sectionContext === sectionId
+  );
   if (!ITEM_HEAVY_SECTION_IDS.has(sectionId)) {
     return sectionBlocks;
   }
@@ -1207,11 +1288,16 @@ function collectSectionBlocks(blocks: SourceBlock[], sectionId: SectionId): Sour
 }
 
 function getSectionTitle(sectionId: SectionId): string {
-  return SECTION_DEFINITIONS.find(section => section.id === sectionId)?.title ?? sectionId;
+  return (
+    SECTION_DEFINITIONS.find(section => section.id === sectionId)?.title ??
+    sectionId
+  );
 }
 
 function getSectionOrder(sectionId: SectionId): number {
-  return SECTION_DEFINITIONS.find(section => section.id === sectionId)?.order ?? 999;
+  return (
+    SECTION_DEFINITIONS.find(section => section.id === sectionId)?.order ?? 999
+  );
 }
 
 function deriveSemanticTags(
@@ -1230,7 +1316,11 @@ function deriveSemanticTags(
     kind === "trimshake_recipe" ||
     kind === "ingestion_formula"
   ) {
-    if (normalized.includes("ingest") || normalized.includes("agua") || normalized.includes("capsul")) {
+    if (
+      normalized.includes("ingest") ||
+      normalized.includes("agua") ||
+      normalized.includes("capsul")
+    ) {
       tags.add("mode:ingestion");
     }
   }
@@ -1240,12 +1330,20 @@ function deriveSemanticTags(
     kind === "diffuser_blend" ||
     kind === "ingestion_formula"
   ) {
-    if (normalized.includes("difusor") || normalized.includes("aromatic") || normalized.includes("inal")) {
+    if (
+      normalized.includes("difusor") ||
+      normalized.includes("aromatic") ||
+      normalized.includes("inal")
+    ) {
       tags.add("mode:aromatic");
     }
   }
 
-  if (kind === "topical_formula" || normalized.includes("massage") || normalized.includes("topic")) {
+  if (
+    kind === "topical_formula" ||
+    normalized.includes("massage") ||
+    normalized.includes("topic")
+  ) {
     tags.add("mode:topical");
   }
 
@@ -1268,16 +1366,28 @@ function deriveSemanticTags(
   ) {
     tags.add("goal:weight_loss_support");
   }
-  if (normalized.includes("detox") || normalized.includes("desentoxic") || normalized.includes("purific")) {
+  if (
+    normalized.includes("detox") ||
+    normalized.includes("desentoxic") ||
+    normalized.includes("purific")
+  ) {
     tags.add("goal:detox_support");
   }
-  if (normalized.includes("digest") || normalized.includes("estomag") || normalized.includes("intestin")) {
+  if (
+    normalized.includes("digest") ||
+    normalized.includes("estomag") ||
+    normalized.includes("intestin")
+  ) {
     tags.add("body:gastrointestinal");
   }
   if (normalized.includes("figado")) {
     tags.add("body:liver");
   }
-  if (normalized.includes("linfatic") || normalized.includes("circula") || normalized.includes("cardiovascular")) {
+  if (
+    normalized.includes("linfatic") ||
+    normalized.includes("circula") ||
+    normalized.includes("cardiovascular")
+  ) {
     tags.add("body:circulation");
   }
   if (normalized.includes("ansiedade")) {
@@ -1294,26 +1404,42 @@ function deriveSemanticTags(
   ) {
     tags.add("emotion:calm");
   }
-  if (normalized.includes("medico") || normalized.includes("nutricionista") || normalized.includes("aromaterapeuta")) {
+  if (
+    normalized.includes("medico") ||
+    normalized.includes("nutricionista") ||
+    normalized.includes("aromaterapeuta")
+  ) {
     tags.add("safety:medical_consultation");
   }
   if (normalized.includes("gravida") || normalized.includes("amamentando")) {
     tags.add("safety:pregnancy_caution");
   }
-  if (normalized.includes("interagir com medicamentos") || normalized.includes("medicamentosa")) {
+  if (
+    normalized.includes("interagir com medicamentos") ||
+    normalized.includes("medicamentosa")
+  ) {
     tags.add("safety:drug_interaction");
   }
   if (normalized.includes("dilu") || normalized.includes("oleo carreador")) {
     tags.add("safety:dilution_required");
   }
-  if (normalized.includes("nao sair ao sol") || normalized.includes("oleos citricos") || normalized.includes("queimaduras")) {
+  if (
+    normalized.includes("nao sair ao sol") ||
+    normalized.includes("oleos citricos") ||
+    normalized.includes("queimaduras")
+  ) {
     tags.add("safety:photosensitive");
   }
-  if (normalized.includes("habitos") || normalized.includes("nao existe milagre")) {
+  if (
+    normalized.includes("habitos") ||
+    normalized.includes("nao existe milagre")
+  ) {
     tags.add("goal:habit_change");
   }
 
-  const usageModes = Array.isArray(context.usageModes) ? (context.usageModes as string[]) : [];
+  const usageModes = Array.isArray(context.usageModes)
+    ? (context.usageModes as string[])
+    : [];
   usageModes.forEach(mode => tags.add(`mode:${mode}`));
 
   return Array.from(tags).sort();
@@ -1322,13 +1448,25 @@ function deriveSemanticTags(
 function extractUsageModes(text: string): string[] {
   const normalized = normalizeForLookup(text);
   const modes = new Set<string>();
-  if (normalized.includes("aromatic") || normalized.includes("difusor") || normalized.includes("inal")) {
+  if (
+    normalized.includes("aromatic") ||
+    normalized.includes("difusor") ||
+    normalized.includes("inal")
+  ) {
     modes.add("aromatic");
   }
-  if (normalized.includes("ingest") || normalized.includes("agua") || normalized.includes("capsul")) {
+  if (
+    normalized.includes("ingest") ||
+    normalized.includes("agua") ||
+    normalized.includes("capsul")
+  ) {
     modes.add("ingestion");
   }
-  if (normalized.includes("topic") || normalized.includes("massage") || normalized.includes("oleo carreador")) {
+  if (
+    normalized.includes("topic") ||
+    normalized.includes("massage") ||
+    normalized.includes("oleo carreador")
+  ) {
     modes.add("topical");
   }
   return Array.from(modes).sort();
@@ -1360,17 +1498,24 @@ function canonicalizeName(name: string): CanonicalMatch | undefined {
         alias: name,
         canonicalName:
           aliasLookup.get(normalizeForLookup(name))?.canonicalName ?? name,
-        aliasType: aliasLookup.get(normalizeForLookup(name))?.aliasType ?? "oil",
+        aliasType:
+          aliasLookup.get(normalizeForLookup(name))?.aliasType ?? "oil",
       }
     : undefined;
 }
 
 function removeLeadingTitleLines(lines: string[], title: string): string[] {
-  const titleLines = title.split("\n").map(line => line.trim()).filter(Boolean);
+  const titleLines = title
+    .split("\n")
+    .map(line => line.trim())
+    .filter(Boolean);
   let cursor = 0;
 
   while (cursor < titleLines.length && cursor < lines.length) {
-    if (normalizeForLookup(lines[cursor]) !== normalizeForLookup(titleLines[cursor])) {
+    if (
+      normalizeForLookup(lines[cursor]) !==
+      normalizeForLookup(titleLines[cursor])
+    ) {
       break;
     }
     cursor += 1;
@@ -1409,7 +1554,10 @@ function looksLikeIngredientLine(line: string): boolean {
   );
 }
 
-function isItemTitleCandidate(block: SourceBlock, sectionId: SectionId): boolean {
+function isItemTitleCandidate(
+  block: SourceBlock,
+  sectionId: SectionId
+): boolean {
   const collapsed = collapseWhitespace(block.normalizedText);
   const normalized = normalizeForLookup(collapsed);
   if (!collapsed) {
@@ -1422,10 +1570,18 @@ function isItemTitleCandidate(block: SourceBlock, sectionId: SectionId): boolean
   ) {
     return false;
   }
-  if (SECTION_LOOKUP.has(normalized) || normalized === "fontes:" || normalized === "conteudo") {
+  if (
+    SECTION_LOOKUP.has(normalized) ||
+    normalized === "fontes:" ||
+    normalized === "conteudo"
+  ) {
     return false;
   }
-  if (sectionId === "dicas" || sectionId === "nossa_mente" || sectionId === "conclusao") {
+  if (
+    sectionId === "dicas" ||
+    sectionId === "nossa_mente" ||
+    sectionId === "conclusao"
+  ) {
     return false;
   }
   if (/[.!?]/.test(collapsed)) {
@@ -1549,7 +1705,11 @@ function slugify(text: string): string {
 
 function joinBlockText(blocks: SourceBlock[], preserveLines: boolean): string {
   return blocks
-    .map(block => (preserveLines ? block.rawText.trim() : collapseWhitespace(block.normalizedText)))
+    .map(block =>
+      preserveLines
+        ? block.rawText.trim()
+        : collapseWhitespace(block.normalizedText)
+    )
     .filter(Boolean)
     .join(preserveLines ? "\n\n" : "\n\n");
 }

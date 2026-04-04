@@ -353,8 +353,8 @@ export default function OleosEssenciaisEmagrecimentoHomeApp() {
               </summary>
               <div className="px-6 pb-6 text-xs leading-relaxed text-on-surface-variant">
                 Procedure: Steam inhalation of Peppermint (0.1ml) + Lemon
-                (0.05ml). Function: Acute mental alertness and preemptive
-                hunger signal suppression before first nutrient intake.
+                (0.05ml). Function: Acute mental alertness and preemptive hunger
+                signal suppression before first nutrient intake.
               </div>
             </details>
 
@@ -384,10 +384,10 @@ export default function OleosEssenciaisEmagrecimentoHomeApp() {
                 </span>
               </summary>
               <div className="px-6 pb-6 text-xs leading-relaxed text-on-surface-variant">
-                Procedure: Topical application (diluted) of Lavandula to
-                primary pulse points. Function: Optimization of Delta-wave sleep
-                to maintain healthy Leptin/Ghrelin hormone ratios for the
-                following 24h cycle.
+                Procedure: Topical application (diluted) of Lavandula to primary
+                pulse points. Function: Optimization of Delta-wave sleep to
+                maintain healthy Leptin/Ghrelin hormone ratios for the following
+                24h cycle.
               </div>
             </details>
           </div>
