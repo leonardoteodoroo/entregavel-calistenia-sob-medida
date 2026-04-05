@@ -1,4 +1,5 @@
 import type { RecipeVisual } from "@/content/bonus/bonusRecipeTypes";
+import { toPublicPath } from "@/content/siteConfig";
 import {
   getOleosEssenciaisEntityById,
   oleosEssenciaisEmagrecimentoEntities,
@@ -182,13 +183,9 @@ const OBSERVATION_REGEX =
 const safetyWarningHighlights = buildSafetyWarningHighlights();
 
 export const homeHeroVisual: RecipeVisual = {
-  kind: "placeholder",
+  kind: "asset",
+  src: toPublicPath("assets/images/bonus/oleos/hero-apothecary.png"),
   alt: "Frascos âmbar de óleos essenciais e ingredientes naturais sobre bancada clara",
-  prompt:
-    "Placeholder do hero: frascos âmbar, sementes, rodelas cítricas e atmosfera editorial botânica para a capa do bônus.",
-  comment:
-    "Placeholder: hero 4:5 com frascos âmbar, sementes e fundo botânico em tom marfim.",
-  aspectRatio: "4 / 5",
 };
 
 export function isOleosSectionId(value: string): value is OleosSectionId {
@@ -300,45 +297,32 @@ export function getOleosEntityVisual(
   const entity = getOleosEssenciaisEntityById(entityId);
   const title = entity?.title ?? "Conteúdo";
 
+  // Se houver uma imagem específica para ansiedade, usar
+  if (entityId.includes("ansiedade")) {
+    return {
+      kind: "asset",
+      src: toPublicPath("assets/images/bonus/oleos/anxiety-hotspot.png"),
+      alt: `Visual de apoio para ${title}`,
+    };
+  }
+
+  // Padrão luxuoso botânico para entidades sem imagem específica ainda
+  const defaultVisual: RecipeVisual = {
+    kind: "asset",
+    src: toPublicPath("assets/images/bonus/oleos/hero-apothecary.png"),
+    alt: `Visual botânico representando ${title}`,
+  };
+
   switch (kind) {
     case "oil_profile":
-      return {
-        kind: "placeholder",
-        alt: `Frasco de óleo essencial representando ${title}`,
-        prompt: `Placeholder de perfil de óleo para “${title}”, com frasco âmbar e estética botânica clara.`,
-        comment:
-          "Placeholder de detalhe para perfil de óleo essencial; trocar por asset real futuramente.",
-        aspectRatio: "4 / 3",
-      };
     case "recipe":
     case "trimshake_recipe":
     case "drink":
-      return {
-        kind: "placeholder",
-        alt: `Composição culinária representando ${title}`,
-        prompt: `Placeholder culinário para “${title}”, com ingredientes naturais em estilo editorial claro.`,
-        comment:
-          "Placeholder de conteúdo culinário e bebidas; contrato pronto para troca de asset.",
-        aspectRatio: "4 / 3",
-      };
     case "topical_formula":
     case "diffuser_blend":
-      return {
-        kind: "placeholder",
-        alt: `Composição aromática representando ${title}`,
-        prompt: `Placeholder aromático para “${title}”, frascos, gotário e atmosfera de autocuidado.`,
-        comment:
-          "Placeholder de fórmulas tópicas/aromaterapia; contrato estável para assets finais.",
-        aspectRatio: "16 / 10",
-      };
+      return defaultVisual;
     default:
-      return {
-        kind: "placeholder",
-        alt: `Visual de apoio para ${title}`,
-        prompt: `Placeholder neutro para “${title}” em linguagem botânica clara.`,
-        comment: "Placeholder genérico de apoio.",
-        aspectRatio: "4 / 3",
-      };
+      return defaultVisual;
   }
 }
 
