@@ -34,6 +34,7 @@ export const productRoutes = {
 export const standaloneRoutes = {
   receitasLowCarb: "/receitas-low-carb/",
   sobremesasSaudaveis: "/sobremesas-saudaveis/",
+  oleosEssenciais: "/oleos-essenciais-emagrecimento/",
 } as const;
 
 export const institutionalSlugs: Record<

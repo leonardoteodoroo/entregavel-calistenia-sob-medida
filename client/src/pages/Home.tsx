@@ -63,6 +63,23 @@ const BONUS_RECIPES: BonusCard[] = [
     social: { likesBase: 77 },
   },
   {
+    id: "oleos-essenciais",
+    title: "Óleos Essenciais",
+    description:
+      "Um guia prático para humor, saciedade, rotina e autocuidado com óleos essenciais no contexto do emagrecimento.",
+    href: toPublicPath(standaloneRoutes.oleosEssenciais),
+    thumbnail: {
+      kind: "placeholder",
+      alt: "Frascos âmbar de óleos essenciais com fatias cítricas e folhas verdes",
+      prompt:
+        "Capa editorial botânica clara com frascos âmbar, cítricos e folhas verdes, voltada a um bônus de óleos essenciais para emagrecimento.",
+      comment:
+        "Placeholder do card de óleos essenciais, estética botânica clara, proporção 4:5.",
+      aspectRatio: "4 / 5",
+    },
+    social: { likesBase: 115 },
+  },
+  {
     id: "bonus-placeholder-2",
     title: "Em breve",
     placeholderDays: 16,
@@ -521,6 +538,7 @@ export default function Home() {
                 <article
                   key={item.id}
                   className="px-4 py-4 rounded"
+                  data-href={item.href}
                   style={{
                     backgroundColor: "white",
                     border: "1px solid var(--color-taupe-light)",

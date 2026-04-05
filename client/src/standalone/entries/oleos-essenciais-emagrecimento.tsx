@@ -2,7 +2,8 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { ensureGtm } from "@/lib/gtm";
 import "@/index.css";
-import OleosEssenciaisEmagrecimentoHomeApp from "../OleosEssenciaisEmagrecimentoHomeApp";
+import OleosEssenciaisEmagrecimentoApp from "../OleosEssenciaisEmagrecimentoApp";
+import StandaloneLayout from "../StandaloneLayout";
 
 const root = document.getElementById("root");
 if (!root) {
@@ -13,6 +14,8 @@ ensureGtm();
 
 createRoot(root).render(
   <StrictMode>
-    <OleosEssenciaisEmagrecimentoHomeApp />
+    <StandaloneLayout currentPath="/oleos-essenciais-emagrecimento">
+      <OleosEssenciaisEmagrecimentoApp />
+    </StandaloneLayout>
   </StrictMode>
 );

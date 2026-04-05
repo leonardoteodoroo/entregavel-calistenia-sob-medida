@@ -17,4 +17,15 @@ describe("Home bonus cards", () => {
     expect(markup).toContain("77 curtidas");
     expect(markup).toContain("Atualização: 18/03/2026, com carinho");
   });
+
+  it("renders the oleos essenciais bonus card with the standalone href", () => {
+    const markup = renderToStaticMarkup(<Home />);
+
+    expect(markup).toContain("/oleos-essenciais-emagrecimento/");
+    expect(markup).toContain("Óleos Essenciais");
+    expect(markup).toContain("115 curtidas");
+    expect(markup).toContain(
+      "Frascos âmbar de óleos essenciais com fatias cítricas e folhas verdes"
+    );
+  });
 });

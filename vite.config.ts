@@ -16,7 +16,6 @@ const slashRedirectPaths = new Set([
   "/receitas-low-carb",
   "/sobremesas-saudaveis",
   "/oleos-essenciais-emagrecimento",
-  "/oleos-essenciais-emagrecimento-granola-salgada",
 ]);
 
 const multipageInputs = {
@@ -40,11 +39,6 @@ const multipageInputs = {
   oleosEssenciaisEmagrecimento: path.resolve(
     clientRoot,
     "oleos-essenciais-emagrecimento",
-    "index.html"
-  ),
-  oleosEssenciaisGranolaSalgada: path.resolve(
-    clientRoot,
-    "oleos-essenciais-emagrecimento-granola-salgada",
     "index.html"
   ),
 };

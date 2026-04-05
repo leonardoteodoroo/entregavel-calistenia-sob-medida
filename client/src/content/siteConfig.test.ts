@@ -8,6 +8,12 @@ describe("standalone routes", () => {
 
     expect(routes.sobremesasSaudaveis).toBe("/sobremesas-saudaveis/");
   });
+
+  it("exposes the oleos essenciais standalone route", () => {
+    const routes = standaloneRoutes as Record<string, string>;
+
+    expect(routes.oleosEssenciais).toBe("/oleos-essenciais-emagrecimento/");
+  });
 });
 
 describe("product routes", () => {
