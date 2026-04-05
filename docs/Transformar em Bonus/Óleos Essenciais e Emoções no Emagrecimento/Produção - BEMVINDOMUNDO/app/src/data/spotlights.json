@@ -1,0 +1,172 @@
+[
+  {
+    "id": "alecrim",
+    "oilId": "alecrim",
+    "oilName": "Alecrim",
+    "title": "30 Minutos Antes de Comer",
+    "label": "ESTABILIZAÇÃO DE CORTISOL 16:00",
+    "callout": "O protocolo é simples e infalível: inale o aroma de Alecrim 30 minutos antes da refeição. Ele relaxa os nervos, eleva o humor e suprime o apetite antes que você sente à mesa. Na massagem, combine com Grapefruit e óleo de coco fracionado nas áreas de gordura acumulada. Dois caminhos — aromático e tópico — para um mesmo destino: comer menos, absorver melhor.",
+    "suggestedRecipe": "oleo-massagem-anti-celulite-v1",
+    "sourceFile": "00-complementar/home-spotlight/spotlight-alecrim.txt"
+  },
+  {
+    "id": "balance",
+    "oilId": "balance",
+    "oilName": "Balance",
+    "title": "A Âncora da Compulsão",
+    "label": "RESTAURAÇÃO ENDÓCRINA PM",
+    "callout": "A compulsão alimentar não é fraqueza — é desequilíbrio. Balance reúne Abeto, Olíbano, Blue Tansy, Camomila e Osmanthus sobre base de óleo de coco fracionado. Aplique na coluna vertebral, nos pulsos e nas solas dos pés. Quando o corpo encontra o centro, a mente para de comer por impulso.",
+    "suggestedRecipe": "escalda-pes-detox",
+    "sourceFile": "00-complementar/home-spotlight/spotlight-balance.txt"
+  },
+  {
+    "id": "basil",
+    "oilId": "basil",
+    "oilName": "Basil",
+    "title": "A Ancestralidade Anti-inflamatória",
+    "label": "ESTABILIZAÇÃO DE CORTISOL 16:00",
+    "callout": "A medicina indiana asiática já sabia há séculos: o manjericão interrompe comorbidades da obesidade na raiz, suprimindo o estresse oxidativo vascular e a inflamação metabólica. Uma gota no azeite (750ml) transforma seu tempero diário numa intervenção anti-envelhecimento celular que você nem percebe estar fazendo.",
+    "suggestedRecipe": "bruschetta",
+    "sourceFile": "00-complementar/home-spotlight/spotlight-basil.txt"
+  },
+  {
+    "id": "camomila-romana",
+    "oilId": "camomila-romana",
+    "oilName": "Camomila Romana",
+    "title": "A Calma Que Queima",
+    "label": "ESTABILIZAÇÃO DE CORTISOL 16:00",
+    "callout": "Quando o estresse dispara o cortisol às 16h, seu corpo armazena gordura em vez de queimá-la. A Camomila Romana é antioxidante, anti-inflamatória e sedativa — uma tríade que previne obesidade e complicações do diabetes ao mesmo tempo em que desarma a raiva, a irritabilidade e a ansiedade que sabotam qualquer dieta. Uma xícara de chá com 1 gota muda o rumo da sua tarde.",
+    "suggestedRecipe": "combinacoes-para-difusor.txt — Combo 3",
+    "sourceFile": "00-complementar/home-spotlight/spotlight-camomila-romana.txt"
+  },
+  {
+    "id": "cilantro",
+    "oilId": "cilantro",
+    "oilName": "Cilantro",
+    "title": "A Limpeza Profunda Silenciosa",
+    "label": "INDUÇÃO METABÓLICA AM",
+    "callout": "Desintoxicar não é modismo — é permitir que seu corpo finalmente processe o que acumulou. Cilantro, extraído das folhas do Coentro, é um agente de limpeza poderoso: seus compostos Linalol e Trans-2-decenal purificam o sistema digestivo, nervoso e imunológico enquanto combatem a ansiedade que alimenta a compulsão. Chefs de culinária já sabem disso; agora você também.",
+    "suggestedRecipe": "guacamole",
+    "sourceFile": "00-complementar/home-spotlight/spotlight-cilantro.txt"
+  },
+  {
+    "id": "cinnamon-bark",
+    "oilId": "cinnamon-bark",
+    "oilName": "Cinnamon Bark",
+    "title": "O Regulador Invisível",
+    "label": "INDUÇÃO METABÓLICA AM",
+    "callout": "Seu pâncreas trabalha em dobro quando a glicose oscila. Cinnamon Bark regula os níveis de glicose no sangue e o fator de tolerância — uma proteção real para quem luta contra obesidade e diabetes. A ingestão suprime o apetite e o desejo por doce. Uma gota no smoothie matinal e seu metabolismo sabe quem manda.",
+    "suggestedRecipe": "chai-com-baunilha",
+    "sourceFile": "00-complementar/home-spotlight/spotlight-cinnamon-bark.txt"
+  },
+  {
+    "id": "fennel",
+    "oilId": "fennel",
+    "oilName": "Fennel",
+    "title": "O Relógio da Melatonina",
+    "label": "RESTAURAÇÃO ENDÓCRINA PM",
+    "callout": "Um estudo de 2011 revelou o elo perdido: a melatonina pode fazer o corpo queimar gordura ao invés de armazená-la. E a Erva Doce estimula exatamente esse hormônio. Fennel regula os ciclos de sono, suprime o apetite e melhora a digestão. Uma gota num copo d'água antes da última refeição reprograma seu relógio interno para emagrecer dormindo.",
+    "suggestedRecipe": "escalda-pes-detox",
+    "sourceFile": "00-complementar/home-spotlight/spotlight-fennel.txt"
+  },
+  {
+    "id": "gengibre",
+    "oilId": "gengibre",
+    "oilName": "Gengibre",
+    "title": "O Fogo Digestivo",
+    "label": "INDUÇÃO METABÓLICA AM",
+    "callout": "O Gengibre não emagrece por moda — ele reduz gordura corporal porque melhora a digestão e a absorção real de nutrientes. Minimiza o desejo por doces. Previne a inflamação crônica que trava o metabolismo. Duas gotas em água morna com limão e mel, estômago vazio, toda manhã. Pronto: seu intestino acorda antes de você.",
+    "suggestedRecipe": "maquina-verde",
+    "sourceFile": "00-complementar/home-spotlight/spotlight-gengibre.txt"
+  },
+  {
+    "id": "grapefruit",
+    "oilId": "grapefruit",
+    "oilName": "Grapefruit",
+    "title": "A Molécula Que Reduz Células de Gordura",
+    "label": "INDUÇÃO METABÓLICA AM",
+    "callout": "Nootkathone. Anote este nome. É o composto presente no Grapefruit que ativa enzimas no fígado e no sistema esquelético muscular para impulsionar o metabolismo e reduzir literalmente as células armazenadoras de gordura. Não é creme cosmético — é intervenção bioquímica. Use por ingestão, no difusor ou direto na massagem anticelulite.",
+    "suggestedRecipe": "oleo-massagem-anti-celulite-v2",
+    "sourceFile": "00-complementar/home-spotlight/spotlight-grapefruit.txt"
+  },
+  {
+    "id": "lime-e-lemon",
+    "oilId": "lime-e-lemon",
+    "oilName": "Lime e Lemon",
+    "title": "O Limoneno Que Dissolve",
+    "label": "INDUÇÃO METABÓLICA AM",
+    "callout": "O composto Limoneno não \"ajuda\" a perder peso — ele programa o fígado. Estudos in vitro demonstraram redução significativa de tecido adiposo e colesterol em modelos de dieta hiperlipídica. Uma gota na água matinal aciona a lipólise e eleva a norepinefrina cerebral, transformando a manhã lenta num motor termogênico silencioso.",
+    "suggestedRecipe": "laranja-e-limao",
+    "sourceFile": "00-complementar/home-spotlight/spotlight-lime-e-lemon.txt"
+  },
+  {
+    "id": "peppermint",
+    "oilId": "peppermint",
+    "oilName": "Peppermint",
+    "title": "O Corta-Açúcar Instantâneo",
+    "label": "ESTABILIZAÇÃO DE CORTISOL 16:00",
+    "callout": "Enzimas digestivas ativadas. Humor elevado. Estresse cortado. Compulsão alimentar neutralizada. Uma gotinha de Peppermint inalada na palma da mão suprime o desejo por açúcar em minutos. É o recurso de emergência da sua tarde — quando a vontade de doce bate às 16h e você precisa de uma resposta que funcione mais rápido que a tentação.",
+    "suggestedRecipe": "menta-com-chocolate",
+    "sourceFile": "00-complementar/home-spotlight/spotlight-peppermint.txt"
+  },
+  {
+    "id": "petitgrain",
+    "oilId": "petitgrain",
+    "oilName": "Petitgrain",
+    "title": "Das Folhas da Laranja Amarga",
+    "label": "ESTABILIZAÇÃO DE CORTISOL 16:00",
+    "callout": "Petitgrain é o segredo silencioso que poucos conhecem: extraído das folhas e galhos da árvore da Laranja Amarga, acelera o metabolismo, potencializa a queima de gorduras localizadas e fortalece o sistema cardiovascular. No difusor, combate a ansiedade alimentar. Diluído em óleo carreador, massageie as áreas resistentes. Um óleo, dois protocolos, nenhum efeito colateral.",
+    "suggestedRecipe": "oleo-massagem-gordura-localizada",
+    "sourceFile": "00-complementar/home-spotlight/spotlight-petitgrain.txt"
+  },
+  {
+    "id": "sandalo-hawaiano",
+    "oilId": "sandalo-hawaiano",
+    "oilName": "Sândalo Hawaiano",
+    "title": "A Lucidez Que Protege",
+    "label": "RESTAURAÇÃO ENDÓCRINA PM",
+    "callout": "Nos momentos vulneráveis — após um dia exaustivo, quando a geladeira sussurra — o Sândalo Hawaiano nos devolve a lucidez. Ele tonifica a função digestiva, impulsiona o intestino e blinda contra a alimentação por impulso. Use no difusor combinado com Grapefruit: o aroma controla o apetite enquanto você descansa. Proteção noturna ativa.",
+    "suggestedRecipe": "combinacoes-para-difusor.txt — Combo 1",
+    "sourceFile": "00-complementar/home-spotlight/spotlight-sandalo-hawaiano.txt"
+  },
+  {
+    "id": "serenity",
+    "oilId": "serenity",
+    "oilName": "Serenity",
+    "title": "O Silêncio que Emagrece",
+    "label": "RESTAURAÇÃO ENDÓCRINA PM",
+    "callout": "Seu corpo queima gordura enquanto você dorme — mas só se o sono for profundo. Serenity combina Lavanda, Cedro, Ylang Ylang, Vetiver e Sândalo Havaiano num único frasco que desliga o cortisol noturno e ativa a regeneração celular real. Uma gota nos pulsos antes de deitar transforma o sono numa ferramenta metabólica.",
+    "suggestedRecipe": "combinacoes-para-difusor.txt — Combo 3",
+    "sourceFile": "00-complementar/home-spotlight/spotlight-serenity.txt"
+  },
+  {
+    "id": "smart-e-sassy",
+    "oilId": "smart-e-sassy",
+    "oilName": "Smart & Sassy",
+    "title": "O Corte Seco do Apetite",
+    "label": "INDUÇÃO METABÓLICA AM",
+    "callout": "Toranja, Hortelã Pimenta, Gengibre e Canela num único blend. Smart & Sassy não negocia: ele controla a fome, suprime a vontade de doce e acelera o metabolismo ao mesmo tempo. Adicione ao TrimShake ou tome na água antes das refeições. É a primeira linha de defesa metabólica do seu dia.",
+    "suggestedRecipe": "horchata",
+    "sourceFile": "00-complementar/home-spotlight/spotlight-smart-e-sassy.txt"
+  },
+  {
+    "id": "turmeric",
+    "oilId": "turmeric",
+    "oilName": "Turmeric",
+    "title": "Acelere o Motor Lento",
+    "label": "INDUÇÃO METABÓLICA AM",
+    "callout": "Um metabolismo lento é um sinal — seu corpo não está queimando gordura como deveria. Vários estudos confirmam: o óleo de Curcuma acelera esse motor travado. A receita ritual: 10ml de mel, 2 gotas de Turmeric, misture e dissolva em água quente. Beba diariamente. Simples. Potente. Sem efeito colateral.",
+    "suggestedRecipe": "maquina-verde",
+    "sourceFile": "00-complementar/home-spotlight/spotlight-turmeric.txt"
+  },
+  {
+    "id": "wild-orange",
+    "oilId": "wild-orange",
+    "oilName": "Wild Orange",
+    "title": "O Fígado Agradece",
+    "label": "ESTABILIZAÇÃO DE CORTISOL 16:00",
+    "callout": "Wild Orange reduz peso, colesterol e gordura hepática — três combates num único frasco. Rico em Limoneno, melhora o humor e corta a ansiedade pela base. Inale na palma das mãos, inspire profundamente por várias vezes. Ou adicione às receitas doces para transformar sobremesa em terapia.",
+    "suggestedRecipe": "brownie-com-wild-orange",
+    "sourceFile": "00-complementar/home-spotlight/spotlight-wild-orange.txt"
+  }
+]

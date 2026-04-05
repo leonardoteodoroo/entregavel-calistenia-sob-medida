@@ -1,0 +1,232 @@
+[
+  {
+    "id": "00-introducao-as-dicas",
+    "number": 0,
+    "text": "NÃO EXISTE MILAGRE\n\nPrecisamos mudar hábitos....",
+    "label": "Não Existe Milagre",
+    "alliedOil": "smart-e-sassy",
+    "alliedOilName": "Smart & Sassy",
+    "alliedOilReason": "O blend completo para quem quer resultados reais, não milagres.",
+    "sourceFile": "10-dicas/00-introducao-as-dicas.txt"
+  },
+  {
+    "id": "01-hidratacao",
+    "number": 1,
+    "text": "Beba água, isso é essencial. Ao acordar beba pelo menos 2 copos logo após a higiene oral. E beba pelo menos 3 litros ao longo do dia.",
+    "label": "A Fonte da Vitalidade",
+    "alliedOil": "lime-e-lemon",
+    "alliedOilName": "Lime e Lemon",
+    "alliedOilReason": "Adicione 1 gota na água; o Limoneno potencializa a hidratação e ativa o metabolismo.",
+    "sourceFile": "10-dicas/01-hidratacao.txt"
+  },
+  {
+    "id": "02-horario-de-jantar",
+    "number": 2,
+    "text": "Não jante tarde, até as 19h é o ideal. Coma pouco e devagar. Dessa forma da tempo de nosso cérebro processar que estamos satisfeitos.",
+    "label": "O Relógio do Seu Metabolismo",
+    "alliedOil": "peppermint",
+    "alliedOilName": "Peppermint",
+    "alliedOilReason": "Inale antes do jantar para suprimir a compulsão noturna e reduzir a quantidade.",
+    "sourceFile": "10-dicas/02-horario-de-jantar.txt"
+  },
+  {
+    "id": "03-jejum-e-frequencia-de-refeicoes",
+    "number": 3,
+    "text": "Faça menos refeições por dia. O corpo precisa de repouso para fazer um detox. Fale com seu nutricionista sobre jejuns e o que é mais indicado pra você.",
+    "label": "O Repouso Que Desintoxica",
+    "alliedOil": "cinnamon-bark",
+    "alliedOilName": "Cinnamon Bark",
+    "alliedOilReason": "Regula a glicose durante o jejum, estabilizando a energia sem pico.",
+    "sourceFile": "10-dicas/03-jejum-e-frequencia-de-refeicoes.txt"
+  },
+  {
+    "id": "04-desjejum-matinal-e-variedade",
+    "number": 4,
+    "text": "No desjejum matinal, dê atenção especial ao que comer. Essa primeira refeição é muito importante. Evite bolos, pães, doces, embutidos... Coma ovos, gordura saudável como manteiga ou óleo de coco, café, chá, sementes, castanhas, queijo curado... É importante comer pouca quantidade mas muita variedade, e sempre fazer um rodízio de alimentos.",
+    "label": "O Despertar Intencional",
+    "alliedOil": "gengibre",
+    "alliedOilName": "Gengibre",
+    "alliedOilReason": "2 gotas em água morna com limão em jejum disparam a digestão do dia.",
+    "sourceFile": "10-dicas/04-desjejum-matinal-e-variedade.txt"
+  },
+  {
+    "id": "05-sem-dietas-mirabolantes",
+    "number": 5,
+    "text": "Não faça dietas mirabolantes, precisamos entender nosso corpo e do que ele precisa. Faça substituições saudáveis e não restrições. Elimine somente o que é tóxico.",
+    "label": "Substituição, Nunca Restrição",
+    "alliedOil": "wild-orange",
+    "alliedOilName": "Wild Orange",
+    "alliedOilReason": "Melhora o humor; com humor bom, substituições são mais fáceis que restrições.",
+    "sourceFile": "10-dicas/05-sem-dietas-mirabolantes.txt"
+  },
+  {
+    "id": "06-leitura-de-rotulos-e-produtos",
+    "number": 6,
+    "text": "Aprenda a ler rótulos de produtos que consome. Alguns produtos são permitidos mesmo sendo prejudiciais a saúde. Isso inclui também tudo o que passamos na pele, que é o maior orgão do corpo humano e absorve tudo o que colocamos. Por isso ao comprar um creme, shampoo, protetor solar, por exemplo, precisamos saber se não há tóxicos em sua composição.",
+    "label": "Os Olhos Que Protegem",
+    "alliedOil": "cilantro",
+    "alliedOilName": "Cilantro",
+    "alliedOilReason": "Agente de limpeza e desintoxicação do que já entrou.",
+    "sourceFile": "10-dicas/06-leitura-de-rotulos-e-produtos.txt"
+  },
+  {
+    "id": "07-reducao-de-acucar-e-ultraprocessados",
+    "number": 7,
+    "text": "Diminua o quanto puder de açúcar, de qualquer tipo, mas principalmente o refinado; farinha de trigo refinada e óleos ultraprocessados. Os óleos de canola, girassol, milho por exemplo, embora sejam vendidos como algo natural, são péssimos para a saúde. Por serem extremamente processados para serem palatáveis, carregam muitas toxinas para o organismo. Além de que todo óleo em embalagem plástica se degrada. Por isso os óleos essenciais são vendidos em embalagens de vidro escuro.",
+    "label": "O Açúcar Invisível",
+    "alliedOil": "peppermint",
+    "alliedOilName": "Peppermint",
+    "alliedOilReason": "Suprime o desejo por açúcar de forma instantânea pela inalação.",
+    "sourceFile": "10-dicas/07-reducao-de-acucar-e-ultraprocessados.txt"
+  },
+  {
+    "id": "08-reducao-de-industrializados",
+    "number": 8,
+    "text": "Coma menos industrializados. Salgadinhos, frituras, bolachas recheadas com gordura vegetal hidrogenada, realçadores de sabor como glutamato monossódico, produtos com corantes, conservantes, etc. Prefira sempre o mais natural, biológico e puro possivel.",
+    "label": "Comida Que Saiu da Terra",
+    "alliedOil": "basil",
+    "alliedOilName": "Basil",
+    "alliedOilReason": "Anti-inflamatório natural que compensa os danos dos ultraprocessados.",
+    "sourceFile": "10-dicas/08-reducao-de-industrializados.txt"
+  },
+  {
+    "id": "09-exercicios-fisicos",
+    "number": 9,
+    "text": "Pratique exercícios sempre que possivel, veja algo que você se identifique, como caminhar, dançar ou musculação. Nosso corpo precisa estar em movimento.",
+    "label": "O Corpo em Movimento",
+    "alliedOil": "peppermint",
+    "alliedOilName": "Peppermint",
+    "alliedOilReason": "Energizante pré-treino; inale na palma das mãos antes de se exercitar.",
+    "sourceFile": "10-dicas/09-exercicios-fisicos.txt"
+  },
+  {
+    "id": "10-meditacao-e-relaxamento",
+    "number": 10,
+    "text": "Faça meditação, o relaxamento da mente é algo poderoso. Existem aplicativos muito bons para esse fim, para quem não sabe por onde começar.",
+    "label": "O Silêncio Que Cura",
+    "alliedOil": "serenity",
+    "alliedOilName": "Serenity",
+    "alliedOilReason": "Combinação de Lavanda, Cedro e Ylang Ylang perfeita para meditação guiada.",
+    "sourceFile": "10-dicas/10-meditacao-e-relaxamento.txt"
+  },
+  {
+    "id": "11-contato-com-a-natureza",
+    "number": 11,
+    "text": "Aproveite o contato com a natureza, caminhe descalça na grama ou na praia, isso ajuda a energizar.",
+    "label": "Pés Descalços, Alma Cheia",
+    "alliedOil": "balance",
+    "alliedOilName": "Balance",
+    "alliedOilReason": "O blend que traz harmonia ao corpo e mente, potencializando o contato com a natureza.",
+    "sourceFile": "10-dicas/11-contato-com-a-natureza.txt"
+  },
+  {
+    "id": "12-chas-e-shots",
+    "number": 12,
+    "text": "Tome chás de ervas de boa procedência, faça shots antes das refeições e use o Trim Shake doTerra.",
+    "label": "Rituais Que Nutrem",
+    "alliedOil": "camomila-romana",
+    "alliedOilName": "Camomila Romana",
+    "alliedOilReason": "Adicione 1 gota ao chá de ervas; ação antioxidante e sedativa.",
+    "sourceFile": "10-dicas/12-chas-e-shots.txt"
+  },
+  {
+    "id": "13-rotina-com-oleos-essenciais",
+    "number": 13,
+    "text": "Tenha uma rotina com óleos essenciais. No difusor, por ingestão, uso tópico, banhos, escalda pés...os óleos tem muitos benefícios em nossa saúde física e emocional.",
+    "label": "Sua Farmácia Botânica",
+    "alliedOil": "smart-e-sassy",
+    "alliedOilName": "Smart & Sassy",
+    "alliedOilReason": "O blend metabólico diário que integra todos os protocolos.",
+    "sourceFile": "10-dicas/13-rotina-com-oleos-essenciais.txt"
+  },
+  {
+    "id": "14-desligar-eletronicos",
+    "number": 14,
+    "text": "Tente desligar os eletrônicos antes das 19h. Ouça uma boa música e aproveite para interagir com as pessoas a sua volta.",
+    "label": "O Descanso dos Olhos",
+    "alliedOil": "serenity",
+    "alliedOilName": "Serenity",
+    "alliedOilReason": "No difusor, cria atmosfera de descanso que substitui o estímulo da tela.",
+    "sourceFile": "10-dicas/14-desligar-eletronicos.txt"
+  },
+  {
+    "id": "15-educacao-nutricional",
+    "number": 15,
+    "text": "Aprenda sobre nutrição, seguindo ou fazendo curso com os melhores nutricionistas a sua volta, assim você terá mais critério com o que consome.",
+    "label": "Aprender Para Escolher",
+    "alliedOil": "turmeric",
+    "alliedOilName": "Turmeric",
+    "alliedOilReason": "O Curcuma acelera o metabolismo; entender por quê é educação nutricional aplicada.",
+    "sourceFile": "10-dicas/15-educacao-nutricional.txt"
+  },
+  {
+    "id": "16-suplementacao",
+    "number": 16,
+    "text": "Suplemente o que falta; por melhor dieta que faça, sempre falta algum nutriente básico. A doTerra tem os melhores suplementos do mundo, como Omega e VM Complex.",
+    "label": "O Que Falta no Prato",
+    "alliedOil": "fennel",
+    "alliedOilName": "Fennel",
+    "alliedOilReason": "Estimula a melatonina, o suplemento noturno que o corpo já produz.",
+    "sourceFile": "10-dicas/16-suplementacao.txt"
+  },
+  {
+    "id": "17-gerenciamento-de-estresse",
+    "number": 17,
+    "text": "Gerencie seu estresse. Este é um dos maiores motivos do aumento de peso.",
+    "label": "O Peso Que Não É Gordura",
+    "alliedOil": "balance",
+    "alliedOilName": "Balance",
+    "alliedOilReason": "Abeto, Olíbano e Blue Tansy combatem o cortisol, o hormônio que sabota a dieta.",
+    "sourceFile": "10-dicas/17-gerenciamento-de-estresse.txt"
+  },
+  {
+    "id": "18-hobbies-relaxantes",
+    "number": 18,
+    "text": "Faça atividades que relaxem a mente e o corpo. Encontre um hobby, como leitura ou artesanato.",
+    "label": "O Prazer Que Não Engorda",
+    "alliedOil": "sandalo-hawaiano",
+    "alliedOilName": "Sândalo Hawaiano",
+    "alliedOilReason": "Use no difusor durante seus hobbies; aroma que mantém a lucidez e a calma.",
+    "sourceFile": "10-dicas/18-hobbies-relaxantes.txt"
+  },
+  {
+    "id": "19-sono-adequado",
+    "number": 19,
+    "text": "Durma adequadamente, estabeleça horarios. Nosso corpo precisa de rotina.",
+    "label": "A Cura Noturna",
+    "alliedOil": "serenity",
+    "alliedOilName": "Serenity",
+    "alliedOilReason": "O blend de sono profundo: Lavanda + Cedro + Vetiver nos pulsos antes de deitar.",
+    "sourceFile": "10-dicas/19-sono-adequado.txt"
+  },
+  {
+    "id": "20-nutricionista-funcional",
+    "number": 20,
+    "text": "Siga e vá em um bom nutricionista funcional. Descarte aqueles que tem roteiros, menus e tabelas prontas de contagem de calorias. Dê atenção aos que tem um atendimento personalizado.",
+    "label": "A Guia Certa ao Seu Lado",
+    "alliedOil": "turmeric",
+    "alliedOilName": "Turmeric",
+    "alliedOilReason": "Um bom nutricionista funcional saberá integrar óleos essenciais no seu plano.",
+    "sourceFile": "10-dicas/20-nutricionista-funcional.txt"
+  },
+  {
+    "id": "21-planos-de-longo-prazo",
+    "number": 21,
+    "text": "Não faça planos de curto prazo, como emagrecer para o verão, por exemplo. Foque na saúde. Emagrecer é resultado de um estilo de vida saudável.",
+    "label": "Saúde, Não Verão",
+    "alliedOil": "grapefruit",
+    "alliedOilName": "Grapefruit",
+    "alliedOilReason": "Lipólise sustentada pelo Nootkathone é resultado de uso consistente, não pontual.",
+    "sourceFile": "10-dicas/21-planos-de-longo-prazo.txt"
+  },
+  {
+    "id": "22-evitar-autossabotagem",
+    "number": 22,
+    "text": "Não dê desculpas e nem deixe para depois. Faça o que tem que ser feito! Nossa mente nos sabota o tempo todo, não entre nessa! Descubra os gatilhos que fazem com que você queira comer doces ou comidas não saudáveis, e trabalhe contra eles. Faça substituições saudáveis nesses momentos. Por exemplo, quando sentir vontade de comer um doce, tenha a mão castanhas, amêndoas ou um chá. O gosto não é igual, mas seu corpo vai se acostumar aos poucos. Pense sempre: SAÚDE EM PRIMEIRO LUGAR!",
+    "label": "O Espelho Honesto",
+    "alliedOil": "sandalo-hawaiano",
+    "alliedOilName": "Sândalo Hawaiano",
+    "alliedOilReason": "Nos momentos vulneráveis, o aroma devolve a lucidez contra o impulso.",
+    "sourceFile": "10-dicas/22-evitar-autossabotagem.txt"
+  }
+]
