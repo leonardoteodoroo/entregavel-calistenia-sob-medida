@@ -32,6 +32,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/biblioteca" element={<BibliotecaPage />} />
+            <Route path="/biblioteca/:oilId" element={<BibliotecaPage />} />
             <Route path="/rituais" element={<RituaisPage />} />
             <Route path="/mindset" element={<MindsetPage />} />
             <Route path="/guias" element={<GuiasPage />} />

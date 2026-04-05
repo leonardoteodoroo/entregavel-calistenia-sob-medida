@@ -1,0 +1,247 @@
+.page {
+  display: grid;
+  gap: var(--spacing-8);
+  padding-bottom: var(--spacing-8);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-5) var(--spacing-5) 0;
+}
+
+.avatar {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 1.5rem;
+  background: linear-gradient(135deg, rgba(250, 220, 211, 0.92), rgba(226, 232, 228, 0.95));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.42);
+  font-size: 1rem;
+}
+
+.heroSection {
+  position: relative;
+  margin: 0 calc(var(--spacing-5) * -1);
+}
+
+.heroImage {
+  border-radius: 0;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--spacing-8) var(--spacing-6);
+  background: linear-gradient(160deg, rgba(42, 75, 65, 0.9), rgba(61, 107, 94, 0.42));
+}
+
+.heroPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
+}
+
+.heroPill {
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+  color: var(--on-primary);
+}
+
+.heroLabel {
+  margin-bottom: var(--spacing-2);
+  color: rgba(250, 220, 211, 0.92);
+}
+
+.heroTitle {
+  margin: 0;
+  color: var(--on-primary);
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 8vw, 2.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.heroSubtitle {
+  margin-top: var(--spacing-3);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.heroCopy {
+  margin-top: var(--spacing-4);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+
+.heroButton {
+  align-self: flex-start;
+  margin-top: var(--spacing-6);
+}
+
+.section {
+  padding: 0 var(--spacing-5);
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+}
+
+.neuralSection {
+  margin: 0 calc(var(--spacing-5) * -1);
+  padding: var(--spacing-8) var(--spacing-5);
+  background: var(--surface-container-low);
+}
+
+.neuralList {
+  display: grid;
+  gap: var(--spacing-8);
+  margin-top: var(--spacing-6);
+}
+
+.neuralStep {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.neuralStepVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.neuralEyebrow {
+  margin-bottom: var(--spacing-1);
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.quickGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-6);
+}
+
+.quickLink {
+  text-decoration: none;
+}
+
+.quickCard {
+  display: grid;
+  height: 100%;
+  gap: var(--spacing-3);
+  padding: var(--spacing-6);
+  text-align: center;
+}
+
+.quickIcon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.quickTitle {
+  color: var(--on-surface);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.quickDescription {
+  color: var(--on-surface-variant);
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.carouselHint {
+  color: var(--on-surface-variant);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.carousel {
+  display: flex;
+  gap: var(--spacing-4);
+  overflow-x: auto;
+  margin-top: var(--spacing-6);
+  padding-bottom: var(--spacing-2);
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.compareCard {
+  min-width: 260px;
+  overflow: hidden;
+  padding: 0;
+  scroll-snap-align: start;
+}
+
+.compareImage {
+  border-radius: var(--round-xl) var(--round-xl) 0 0;
+}
+
+.compareContent {
+  display: grid;
+  gap: var(--spacing-4);
+  padding: var(--spacing-5);
+}
+
+.compareTitle {
+  color: var(--on-surface);
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+.compareSubtitle {
+  margin-top: var(--spacing-1);
+  color: var(--primary);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.compareTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+.compareSummary {
+  color: var(--on-surface-variant);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 380px) {
+  .heroOverlay {
+    padding: var(--spacing-6) var(--spacing-5);
+  }
+
+  .sectionHeading {
+    display: block;
+  }
+
+  .carouselHint {
+    margin-top: var(--spacing-3);
+  }
+}
