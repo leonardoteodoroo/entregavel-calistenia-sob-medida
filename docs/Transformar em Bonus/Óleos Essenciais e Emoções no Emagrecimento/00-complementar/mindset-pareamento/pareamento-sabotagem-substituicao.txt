@@ -1,0 +1,44 @@
+PAREAMENTO: SABOTAGEM ↔ SUBSTITUIÇÃO POSITIVA
+(Para interação swipe nos cards Mindset — vire o card para revelar a substituição)
+Pareamento lógico entre os 8 pensamentos de autossabotagem e os 7 de substituição positiva.
+
+═══════════════════════════════════════════════════════════
+
+PAR 1 — RECOMPENSA ALIMENTAR
+✗ "Hoje posso comer um doce porque mereço!"
+✓ "Como recompensa vou tomar um bom chá e relaxar um pouco."
+
+PAR 2 — MINIMIZAÇÃO
+✗ "Só um docinho não vai me fazer mal!" (mas nunca para por aí)
+✓ "Posso perfeitamente viver sem esse doce, vou deixar para uma data especial."
+
+PAR 3 — PROCRASTINAÇÃO
+✗ "Semana que vem começo a dieta."
+✓ "A saúde é meu bem mais precioso."
+
+PAR 4 — ADIAMENTO SAZONAL
+✗ "No verão começo a malhar."
+✓ "Sou forte, preciso pensar no meu bem estar."
+
+PAR 5 — IDENTIDADE FALSA
+✗ "Adoro comer, é um hobby!"
+✓ "Meu corpo é minha morada, preciso cuidar bem dele."
+
+PAR 6 — NEGAÇÃO DEFENSIVA
+✗ "Não ligo para que os outros falam, estou feliz com meu corpo!"
+✓ "Posso comer apenas um doce, mesmo que os outros não façam assim."
+
+PAR 7 — CONFORMISMO
+✗ "Melhor ser gordinho feliz, que magrelo infeliz."
+✓ "A saúde é meu bem mais precioso." + "Sou forte, preciso pensar no meu bem estar."
+
+PAR 8 — DESISTÊNCIA
+✗ "Eu não consigo!"
+✓ "Eu posso, eu consigo!"
+
+═══════════════════════════════════════════════════════════
+
+NOTA DE DESIGN:
+Pares 1-6 são pareamentos diretos 1:1.
+Par 7 combina 2 substituições por ser a sabotagem mais profunda (conformismo crônico).
+Par 8 é o fechamento motivacional — único par com eco direto ("consigo"↔"consigo").

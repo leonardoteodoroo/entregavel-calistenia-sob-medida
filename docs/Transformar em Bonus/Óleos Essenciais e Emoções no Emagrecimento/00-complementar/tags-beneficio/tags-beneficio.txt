@@ -1,0 +1,21 @@
+TAGS DE BENEFÍCIO POR ÓLEO
+(Chips UI: máximo 2 por óleo, exibidos no feed da Biblioteca)
+Extraídas dos benefícios primários documentados em cada ficha original.
+
+Serenity → [Calmante] [Sono]
+Lime e Lemon → [Lipólise] [Humor]
+Basil → [Anti-inflamatório] [Diurético]
+Camomila Romana → [Antioxidante] [Ansiedade]
+Smart & Sassy → [Apetite] [Metabolismo]
+Balance → [Compulsão] [Equilíbrio]
+Wild Orange → [Imunidade] [Colesterol]
+Grapefruit → [Metabolismo] [Anticelulite]
+Cinnamon Bark → [Glicose] [Apetite]
+Gengibre → [Digestão] [Gordura]
+Peppermint → [Açúcar] [Estômago]
+Alecrim → [Humor] [Tópico]
+Fennel → [Melatonina] [Digestão]
+Turmeric → [Metabolismo] [Anti-inflamatório]
+Sândalo Hawaiano → [Digestão] [Impulso]
+Cilantro → [Detox] [Ansiedade]
+Petitgrain → [Gordura Localizada] [Cardiovascular]

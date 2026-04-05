@@ -1,0 +1,197 @@
+METADADOS UNIFICADOS POR RECEITA
+(Título SOP + Classificação Temporal + Tempo de Preparo + Frequência)
+Arquivo consolidado para consumo direto do front-end.
+
+═══════════════════════════════════════════════════════════
+CULINÁRIA (05-receitas-com-oleos)
+═══════════════════════════════════════════════════════════
+
+brownie-com-wild-orange.txt
+  Título SOP: "Protocolo Termogênico Doce Nº1 — Brownie Cítrico"
+  Período: ATEMPORAL
+  Preparo: 35 min (20 forno + 15 mistura)
+  Frequência: Ocasional
+
+bruschetta.txt
+  Título SOP: "Indução Herbal Mediterrânea — Bruschetta com Basil"
+  Período: ATEMPORAL
+  Preparo: 15 min (cortar, gratinar)
+  Frequência: —
+
+granola-salgada.txt
+  Título SOP: "Reserva Energética Matinal — Granola de Sementes com Zimbro"
+  Período: AM — METABOLIC INDUCTION
+  Preparo: 20 min (10 forno + 10 mistura)
+  Frequência: Semanal (duradoura)
+
+guacamole.txt
+  Título SOP: "Composto Lipídico Cítrico — Guacamole com Lime & Lemon"
+  Período: ATEMPORAL
+  Preparo: 10 min (sem fogo)
+  Frequência: —
+
+pao-de-abobora.txt
+  Título SOP: "Carboidrato Funcional Nº1 — Pão de Abóbora com Basil"
+  Período: ATEMPORAL
+  Preparo: 1h20 (30 descanso + 40 forno + 10 mistura)
+  Frequência: Semanal
+
+mousse-de-chocolate-com-tangerina.txt
+  Título SOP: "Recompensa Metabólica — Mousse de Cacau com Tangerina"
+  Período: ATEMPORAL
+  Preparo: 15 min + 4h geladeira
+  Frequência: Ocasional
+
+═══════════════════════════════════════════════════════════
+TRIMSHAKE (06-receitas-com-trimshake)
+═══════════════════════════════════════════════════════════
+
+horchata.txt
+  Título SOP: "Shake de Indução Canela — Horchata Metabólica"
+  Período: AM — METABOLIC INDUCTION
+  Preparo: 3 min
+  Frequência: Diária
+
+menta-com-chocolate.txt
+  Título SOP: "Supressor de Açúcar Nº1 — Menta com Cacao"
+  Período: 16:00 — CORTISOL STABILIZATION
+  Preparo: 3 min
+  Frequência: Diária
+
+torta-de-limao.txt
+  Título SOP: "Shake Digestivo Cítrico — Torta de Limão"
+  Período: ATEMPORAL
+  Preparo: 3 min
+  Frequência: Diária
+
+tropical-colada.txt
+  Título SOP: "Shake Imunológico Tropical — Colada com Wild Orange"
+  Período: 16:00 — CORTISOL STABILIZATION
+  Preparo: 3 min
+  Frequência: Diária
+
+chai-com-baunilha.txt
+  Título SOP: "Protocolo Térmico Especiado — Chai com Baunilha"
+  Período: AM — METABOLIC INDUCTION
+  Preparo: 5 min (água morna)
+  Frequência: Diária
+
+maquina-verde.txt
+  Título SOP: "Motor Detox Matinal — Máquina Verde com Peppermint"
+  Período: AM — METABOLIC INDUCTION
+  Preparo: 3 min
+  Frequência: Diária
+
+smoothie-de-aveia-com-mirtilos.txt
+  Título SOP: "Fibra Antioxidante Nº1 — Aveia com Mirtilos e Lime"
+  Período: AM — METABOLIC INDUCTION
+  Preparo: 3 min
+  Frequência: Diária
+
+picole-de-chocolate.txt
+  Título SOP: "Recompensa Gelada Nº1 — Picolé de Cacao com Smart & Sassy"
+  Período: PM — ENDOCRINE RECOVERY
+  Preparo: 10 min + 4h congelador
+  Frequência: Semanal
+
+picole-cremoso-de-laranja.txt
+  Título SOP: "Recompensa Gelada Nº2 — Picolé Cremoso de Wild Orange"
+  Período: PM — ENDOCRINE RECOVERY
+  Preparo: 10 min + 4h congelador
+  Frequência: Semanal
+
+═══════════════════════════════════════════════════════════
+BEBIDAS (07-bebidas-com-oleos)
+═══════════════════════════════════════════════════════════
+
+laranja-e-limao.txt
+  Título SOP: "Hidratação Lipolítica — Suco de Laranja e Limão"
+  Período: AM — METABOLIC INDUCTION
+  Preparo: 5 min
+  Frequência: Diária
+
+melancia-com-hortela.txt
+  Título SOP: "Refrescância Digestiva — Melancia com Hortelã"
+  Período: 16:00 — CORTISOL STABILIZATION
+  Preparo: 5 min
+  Frequência: —
+
+morango-e-melancia.txt
+  Título SOP: "Hidratação Cítrica Vermelha — Morango e Melancia"
+  Período: 16:00 — CORTISOL STABILIZATION
+  Preparo: 5 min
+  Frequência: —
+
+maca-e-canela.txt
+  Título SOP: "Regulador Glicêmico Frutado — Maçã com Canela"
+  Período: 16:00 — CORTISOL STABILIZATION
+  Preparo: 5 min
+  Frequência: Diária
+
+suco-de-maca.txt
+  Título SOP: "Limpeza Hepática Natural — Suco de Maçã Puro"
+  Período: AM — METABOLIC INDUCTION
+  Preparo: 5 min
+  Frequência: Diária (em jejum)
+
+═══════════════════════════════════════════════════════════
+USO TÓPICO (08-uso-topico)
+═══════════════════════════════════════════════════════════
+
+oleo-massagem-gordura-localizada.txt
+  Título SOP: "Protocolo Tópico Nº1 — Blend para Gordura Localizada"
+  Período: PM — ENDOCRINE RECOVERY
+  Preparo: 2 min (mistura)
+  Frequência: Diária (à noite)
+
+oleo-massagem-anti-celulite-v1.txt
+  Título SOP: "Protocolo Anticelulite Nº1 — Blend Grapefruit e Petitgrain"
+  Período: PM — ENDOCRINE RECOVERY
+  Preparo: 2 min
+  Frequência: 1x/dia
+
+oleo-massagem-anti-celulite-v2.txt
+  Título SOP: "Protocolo Anticelulite Nº2 — Blend Grapefruit, Alecrim e Eucalipto"
+  Período: PM — ENDOCRINE RECOVERY
+  Preparo: 2 min + 10 min massagem
+  Frequência: 2x/semana
+
+escalda-pes-detox.txt
+  Título SOP: "Ritual Detox por Imersão — Escalda Pés com Sal Epsom"
+  Período: PM — ENDOCRINE RECOVERY
+  Preparo: 3 min | Duração: 20 min imersão
+  Frequência: 1-2x/semana
+
+wrap-detox.txt
+  Título SOP: "Protocolo de Envoltório Linfático — Wrap Detox Corporal"
+  Período: PM — ENDOCRINE RECOVERY
+  Preparo: 10 min (esfoliação + mistura) | Duração: 45 min envoltório
+  Frequência: 1x/semana
+
+═══════════════════════════════════════════════════════════
+DIFUSÃO & INGESTÃO (09-ingestao-e-aromaterapia)
+═══════════════════════════════════════════════════════════
+
+combinacoes-para-difusor.txt — Combo 1
+  Título SOP: "Difusão Estabilizadora — Canela, Olíbano, Cedro e Hortelã"
+  Período: PM — ENDOCRINE RECOVERY
+  Preparo: 1 min
+  Frequência: Diária
+
+combinacoes-para-difusor.txt — Combo 2
+  Título SOP: "Difusão Metabólica — Grapefruit, Peppermint e Ylang Ylang"
+  Período: 16:00 — CORTISOL STABILIZATION
+  Preparo: 1 min
+  Frequência: Diária
+
+combinacoes-para-difusor.txt — Combo 3
+  Título SOP: "Difusão Restauradora — Clary Sage, Lemon e Lavanda"
+  Período: PM — ENDOCRINE RECOVERY
+  Preparo: 1 min
+  Frequência: Diária
+
+capsula-para-reduzir-apetite.txt
+  Título SOP: "Protocolo de Ingestão Nº1 — Cápsula Supressora de Apetite"
+  Período: AM — METABOLIC INDUCTION
+  Preparo: 2 min
+  Frequência: 2x/dia (nunca à noite)

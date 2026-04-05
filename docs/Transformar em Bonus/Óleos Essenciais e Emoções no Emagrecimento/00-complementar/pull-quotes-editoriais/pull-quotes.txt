@@ -1,0 +1,58 @@
+PULL-QUOTES EDITORIAIS
+(Para quebras visuais entre blocos densos de texto na tela "Guias & Segurança")
+Cada quote é posicionada para aliviar a fadiga textual em mobile.
+Prosa poética alinhada ao Arquétipo Curador — reflexões genuínas, não slogans.
+
+═══════════════════════════════════════════════════════════
+
+QUOTE 1 — Após o Aviso Legal (observacoes-legais.txt)
+Posição: entre o disclaimer jurídico e as orientações de segurança.
+
+"Cuidar de si mesma é um ato solitário e intransferível.
+Nenhum livro substitui os olhos de quem te conhece por dentro.
+Use este guia como uma lanterna — não como o caminho."
+
+═══════════════════════════════════════════════════════════
+
+QUOTE 2 — Entre Alertas de Segurança (observacoes-importantes.txt)
+Posição: após o aviso sobre óleos cítricos e antes das dosagens.
+
+"Uma gota de mais não é coragem — é pressa.
+A potência dos óleos essenciais exige a mesma delicadeza
+com que a planta os produziu: gota a gota, ao longo de anos."
+
+═══════════════════════════════════════════════════════════
+
+QUOTE 3 — Entre Orientações de Ingestão (orientacoes-seguranca.txt)
+Posição: no meio do bloco técnico sobre dosagens seguras.
+
+"A sabedoria ancestral nunca contou gotas —
+ela observava o corpo.
+A ciência moderna conta.
+O equilíbrio está em ouvir ambas."
+
+═══════════════════════════════════════════════════════════
+
+QUOTE 4 — Entre Orientações de Massagem (orientacoes-massagem-e-diluicao.txt)
+Posição: entre os passos de diluição e as áreas de aplicação.
+
+"Tocar a própria pele com intenção de cura
+não é vaidade — é a forma mais antiga de medicina.
+Suas mãos sabem mais do que você imagina."
+
+═══════════════════════════════════════════════════════════
+
+QUOTE 5 — Antes da Conclusão (conclusao.txt)
+Posição: transição entre o último conteúdo técnico e o encerramento emocional.
+
+"Você não precisa ser perfeita para começar.
+Precisa apenas ser honesta o suficiente
+para admitir que merece se sentir melhor."
+
+═══════════════════════════════════════════════════════════
+
+NOTA DE DESIGN:
+- Tipografia: Noto Serif Display Large, itálico, centrado.
+- Opacidade: 0.85 sobre o fundo creme (#FAF9F6).
+- Margem vertical: 64px acima e abaixo.
+- Sem aspas decorativas — o texto fala por si.
