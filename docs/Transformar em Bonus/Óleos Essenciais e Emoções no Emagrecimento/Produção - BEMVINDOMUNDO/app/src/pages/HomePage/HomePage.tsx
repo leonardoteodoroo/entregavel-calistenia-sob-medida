@@ -8,6 +8,7 @@ import GlassPill from '../../components/GlassPill/GlassPill'
 import ImagePlaceholder from '../../components/ImagePlaceholder/ImagePlaceholder'
 import StepNumber from '../../components/StepNumber/StepNumber'
 import oilsData from '../../data/oils.json'
+import { getOilEmoji } from '../../data/presentation'
 import spotlightsData from '../../data/spotlights.json'
 import type { Oil, Spotlight } from '../../data/types'
 import styles from './HomePage.module.css'
@@ -91,37 +92,6 @@ function getDayOfYear(date: Date) {
   const current = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())
 
   return Math.floor((current - start) / 86_400_000)
-}
-
-function getOilEmoji(oilId: string) {
-  switch (oilId) {
-    case 'grapefruit':
-    case 'wild-orange':
-      return '🍊'
-    case 'peppermint':
-      return '🍃'
-    case 'serenity':
-      return '🌙'
-    case 'balance':
-      return '⚖️'
-    case 'camomila-romana':
-      return '🌼'
-    case 'cinnamon-bark':
-    case 'sandalo-hawaiano':
-      return '🪵'
-    case 'fennel':
-      return '🌾'
-    case 'gengibre':
-      return '🫚'
-    case 'lime-e-lemon':
-      return '🍋'
-    case 'smart-e-sassy':
-      return '⚡'
-    case 'turmeric':
-      return '✨'
-    default:
-      return '🌿'
-  }
 }
 
 export default function HomePage() {

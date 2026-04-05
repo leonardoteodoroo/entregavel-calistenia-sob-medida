@@ -1,0 +1,55 @@
+.link {
+  display: block;
+  text-decoration: none;
+}
+
+.card {
+  display: flex;
+  gap: var(--spacing-4);
+  align-items: flex-start;
+  margin-bottom: var(--spacing-6);
+  padding: var(--spacing-5);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.link:hover .card {
+  transform: translateY(-1px);
+}
+
+.active {
+  background: var(--surface-bright);
+  box-shadow: var(--shadow-lg);
+}
+
+.thumb {
+  width: 80px;
+  flex-shrink: 0;
+  border-radius: 1.5rem;
+}
+
+.content {
+  display: grid;
+  flex: 1;
+  gap: var(--spacing-3);
+}
+
+.title {
+  color: var(--on-surface);
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.subtitle {
+  margin-top: var(--spacing-1);
+  color: var(--on-surface-variant);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
