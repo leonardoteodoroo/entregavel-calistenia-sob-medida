@@ -1,0 +1,10 @@
+.quote {
+  padding: var(--spacing-12) var(--spacing-6);
+  color: var(--primary);
+  font-family: var(--font-serif);
+  font-size: clamp(1.125rem, 4vw, 1.5rem);
+  font-style: italic;
+  line-height: 1.7;
+  opacity: 0.9;
+  text-align: center;
+}
