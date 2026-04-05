@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 
 import BottomNav from './components/BottomNav/BottomNav'
+import BreatheModal from './components/BreatheModal/BreatheModal'
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'))
 const BibliotecaPage = lazy(() => import('./pages/BibliotecaPage/BibliotecaPage'))
@@ -42,6 +43,7 @@ function App() {
       </Suspense>
 
       <BottomNav />
+      <BreatheModal />
     </BrowserRouter>
   )
 }

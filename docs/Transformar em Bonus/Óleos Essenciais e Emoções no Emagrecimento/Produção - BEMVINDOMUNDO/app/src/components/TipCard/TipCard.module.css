@@ -1,0 +1,64 @@
+.card {
+  display: flex;
+  min-height: 80svh;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-6);
+  padding: var(--spacing-8) var(--spacing-6);
+  margin-bottom: var(--spacing-6);
+  text-align: center;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.72), transparent 40%),
+    linear-gradient(180deg, color-mix(in srgb, var(--tip-accent) 78%, white), var(--surface-container-low));
+}
+
+.counter {
+  color: var(--on-surface-variant);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.quote {
+  color: var(--on-surface);
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+.label {
+  color: var(--primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.alliedOil {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  align-self: center;
+  padding: var(--spacing-3) var(--spacing-4);
+  border-radius: var(--round-lg);
+  background: rgba(255, 255, 255, 0.72);
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
+}
+
+.alliedIcon {
+  font-size: 1.25rem;
+}
+
+.alliedTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.alliedReason {
+  color: var(--on-surface-variant);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
