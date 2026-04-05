@@ -1,43 +1,46 @@
-import type { CSSProperties } from 'react'
-import { useRef, useState } from 'react'
+import type { CSSProperties } from "react";
+import { useRef, useState } from "react";
 
-import type { MindsetPair } from '../../data/types'
-import styles from './SabotageCard.module.css'
+import type { MindsetPair } from "../../data/types";
+import styles from "./SabotageCard.module.css";
 
 export interface SabotageCardProps {
-  pair: MindsetPair
+  pair: MindsetPair;
 }
 
 export default function SabotageCard({ pair }: SabotageCardProps) {
-  const [flipped, setFlipped] = useState(false)
-  const [dragOffset, setDragOffset] = useState(0)
-  const touchStartXRef = useRef<number | null>(null)
-  const isDragging = touchStartXRef.current !== null
+  const [flipped, setFlipped] = useState(false);
+  const [dragOffset, setDragOffset] = useState(0);
+  const touchStartXRef = useRef<number | null>(null);
+  const isDragging = touchStartXRef.current !== null;
 
   const handleTouchStart = (event: React.TouchEvent<HTMLButtonElement>) => {
-    touchStartXRef.current = event.touches[0]?.clientX ?? null
-  }
+    touchStartXRef.current = event.touches[0]?.clientX ?? null;
+  };
 
   const handleTouchMove = (event: React.TouchEvent<HTMLButtonElement>) => {
     if (touchStartXRef.current === null) {
-      return
+      return;
     }
 
-    const currentX = event.touches[0]?.clientX ?? touchStartXRef.current
-    const deltaX = Math.max(-120, Math.min(120, currentX - touchStartXRef.current))
-    setDragOffset(deltaX)
-  }
+    const currentX = event.touches[0]?.clientX ?? touchStartXRef.current;
+    const deltaX = Math.max(
+      -120,
+      Math.min(120, currentX - touchStartXRef.current)
+    );
+    setDragOffset(deltaX);
+  };
 
   const handleTouchEnd = () => {
     if (dragOffset <= -80) {
-      setFlipped(true)
+      setFlipped(true);
     } else if (dragOffset >= 80) {
-      setFlipped(false)
+      setFlipped(false);
     }
 
-    touchStartXRef.current = null
-    setDragOffset(0)
-  }
+    touchStartXRef.current = null;
+    setDragOffset(0);
+  };
 
   return (
     <button
@@ -45,7 +48,7 @@ export default function SabotageCard({ pair }: SabotageCardProps) {
       className={styles.trigger}
       data-sabotage-card={pair.id}
       aria-pressed={flipped}
-      onClick={() => setFlipped((current) => !current)}
+      onClick={() => setFlipped(current => !current)}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -54,15 +57,15 @@ export default function SabotageCard({ pair }: SabotageCardProps) {
       <div
         className={[
           styles.card3d,
-          flipped ? styles.card3dFlipped : '',
-          isDragging ? styles.card3dDragging : '',
+          flipped ? styles.card3dFlipped : "",
+          isDragging ? styles.card3dDragging : "",
         ]
           .filter(Boolean)
-          .join(' ')}
+          .join(" ")}
         style={
           {
-            '--swipe-shift': `${dragOffset * 0.18}px`,
-            '--swipe-rotate': `${Math.round(dragOffset / 6)}deg`,
+            "--swipe-shift": `${dragOffset * 0.18}px`,
+            "--swipe-rotate": `${Math.round(dragOffset / 6)}deg`,
           } as CSSProperties
         }
       >
@@ -77,7 +80,7 @@ export default function SabotageCard({ pair }: SabotageCardProps) {
           <p className={styles.theme}>{pair.theme}</p>
           <p className={styles.stateLabelPositive}>✓ Reprograme</p>
           <div className={styles.positiveList}>
-            {pair.positive.map((item) => (
+            {pair.positive.map(item => (
               <blockquote key={item} className={styles.quote}>
                 {item}
               </blockquote>
@@ -87,5 +90,5 @@ export default function SabotageCard({ pair }: SabotageCardProps) {
         </article>
       </div>
     </button>
-  )
+  );
 }

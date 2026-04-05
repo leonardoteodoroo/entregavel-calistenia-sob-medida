@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "download:stock-images": "node scripts/download-openverse-assets.mjs",
     "generate:pwa-icons": "node scripts/generate-pwa-icons.mjs",
     "lint": "eslint .",
     "preview": "vite preview"

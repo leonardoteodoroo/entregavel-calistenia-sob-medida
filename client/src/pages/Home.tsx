@@ -20,6 +20,8 @@ const HERO_IMG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663411973649/9JzcKUqfdZQZb7N89fhNM8/capa-hero-cbNx8vkc9mpUh3EgwHquFC.webp";
 
 const BONUS_LIKES_STORAGE_KEY = "cf-bonus-receitas-like-v1";
+// Mantemos o standalone disponível, mas escondemos o card no projeto principal por enquanto.
+const SHOW_OLEOS_ESSENCIAIS_BONUS = false;
 
 type BonusCard = {
   id: string;
@@ -81,6 +83,10 @@ const BONUS_RECIPES: BonusCard[] = [
     placeholderDays: 16,
   },
 ];
+
+const VISIBLE_BONUS_RECIPES = BONUS_RECIPES.filter(
+  item => SHOW_OLEOS_ESSENCIAIS_BONUS || item.id !== "oleos-essenciais"
+);
 
 type BonusLikesState = Record<string, boolean>;
 
@@ -519,7 +525,7 @@ export default function Home() {
                 "repeat(auto-fit, minmax(min(220px, 100%), 1fr))",
             }}
           >
-            {BONUS_RECIPES.map(item => {
+            {VISIBLE_BONUS_RECIPES.map(item => {
               const isLiked = Boolean(bonusLikes[item.id]);
               const likesCount = item.social
                 ? item.social.likesBase + (isLiked ? 1 : 0)

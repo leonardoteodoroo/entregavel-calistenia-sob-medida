@@ -1,19 +1,28 @@
-import styles from './Chip.module.css'
+import styles from "./Chip.module.css";
 
 export interface ChipProps {
-  label: string
-  active?: boolean
-  onClick?: () => void
-  className?: string
+  label: string;
+  active?: boolean;
+  onClick?: () => void;
+  className?: string;
 }
 
-export default function Chip({ label, active = false, onClick, className }: ChipProps) {
-  const resolvedClassName = [styles.chip, active ? styles.active : '', className]
+export default function Chip({
+  label,
+  active = false,
+  onClick,
+  className,
+}: ChipProps) {
+  const resolvedClassName = [
+    styles.chip,
+    active ? styles.active : "",
+    className,
+  ]
     .filter(Boolean)
-    .join(' ')
+    .join(" ");
 
   if (!onClick) {
-    return <span className={resolvedClassName}>{label}</span>
+    return <span className={resolvedClassName}>{label}</span>;
   }
 
   return (
@@ -25,5 +34,5 @@ export default function Chip({ label, active = false, onClick, className }: Chip
     >
       {label}
     </button>
-  )
+  );
 }

@@ -9,7 +9,9 @@
   align-items: flex-start;
   margin-bottom: var(--spacing-6);
   padding: var(--spacing-5);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
     background var(--transition-fast);
 }
 

@@ -18,13 +18,12 @@ describe("Home bonus cards", () => {
     expect(markup).toContain("Atualização: 18/03/2026, com carinho");
   });
 
-  it("renders the oleos essenciais bonus card with the standalone href", () => {
+  it("keeps the oleos essenciais bonus hidden from the main project shelf", () => {
     const markup = renderToStaticMarkup(<Home />);
 
-    expect(markup).toContain("/oleos-essenciais-emagrecimento/");
-    expect(markup).toContain("Óleos Essenciais");
-    expect(markup).toContain("115 curtidas");
-    expect(markup).toContain(
+    expect(markup).not.toContain("/oleos-essenciais-emagrecimento/");
+    expect(markup).not.toContain("115 curtidas");
+    expect(markup).not.toContain(
       "Frascos âmbar de óleos essenciais com fatias cítricas e folhas verdes"
     );
   });

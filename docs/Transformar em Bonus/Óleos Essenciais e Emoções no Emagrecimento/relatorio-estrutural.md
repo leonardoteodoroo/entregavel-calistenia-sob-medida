@@ -8,19 +8,19 @@
 
 ## 1. Resumo Quantitativo Geral
 
-| Categoria               | Quantidade |
-|--------------------------|:----------:|
-| **Óleos Essenciais (fichas individuais)** | 17 |
-| **Receitas Culinárias com Óleos** | 6 |
-| **Receitas com TrimShake** | 9 |
-| **Bebidas com Óleos Essenciais** | 5 |
-| **Receitas de Uso Tópico** | 5 |
-| **Combinações para Difusor** | 3 |
-| **Receitas de Ingestão (cápsulas)** | 1 |
-| **Seções de Dicas** | 1 (com ~22 dicas) |
-| **Seção "Nossa Mente"** | 1 (com ~15 afirmações/substituições) |
-| **Seções Institucionais** | 4 (Capa, Observações, Introdução, Apresentação, Conclusão) |
-| **TOTAL DE CONTEÚDOS DISTINTOS** | **~52** |
+| Categoria                                 |                         Quantidade                         |
+| ----------------------------------------- | :--------------------------------------------------------: |
+| **Óleos Essenciais (fichas individuais)** |                             17                             |
+| **Receitas Culinárias com Óleos**         |                             6                              |
+| **Receitas com TrimShake**                |                             9                              |
+| **Bebidas com Óleos Essenciais**          |                             5                              |
+| **Receitas de Uso Tópico**                |                             5                              |
+| **Combinações para Difusor**              |                             3                              |
+| **Receitas de Ingestão (cápsulas)**       |                             1                              |
+| **Seções de Dicas**                       |                     1 (com ~22 dicas)                      |
+| **Seção "Nossa Mente"**                   |            1 (com ~15 afirmações/substituições)            |
+| **Seções Institucionais**                 | 4 (Capa, Observações, Introdução, Apresentação, Conclusão) |
+| **TOTAL DE CONTEÚDOS DISTINTOS**          |                          **~52**                           |
 
 ---
 
@@ -161,7 +161,9 @@ Institucional       ████               4  (08%)
 ## 4. Padrão Editorial e Navegação
 
 ### 🔄 Padrão identificado nas fichas de óleos (17 fichas):
+
 Cada óleo segue uma **micro-estrutura padronizada**:
+
 1. **Nome do óleo** (título destaque)
 2. **Propriedades e benefícios** para emagrecimento (2-4 parágrafos)
 3. **Modo de uso** (ingestão, aromaterapia, tópico ou combinações)
@@ -169,7 +171,9 @@ Cada óleo segue uma **micro-estrutura padronizada**:
 > Não há imagens ou ícones — tudo é textual. A separação visual é feita por quebras de página (`\f`).
 
 ### 🔄 Padrão identificado nas receitas:
+
 Cada receita segue:
+
 1. **Nome da receita** (título)
 2. **INGREDIENTES** (lista com quantidades e óleos essenciais destacados)
 3. **MODO DE PREPARO** (passo a passo — presente em 60% das receitas, ausente nas mais simples como smoothies)
@@ -177,17 +181,20 @@ Cada receita segue:
 > As receitas do TrimShake são mais simples: apenas ingredientes, pressupõem que o preparo é "bater tudo no liquidificador".
 
 ### 📐 Estrutura geral do e-book:
+
 O e-book segue um **fluxo linear pedagógico em 4 camadas**:
 
-| Camada | Conteúdo | Objetivo |
-|--------|----------|----------|
-| 1. **Fundamentos** | Introdução + Apresentação + Observações | Contextualizar e criar autoridade |
-| 2. **Catálogo** | 17 fichas de óleos essenciais | Educar sobre cada óleo e seus benefícios |
-| 3. **Aplicação Prática** | Receitas, Bebidas, Uso Tópico, Ingestão, Difusor | Ensinar a usar no dia a dia |
-| 4. **Mentalidade** | Dicas + Nossa Mente + Conclusão | Trabalhar o aspecto emocional/motivacional |
+| Camada                   | Conteúdo                                         | Objetivo                                   |
+| ------------------------ | ------------------------------------------------ | ------------------------------------------ |
+| 1. **Fundamentos**       | Introdução + Apresentação + Observações          | Contextualizar e criar autoridade          |
+| 2. **Catálogo**          | 17 fichas de óleos essenciais                    | Educar sobre cada óleo e seus benefícios   |
+| 3. **Aplicação Prática** | Receitas, Bebidas, Uso Tópico, Ingestão, Difusor | Ensinar a usar no dia a dia                |
+| 4. **Mentalidade**       | Dicas + Nossa Mente + Conclusão                  | Trabalhar o aspecto emocional/motivacional |
 
 ### 🏷️ Marca/Produto referenciado:
+
 O conteúdo é fortemente vinculado à marca **doTerra**, aparecendo em:
+
 - Recomendação exclusiva de óleos doTerra (CPTG)
 - Produtos proprietários: **TrimShake**, **Smart & Sassy**, **Deep Blue Rub**, **Zendocrine**, **Balance**, **Serenity**
 - Suplementos: **Omega** e **VM Complex**
@@ -210,19 +217,19 @@ Além do e-book em `.txt`/`.pdf`, existe dentro da raiz do repositório uma **ap
 
 ### 📂 Localização: `projeto a parte oleos/`
 
-| Aspecto | Detalhe |
-|---------|---------|
-| **Stack** | React 19 + Vite + TypeScript + TailwindCSS 4 + Lucide Icons + Motion |
-| **IA integrada** | Google Gemini API (`@google/genai`) — preparada para funcionalidades inteligentes |
-| **Origem** | Gerado via **Google AI Studio** (App ID: `368fec4c-2078-48f2-ab52-2cdab9c700e5`) |
-| **Arquivo principal** | `src/App.tsx` — 695 linhas, contém toda a UI em componente único |
-| **Build** | Pasta `dist/` já existe (app compilada pronta para deploy) |
+| Aspecto               | Detalhe                                                                           |
+| --------------------- | --------------------------------------------------------------------------------- |
+| **Stack**             | React 19 + Vite + TypeScript + TailwindCSS 4 + Lucide Icons + Motion              |
+| **IA integrada**      | Google Gemini API (`@google/genai`) — preparada para funcionalidades inteligentes |
+| **Origem**            | Gerado via **Google AI Studio** (App ID: `368fec4c-2078-48f2-ab52-2cdab9c700e5`)  |
+| **Arquivo principal** | `src/App.tsx` — 695 linhas, contém toda a UI em componente único                  |
+| **Build**             | Pasta `dist/` já existe (app compilada pronta para deploy)                        |
 
 ### 🎨 Design System Documentado: "The Digital Apothecary"
 
 O projeto possui um **DESIGN.md** de alta qualidade (100 linhas) com diretrizes editoriais sofisticadas:
 
-- **Conceito criativo:** *"The Curated Sanctuary"* — ambiente digital que combina revista de lifestyle premium + espaço terapêutico
+- **Conceito criativo:** _"The Curated Sanctuary"_ — ambiente digital que combina revista de lifestyle premium + espaço terapêutico
 - **Arquétipos:** "The Sage" (tipografia limpa, autoridade) + "The Healer" (formas orgânicas, profundidade tonal)
 - **Paleta:** Tons terrosos e botânicos — sem brancos puros ou pretos. Cor primária: `#425646` (verde botânico)
 - **Tipografia:** Newsreader (serif editorial) + Manrope (sans-serif acessível)
@@ -232,6 +239,7 @@ O projeto possui um **DESIGN.md** de alta qualidade (100 linhas) com diretrizes 
 ### 📱 Telas Já Prototipadas (2 screenshots existentes)
 
 #### Protótipo 1 — Homepage "Botanical Systems"
+
 - Header "Botanical Systems" com navegação
 - Seção "Physiological Mechanics" (neurobiologia e regulação de peso)
 - Carrossel "Functional Extracts" (Mentha Piperita, Citrus Bergamia)
@@ -241,21 +249,22 @@ O projeto possui um **DESIGN.md** de alta qualidade (100 linhas) com diretrizes 
 - Nav inferior: Monitoring | Biotech | Clinical Notes | Hub
 
 #### Protótipo 2 — Página de Ritual/Receita "The Ritual of Toning"
+
 - Anti-Cellulite Protocol No. 2
 - Frequência recomendada: 2x/semana
 - Seção "The Composition" com ingredientes detalhados (Coconut Oil + Grapefruit + Rosemary + Eucalyptus)
 - Seção "Preparation" em cards estilo bento
 - Seção "The Application" com 4 steps guiados com fotos (Dispense → Warm → Massage → Absorption)
-- Footer: *"Elevating the mundane to the sacred."*
+- Footer: _"Elevating the mundane to the sacred."_
 
 ### 🔗 Componentes React Implementados no `App.tsx`
 
-| Componente | Função |
-|------------|--------|
-| `App` | Container principal com navegação bottom-tab (Focus, Rituals, Apothecary, Profile) |
+| Componente       | Função                                                                                                                          |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `App`            | Container principal com navegação bottom-tab (Focus, Rituals, Apothecary, Profile)                                              |
 | `ApothecaryView` | Tela principal com Hero, Emotional Hotspots (Anxiety, Compulsion, Fatigue, Motivation), Botanical Shelf, Metabolism Points, CTA |
-| `BotanicalCard` | Card reutilizável do carrossel de óleos (imagem + nome + tag) |
-| `RitualView` | Tela de receita/ritual com ingredientes (The Composition), preparo (Preparation), aplicação em 4 etapas |
+| `BotanicalCard`  | Card reutilizável do carrossel de óleos (imagem + nome + tag)                                                                   |
+| `RitualView`     | Tela de receita/ritual com ingredientes (The Composition), preparo (Preparation), aplicação em 4 etapas                         |
 
 ### ⚠️ Status do Projeto Web
 
@@ -315,22 +324,22 @@ docs/Transformar em Bonus/
 
 Ou seja, é um **conteúdo complementar** ao produto principal (Calistenia Feminina), oferecendo valor adicional na área de saúde natural e emagrecimento holístico.
 
-
 ---
 
 ## 📝 Nota Metodológica (Prompt Base)
 
-*Esta análise estrutural foi concebida a partir da seguinte instrução e escopo formulado inicialmente:*
+_Esta análise estrutural foi concebida a partir da seguinte instrução e escopo formulado inicialmente:_
 
 > "Faça um mapeamento estrutural do documento `Óleos Essenciais e Emoções no Emagrecimento.txt` do início ao fim, mostrando como ele está organizado (sem precisar ler profundamente o conteúdo individual de cada item).
-> 
+>
 > **Por favor, identifique e apresente:**
+>
 > - Quantos conteúdos existem no total;
 > - Quantas receitas, dicas, categorias e outros tipos de conteúdo aparecem;
 > - Como esses conteúdos estão distribuídos e agrupados;
 > - A hierarquia/estrutura do material 'da cabeça aos pés' (ou seja, a organização geral em cadeia);
 > - Um resumo da arquitetura do conteúdo, destacando se existe um padrão editorial ou de navegação.
-> 
-> *O foco é desfragmentar a estrutura, entender a composição do documento e visualizar sua organização de forma clara.*
-> 
+>
+> _O foco é desfragmentar a estrutura, entender a composição do documento e visualizar sua organização de forma clara._
+>
 > Gere esse relatório com extensão `.md`. Caso ajude a enriquecer a análise exclusivamente sobre este bônus de óleos essenciais, verifique a raiz do projeto (como na pasta `calistenia-feminina-entregavel`) para identificar eventuais conexões externas do repositório."

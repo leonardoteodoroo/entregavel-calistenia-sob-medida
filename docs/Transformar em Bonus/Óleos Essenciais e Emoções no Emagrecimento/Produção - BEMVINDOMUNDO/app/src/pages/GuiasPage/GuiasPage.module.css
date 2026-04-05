@@ -1,6 +1,10 @@
 .page {
   background:
-    radial-gradient(circle at top, rgba(255, 255, 255, 0.66), transparent 26rem),
+    radial-gradient(
+      circle at top,
+      rgba(255, 255, 255, 0.66),
+      transparent 26rem
+    ),
     var(--surface);
   color: var(--on-surface);
 }
@@ -24,7 +28,11 @@
   margin-inline: calc(var(--spacing-5) * -1);
   padding-left: clamp(2rem, 7vw, 2.8rem);
   padding-right: clamp(1.25rem, 4vw, 1.4rem);
-  background: linear-gradient(180deg, var(--surface-container-low), rgba(255, 255, 255, 0.4));
+  background: linear-gradient(
+    180deg,
+    var(--surface-container-low),
+    rgba(255, 255, 255, 0.4)
+  );
 }
 
 .kicker {

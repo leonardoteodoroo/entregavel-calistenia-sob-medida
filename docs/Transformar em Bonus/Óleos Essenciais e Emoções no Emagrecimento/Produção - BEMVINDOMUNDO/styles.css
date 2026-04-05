@@ -13,54 +13,54 @@
 /* === IMPORTAÇÃO DE FONTES === */
 /* Noto Serif: voz de autoridade (títulos, destaques) */
 /* Manrope: voz funcional (corpo, labels) */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 /* === CSS CUSTOM PROPERTIES (Design Tokens) === */
 :root {
   /* --- Paleta Principal --- */
-  --primary: #2A4B41;              /* Eucalipto Profundo — âncora de toda a UI */
-  --primary-light: #3D6B5E;        /* Variante hover */
-  --on-primary: #FFFFFF;           /* Texto sobre primary */
-  --secondary: #A8B5A2;            /* Verde sálvia suave */
-  --secondary-fixed: #fadcd3;      /* Pêssego para chips de benefício */
-  --on-secondary-fixed: #442B2D;   /* Texto sobre chips pêssego */
-  --tertiary: #E2E8E4;             /* Cinza-verde neutro */
+  --primary: #2a4b41; /* Eucalipto Profundo — âncora de toda a UI */
+  --primary-light: #3d6b5e; /* Variante hover */
+  --on-primary: #ffffff; /* Texto sobre primary */
+  --secondary: #a8b5a2; /* Verde sálvia suave */
+  --secondary-fixed: #fadcd3; /* Pêssego para chips de benefício */
+  --on-secondary-fixed: #442b2d; /* Texto sobre chips pêssego */
+  --tertiary: #e2e8e4; /* Cinza-verde neutro */
 
   /* --- Superfícies (Tonal Nesting — substitui borders) --- */
-  --surface: #FAF9F6;              /* Creme-marfim base (NUNCA branco puro) */
-  --surface-container-low: #F4F4EF;/* Fundo de cards */
-  --surface-container-lowest: #EFEDE8; /* Fundo de inputs, pills internas */
-  --surface-container: #EAEAE5;    /* Fundo de seções destacadas */
-  --surface-bright: #FFFFFF;       /* Apenas para cards de substituição positiva */
-  --surface-container-highest: #E0DED9; /* FAB e elementos máxima elevação */
+  --surface: #faf9f6; /* Creme-marfim base (NUNCA branco puro) */
+  --surface-container-low: #f4f4ef; /* Fundo de cards */
+  --surface-container-lowest: #efede8; /* Fundo de inputs, pills internas */
+  --surface-container: #eaeae5; /* Fundo de seções destacadas */
+  --surface-bright: #ffffff; /* Apenas para cards de substituição positiva */
+  --surface-container-highest: #e0ded9; /* FAB e elementos máxima elevação */
 
   /* --- Texto --- */
-  --on-surface: #1B1C1C;           /* Texto principal */
-  --on-surface-variant: #434843;   /* Texto secundário/placeholder */
+  --on-surface: #1b1c1c; /* Texto principal */
+  --on-surface-variant: #434843; /* Texto secundário/placeholder */
   --outline-variant: rgba(67, 72, 67, 0.15); /* Ghost borders (15% opacity) */
 
   /* --- Tipografia --- */
-  --font-serif: 'Noto Serif', Georgia, serif;
-  --font-sans: 'Manrope', system-ui, sans-serif;
+  --font-serif: "Noto Serif", Georgia, serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
 
   /* --- Espaçamento (escala 4px) --- */
-  --spacing-1: 0.25rem;  /* 4px */
-  --spacing-2: 0.5rem;   /* 8px */
-  --spacing-3: 0.75rem;  /* 12px */
-  --spacing-4: 1rem;     /* 16px */
-  --spacing-5: 1.25rem;  /* 20px */
-  --spacing-6: 1.5rem;   /* 24px */
-  --spacing-8: 2rem;     /* 32px */
-  --spacing-10: 2.5rem;  /* 40px */
-  --spacing-12: 3rem;    /* 48px */
-  --spacing-16: 4rem;    /* 64px */
+  --spacing-1: 0.25rem; /* 4px */
+  --spacing-2: 0.5rem; /* 8px */
+  --spacing-3: 0.75rem; /* 12px */
+  --spacing-4: 1rem; /* 16px */
+  --spacing-5: 1.25rem; /* 20px */
+  --spacing-6: 1.5rem; /* 24px */
+  --spacing-8: 2rem; /* 32px */
+  --spacing-10: 2.5rem; /* 40px */
+  --spacing-12: 3rem; /* 48px */
+  --spacing-16: 4rem; /* 64px */
 
   /* --- Roundness (nunca 0, mínimo md) --- */
-  --round-sm: 0.5rem;    /* 8px — botões pequenos */
-  --round-md: 0.75rem;   /* 12px — cards menores */
-  --round-lg: 1rem;      /* 16px — cards médios */
-  --round-xl: 1.5rem;    /* 24px — cards principais */
-  --round-full: 9999px;  /* Pebble — CTAs, Chips, FAB */
+  --round-sm: 0.5rem; /* 8px — botões pequenos */
+  --round-md: 0.75rem; /* 12px — cards menores */
+  --round-lg: 1rem; /* 16px — cards médios */
+  --round-xl: 1.5rem; /* 24px — cards principais */
+  --round-full: 9999px; /* Pebble — CTAs, Chips, FAB */
 
   /* --- Elevação (sombras ambientais, tom esverdeado) --- */
   --shadow-sm: 0 4px 8px -2px rgba(18, 52, 43, 0.04);
@@ -74,7 +74,9 @@
 }
 
 /* === RESET & BASE === */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -243,7 +245,7 @@ body {
 
 /* --- Glassmorphism Pill --- */
 .glass-pill {
-  background: rgba(250, 249, 246, 0.80);
+  background: rgba(250, 249, 246, 0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: var(--round-full);
@@ -259,7 +261,11 @@ body {
   O loading="lazy" e decoding="async" já estão preparados nos <img>.
 */
 .img-placeholder {
-  background: linear-gradient(135deg, var(--surface-container), var(--tertiary));
+  background: linear-gradient(
+    135deg,
+    var(--surface-container),
+    var(--tertiary)
+  );
   display: flex;
   align-items: center;
   justify-content: center;
@@ -271,7 +277,7 @@ body {
   position: relative;
 }
 .img-placeholder::after {
-  content: '📷 Placeholder';
+  content: "📷 Placeholder";
   position: absolute;
   bottom: var(--spacing-2);
   right: var(--spacing-2);
@@ -374,7 +380,9 @@ body {
   z-index: 50;
   scrollbar-width: none;
 }
-.tabs::-webkit-scrollbar { display: none; }
+.tabs::-webkit-scrollbar {
+  display: none;
+}
 .tab-btn {
   font-family: var(--font-sans);
   font-size: 0.8rem;
@@ -397,14 +405,36 @@ body {
 }
 
 /* === UTILITÁRIOS === */
-.text-center { text-align: center; }
-.text-variant { color: var(--on-surface-variant); }
-.mt-4 { margin-top: var(--spacing-4); }
-.mt-8 { margin-top: var(--spacing-8); }
-.mb-4 { margin-bottom: var(--spacing-4); }
-.gap-2 { gap: var(--spacing-2); }
-.gap-3 { gap: var(--spacing-3); }
-.flex { display: flex; }
-.flex-wrap { flex-wrap: wrap; }
-.items-center { align-items: center; }
-.hidden { display: none; }
+.text-center {
+  text-align: center;
+}
+.text-variant {
+  color: var(--on-surface-variant);
+}
+.mt-4 {
+  margin-top: var(--spacing-4);
+}
+.mt-8 {
+  margin-top: var(--spacing-8);
+}
+.mb-4 {
+  margin-bottom: var(--spacing-4);
+}
+.gap-2 {
+  gap: var(--spacing-2);
+}
+.gap-3 {
+  gap: var(--spacing-3);
+}
+.flex {
+  display: flex;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.items-center {
+  align-items: center;
+}
+.hidden {
+  display: none;
+}

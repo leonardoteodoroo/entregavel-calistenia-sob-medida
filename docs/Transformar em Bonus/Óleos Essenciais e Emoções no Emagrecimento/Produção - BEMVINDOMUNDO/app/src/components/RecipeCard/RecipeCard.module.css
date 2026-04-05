@@ -3,7 +3,9 @@
   width: 100%;
   cursor: pointer;
   text-align: left;
-  transition: opacity 400ms ease, transform 400ms ease;
+  transition:
+    opacity 400ms ease,
+    transform 400ms ease;
 }
 
 .triggerHidden {
@@ -20,7 +22,9 @@
   overflow: hidden;
   margin-bottom: var(--spacing-4);
   padding: 0;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .trigger:hover .card {

@@ -7,6 +7,7 @@
 **Arquitetura:** SPA React com Vite, CSS Modules (Design System extraído do `styles.css`), rota por tela (React Router), conteúdo injetado via JSON estático gerado a partir dos 105 `.txt`. TypeScript. PWA opcional.
 
 **Tech Stack:**
+
 - React 19 + TypeScript
 - Vite 6
 - React Router 7 (file-based routing)
@@ -18,12 +19,12 @@
 
 ## Fase 0 — Decisões Tomadas (Resolvidas)
 
-| Decisão | Resposta |
-|---|---|
-| Standalone ou integrado? | **Standalone** (subprojeto independente) |
-| Mobile-first ou responsivo? | **Mobile-first puro** (desktop não quebra, mas não é prioridade) |
-| Imagens? | **Placeholders** com dimensões corretas + lazy loading. Produção de assets visuais em sessão futura. |
-| Backend? | **Zero.** Todo conteúdo é estático (JSON). Deploy estático grátis. |
+| Decisão                     | Resposta                                                                                             |
+| --------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Standalone ou integrado?    | **Standalone** (subprojeto independente)                                                             |
+| Mobile-first ou responsivo? | **Mobile-first puro** (desktop não quebra, mas não é prioridade)                                     |
+| Imagens?                    | **Placeholders** com dimensões corretas + lazy loading. Produção de assets visuais em sessão futura. |
+| Backend?                    | **Zero.** Todo conteúdo é estático (JSON). Deploy estático grátis.                                   |
 
 ---
 
@@ -32,6 +33,7 @@
 ### Task 1: Inicializar Projeto Vite + React + TypeScript
 
 **Files:**
+
 - Create: `Produção - BEMVINDOMUNDO/app/package.json`
 - Create: `Produção - BEMVINDOMUNDO/app/vite.config.ts`
 - Create: `Produção - BEMVINDOMUNDO/app/tsconfig.json`
@@ -56,6 +58,7 @@ npm install react-router-dom
 ```bash
 npm run dev
 ```
+
 Expected: Server inicia em http://localhost:5173. Sem erros.
 
 - [ ] **Step 4: Commit**
@@ -70,6 +73,7 @@ git commit -m "scaffold: inicializa projeto Vite+React+TS para Óleos & Emoçõe
 ### Task 2: Estrutura de Pastas e Design System CSS
 
 **Files:**
+
 - Create: `app/src/styles/tokens.css` (extrair de `styles.css` criado nos protótipos)
 - Create: `app/src/styles/reset.css`
 - Create: `app/src/styles/typography.css`
@@ -85,6 +89,7 @@ mkdir -p app/src/{styles,components,pages,data,assets/placeholders,hooks,utils}
 - [ ] **Step 2: Portar `styles.css` do protótipo para CSS Modules**
 
 Extrair os design tokens do arquivo `../styles.css` (já criado) e distribuir em:
+
 - `tokens.css`: todas as CSS custom properties (`:root { ... }`)
 - `reset.css`: box-sizing, margin, padding, font-smoothing
 - `typography.css`: classes tipográficas (display-lg, headline-lg, etc.)
@@ -93,24 +98,24 @@ Extrair os design tokens do arquivo `../styles.css` (já criado) e distribuir em
 ```css
 /* app/src/styles/tokens.css */
 :root {
-  --primary: #2A4B41;
-  --primary-light: #3D6B5E;
-  --on-primary: #FFFFFF;
-  --secondary: #A8B5A2;
+  --primary: #2a4b41;
+  --primary-light: #3d6b5e;
+  --on-primary: #ffffff;
+  --secondary: #a8b5a2;
   --secondary-fixed: #fadcd3;
-  --on-secondary-fixed: #442B2D;
-  --tertiary: #E2E8E4;
-  --surface: #FAF9F6;
-  --surface-container-low: #F4F4EF;
-  --surface-container-lowest: #EFEDE8;
-  --surface-container: #EAEAE5;
-  --surface-bright: #FFFFFF;
-  --surface-container-highest: #E0DED9;
-  --on-surface: #1B1C1C;
+  --on-secondary-fixed: #442b2d;
+  --tertiary: #e2e8e4;
+  --surface: #faf9f6;
+  --surface-container-low: #f4f4ef;
+  --surface-container-lowest: #efede8;
+  --surface-container: #eaeae5;
+  --surface-bright: #ffffff;
+  --surface-container-highest: #e0ded9;
+  --on-surface: #1b1c1c;
   --on-surface-variant: #434843;
   --outline-variant: rgba(67, 72, 67, 0.15);
-  --font-serif: 'Noto Serif', Georgia, serif;
-  --font-sans: 'Manrope', system-ui, sans-serif;
+  --font-serif: "Noto Serif", Georgia, serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
   /* ... spacing, round, shadow, transition — copiar de styles.css */
 }
 ```
@@ -119,11 +124,11 @@ Extrair os design tokens do arquivo `../styles.css` (já criado) e distribuir em
 
 ```css
 /* app/src/index.css */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import './styles/tokens.css';
-@import './styles/reset.css';
-@import './styles/typography.css';
-@import './styles/components.css';
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import "./styles/tokens.css";
+@import "./styles/reset.css";
+@import "./styles/typography.css";
+@import "./styles/components.css";
 ```
 
 - [ ] **Step 4: Verificar que o projeto compila sem erros**
@@ -131,6 +136,7 @@ Extrair os design tokens do arquivo `../styles.css` (já criado) e distribuir em
 ```bash
 npm run build
 ```
+
 Expected: build completa sem warnings CSS. Dist gerada.
 
 - [ ] **Step 5: Commit**
@@ -147,6 +153,7 @@ git commit -m "style: porta Design System Botanical Essence para CSS Modules"
 ### Task 3: Script de Conversão de Conteúdo
 
 **Files:**
+
 - Create: `app/scripts/convert-content.ts`
 - Create: `app/src/data/oils.json`
 - Create: `app/src/data/recipes.json`
@@ -159,14 +166,14 @@ git commit -m "style: porta Design System Botanical Essence para CSS Modules"
 
 Mapear a origem de cada JSON:
 
-| JSON | Fonte .txt | Campos |
-|---|---|---|
-| `oils.json` | `04-oleos-essenciais/*.txt` + `subtitulos-emocionais.txt` + `tags-beneficio.txt` + `classificacao-filtros.txt` | id, name, subtitle, tags[], filter, description, usage |
-| `recipes.json` | `05/`, `06/`, `07/`, `08/`, `09/*.txt` + `metadados-receitas.txt` | id, name, sopTitle, tab, period, time, frequency, ingredients[], steps[], oilsUsed[] |
-| `tips.json` | `10-dicas/*.txt` + `metadados-dicas-mindset.txt` | id, number, text, label, alliedOil, alliedOilReason |
-| `mindset.json` | `11-nossa-mente/*.txt` + `pareamento-sabotagem-substituicao.txt` | sabotage[], positive[], pairs[] |
-| `spotlights.json` | `00-complementar/home-spotlight/*.txt` | id, oilName, title, label, callout, suggestedRecipe |
-| `safety.json` | `01-institucional/`, `03-apresentacao/`, `12-conclusao/`, `pull-quotes-editoriais/*.txt` | sections[], pullQuotes[] |
+| JSON              | Fonte .txt                                                                                                     | Campos                                                                               |
+| ----------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| `oils.json`       | `04-oleos-essenciais/*.txt` + `subtitulos-emocionais.txt` + `tags-beneficio.txt` + `classificacao-filtros.txt` | id, name, subtitle, tags[], filter, description, usage                               |
+| `recipes.json`    | `05/`, `06/`, `07/`, `08/`, `09/*.txt` + `metadados-receitas.txt`                                              | id, name, sopTitle, tab, period, time, frequency, ingredients[], steps[], oilsUsed[] |
+| `tips.json`       | `10-dicas/*.txt` + `metadados-dicas-mindset.txt`                                                               | id, number, text, label, alliedOil, alliedOilReason                                  |
+| `mindset.json`    | `11-nossa-mente/*.txt` + `pareamento-sabotagem-substituicao.txt`                                               | sabotage[], positive[], pairs[]                                                      |
+| `spotlights.json` | `00-complementar/home-spotlight/*.txt`                                                                         | id, oilName, title, label, callout, suggestedRecipe                                  |
+| `safety.json`     | `01-institucional/`, `03-apresentacao/`, `12-conclusao/`, `pull-quotes-editoriais/*.txt`                       | sections[], pullQuotes[]                                                             |
 
 - [ ] **Step 2: Escrever script que lê os .txt e gera JSON**
 
@@ -178,8 +185,8 @@ Mapear a origem de cada JSON:
 // 3. Gerar 6 arquivos JSON em app/src/data/
 // 4. Rodar uma vez — os JSONs ficam commitados no repo
 
-import { readFileSync, writeFileSync, readdirSync } from 'fs';
-import { join } from 'path';
+import { readFileSync, writeFileSync, readdirSync } from "fs";
+import { join } from "path";
 
 // ... implementação completa do parser para cada tipo
 ```
@@ -189,6 +196,7 @@ import { join } from 'path';
 ```bash
 npx tsx scripts/convert-content.ts
 ```
+
 Expected: 6 arquivos `.json` gerados em `src/data/`. Validar manualmente que `oils.json` tem 17 entradas, `recipes.json` tem 29, `tips.json` tem 23, etc.
 
 - [ ] **Step 4: Criar TypeScript types para cada dataset**
@@ -209,8 +217,8 @@ export interface Recipe {
   id: string;
   name: string;
   sopTitle: string;
-  tab: 'topico' | 'culinaria' | 'trimshake' | 'bebidas' | 'difusao';
-  period: 'AM' | 'PM' | '16h';
+  tab: "topico" | "culinaria" | "trimshake" | "bebidas" | "difusao";
+  period: "AM" | "PM" | "16h";
   time: string;
   frequency: string;
   ingredients: string[];
@@ -235,6 +243,7 @@ git commit -m "data: converte 105 .txt em 6 JSONs tipados para consumo React"
 ### Task 4: Layout Shell (App wrapper + Bottom Nav + Router)
 
 **Files:**
+
 - Modify: `app/src/App.tsx`
 - Create: `app/src/components/BottomNav/BottomNav.tsx`
 - Create: `app/src/components/BottomNav/BottomNav.module.css`
@@ -252,7 +261,7 @@ git commit -m "data: converte 105 .txt em 6 JSONs tipados para consumo React"
 - [ ] **Step 2: Configurar React Router no App.tsx**
 
 ```tsx
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // 5 rotas lazy-loaded:
 // / → HomePage
@@ -267,6 +276,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 ```bash
 npm run dev
 ```
+
 Expected: 5 rotas carregam, bottom-nav muda de active state. Cada rota renderiza placeholder `<h1>`.
 
 - [ ] **Step 4: Commit**
@@ -280,6 +290,7 @@ git commit -m "feat: shell layout com BottomNav + React Router 5 rotas"
 ### Task 5: Componentes Reutilizáveis (Design System React)
 
 **Files:**
+
 - Create: `app/src/components/Card/Card.tsx`
 - Create: `app/src/components/Chip/Chip.tsx`
 - Create: `app/src/components/Button/Button.tsx`
@@ -342,6 +353,7 @@ git commit -m "feat: componentes base do Design System (Card, Chip, Step, PullQu
 ### Task 6: Página Home (O Santuário)
 
 **Files:**
+
 - Create: `app/src/pages/HomePage/HomePage.tsx`
 - Create: `app/src/pages/HomePage/HomePage.module.css`
 - Reference: `Produção - BEMVINDOMUNDO/index.html` (protótipo visual)
@@ -406,6 +418,7 @@ git commit -m "feat: HomePage — Spotlight, Neural Flow, Quick Grid"
 ### Task 7: Página Biblioteca Botânica
 
 **Files:**
+
 - Create: `app/src/pages/BibliotecaPage/BibliotecaPage.tsx`
 - Create: `app/src/pages/BibliotecaPage/BibliotecaPage.module.css`
 - Create: `app/src/components/OilCard/OilCard.tsx`
@@ -461,6 +474,7 @@ git commit -m "feat: Biblioteca Botânica — 17 fichas filtráveis"
 ### Task 8: Página Rituais & Receitas
 
 **Files:**
+
 - Create: `app/src/pages/RituaisPage/RituaisPage.tsx`
 - Create: `app/src/pages/RituaisPage/RituaisPage.module.css`
 - Create: `app/src/components/RecipeCard/RecipeCard.tsx`
@@ -515,6 +529,7 @@ git commit -m "feat: Rituais & Receitas — 29 protocolos em 5 abas"
 ### Task 9: Página Mindset
 
 **Files:**
+
 - Create: `app/src/pages/MindsetPage/MindsetPage.tsx`
 - Create: `app/src/pages/MindsetPage/MindsetPage.module.css`
 - Create: `app/src/components/TipCard/TipCard.tsx`
@@ -566,6 +581,7 @@ git commit -m "feat: Mindset — 22 dicas + 8 pares + FAB Respirar"
 ### Task 10: Página Guias & Segurança
 
 **Files:**
+
 - Create: `app/src/pages/GuiasPage/GuiasPage.tsx`
 - Create: `app/src/pages/GuiasPage/GuiasPage.module.css`
 - Reference: `Produção - BEMVINDOMUNDO/guias.html`
@@ -630,6 +646,7 @@ npx lighthouse http://localhost:3000 --only-categories=accessibility --output=js
 - [ ] **Step 2: Garantir todas as páginas passam**
 
 Critérios mínimos:
+
 - Skip Link funcional (#main)
 - Focus ring 2px em todos os interativos
 - Contraste 4.5:1 em todo texto sobre fundo
@@ -655,7 +672,7 @@ git commit -m "a11y: WCAG 2.2 AA compliance — contraste, ARIA, touch targets"
 
 ```tsx
 // React.lazy + Suspense para cada página
-const HomePage = React.lazy(() => import('./pages/HomePage/HomePage'));
+const HomePage = React.lazy(() => import("./pages/HomePage/HomePage"));
 // ... 4 restantes
 ```
 
@@ -672,6 +689,7 @@ const HomePage = React.lazy(() => import('./pages/HomePage/HomePage'));
 ```bash
 npx lighthouse http://localhost:3000 --only-categories=performance
 ```
+
 Expected: Score ≥ 90. FCP < 1.5s. CLS < 0.1.
 
 - [ ] **Step 4: Commit**
@@ -696,8 +714,15 @@ git commit -m "perf: code splitting + lazy loading (Lighthouse 90+)"
 
 ```css
 /* Cross-fade entre tab panels */
-.tab-enter { opacity: 0; transform: translateX(20px); }
-.tab-enter-active { opacity: 1; transform: translateX(0); transition: 250ms ease; }
+.tab-enter {
+  opacity: 0;
+  transform: translateX(20px);
+}
+.tab-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: 250ms ease;
+}
 ```
 
 - [ ] **Step 3: Swipe feedback (Sabotagem cards)**
@@ -725,13 +750,13 @@ git commit -m "animation: fade-in scroll + tab transition + swipe cards"
 
 ### Task 14: Onda 1 — Assets Mínimos para Esqueleto
 
-| # | Asset | Prompt sugerido | Proporção | Destino |
-|---|---|---|---|---|
-| 1 | Hero genérico home | "Close-up macro photography of essential oil drops on green botanical leaves, warm natural lighting, vertical composition, wellness editorial style" | 3:4 | HomePage hero |
-| 2-4 | 3 fotos de óleo (Grapefruit, Peppermint, Serenity) | "Macro photography of {oil/plant}, studio lighting, editorial botanical, clean background" | 1:1 (80x80 thumb) + 4:3 (detail hero) | BibliotecaPage |
-| 5 | Foto wellness para receita | "Hands applying massage oil on body, soft warm lighting, wellness spa editorial" | 16:9 | RituaisPage |
-| 6-8 | 3 texturas abstratas Mindset | "Abstract watercolor texture, beige and ivory tones, subtle botanical leaf shadows, digital art, minimalist" | 1:1 | MindsetPage |
-| 9 | Foto editorial mãos + óleos | "Feminine hands pouring essential oil from amber bottle, warm light, editorial wellness" | 16:9 | GuiasPage |
+| #   | Asset                                              | Prompt sugerido                                                                                                                                      | Proporção                             | Destino        |
+| --- | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | -------------- |
+| 1   | Hero genérico home                                 | "Close-up macro photography of essential oil drops on green botanical leaves, warm natural lighting, vertical composition, wellness editorial style" | 3:4                                   | HomePage hero  |
+| 2-4 | 3 fotos de óleo (Grapefruit, Peppermint, Serenity) | "Macro photography of {oil/plant}, studio lighting, editorial botanical, clean background"                                                           | 1:1 (80x80 thumb) + 4:3 (detail hero) | BibliotecaPage |
+| 5   | Foto wellness para receita                         | "Hands applying massage oil on body, soft warm lighting, wellness spa editorial"                                                                     | 16:9                                  | RituaisPage    |
+| 6-8 | 3 texturas abstratas Mindset                       | "Abstract watercolor texture, beige and ivory tones, subtle botanical leaf shadows, digital art, minimalist"                                         | 1:1                                   | MindsetPage    |
+| 9   | Foto editorial mãos + óleos                        | "Feminine hands pouring essential oil from amber bottle, warm light, editorial wellness"                                                             | 16:9                                  | GuiasPage      |
 
 - [ ] **Step 1: Gerar 9 imagens com generate_image**
 - [ ] **Step 2: Salvar em `app/src/assets/`**
@@ -740,25 +765,25 @@ git commit -m "animation: fade-in scroll + tab transition + swipe cards"
 
 ### Task 15: Onda 2 — 17 Fotos Hero de Óleo
 
-| # | Óleo | Prompt sugerido |
-|---|---|---|
-| 1 | Grapefruit | "Macro cross-section of grapefruit with visible juice droplets, botanical photography, warm lighting" |
-| 2 | Peppermint | "Fresh peppermint leaves with dew drops, extreme close-up macro, green vivid, editorial botanical" |
-| 3 | Serenity | "Lavender field at golden hour, dreamy bokeh, soothing purple and gold tones" |
-| 4 | Lime e Lemon | "Sliced lime and lemon with essential oil drops, citrus macro photography" |
-| 5 | Cinnamon Bark | "Cinnamon bark sticks spiral macro, warm amber tones, spice photography" |
-| 6 | Wild Orange | "Ripe wild orange on branch with leaves, golden sunlight, botanical art" |
-| 7 | Gengibre | "Fresh ginger root cross section, warm earth tones, macro food photography" |
-| 8 | Basil | "Fresh basil leaves top view, green vivid, water droplets, culinary editorial" |
-| 9 | Camomila | "Chamomile flowers field close-up, soft white and yellow, dreamy botanical" |
-| 10 | Balance | "Balanced zen stones with essential oil bottles, muted earth tones, wellness" |
-| 11 | Smart & Sassy | "Citrus blend ingredients (grapefruit, peppermint, ginger), flat-lay editorial" |
-| 12 | Alecrim | "Rosemary sprigs close-up, Mediterranean sunlight, herbal photography" |
-| 13 | Fennel | "Fennel bulb cross-section macro, green and white tones, vegetable art" |
-| 14 | Turmeric | "Turmeric root and powder, golden warm tones, spice macro photography" |
-| 15 | Sândalo | "Sandalwood bark and shavings, warm wood tones, zen texture photography" |
-| 16 | Cilantro | "Fresh cilantro/coriander leaves, green vibrant, water mist, herbal macro" |
-| 17 | Petitgrain | "Bitter orange tree leaves and small fruits, green botanical, morning light" |
+| #   | Óleo          | Prompt sugerido                                                                                       |
+| --- | ------------- | ----------------------------------------------------------------------------------------------------- |
+| 1   | Grapefruit    | "Macro cross-section of grapefruit with visible juice droplets, botanical photography, warm lighting" |
+| 2   | Peppermint    | "Fresh peppermint leaves with dew drops, extreme close-up macro, green vivid, editorial botanical"    |
+| 3   | Serenity      | "Lavender field at golden hour, dreamy bokeh, soothing purple and gold tones"                         |
+| 4   | Lime e Lemon  | "Sliced lime and lemon with essential oil drops, citrus macro photography"                            |
+| 5   | Cinnamon Bark | "Cinnamon bark sticks spiral macro, warm amber tones, spice photography"                              |
+| 6   | Wild Orange   | "Ripe wild orange on branch with leaves, golden sunlight, botanical art"                              |
+| 7   | Gengibre      | "Fresh ginger root cross section, warm earth tones, macro food photography"                           |
+| 8   | Basil         | "Fresh basil leaves top view, green vivid, water droplets, culinary editorial"                        |
+| 9   | Camomila      | "Chamomile flowers field close-up, soft white and yellow, dreamy botanical"                           |
+| 10  | Balance       | "Balanced zen stones with essential oil bottles, muted earth tones, wellness"                         |
+| 11  | Smart & Sassy | "Citrus blend ingredients (grapefruit, peppermint, ginger), flat-lay editorial"                       |
+| 12  | Alecrim       | "Rosemary sprigs close-up, Mediterranean sunlight, herbal photography"                                |
+| 13  | Fennel        | "Fennel bulb cross-section macro, green and white tones, vegetable art"                               |
+| 14  | Turmeric      | "Turmeric root and powder, golden warm tones, spice macro photography"                                |
+| 15  | Sândalo       | "Sandalwood bark and shavings, warm wood tones, zen texture photography"                              |
+| 16  | Cilantro      | "Fresh cilantro/coriander leaves, green vibrant, water mist, herbal macro"                            |
+| 17  | Petitgrain    | "Bitter orange tree leaves and small fruits, green botanical, morning light"                          |
 
 - [ ] **Step 1-17: Gerar 17 fotos hero (4:3 landscape para detail, 1:1 thumbnail)**
 - [ ] **Step 18: Salvar e substituir placeholders**
@@ -770,6 +795,7 @@ git commit -m "animation: fade-in scroll + tab transition + swipe cards"
 
 > [!TIP]
 > Esta onda pode ser feita graduamente — por aba de receitas:
+>
 > - Uso Tópico: 5 heroes + 10 steps
 > - Culinária: 6 heroes + 12 steps
 > - TrimShake: 9 heroes + 0 steps (shakes são idênticos)
@@ -782,18 +808,18 @@ git commit -m "animation: fade-in scroll + tab transition + swipe cards"
 
 ### Task 17: Ícones SVG Orgânicos
 
-| # | Ícone | Uso | Estilo |
-|---|---|---|---|
-| 1 | Conta-gotas | Atalho "Biblioteca" | Line-art orgânico, 1.5px stroke, cor primary |
-| 2 | Mãos em concha | Atalho "Rituais" | idem |
-| 3 | Cérebro/folha | Atalho "Mindset" | idem |
-| 4 | Escudo/folha | Atalho "Guias" | idem |
-| 5 | Sol | Alerta cítricos | idem |
-| 6 | Cápsula | Alerta ingestão | idem |
-| 7 | Gota | Alerta diluição | idem |
-| 8 | Escudo | Alerta CPTG | idem |
-| 9 | Casa | Nav "Home" | idem |
-| 10 | Folha | Nav "Óleos" | idem |
+| #   | Ícone          | Uso                 | Estilo                                       |
+| --- | -------------- | ------------------- | -------------------------------------------- |
+| 1   | Conta-gotas    | Atalho "Biblioteca" | Line-art orgânico, 1.5px stroke, cor primary |
+| 2   | Mãos em concha | Atalho "Rituais"    | idem                                         |
+| 3   | Cérebro/folha  | Atalho "Mindset"    | idem                                         |
+| 4   | Escudo/folha   | Atalho "Guias"      | idem                                         |
+| 5   | Sol            | Alerta cítricos     | idem                                         |
+| 6   | Cápsula        | Alerta ingestão     | idem                                         |
+| 7   | Gota           | Alerta diluição     | idem                                         |
+| 8   | Escudo         | Alerta CPTG         | idem                                         |
+| 9   | Casa           | Nav "Home"          | idem                                         |
+| 10  | Folha          | Nav "Óleos"         | idem                                         |
 
 - [ ] **Steps: Gerar via generate_image com prompt "minimal line-art icon"**
 - [ ] **Converter para SVG (se necessário: potrace ou export manual)**
@@ -831,7 +857,7 @@ npm install -D vite-plugin-pwa
 
 ```typescript
 // vite.config.ts
-import { VitePWA } from 'vite-plugin-pwa';
+import { VitePWA } from "vite-plugin-pwa";
 // ... configuração de precache dos assets + offline fallback
 ```
 
@@ -890,50 +916,50 @@ git push --tags
 
 ### 📍 Diretórios das Skills
 
-| Skill | Diretório | Departamento |
-|---|---|---|
-| `writing-plans` | `/home/leonardotl/.agents/skills/writing-plans/SKILL.md` | 🗺️ Arquitetura |
-| `executing-plans` | `/home/leonardotl/.agents/skills/executing-plans/SKILL.md` | 🗺️ Arquitetura |
-| `subagent-driven-development` | `/home/leonardotl/.agents/skills/subagent-driven-development/SKILL.md` | 🗺️ Arquitetura |
-| `diario-tecnico` | `/home/leonardotl/.agents/skills/diario-tecnico/SKILL.md` | 🗺️ Arquitetura |
-| `test-driven-development` | `/home/leonardotl/.agents/skills/test-driven-development/SKILL.md` | 💻 Código |
-| `vercel-react-best-practices` | `/home/leonardotl/.agents/skills/react-best-practices/SKILL.md` | 💻 Código |
-| `accessibility-compliance` | `/home/leonardotl/.agents/skills/accessibility-compliance/SKILL.md` | 💻 Código |
-| `systematic-debugging` | `/home/leonardotl/.agents/skills/systematic-debugging/SKILL.md` | 💻 Código |
-| `code-review-excellence` | `/home/leonardotl/.agents/skills/code-review-excellence/SKILL.md` | 🕵️ QA/Deploy |
-| `webapp-testing` | `/home/leonardotl/.agents/skills/webapp-testing/SKILL.md` | 🕵️ QA/Deploy |
-| `verification-before-completion` | `/home/leonardotl/.agents/skills/verification-before-completion/SKILL.md` | 🕵️ QA/Deploy |
-| `finishing-a-development-branch` | `/home/leonardotl/.agents/skills/finishing-a-development-branch/SKILL.md` | 🕵️ QA/Deploy |
-| `perfect-deploy-with-backup` | `/home/leonardotl/.agents/skills/perfect-deploy-with-backup/SKILL.md` | 🕵️ QA/Deploy |
-| `psicometra-soberano` | `/home/leonardotl/.agents/skills/psicometra-soberano/SKILL.md` | 🔮 Auditoria Pessoal |
-| `content-strategy` | `/home/leonardotl/.agents/promissoras/` (skill editorial) | ✍️ Editorial |
-| `copy-editing` | `/home/leonardotl/.agents/promissoras/` (skill editorial) | ✍️ Editorial |
-| `beautiful-prose` | `/home/leonardotl/.agents/promissoras/` (skill editorial) | ✍️ Editorial |
-| `writing-clearly-and-concisely` | `/home/leonardotl/.agents/promissoras/` (skill editorial) | ✍️ Editorial |
-| `professional-proofreader` | `/home/leonardotl/.agents/promissoras/` (skill editorial) | ✍️ Editorial |
-| `hig-components-content` | `/home/leonardotl/.agents/promissoras/` (skill editorial) | 📱 Design/Interface |
-| `ui-ux-designer` / `ui-ux-pro-max` | `/home/leonardotl/.agents/promissoras/` (skill editorial) | 📱 Design/Interface |
+| Skill                              | Diretório                                                                 | Departamento         |
+| ---------------------------------- | ------------------------------------------------------------------------- | -------------------- |
+| `writing-plans`                    | `/home/leonardotl/.agents/skills/writing-plans/SKILL.md`                  | 🗺️ Arquitetura       |
+| `executing-plans`                  | `/home/leonardotl/.agents/skills/executing-plans/SKILL.md`                | 🗺️ Arquitetura       |
+| `subagent-driven-development`      | `/home/leonardotl/.agents/skills/subagent-driven-development/SKILL.md`    | 🗺️ Arquitetura       |
+| `diario-tecnico`                   | `/home/leonardotl/.agents/skills/diario-tecnico/SKILL.md`                 | 🗺️ Arquitetura       |
+| `test-driven-development`          | `/home/leonardotl/.agents/skills/test-driven-development/SKILL.md`        | 💻 Código            |
+| `vercel-react-best-practices`      | `/home/leonardotl/.agents/skills/react-best-practices/SKILL.md`           | 💻 Código            |
+| `accessibility-compliance`         | `/home/leonardotl/.agents/skills/accessibility-compliance/SKILL.md`       | 💻 Código            |
+| `systematic-debugging`             | `/home/leonardotl/.agents/skills/systematic-debugging/SKILL.md`           | 💻 Código            |
+| `code-review-excellence`           | `/home/leonardotl/.agents/skills/code-review-excellence/SKILL.md`         | 🕵️ QA/Deploy         |
+| `webapp-testing`                   | `/home/leonardotl/.agents/skills/webapp-testing/SKILL.md`                 | 🕵️ QA/Deploy         |
+| `verification-before-completion`   | `/home/leonardotl/.agents/skills/verification-before-completion/SKILL.md` | 🕵️ QA/Deploy         |
+| `finishing-a-development-branch`   | `/home/leonardotl/.agents/skills/finishing-a-development-branch/SKILL.md` | 🕵️ QA/Deploy         |
+| `perfect-deploy-with-backup`       | `/home/leonardotl/.agents/skills/perfect-deploy-with-backup/SKILL.md`     | 🕵️ QA/Deploy         |
+| `psicometra-soberano`              | `/home/leonardotl/.agents/skills/psicometra-soberano/SKILL.md`            | 🔮 Auditoria Pessoal |
+| `content-strategy`                 | `/home/leonardotl/.agents/promissoras/` (skill editorial)                 | ✍️ Editorial         |
+| `copy-editing`                     | `/home/leonardotl/.agents/promissoras/` (skill editorial)                 | ✍️ Editorial         |
+| `beautiful-prose`                  | `/home/leonardotl/.agents/promissoras/` (skill editorial)                 | ✍️ Editorial         |
+| `writing-clearly-and-concisely`    | `/home/leonardotl/.agents/promissoras/` (skill editorial)                 | ✍️ Editorial         |
+| `professional-proofreader`         | `/home/leonardotl/.agents/promissoras/` (skill editorial)                 | ✍️ Editorial         |
+| `hig-components-content`           | `/home/leonardotl/.agents/promissoras/` (skill editorial)                 | 📱 Design/Interface  |
+| `ui-ux-designer` / `ui-ux-pro-max` | `/home/leonardotl/.agents/promissoras/` (skill editorial)                 | 📱 Design/Interface  |
 
 ### 🔗 Skills por Task — Referência Cruzada Detalhada
 
-| Task | Nome | Skills Core (Engenharia) | Skills Editoriais (UX/Conteúdo) | Justificativa |
-|:---:|---|---|---|---|
-| **1** | Scaffold Vite | — | — | Automação simples, sem skill necessária |
-| **2** | Design System CSS | `vercel-react-best-practices` | `ui-ux-pro-max` | **React BP** define padrões CSS Modules performáticos; **UI ProMax** valida contraste WCAG dos tokens e assimetria da tipografia editorial |
-| **3** | Conversão .txt→JSON | — | `content-strategy` | **Strategy** mapeia a árvore de categorização dos 105 .txt → 6 JSONs com chaves fixas (Tópico>Subtópico>Uso) sem redundância |
-| **4** | Layout Shell + Router | `vercel-react-best-practices` | `hig-components-content` | **React BP** configura o code splitting correto; **HIG** valida que os labels do BottomNav obedecem restrição de 12-chars e imperativos curtos Apple |
-| **5** | Componentes Design System | `vercel-react-best-practices`, `test-driven-development` | `hig-components-content`, `ui-ux-pro-max` | **React BP** previne re-renders nos componentes; **TDD** garante props e comportamento via Vitest; **HIG** blinda microcopy dos chips/pills; **UI ProMax** garante glassmorphism e shadow corretos |
-| **6** | Página Home | `vercel-react-best-practices` | `beautiful-prose`, `copy-editing` | **React BP** otimiza IntersectionObserver; **Prose** cria tom Sage+Healer na saudação; **Copy-editing** aplica Zeigarnik na chamada do Spotlight para retenção |
-| **7** | Página Biblioteca | `vercel-react-best-practices` | `writing-clearly-and-concisely`, `ui-ux-pro-max` | **React BP** memo nos 17 cards; **Writing Clearly** compacta descrições de óleo para viewport mobile; **UI ProMax** valida organic mask e tonal nesting |
-| **8** | Página Rituais | `vercel-react-best-practices`, `accessibility-compliance` | `hig-components-content`, `copy-editing` | **A11y** garante ARIA nas tabs; **HIG** valida labels SOP curtos nos pills; **Copy-editing** refina títulos SOP para máxima persuasão tática |
-| **9** | Página Mindset | `vercel-react-best-practices` | `beautiful-prose`, `copy-editing` | **Prose** escreve cards de dica com empatia terapêutica (Arquétipo Curador); **Copy-editing** afina as frases de sabotagem→substituição para impacto emocional máximo |
-| **10** | Página Guias | — | `beautiful-prose`, `professional-proofreader`, `writing-clearly-and-concisely` | **Prose** cria drop-cap literário e pull-quotes poéticos; **Proofreader** blinda gramaticalmente o aviso legal (texto jurídico não pode errar); **Writing Clearly** compacta alertas de segurança |
-| **11** | Acessibilidade | `accessibility-compliance` | — | **A11y** roda audit WCAG 2.2 AA completo (contraste, ARIA, touch targets, focus ring, headings hierarchy) |
-| **12** | Performance | `vercel-react-best-practices` | — | **React BP** aplica code splitting, lazy loading, CLS < 0.1, Lighthouse ≥ 90 |
-| **13** | Micro-Animações | `vercel-react-best-practices` | `ui-ux-pro-max` | **React BP** otimiza IntersectionObserver; **UI ProMax** calibra timing das transições para sensação "boutique" sem jank |
-| **14-17** | Assets Visuais | — | `ui-ux-pro-max` | **UI ProMax** valida que cada imagem gerada respeita o Design System (Eucalipto Profundo, tons neutros, iluminação natural) |
-| **18** | PWA | — | — | Configuração técnica simples |
-| **19** | Deploy | `perfect-deploy-with-backup`, `verification-before-completion`, `finishing-a-development-branch`, `webapp-testing` | `professional-proofreader` | **Deploy PD** tranca backup tar.gz no cofre local; **Verification** exige prova Shell de que build compila; **Finishing** limpa branches e temp files; **Webapp-testing** roda Playwright em todas as rotas; **Proofreader** faz varredura final de typos em toda a UI |
+|   Task    | Nome                      | Skills Core (Engenharia)                                                                                           | Skills Editoriais (UX/Conteúdo)                                                | Justificativa                                                                                                                                                                                                                                                          |
+| :-------: | ------------------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|   **1**   | Scaffold Vite             | —                                                                                                                  | —                                                                              | Automação simples, sem skill necessária                                                                                                                                                                                                                                |
+|   **2**   | Design System CSS         | `vercel-react-best-practices`                                                                                      | `ui-ux-pro-max`                                                                | **React BP** define padrões CSS Modules performáticos; **UI ProMax** valida contraste WCAG dos tokens e assimetria da tipografia editorial                                                                                                                             |
+|   **3**   | Conversão .txt→JSON       | —                                                                                                                  | `content-strategy`                                                             | **Strategy** mapeia a árvore de categorização dos 105 .txt → 6 JSONs com chaves fixas (Tópico>Subtópico>Uso) sem redundância                                                                                                                                           |
+|   **4**   | Layout Shell + Router     | `vercel-react-best-practices`                                                                                      | `hig-components-content`                                                       | **React BP** configura o code splitting correto; **HIG** valida que os labels do BottomNav obedecem restrição de 12-chars e imperativos curtos Apple                                                                                                                   |
+|   **5**   | Componentes Design System | `vercel-react-best-practices`, `test-driven-development`                                                           | `hig-components-content`, `ui-ux-pro-max`                                      | **React BP** previne re-renders nos componentes; **TDD** garante props e comportamento via Vitest; **HIG** blinda microcopy dos chips/pills; **UI ProMax** garante glassmorphism e shadow corretos                                                                     |
+|   **6**   | Página Home               | `vercel-react-best-practices`                                                                                      | `beautiful-prose`, `copy-editing`                                              | **React BP** otimiza IntersectionObserver; **Prose** cria tom Sage+Healer na saudação; **Copy-editing** aplica Zeigarnik na chamada do Spotlight para retenção                                                                                                         |
+|   **7**   | Página Biblioteca         | `vercel-react-best-practices`                                                                                      | `writing-clearly-and-concisely`, `ui-ux-pro-max`                               | **React BP** memo nos 17 cards; **Writing Clearly** compacta descrições de óleo para viewport mobile; **UI ProMax** valida organic mask e tonal nesting                                                                                                                |
+|   **8**   | Página Rituais            | `vercel-react-best-practices`, `accessibility-compliance`                                                          | `hig-components-content`, `copy-editing`                                       | **A11y** garante ARIA nas tabs; **HIG** valida labels SOP curtos nos pills; **Copy-editing** refina títulos SOP para máxima persuasão tática                                                                                                                           |
+|   **9**   | Página Mindset            | `vercel-react-best-practices`                                                                                      | `beautiful-prose`, `copy-editing`                                              | **Prose** escreve cards de dica com empatia terapêutica (Arquétipo Curador); **Copy-editing** afina as frases de sabotagem→substituição para impacto emocional máximo                                                                                                  |
+|  **10**   | Página Guias              | —                                                                                                                  | `beautiful-prose`, `professional-proofreader`, `writing-clearly-and-concisely` | **Prose** cria drop-cap literário e pull-quotes poéticos; **Proofreader** blinda gramaticalmente o aviso legal (texto jurídico não pode errar); **Writing Clearly** compacta alertas de segurança                                                                      |
+|  **11**   | Acessibilidade            | `accessibility-compliance`                                                                                         | —                                                                              | **A11y** roda audit WCAG 2.2 AA completo (contraste, ARIA, touch targets, focus ring, headings hierarchy)                                                                                                                                                              |
+|  **12**   | Performance               | `vercel-react-best-practices`                                                                                      | —                                                                              | **React BP** aplica code splitting, lazy loading, CLS < 0.1, Lighthouse ≥ 90                                                                                                                                                                                           |
+|  **13**   | Micro-Animações           | `vercel-react-best-practices`                                                                                      | `ui-ux-pro-max`                                                                | **React BP** otimiza IntersectionObserver; **UI ProMax** calibra timing das transições para sensação "boutique" sem jank                                                                                                                                               |
+| **14-17** | Assets Visuais            | —                                                                                                                  | `ui-ux-pro-max`                                                                | **UI ProMax** valida que cada imagem gerada respeita o Design System (Eucalipto Profundo, tons neutros, iluminação natural)                                                                                                                                            |
+|  **18**   | PWA                       | —                                                                                                                  | —                                                                              | Configuração técnica simples                                                                                                                                                                                                                                           |
+|  **19**   | Deploy                    | `perfect-deploy-with-backup`, `verification-before-completion`, `finishing-a-development-branch`, `webapp-testing` | `professional-proofreader`                                                     | **Deploy PD** tranca backup tar.gz no cofre local; **Verification** exige prova Shell de que build compila; **Finishing** limpa branches e temp files; **Webapp-testing** roda Playwright em todas as rotas; **Proofreader** faz varredura final de typos em toda a UI |
 
 ### 🏭 Pipeline Soberano de Execução (Ordem Obrigatória)
 
@@ -1009,74 +1035,74 @@ git push --tags
 
 ### Fotografias Botânicas (Óleos)
 
-| # | Óleo | Thumb (1:1, 80px) | Hero (4:3, 1080px) | Spotlight (3:4, 1440px) |
-|---|---|:---:|:---:|:---:|
-| 1 | Grapefruit | ☐ | ☐ | ☐ |
-| 2 | Peppermint | ☐ | ☐ | ☐ |
-| 3 | Serenity | ☐ | ☐ | ☐ |
-| 4 | Lime e Lemon | ☐ | ☐ | ☐ |
-| 5 | Cinnamon Bark | ☐ | ☐ | ☐ |
-| 6 | Wild Orange | ☐ | ☐ | ☐ |
-| 7 | Gengibre | ☐ | ☐ | ☐ |
-| 8 | Basil | ☐ | ☐ | ☐ |
-| 9 | Camomila Romana | ☐ | ☐ | ☐ |
-| 10 | Balance (blend) | ☐ | ☐ | ☐ |
-| 11 | Smart & Sassy (blend) | ☐ | ☐ | ☐ |
-| 12 | Alecrim | ☐ | ☐ | ☐ |
-| 13 | Fennel | ☐ | ☐ | ☐ |
-| 14 | Turmeric | ☐ | ☐ | ☐ |
-| 15 | Sândalo Hawaiano | ☐ | ☐ | ☐ |
-| 16 | Cilantro | ☐ | ☐ | ☐ |
-| 17 | Petitgrain | ☐ | ☐ | ☐ |
-| | **Subtotal** | **17** | **17** | **17** = **51 fotos** |
+| #   | Óleo                  | Thumb (1:1, 80px) | Hero (4:3, 1080px) | Spotlight (3:4, 1440px) |
+| --- | --------------------- | :---------------: | :----------------: | :---------------------: |
+| 1   | Grapefruit            |         ☐         |         ☐          |            ☐            |
+| 2   | Peppermint            |         ☐         |         ☐          |            ☐            |
+| 3   | Serenity              |         ☐         |         ☐          |            ☐            |
+| 4   | Lime e Lemon          |         ☐         |         ☐          |            ☐            |
+| 5   | Cinnamon Bark         |         ☐         |         ☐          |            ☐            |
+| 6   | Wild Orange           |         ☐         |         ☐          |            ☐            |
+| 7   | Gengibre              |         ☐         |         ☐          |            ☐            |
+| 8   | Basil                 |         ☐         |         ☐          |            ☐            |
+| 9   | Camomila Romana       |         ☐         |         ☐          |            ☐            |
+| 10  | Balance (blend)       |         ☐         |         ☐          |            ☐            |
+| 11  | Smart & Sassy (blend) |         ☐         |         ☐          |            ☐            |
+| 12  | Alecrim               |         ☐         |         ☐          |            ☐            |
+| 13  | Fennel                |         ☐         |         ☐          |            ☐            |
+| 14  | Turmeric              |         ☐         |         ☐          |            ☐            |
+| 15  | Sândalo Hawaiano      |         ☐         |         ☐          |            ☐            |
+| 16  | Cilantro              |         ☐         |         ☐          |            ☐            |
+| 17  | Petitgrain            |         ☐         |         ☐          |            ☐            |
+|     | **Subtotal**          |      **17**       |       **17**       |  **17** = **51 fotos**  |
 
 ### Fotografias de Receitas
 
-| Aba | Qtd de receitas | Hero (16:9) | Passo-a-passo (3:2, ~2/receita) |
-|---|:---:|:---:|:---:|
-| Uso Tópico | 5 | 5 | 10 |
-| Culinária | 6 | 6 | 12 |
-| TrimShake | 9 | 9 | 0 (preparo idêntico) |
-| Bebidas | 5 | 5 | 10 |
-| Difusão | 4 | 4 | 4 |
-| **Subtotal** | **29** | **29** | **36 = 65 fotos** |
+| Aba          | Qtd de receitas | Hero (16:9) | Passo-a-passo (3:2, ~2/receita) |
+| ------------ | :-------------: | :---------: | :-----------------------------: |
+| Uso Tópico   |        5        |      5      |               10                |
+| Culinária    |        6        |      6      |               12                |
+| TrimShake    |        9        |      9      |      0 (preparo idêntico)       |
+| Bebidas      |        5        |      5      |               10                |
+| Difusão      |        4        |      4      |                4                |
+| **Subtotal** |     **29**      |   **29**    |        **36 = 65 fotos**        |
 
 ### Texturas e Backgrounds
 
-| Tipo | Quantidade | Proporção | Destino |
-|---|:---:|---|---|
-| Aquarela bege/marfim | 8 | 1:1 (1080px) | Cards de dica Mindset |
-| **Subtotal** | **8** | | |
+| Tipo                 | Quantidade | Proporção    | Destino               |
+| -------------------- | :--------: | ------------ | --------------------- |
+| Aquarela bege/marfim |     8      | 1:1 (1080px) | Cards de dica Mindset |
+| **Subtotal**         |   **8**    |              |                       |
 
 ### Ícones SVG
 
-| Tipo | Quantidade | Destino |
-|---|:---:|---|
-| Atalhos rápidos (Home grid) | 4 | HomePage |
-| Alertas de segurança | 4 | GuiasPage |
-| Bottom nav | 5 | Shell global |
-| **Subtotal** | **13** | |
+| Tipo                        | Quantidade | Destino      |
+| --------------------------- | :--------: | ------------ |
+| Atalhos rápidos (Home grid) |     4      | HomePage     |
+| Alertas de segurança        |     4      | GuiasPage    |
+| Bottom nav                  |     5      | Shell global |
+| **Subtotal**                |   **13**   |              |
 
 ### Outros
 
-| Tipo | Quantidade | Destino |
-|---|:---:|---|
-| Foto/placeholder autora | 1 | GuiasPage |
-| Ícones PWA (192 + 512) | 2 | manifest.json |
-| Favicon (.ico + .svg) | 2 | index.html |
-| OG Image (social share) | 1 | meta tags |
-| **Subtotal** | **6** | |
+| Tipo                    | Quantidade | Destino       |
+| ----------------------- | :--------: | ------------- |
+| Foto/placeholder autora |     1      | GuiasPage     |
+| Ícones PWA (192 + 512)  |     2      | manifest.json |
+| Favicon (.ico + .svg)   |     2      | index.html    |
+| OG Image (social share) |     1      | meta tags     |
+| **Subtotal**            |   **6**    |               |
 
 ### TOTAL GERAL DE ASSETS
 
-| Categoria | Quantidade |
-|---|:---:|
-| Fotografias botânicas | 51 |
-| Fotografias de receitas | 65 |
-| Texturas/backgrounds | 8 |
-| Ícones SVG | 13 |
-| Outros | 6 |
-| **TOTAL** | **143** |
+| Categoria               | Quantidade |
+| ----------------------- | :--------: |
+| Fotografias botânicas   |     51     |
+| Fotografias de receitas |     65     |
+| Texturas/backgrounds    |     8      |
+| Ícones SVG              |     13     |
+| Outros                  |     6      |
+| **TOTAL**               |  **143**   |
 
 ---
 

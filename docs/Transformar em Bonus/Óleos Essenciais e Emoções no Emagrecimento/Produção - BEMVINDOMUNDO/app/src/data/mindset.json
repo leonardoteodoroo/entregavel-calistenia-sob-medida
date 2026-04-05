@@ -23,9 +23,7 @@
       "id": "par-1",
       "theme": "RECOMPENSA ALIMENTAR",
       "sabotage": "Hoje posso comer um doce porque mereço!",
-      "positive": [
-        "Como recompensa vou tomar um bom chá e relaxar um pouco."
-      ]
+      "positive": ["Como recompensa vou tomar um bom chá e relaxar um pouco."]
     },
     {
       "id": "par-2",
@@ -39,25 +37,19 @@
       "id": "par-3",
       "theme": "PROCRASTINAÇÃO",
       "sabotage": "Semana que vem começo a dieta.",
-      "positive": [
-        "A saúde é meu bem mais precioso."
-      ]
+      "positive": ["A saúde é meu bem mais precioso."]
     },
     {
       "id": "par-4",
       "theme": "ADIAMENTO SAZONAL",
       "sabotage": "No verão começo a malhar.",
-      "positive": [
-        "Sou forte, preciso pensar no meu bem estar."
-      ]
+      "positive": ["Sou forte, preciso pensar no meu bem estar."]
     },
     {
       "id": "par-5",
       "theme": "IDENTIDADE FALSA",
       "sabotage": "Adoro comer, é um hobby!",
-      "positive": [
-        "Meu corpo é minha morada, preciso cuidar bem dele."
-      ]
+      "positive": ["Meu corpo é minha morada, preciso cuidar bem dele."]
     },
     {
       "id": "par-6",
@@ -80,9 +72,7 @@
       "id": "par-8",
       "theme": "DESISTÊNCIA",
       "sabotage": "Eu não consigo!",
-      "positive": [
-        "Eu posso, eu consigo!"
-      ]
+      "positive": ["Eu posso, eu consigo!"]
     }
   ]
 }

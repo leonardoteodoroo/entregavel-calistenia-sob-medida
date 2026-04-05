@@ -1,6 +1,8 @@
 .wrapper {
   margin-bottom: var(--spacing-6);
-  transition: opacity 400ms ease, transform 400ms ease;
+  transition:
+    opacity 400ms ease,
+    transform 400ms ease;
 }
 
 .cardHidden {
@@ -23,7 +25,11 @@
   text-align: center;
   background:
     radial-gradient(circle at top, rgba(255, 255, 255, 0.72), transparent 40%),
-    linear-gradient(180deg, color-mix(in srgb, var(--tip-accent) 78%, white), var(--surface-container-low));
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--tip-accent) 78%, white),
+      var(--surface-container-low)
+    );
 }
 
 .counter {

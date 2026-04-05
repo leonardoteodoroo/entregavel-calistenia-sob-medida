@@ -1,47 +1,48 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import Card from '../Card/Card'
-import GlassPill from '../GlassPill/GlassPill'
-import ImagePlaceholder from '../ImagePlaceholder/ImagePlaceholder'
-import OrganicIcon from '../OrganicIcon/OrganicIcon'
-import StepNumber from '../StepNumber/StepNumber'
-import { getRecipeEmoji } from '../../data/recipesPresentation'
-import type { Recipe } from '../../data/types'
-import styles from './RecipeDetail.module.css'
+import Card from "../Card/Card";
+import GlassPill from "../GlassPill/GlassPill";
+import ImagePlaceholder from "../ImagePlaceholder/ImagePlaceholder";
+import OrganicIcon from "../OrganicIcon/OrganicIcon";
+import StepNumber from "../StepNumber/StepNumber";
+import { getRecipeEmoji } from "../../data/recipesPresentation";
+import type { Recipe } from "../../data/types";
+import styles from "./RecipeDetail.module.css";
 
 function isInstructionLine(value: string) {
-  return value.trim().endsWith('.')
+  return value.trim().endsWith(".");
 }
 
 function isGenericPlaceholder(recipe: Recipe) {
   return (
-    recipe.steps.length === 1 && recipe.steps[0].includes('orientação editorial original')
-  )
+    recipe.steps.length === 1 &&
+    recipe.steps[0].includes("orientação editorial original")
+  );
 }
 
 function getChecklistItems(recipe: Recipe) {
-  return recipe.ingredients.filter((item) => !isInstructionLine(item))
+  return recipe.ingredients.filter(item => !isInstructionLine(item));
 }
 
 function getPreparationSteps(recipe: Recipe) {
   if (!isGenericPlaceholder(recipe)) {
-    return recipe.steps
+    return recipe.steps;
   }
 
-  const inferredSteps = recipe.ingredients.filter(isInstructionLine)
+  const inferredSteps = recipe.ingredients.filter(isInstructionLine);
 
-  return inferredSteps.length > 0 ? inferredSteps : recipe.steps
+  return inferredSteps.length > 0 ? inferredSteps : recipe.steps;
 }
 
 export interface RecipeDetailProps {
-  recipe: Recipe
-  id?: string
+  recipe: Recipe;
+  id?: string;
 }
 
 export default function RecipeDetail({ recipe, id }: RecipeDetailProps) {
-  const checklistItems = getChecklistItems(recipe)
-  const preparationSteps = getPreparationSteps(recipe)
-  const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>({})
+  const checklistItems = getChecklistItems(recipe);
+  const preparationSteps = getPreparationSteps(recipe);
+  const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>({});
 
   return (
     <section id={id} className={styles.shell}>
@@ -69,12 +70,15 @@ export default function RecipeDetail({ recipe, id }: RecipeDetailProps) {
             <p className="label-md text-variant">📋 O que usar</p>
             <div className={styles.checklist}>
               {checklistItems.map((item, index) => (
-                <label key={`${recipe.id}-${item}`} className={styles.checkItem}>
+                <label
+                  key={`${recipe.id}-${item}`}
+                  className={styles.checkItem}
+                >
                   <input
                     type="checkbox"
                     checked={Boolean(checkedItems[index])}
                     onChange={() =>
-                      setCheckedItems((current) => ({
+                      setCheckedItems(current => ({
                         ...current,
                         [index]: !current[index],
                       }))
@@ -93,7 +97,10 @@ export default function RecipeDetail({ recipe, id }: RecipeDetailProps) {
 
             <div className={styles.steps}>
               {preparationSteps.map((step, index) => (
-                <div key={`${recipe.id}-step-${index + 1}`} className={styles.stepBlock}>
+                <div
+                  key={`${recipe.id}-step-${index + 1}`}
+                  className={styles.stepBlock}
+                >
                   <StepNumber
                     number={index + 1}
                     title={`Etapa ${index + 1}`}
@@ -116,5 +123,5 @@ export default function RecipeDetail({ recipe, id }: RecipeDetailProps) {
         </div>
       </Card>
     </section>
-  )
+  );
 }

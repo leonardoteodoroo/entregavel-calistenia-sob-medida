@@ -1,20 +1,21 @@
-import { Suspense, lazy } from 'react'
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { Suspense, lazy } from "react";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-import BottomNav from './components/BottomNav/BottomNav'
-import BreatheModal from './components/BreatheModal/BreatheModal'
+import BottomNav from "./components/BottomNav/BottomNav";
+import BreatheModal from "./components/BreatheModal/BreatheModal";
 
-const loadHomePage = () => import('./pages/HomePage/HomePage')
-const loadBibliotecaPage = () => import('./pages/BibliotecaPage/BibliotecaPage')
-const loadRituaisPage = () => import('./pages/RituaisPage/RituaisPage')
-const loadMindsetPage = () => import('./pages/MindsetPage/MindsetPage')
-const loadGuiasPage = () => import('./pages/GuiasPage/GuiasPage')
+const loadHomePage = () => import("./pages/HomePage/HomePage");
+const loadBibliotecaPage = () =>
+  import("./pages/BibliotecaPage/BibliotecaPage");
+const loadRituaisPage = () => import("./pages/RituaisPage/RituaisPage");
+const loadMindsetPage = () => import("./pages/MindsetPage/MindsetPage");
+const loadGuiasPage = () => import("./pages/GuiasPage/GuiasPage");
 
-const HomePage = lazy(loadHomePage)
-const BibliotecaPage = lazy(loadBibliotecaPage)
-const RituaisPage = lazy(loadRituaisPage)
-const MindsetPage = lazy(loadMindsetPage)
-const GuiasPage = lazy(loadGuiasPage)
+const HomePage = lazy(loadHomePage);
+const BibliotecaPage = lazy(loadBibliotecaPage);
+const RituaisPage = lazy(loadRituaisPage);
+const MindsetPage = lazy(loadMindsetPage);
+const GuiasPage = lazy(loadGuiasPage);
 
 function App() {
   return (
@@ -51,7 +52,7 @@ function App() {
       <BottomNav />
       <BreatheModal />
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

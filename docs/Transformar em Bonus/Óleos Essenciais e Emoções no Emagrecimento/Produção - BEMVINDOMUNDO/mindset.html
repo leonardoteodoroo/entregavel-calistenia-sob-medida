@@ -1,44 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mentalidade — Óleos & Emoções</title>
-  <meta name="description" content="22 dicas de bem-estar, afirmações positivas e exercício de respiração 4-7-8 para emagrecimento emocional.">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* ═══════════════════════════════════════════
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mentalidade — Óleos & Emoções</title>
+    <meta
+      name="description"
+      content="22 dicas de bem-estar, afirmações positivas e exercício de respiração 4-7-8 para emagrecimento emocional."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ═══════════════════════════════════════════
        ESTILOS ESPECÍFICOS DA TELA MINDSET
        Animação do botão Respirar (4-7-8)
        ═══════════════════════════════════════════ */
-    @keyframes breathe-pulse {
-      0%, 100% { transform: scale(1); opacity: 0.8; }
-      25% { transform: scale(1.15); opacity: 1; } /* Inspira 4s */
-      50% { transform: scale(1.15); opacity: 0.9; } /* Segura 7s */
-      75% { transform: scale(0.95); opacity: 0.7; } /* Expira 8s */
-    }
-    .fab-breathe {
-      position: fixed;
-      bottom: calc(56px + var(--spacing-4));
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 90;
-      background: var(--surface-container-highest);
-      color: var(--on-surface);
-      border: none;
-      border-radius: var(--round-full);
-      padding: var(--spacing-3) var(--spacing-6);
-      font-family: var(--font-sans);
-      font-size: 0.875rem;
-      font-weight: 600;
-      box-shadow: var(--shadow-lg);
-      cursor: pointer;
-      min-height: 44px;
-    }
-    .fab-breathe:hover {
-      animation: breathe-pulse 19s ease-in-out infinite;
-    }
-    /*
+      @keyframes breathe-pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.8;
+        }
+        25% {
+          transform: scale(1.15);
+          opacity: 1;
+        } /* Inspira 4s */
+        50% {
+          transform: scale(1.15);
+          opacity: 0.9;
+        } /* Segura 7s */
+        75% {
+          transform: scale(0.95);
+          opacity: 0.7;
+        } /* Expira 8s */
+      }
+      .fab-breathe {
+        position: fixed;
+        bottom: calc(56px + var(--spacing-4));
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 90;
+        background: var(--surface-container-highest);
+        color: var(--on-surface);
+        border: none;
+        border-radius: var(--round-full);
+        padding: var(--spacing-3) var(--spacing-6);
+        font-family: var(--font-sans);
+        font-size: 0.875rem;
+        font-weight: 600;
+        box-shadow: var(--shadow-lg);
+        cursor: pointer;
+        min-height: 44px;
+      }
+      .fab-breathe:hover {
+        animation: breathe-pulse 19s ease-in-out infinite;
+      }
+      /*
       PRODUÇÃO PENDENTE (TSX):
       - Modal/overlay com ciclo 4-7-8 completo
       - Círculo animado que expande/contrai
@@ -47,45 +63,46 @@
       - Acessível de TODAS as telas (não só Mindset)
     */
 
-    /* Card Sabotagem (fundo escuro invertido) */
-    .card-sabotage {
-      background: var(--primary);
-      color: var(--on-primary);
-      border-radius: var(--round-xl);
-      padding: var(--spacing-8) var(--spacing-6);
-      text-align: center;
-      min-height: 60vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    /* Card Substituição (fundo luminoso) */
-    .card-positive {
-      background: var(--surface-bright);
-      color: var(--on-surface);
-      border-radius: var(--round-xl);
-      padding: var(--spacing-8) var(--spacing-6);
-      text-align: center;
-      min-height: 60vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      box-shadow: var(--shadow-md);
-    }
-  </style>
-</head>
-<body>
-  <a href="#main" class="sr-only">Pular para o conteúdo principal</a>
+      /* Card Sabotagem (fundo escuro invertido) */
+      .card-sabotage {
+        background: var(--primary);
+        color: var(--on-primary);
+        border-radius: var(--round-xl);
+        padding: var(--spacing-8) var(--spacing-6);
+        text-align: center;
+        min-height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      /* Card Substituição (fundo luminoso) */
+      .card-positive {
+        background: var(--surface-bright);
+        color: var(--on-surface);
+        border-radius: var(--round-xl);
+        padding: var(--spacing-8) var(--spacing-6);
+        text-align: center;
+        min-height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-shadow: var(--shadow-md);
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#main" class="sr-only">Pular para o conteúdo principal</a>
 
-  <main id="main" class="page-content">
+    <main id="main" class="page-content">
+      <!-- Header -->
+      <header class="section" style="padding-bottom: 0">
+        <h1 class="headline-lg">Mentalidade</h1>
+        <p class="body-md text-variant" style="margin-top: var(--spacing-1)">
+          Seu espaço para respirar e reprogramar
+        </p>
+      </header>
 
-    <!-- Header -->
-    <header class="section" style="padding-bottom: 0;">
-      <h1 class="headline-lg">Mentalidade</h1>
-      <p class="body-md text-variant" style="margin-top: var(--spacing-1);">Seu espaço para respirar e reprogramar</p>
-    </header>
-
-    <!-- ═══════════════════════════════════════════════════════
+      <!-- ═══════════════════════════════════════════════════════
          SEÇÃO 1: CARDS DE DICA (Variante A — 22 unidades)
          Fonte: estrutura_componentes.md §4.2, Variante A
          Dados: metadados-dicas-mindset.txt + 10-dicas/*.txt
@@ -101,68 +118,164 @@
          - Micro-animação de fade-in on-scroll
          - Cross-link funcional para Biblioteca
          ═══════════════════════════════════════════════════════ -->
-    <section aria-label="Dicas de Bem-Estar" style="padding: var(--spacing-4) var(--spacing-5);">
-
-      <!-- Dica 07: O Açúcar Invisível -->
-      <article class="card" style="margin-bottom: var(--spacing-6); padding: var(--spacing-8) var(--spacing-6); text-align: center; min-height: 50vh; display: flex; flex-direction: column; justify-content: center;">
-        <!--
+      <section
+        aria-label="Dicas de Bem-Estar"
+        style="padding: var(--spacing-4) var(--spacing-5)"
+      >
+        <!-- Dica 07: O Açúcar Invisível -->
+        <article
+          class="card"
+          style="
+            margin-bottom: var(--spacing-6);
+            padding: var(--spacing-8) var(--spacing-6);
+            text-align: center;
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          "
+        >
+          <!--
           PENDENTE: Background texture abstrato (aquarela bege)
           Aplicar como background-image com opacity 0.3
         -->
-        <p class="label-md text-variant" style="margin-bottom: var(--spacing-6);">🌿 DICA #07</p>
+          <p
+            class="label-md text-variant"
+            style="margin-bottom: var(--spacing-6)"
+          >
+            🌿 DICA #07
+          </p>
 
-        <!-- Texto da dica (de 07-reducao-de-acucar-e-ultraprocessados.txt) -->
-        <blockquote class="headline-sm" style="font-style: italic; line-height: 1.7; margin-bottom: var(--spacing-6); padding: 0 var(--spacing-2);">
-          "Diminua o quanto puder de açúcar, de qualquer tipo, mas principalmente o refinado;
-          farinha de trigo refinada e óleos ultraprocessados. Os óleos de canola, girassol, milho,
-          embora sejam vendidos como algo natural, são péssimos para a saúde."
-        </blockquote>
+          <!-- Texto da dica (de 07-reducao-de-acucar-e-ultraprocessados.txt) -->
+          <blockquote
+            class="headline-sm"
+            style="
+              font-style: italic;
+              line-height: 1.7;
+              margin-bottom: var(--spacing-6);
+              padding: 0 var(--spacing-2);
+            "
+          >
+            "Diminua o quanto puder de açúcar, de qualquer tipo, mas
+            principalmente o refinado; farinha de trigo refinada e óleos
+            ultraprocessados. Os óleos de canola, girassol, milho, embora sejam
+            vendidos como algo natural, são péssimos para a saúde."
+          </blockquote>
 
-        <!-- Label editorial (de metadados-dicas-mindset.txt) -->
-        <p class="body-md" style="color: var(--primary); font-weight: 600; margin-bottom: var(--spacing-4);">
-          — O Açúcar Invisível —
-        </p>
+          <!-- Label editorial (de metadados-dicas-mindset.txt) -->
+          <p
+            class="body-md"
+            style="
+              color: var(--primary);
+              font-weight: 600;
+              margin-bottom: var(--spacing-4);
+            "
+          >
+            — O Açúcar Invisível —
+          </p>
 
-        <!-- Óleo Aliado (cross-reference de metadados-dicas-mindset.txt) -->
-        <div style="background: var(--surface-container-lowest); border-radius: var(--round-lg); padding: var(--spacing-3) var(--spacing-4); display: inline-flex; align-items: center; gap: var(--spacing-2); align-self: center;">
-          <span style="font-size: 1.25rem;">💧</span>
-          <div style="text-align: left;">
-            <p class="body-md" style="font-weight: 600; font-size: 0.8rem;">Óleo Aliado: Peppermint</p>
-            <p class="body-md text-variant" style="font-size: 0.7rem;">Suprime o desejo por açúcar pela inalação</p>
+          <!-- Óleo Aliado (cross-reference de metadados-dicas-mindset.txt) -->
+          <div
+            style="
+              background: var(--surface-container-lowest);
+              border-radius: var(--round-lg);
+              padding: var(--spacing-3) var(--spacing-4);
+              display: inline-flex;
+              align-items: center;
+              gap: var(--spacing-2);
+              align-self: center;
+            "
+          >
+            <span style="font-size: 1.25rem">💧</span>
+            <div style="text-align: left">
+              <p class="body-md" style="font-weight: 600; font-size: 0.8rem">
+                Óleo Aliado: Peppermint
+              </p>
+              <p class="body-md text-variant" style="font-size: 0.7rem">
+                Suprime o desejo por açúcar pela inalação
+              </p>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <!-- Dica 17: O Peso Que Não É Gordura -->
-      <article class="card" style="margin-bottom: var(--spacing-6); padding: var(--spacing-8) var(--spacing-6); text-align: center; min-height: 50vh; display: flex; flex-direction: column; justify-content: center;">
-        <p class="label-md text-variant" style="margin-bottom: var(--spacing-6);">🌿 DICA #17</p>
-        <blockquote class="headline-sm" style="font-style: italic; line-height: 1.7; margin-bottom: var(--spacing-6); padding: 0 var(--spacing-2);">
-          "Gerencie seu estresse. Este é um dos maiores motivos do aumento de peso."
-        </blockquote>
-        <p class="body-md" style="color: var(--primary); font-weight: 600; margin-bottom: var(--spacing-4);">
-          — O Peso Que Não É Gordura —
-        </p>
-        <div style="background: var(--surface-container-lowest); border-radius: var(--round-lg); padding: var(--spacing-3) var(--spacing-4); display: inline-flex; align-items: center; gap: var(--spacing-2); align-self: center;">
-          <span style="font-size: 1.25rem;">💧</span>
-          <div style="text-align: left;">
-            <p class="body-md" style="font-weight: 600; font-size: 0.8rem;">Óleo Aliado: Balance</p>
-            <p class="body-md text-variant" style="font-size: 0.7rem;">Combate o cortisol que sabota a dieta</p>
+        <!-- Dica 17: O Peso Que Não É Gordura -->
+        <article
+          class="card"
+          style="
+            margin-bottom: var(--spacing-6);
+            padding: var(--spacing-8) var(--spacing-6);
+            text-align: center;
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          "
+        >
+          <p
+            class="label-md text-variant"
+            style="margin-bottom: var(--spacing-6)"
+          >
+            🌿 DICA #17
+          </p>
+          <blockquote
+            class="headline-sm"
+            style="
+              font-style: italic;
+              line-height: 1.7;
+              margin-bottom: var(--spacing-6);
+              padding: 0 var(--spacing-2);
+            "
+          >
+            "Gerencie seu estresse. Este é um dos maiores motivos do aumento de
+            peso."
+          </blockquote>
+          <p
+            class="body-md"
+            style="
+              color: var(--primary);
+              font-weight: 600;
+              margin-bottom: var(--spacing-4);
+            "
+          >
+            — O Peso Que Não É Gordura —
+          </p>
+          <div
+            style="
+              background: var(--surface-container-lowest);
+              border-radius: var(--round-lg);
+              padding: var(--spacing-3) var(--spacing-4);
+              display: inline-flex;
+              align-items: center;
+              gap: var(--spacing-2);
+              align-self: center;
+            "
+          >
+            <span style="font-size: 1.25rem">💧</span>
+            <div style="text-align: left">
+              <p class="body-md" style="font-weight: 600; font-size: 0.8rem">
+                Óleo Aliado: Balance
+              </p>
+              <p class="body-md text-variant" style="font-size: 0.7rem">
+                Combate o cortisol que sabota a dieta
+              </p>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <!--
+        <!--
         PENDENTE: + 20 cards de dica (mesmo template)
         Dados: metadados-dicas-mindset.txt (23 entradas)
         No TSX: .map() sobre array de dicas
       -->
-      <p class="text-center text-variant body-md" style="padding: var(--spacing-4) 0; opacity: 0.5;">
-        + 20 cards de dica (renderizar no TSX via .map())
-      </p>
+        <p
+          class="text-center text-variant body-md"
+          style="padding: var(--spacing-4) 0; opacity: 0.5"
+        >
+          + 20 cards de dica (renderizar no TSX via .map())
+        </p>
+      </section>
 
-    </section>
-
-    <!-- ═══════════════════════════════════════════════════════
+      <!-- ═══════════════════════════════════════════════════════
          SEÇÃO 2: SABOTAGEM ↔ SUBSTITUIÇÃO (Variantes B + C)
          Fonte: estrutura_componentes.md §4.2, Variantes B e C
          Dados: mindset-pareamento/pareamento-sabotagem-substituicao.txt
@@ -173,71 +286,141 @@
          - 8 pares pareados
          - Suporte a touch events
          ═══════════════════════════════════════════════════════ -->
-    <section aria-label="Reprograme Sua Mente" style="padding: 0 var(--spacing-5);">
-      <p class="label-md text-variant" style="margin-bottom: var(--spacing-4);">REPROGRAME SUA MENTE</p>
-
-      <!-- Par 1: Recompensa Alimentar -->
-      <!-- Card Sabotagem (toque para virar) -->
-      <article class="card-sabotage" style="margin-bottom: var(--spacing-2);">
-        <p class="label-md" style="color: var(--secondary); margin-bottom: var(--spacing-6);">✗ SABOTAGEM MENTAL</p>
-        <blockquote class="headline-sm" style="color: var(--on-primary); font-style: italic; line-height: 1.7;">
-          "Hoje posso comer um doce porque mereço!"
-        </blockquote>
-        <p class="body-md" style="color: rgba(255,255,255,0.5); margin-top: var(--spacing-6);">
-          ← deslize para reprogramar →
+      <section
+        aria-label="Reprograme Sua Mente"
+        style="padding: 0 var(--spacing-5)"
+      >
+        <p
+          class="label-md text-variant"
+          style="margin-bottom: var(--spacing-4)"
+        >
+          REPROGRAME SUA MENTE
         </p>
-      </article>
 
-      <!-- Card Substituição Positiva (revelado pelo swipe) -->
-      <article class="card-positive" style="margin-bottom: var(--spacing-8);">
-        <p class="label-md" style="color: var(--primary); margin-bottom: var(--spacing-6);">✓ REPROGRAME</p>
-        <blockquote class="headline-sm" style="font-style: italic; line-height: 1.7;">
-          "Como recompensa vou tomar um bom chá e relaxar um pouco."
-        </blockquote>
-      </article>
+        <!-- Par 1: Recompensa Alimentar -->
+        <!-- Card Sabotagem (toque para virar) -->
+        <article class="card-sabotage" style="margin-bottom: var(--spacing-2)">
+          <p
+            class="label-md"
+            style="color: var(--secondary); margin-bottom: var(--spacing-6)"
+          >
+            ✗ SABOTAGEM MENTAL
+          </p>
+          <blockquote
+            class="headline-sm"
+            style="
+              color: var(--on-primary);
+              font-style: italic;
+              line-height: 1.7;
+            "
+          >
+            "Hoje posso comer um doce porque mereço!"
+          </blockquote>
+          <p
+            class="body-md"
+            style="
+              color: rgba(255, 255, 255, 0.5);
+              margin-top: var(--spacing-6);
+            "
+          >
+            ← deslize para reprogramar →
+          </p>
+        </article>
 
-      <!-- Par 8: Desistência (fechamento motivacional) -->
-      <article class="card-sabotage" style="margin-bottom: var(--spacing-2);">
-        <p class="label-md" style="color: var(--secondary); margin-bottom: var(--spacing-6);">✗ SABOTAGEM MENTAL</p>
-        <blockquote class="headline-sm" style="color: var(--on-primary); font-style: italic; line-height: 1.7;">
-          "Eu não consigo!"
-        </blockquote>
-        <p class="body-md" style="color: rgba(255,255,255,0.5); margin-top: var(--spacing-6);">
-          ← deslize para reprogramar →
-        </p>
-      </article>
+        <!-- Card Substituição Positiva (revelado pelo swipe) -->
+        <article class="card-positive" style="margin-bottom: var(--spacing-8)">
+          <p
+            class="label-md"
+            style="color: var(--primary); margin-bottom: var(--spacing-6)"
+          >
+            ✓ REPROGRAME
+          </p>
+          <blockquote
+            class="headline-sm"
+            style="font-style: italic; line-height: 1.7"
+          >
+            "Como recompensa vou tomar um bom chá e relaxar um pouco."
+          </blockquote>
+        </article>
 
-      <article class="card-positive" style="margin-bottom: var(--spacing-8);">
-        <p class="label-md" style="color: var(--primary); margin-bottom: var(--spacing-6);">✓ REPROGRAME</p>
-        <blockquote class="headline-sm" style="font-style: italic; line-height: 1.7;">
-          "Eu posso, eu consigo!"
-        </blockquote>
-      </article>
+        <!-- Par 8: Desistência (fechamento motivacional) -->
+        <article class="card-sabotage" style="margin-bottom: var(--spacing-2)">
+          <p
+            class="label-md"
+            style="color: var(--secondary); margin-bottom: var(--spacing-6)"
+          >
+            ✗ SABOTAGEM MENTAL
+          </p>
+          <blockquote
+            class="headline-sm"
+            style="
+              color: var(--on-primary);
+              font-style: italic;
+              line-height: 1.7;
+            "
+          >
+            "Eu não consigo!"
+          </blockquote>
+          <p
+            class="body-md"
+            style="
+              color: rgba(255, 255, 255, 0.5);
+              margin-top: var(--spacing-6);
+            "
+          >
+            ← deslize para reprogramar →
+          </p>
+        </article>
 
-      <!--
+        <article class="card-positive" style="margin-bottom: var(--spacing-8)">
+          <p
+            class="label-md"
+            style="color: var(--primary); margin-bottom: var(--spacing-6)"
+          >
+            ✓ REPROGRAME
+          </p>
+          <blockquote
+            class="headline-sm"
+            style="font-style: italic; line-height: 1.7"
+          >
+            "Eu posso, eu consigo!"
+          </blockquote>
+        </article>
+
+        <!--
         PENDENTE: + 6 pares (mesmo template)
         Dados: pareamento-sabotagem-substituicao.txt (8 pares total)
         No TSX: flip-card com CSS transform + touch events
       -->
-      <p class="text-center text-variant body-md" style="padding: var(--spacing-4) 0; opacity: 0.5;">
-        + 6 pares sabotagem↔substituição
-      </p>
-    </section>
+        <p
+          class="text-center text-variant body-md"
+          style="padding: var(--spacing-4) 0; opacity: 0.5"
+        >
+          + 6 pares sabotagem↔substituição
+        </p>
+      </section>
+    </main>
 
-  </main>
+    <!-- FAB Respirar (acessível de qualquer tela no TSX) -->
+    <button class="fab-breathe" aria-label="Exercício de respiração 4-7-8">
+      🌬 Respirar
+    </button>
 
-  <!-- FAB Respirar (acessível de qualquer tela no TSX) -->
-  <button class="fab-breathe" aria-label="Exercício de respiração 4-7-8">
-    🌬 Respirar
-  </button>
-
-  <!-- Bottom Navigation -->
-  <nav class="bottom-nav" aria-label="Navegação principal">
-    <a href="index.html"><span class="nav-icon">🏡</span><span>Home</span></a>
-    <a href="biblioteca.html"><span class="nav-icon">🌿</span><span>Óleos</span></a>
-    <a href="rituais.html"><span class="nav-icon">🧪</span><span>Rituais</span></a>
-    <a href="mindset.html" class="active" aria-current="page"><span class="nav-icon">🧠</span><span>Mente</span></a>
-    <a href="guias.html"><span class="nav-icon">⚖️</span><span>Guias</span></a>
-  </nav>
-</body>
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      <a href="index.html"><span class="nav-icon">🏡</span><span>Home</span></a>
+      <a href="biblioteca.html"
+        ><span class="nav-icon">🌿</span><span>Óleos</span></a
+      >
+      <a href="rituais.html"
+        ><span class="nav-icon">🧪</span><span>Rituais</span></a
+      >
+      <a href="mindset.html" class="active" aria-current="page"
+        ><span class="nav-icon">🧠</span><span>Mente</span></a
+      >
+      <a href="guias.html"
+        ><span class="nav-icon">⚖️</span><span>Guias</span></a
+      >
+    </nav>
+  </body>
 </html>

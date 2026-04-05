@@ -15,8 +15,8 @@
   --on-surface: #1b1c1c;
   --on-surface-variant: #434843;
   --outline-variant: rgba(67, 72, 67, 0.15);
-  --font-serif: 'Noto Serif', Georgia, serif;
-  --font-sans: 'Manrope', system-ui, sans-serif;
+  --font-serif: "Noto Serif", Georgia, serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
   --spacing-1: 0.25rem;
   --spacing-2: 0.5rem;
   --spacing-3: 0.75rem;

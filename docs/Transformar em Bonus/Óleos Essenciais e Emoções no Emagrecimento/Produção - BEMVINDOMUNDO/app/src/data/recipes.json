@@ -28,9 +28,7 @@
       "Corte em quadrados e sirva."
     ],
     "notes": [],
-    "oilsUsed": [
-      "Wild Orange"
-    ],
+    "oilsUsed": ["Wild Orange"],
     "sourceFile": "05-receitas-com-oleos/brownie-com-wild-orange.txt"
   },
   {
@@ -57,9 +55,7 @@
       "Coloque os tomates picadinhos sobre os pães, finalize com o queijo parmesão e um fio de azeite. Leve ao forno rapidamente somente para gratinar o queijo."
     ],
     "notes": [],
-    "oilsUsed": [
-      "Basil"
-    ],
+    "oilsUsed": ["Basil"],
     "sourceFile": "05-receitas-com-oleos/bruschetta.txt"
   },
   {
@@ -94,9 +90,7 @@
       "Guarde em recipiente bem fechado."
     ],
     "notes": [],
-    "oilsUsed": [
-      "Juniper Berry"
-    ],
+    "oilsUsed": ["Juniper Berry"],
     "sourceFile": "05-receitas-com-oleos/granola-salgada.txt"
   },
   {
@@ -125,10 +119,7 @@
       "Servir com nachos ou torradas."
     ],
     "notes": [],
-    "oilsUsed": [
-      "Lemon",
-      "Lime"
-    ],
+    "oilsUsed": ["Lemon", "Lime"],
     "sourceFile": "05-receitas-com-oleos/guacamole.txt"
   },
   {
@@ -153,9 +144,7 @@
       "Leve ao fogo o leite de coco e as gemas até engrossar levemente, sempre mexendo, por aproximadamente 3 min. No liquidificador, despeje o chocolate picado, o xilitol, o extrato de baunilha e o óleo de Tangerina. Adicione o creme da panela ainda quente. Bata por 3 minutos para incorporar bastante ar. Despeje em potes individuais e leve para gelar por pelo menos 4 horas."
     ],
     "notes": [],
-    "oilsUsed": [
-      "Tangerina"
-    ],
+    "oilsUsed": ["Tangerina"],
     "sourceFile": "05-receitas-com-oleos/mousse-de-chocolate-com-tangerina.txt"
   },
   {
@@ -189,9 +178,7 @@
       "Após esse periodo, leve ao forno pré aquecido a 180ºC para assar aproximadamente por 40 minutos."
     ],
     "notes": [],
-    "oilsUsed": [
-      "Basil"
-    ],
+    "oilsUsed": ["Basil"],
     "sourceFile": "05-receitas-com-oleos/pao-de-abobora.txt"
   },
   {
@@ -223,10 +210,7 @@
     "notes": [
       "Esta é a única receita TrimShake que funciona melhor quente. Os 4 óleos especiados juntos criam um protocolo térmico que acelera o metabolismo pela termogênese — o corpo gasta energia extra para processar as especiarias. Ideal para manhãs frias."
     ],
-    "oilsUsed": [
-      "Cinnamon Bark",
-      "Clove"
-    ],
+    "oilsUsed": ["Cinnamon Bark", "Clove"],
     "sourceFile": "06-receitas-com-trimshake/chai-com-baunilha.txt"
   },
   {
@@ -259,10 +243,7 @@
     "notes": [
       "A Canela regula a glicose no sangue — esta receita funciona especialmente bem como primeira refeição do dia, quando o pâncreas precisa de estabilidade para iniciar o metabolismo."
     ],
-    "oilsUsed": [
-      "Cinnamon Bark",
-      "Clove"
-    ],
+    "oilsUsed": ["Cinnamon Bark", "Clove"],
     "sourceFile": "06-receitas-com-trimshake/horchata.txt"
   },
   {
@@ -294,9 +275,7 @@
     "notes": [
       "Este é o shake mais nutritivo e completo: proteína (TrimShake + iogurte), fibra (chia + espinafre), vitaminas (frutas) e lipólise (Wild Orange). Funciona como café da manhã completo para quem treina calistenia pela manhã."
     ],
-    "oilsUsed": [
-      "Wild Orange"
-    ],
+    "oilsUsed": ["Wild Orange"],
     "sourceFile": "06-receitas-com-trimshake/maquina-verde.txt"
   },
   {
@@ -327,9 +306,7 @@
     "notes": [
       "Esta é a receita de emergência das 16h. Quando a vontade de doce bater, o Peppermint suprime o desejo por açúcar em minutos enquanto o chocolate satisfaz o paladar sem sabotar a dieta."
     ],
-    "oilsUsed": [
-      "Peppermint"
-    ],
+    "oilsUsed": ["Peppermint"],
     "sourceFile": "06-receitas-com-trimshake/menta-com-chocolate.txt"
   },
   {
@@ -355,9 +332,7 @@
       "Em uma tigela grande, misture todos os ingredientes. Bata até formar uma mistura homogênea. Coloque em formas de picolé e acrescente os palitos no meio. Coloque no freezer para congelar durante a noite."
     ],
     "notes": [],
-    "oilsUsed": [
-      "Wild Orange"
-    ],
+    "oilsUsed": ["Wild Orange"],
     "sourceFile": "06-receitas-com-trimshake/picole-cremoso-de-laranja.txt"
   },
   {
@@ -444,9 +419,7 @@
     "notes": [
       "O Lime contém Limoneno, o mesmo composto que dissolve gordura corporal. Nesta receita, o prazer da sobremesa coexiste com a lipólise ativa — recompensa sem culpa."
     ],
-    "oilsUsed": [
-      "Lime"
-    ],
+    "oilsUsed": ["Lime"],
     "sourceFile": "06-receitas-com-trimshake/torta-de-limao.txt"
   },
   {
@@ -479,9 +452,7 @@
     "notes": [
       "O Wild Orange reduz gordura no fígado e melhora o humor via Limoneno. Com 5 ingredientes congelados, este shake é o mais denso e nutritivo da coleção — funciona como refeição completa da tarde."
     ],
-    "oilsUsed": [
-      "Wild Orange"
-    ],
+    "oilsUsed": ["Wild Orange"],
     "sourceFile": "06-receitas-com-trimshake/tropical-colada.txt"
   },
   {
@@ -506,9 +477,7 @@
       "Misture ou prepare a receita conforme a orientação editorial original."
     ],
     "notes": [],
-    "oilsUsed": [
-      "Wild Orange"
-    ],
+    "oilsUsed": ["Wild Orange"],
     "sourceFile": "07-bebidas-com-oleos/laranja-e-limao.txt"
   },
   {
@@ -533,9 +502,7 @@
       "Misture ou prepare a receita conforme a orientação editorial original."
     ],
     "notes": [],
-    "oilsUsed": [
-      "Lemon"
-    ],
+    "oilsUsed": ["Lemon"],
     "sourceFile": "07-bebidas-com-oleos/maca-e-canela.txt"
   },
   {
@@ -560,9 +527,7 @@
       "Misture ou prepare a receita conforme a orientação editorial original."
     ],
     "notes": [],
-    "oilsUsed": [
-      "Lemon"
-    ],
+    "oilsUsed": ["Lemon"],
     "sourceFile": "07-bebidas-com-oleos/melancia-com-hortela.txt"
   },
   {
@@ -586,10 +551,7 @@
       "Misture ou prepare a receita conforme a orientação editorial original."
     ],
     "notes": [],
-    "oilsUsed": [
-      "Alecrim",
-      "Grapefruit"
-    ],
+    "oilsUsed": ["Alecrim", "Grapefruit"],
     "sourceFile": "07-bebidas-com-oleos/morango-e-melancia.txt"
   },
   {
@@ -614,9 +576,7 @@
       "Misture ou prepare a receita conforme a orientação editorial original."
     ],
     "notes": [],
-    "oilsUsed": [
-      "Grapefruit"
-    ],
+    "oilsUsed": ["Grapefruit"],
     "sourceFile": "07-bebidas-com-oleos/suco-de-maca.txt"
   },
   {
@@ -642,10 +602,7 @@
       "Misture ou prepare a receita conforme a orientação editorial original."
     ],
     "notes": [],
-    "oilsUsed": [
-      "Grapefruit",
-      "Gengibre"
-    ],
+    "oilsUsed": ["Grapefruit", "Gengibre"],
     "sourceFile": "08-uso-topico/escalda-pes-detox.txt"
   },
   {
@@ -670,12 +627,7 @@
       "Misture ou prepare a receita conforme a orientação editorial original."
     ],
     "notes": [],
-    "oilsUsed": [
-      "Grapefruit",
-      "Petitgrain",
-      "Lime",
-      "Gengibre"
-    ],
+    "oilsUsed": ["Grapefruit", "Petitgrain", "Lime", "Gengibre"],
     "sourceFile": "08-uso-topico/oleo-massagem-anti-celulite-v1.txt"
   },
   {
@@ -702,11 +654,7 @@
       "Misture ou prepare a receita conforme a orientação editorial original."
     ],
     "notes": [],
-    "oilsUsed": [
-      "Grapefruit",
-      "Alecrim",
-      "Eucalipto"
-    ],
+    "oilsUsed": ["Grapefruit", "Alecrim", "Eucalipto"],
     "sourceFile": "08-uso-topico/oleo-massagem-anti-celulite-v2.txt"
   },
   {
@@ -732,13 +680,7 @@
       "Misture ou prepare a receita conforme a orientação editorial original."
     ],
     "notes": [],
-    "oilsUsed": [
-      "Grapefruit",
-      "Lime",
-      "Gengibre",
-      "Fennel",
-      "Juniper Berry"
-    ],
+    "oilsUsed": ["Grapefruit", "Lime", "Gengibre", "Fennel", "Juniper Berry"],
     "sourceFile": "08-uso-topico/oleo-massagem-gordura-localizada.txt"
   },
   {
@@ -774,12 +716,7 @@
       "Misture ou prepare a receita conforme a orientação editorial original."
     ],
     "notes": [],
-    "oilsUsed": [
-      "Grapefruit",
-      "Alecrim",
-      "Gengibre",
-      "Petitgrain"
-    ],
+    "oilsUsed": ["Grapefruit", "Alecrim", "Gengibre", "Petitgrain"],
     "sourceFile": "08-uso-topico/wrap-detox.txt"
   },
   {
@@ -805,12 +742,7 @@
       "Prepare as cápsulas na hora de usar."
     ],
     "notes": [],
-    "oilsUsed": [
-      "Grapefruit",
-      "Peppermint",
-      "Lemon",
-      "Smart & Sassy"
-    ],
+    "oilsUsed": ["Grapefruit", "Peppermint", "Lemon", "Smart & Sassy"],
     "sourceFile": "09-ingestao-e-aromaterapia/capsula-para-reduzir-apetite.txt"
   },
   {
@@ -833,12 +765,7 @@
       "Adicione as gotas ao difusor ultrassônico com água e inicie a difusão conforme a capacidade do aparelho."
     ],
     "notes": [],
-    "oilsUsed": [
-      "Cinnamon Bark",
-      "Frankincense",
-      "Cedro",
-      "Peppermint"
-    ],
+    "oilsUsed": ["Cinnamon Bark", "Frankincense", "Cedro", "Peppermint"],
     "sourceFile": "09-ingestao-e-aromaterapia/combinacoes-para-difusor.txt"
   },
   {
@@ -860,11 +787,7 @@
       "Adicione as gotas ao difusor ultrassônico com água e inicie a difusão conforme a capacidade do aparelho."
     ],
     "notes": [],
-    "oilsUsed": [
-      "Grapefruit",
-      "Peppermint",
-      "Ylang Ylang"
-    ],
+    "oilsUsed": ["Grapefruit", "Peppermint", "Ylang Ylang"],
     "sourceFile": "09-ingestao-e-aromaterapia/combinacoes-para-difusor.txt"
   },
   {
@@ -886,11 +809,7 @@
       "Adicione as gotas ao difusor ultrassônico com água e inicie a difusão conforme a capacidade do aparelho."
     ],
     "notes": [],
-    "oilsUsed": [
-      "Clary Sage",
-      "Lemon",
-      "Lavanda"
-    ],
+    "oilsUsed": ["Clary Sage", "Lemon", "Lavanda"],
     "sourceFile": "09-ingestao-e-aromaterapia/combinacoes-para-difusor.txt"
   }
 ]

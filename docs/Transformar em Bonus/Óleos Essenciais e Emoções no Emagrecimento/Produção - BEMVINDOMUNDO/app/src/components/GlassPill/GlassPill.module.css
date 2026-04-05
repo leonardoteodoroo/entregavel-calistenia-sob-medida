@@ -7,7 +7,9 @@
   padding: var(--spacing-2) var(--spacing-4);
   border-radius: var(--round-full);
   background: rgba(250, 249, 246, 0.8);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.24), var(--shadow-sm);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.24),
+    var(--shadow-sm);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   color: var(--on-surface);

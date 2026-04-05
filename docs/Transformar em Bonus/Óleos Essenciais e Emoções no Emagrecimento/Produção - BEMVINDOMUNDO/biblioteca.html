@@ -1,27 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Biblioteca Botânica — Óleos & Emoções</title>
-  <meta name="description" content="Herbário digital com 17 fichas completas de óleos essenciais para emagrecimento.">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <a href="#main" class="sr-only">Pular para o conteúdo principal</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biblioteca Botânica — Óleos & Emoções</title>
+    <meta
+      name="description"
+      content="Herbário digital com 17 fichas completas de óleos essenciais para emagrecimento."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a href="#main" class="sr-only">Pular para o conteúdo principal</a>
 
-  <main id="main" class="page-content">
-
-    <!-- ═══════════════════════════════════════════════════════
+    <main id="main" class="page-content">
+      <!-- ═══════════════════════════════════════════════════════
          SEÇÃO 1: HEADER DA BIBLIOTECA
          Fonte: estrutura_componentes.md §2.1
          ═══════════════════════════════════════════════════════ -->
-    <header class="section" style="padding-bottom: 0;">
-      <h1 class="headline-lg">Biblioteca Botânica</h1>
-      <p class="body-md text-variant" style="margin-top: var(--spacing-1);">17 óleos essenciais catalogados</p>
-    </header>
+      <header class="section" style="padding-bottom: 0">
+        <h1 class="headline-lg">Biblioteca Botânica</h1>
+        <p class="body-md text-variant" style="margin-top: var(--spacing-1)">
+          17 óleos essenciais catalogados
+        </p>
+      </header>
 
-    <!-- ═══════════════════════════════════════════════════════
+      <!-- ═══════════════════════════════════════════════════════
          SEÇÃO 2: SEARCH & FILTER BAR
          Fonte: estrutura_componentes.md §2.1
          Dados filtros: 00-complementar/classificacao-filtros.txt
@@ -31,36 +35,48 @@
          - input com fundo surface-container-lowest
          - Ghost Border: outline-variant a 15% opacity
          ═══════════════════════════════════════════════════════ -->
-    <section style="padding: var(--spacing-4) var(--spacing-5);">
-      <!-- Search Input -->
-      <input type="search" placeholder="Qual composto molecular você busca?"
-        aria-label="Buscar óleos essenciais"
-        style="
-          width: 100%;
-          padding: var(--spacing-3) var(--spacing-4);
-          background: var(--surface-container-lowest);
-          border: 1px solid var(--outline-variant); /* Ghost Border — exceção documentada */
-          border-radius: var(--round-lg);
-          font-family: var(--font-sans);
-          font-size: 0.875rem;
-          color: var(--on-surface);
-          outline: none;
-          min-height: 44px;
-        ">
+      <section style="padding: var(--spacing-4) var(--spacing-5)">
+        <!-- Search Input -->
+        <input
+          type="search"
+          placeholder="Qual composto molecular você busca?"
+          aria-label="Buscar óleos essenciais"
+          style="
+            width: 100%;
+            padding: var(--spacing-3) var(--spacing-4);
+            background: var(--surface-container-lowest);
+            border: 1px solid var(--outline-variant); /* Ghost Border — exceção documentada */
+            border-radius: var(--round-lg);
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            color: var(--on-surface);
+            outline: none;
+            min-height: 44px;
+          "
+        />
 
-      <!-- Chips de Filtro (6 categorias de classificacao-filtros.txt) -->
-      <div style="display: flex; gap: var(--spacing-2); overflow-x: auto; margin-top: var(--spacing-3); padding-bottom: var(--spacing-2); scrollbar-width: none;">
-        <button class="chip active">Todos</button>
-        <button class="chip">🍋 Cítricos</button>
-        <button class="chip">🌳 Amadeirados</button>
-        <button class="chip">🌸 Florais</button>
-        <button class="chip">🫚 Especiarias</button>
-        <button class="chip">🌬 Mentolados</button>
-        <button class="chip">🧹 Detox</button>
-      </div>
-    </section>
+        <!-- Chips de Filtro (6 categorias de classificacao-filtros.txt) -->
+        <div
+          style="
+            display: flex;
+            gap: var(--spacing-2);
+            overflow-x: auto;
+            margin-top: var(--spacing-3);
+            padding-bottom: var(--spacing-2);
+            scrollbar-width: none;
+          "
+        >
+          <button class="chip active">Todos</button>
+          <button class="chip">🍋 Cítricos</button>
+          <button class="chip">🌳 Amadeirados</button>
+          <button class="chip">🌸 Florais</button>
+          <button class="chip">🫚 Especiarias</button>
+          <button class="chip">🌬 Mentolados</button>
+          <button class="chip">🧹 Detox</button>
+        </div>
+      </section>
 
-    <!-- ═══════════════════════════════════════════════════════
+      <!-- ═══════════════════════════════════════════════════════
          SEÇÃO 3: FEED DO APOTECÁRIO (17 cards de óleo)
          Fonte: estrutura_componentes.md §2.2
          Dados: subtitulos-emocionais.txt + tags-beneficio.txt
@@ -71,89 +87,193 @@
          - No TSX: cada card é um componente <OilCard>
          - Separação: spacing-8 puro entre cards (NO borders, NO hr)
          ═══════════════════════════════════════════════════════ -->
-    <section aria-label="Catálogo de Óleos" style="padding: 0 var(--spacing-5);">
-
-      <!-- Card: Grapefruit -->
-      <article class="card" style="display: flex; gap: var(--spacing-4); margin-bottom: var(--spacing-6);">
-        <!--
+      <section
+        aria-label="Catálogo de Óleos"
+        style="padding: 0 var(--spacing-5)"
+      >
+        <!-- Card: Grapefruit -->
+        <article
+          class="card"
+          style="
+            display: flex;
+            gap: var(--spacing-4);
+            margin-bottom: var(--spacing-6);
+          "
+        >
+          <!--
           PENDENTE: Foto macro do Grapefruit
           - 80x80px, border-radius: 1.5rem (organic mask)
           - loading="lazy" decoding="async"
         -->
-        <div class="img-placeholder" style="width: 80px; height: 80px; border-radius: 1.5rem; flex-shrink: 0;">
-          <span style="font-size: 2rem;">🍊</span>
-        </div>
-        <div style="flex: 1;">
-          <h2 class="headline-sm" style="margin-bottom: 2px;">Grapefruit</h2>
-          <p class="body-md text-variant" style="margin-bottom: var(--spacing-2);">A molécula que reduz gordura</p>
-          <div class="flex gap-2 flex-wrap">
-            <span class="chip">Metabolismo</span>
-            <span class="chip">Anticelulite</span>
+          <div
+            class="img-placeholder"
+            style="
+              width: 80px;
+              height: 80px;
+              border-radius: 1.5rem;
+              flex-shrink: 0;
+            "
+          >
+            <span style="font-size: 2rem">🍊</span>
           </div>
-        </div>
-      </article>
-
-      <!-- Card: Peppermint -->
-      <article class="card" style="display: flex; gap: var(--spacing-4); margin-bottom: var(--spacing-6);">
-        <div class="img-placeholder" style="width: 80px; height: 80px; border-radius: 1.5rem; flex-shrink: 0;">
-          <span style="font-size: 2rem;">🌿</span>
-        </div>
-        <div style="flex: 1;">
-          <h2 class="headline-sm" style="margin-bottom: 2px;">Peppermint</h2>
-          <p class="body-md text-variant" style="margin-bottom: var(--spacing-2);">Emergência instantânea contra açúcar</p>
-          <div class="flex gap-2 flex-wrap">
-            <span class="chip">Açúcar</span>
-            <span class="chip">Estômago</span>
+          <div style="flex: 1">
+            <h2 class="headline-sm" style="margin-bottom: 2px">Grapefruit</h2>
+            <p
+              class="body-md text-variant"
+              style="margin-bottom: var(--spacing-2)"
+            >
+              A molécula que reduz gordura
+            </p>
+            <div class="flex gap-2 flex-wrap">
+              <span class="chip">Metabolismo</span>
+              <span class="chip">Anticelulite</span>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <!-- Card: Serenity -->
-      <article class="card" style="display: flex; gap: var(--spacing-4); margin-bottom: var(--spacing-6);">
-        <div class="img-placeholder" style="width: 80px; height: 80px; border-radius: 1.5rem; flex-shrink: 0;">
-          <span style="font-size: 2rem;">💜</span>
-        </div>
-        <div style="flex: 1;">
-          <h2 class="headline-sm" style="margin-bottom: 2px;">Serenity</h2>
-          <p class="body-md text-variant" style="margin-bottom: var(--spacing-2);">Sono profundo e calma absoluta</p>
-          <div class="flex gap-2 flex-wrap">
-            <span class="chip">Calmante</span>
-            <span class="chip">Sono</span>
+        <!-- Card: Peppermint -->
+        <article
+          class="card"
+          style="
+            display: flex;
+            gap: var(--spacing-4);
+            margin-bottom: var(--spacing-6);
+          "
+        >
+          <div
+            class="img-placeholder"
+            style="
+              width: 80px;
+              height: 80px;
+              border-radius: 1.5rem;
+              flex-shrink: 0;
+            "
+          >
+            <span style="font-size: 2rem">🌿</span>
           </div>
-        </div>
-      </article>
-
-      <!-- Card: Cinnamon Bark -->
-      <article class="card" style="display: flex; gap: var(--spacing-4); margin-bottom: var(--spacing-6);">
-        <div class="img-placeholder" style="width: 80px; height: 80px; border-radius: 1.5rem; flex-shrink: 0;">
-          <span style="font-size: 2rem;">🫚</span>
-        </div>
-        <div style="flex: 1;">
-          <h2 class="headline-sm" style="margin-bottom: 2px;">Cinnamon Bark</h2>
-          <p class="body-md text-variant" style="margin-bottom: var(--spacing-2);">Regulador glicêmico e corta-doce</p>
-          <div class="flex gap-2 flex-wrap">
-            <span class="chip">Glicose</span>
-            <span class="chip">Apetite</span>
+          <div style="flex: 1">
+            <h2 class="headline-sm" style="margin-bottom: 2px">Peppermint</h2>
+            <p
+              class="body-md text-variant"
+              style="margin-bottom: var(--spacing-2)"
+            >
+              Emergência instantânea contra açúcar
+            </p>
+            <div class="flex gap-2 flex-wrap">
+              <span class="chip">Açúcar</span>
+              <span class="chip">Estômago</span>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <!-- Card: Wild Orange -->
-      <article class="card" style="display: flex; gap: var(--spacing-4); margin-bottom: var(--spacing-6);">
-        <div class="img-placeholder" style="width: 80px; height: 80px; border-radius: 1.5rem; flex-shrink: 0;">
-          <span style="font-size: 2rem;">🍊</span>
-        </div>
-        <div style="flex: 1;">
-          <h2 class="headline-sm" style="margin-bottom: 2px;">Wild Orange</h2>
-          <p class="body-md text-variant" style="margin-bottom: var(--spacing-2);">Imunidade, humor e fígado limpo</p>
-          <div class="flex gap-2 flex-wrap">
-            <span class="chip">Imunidade</span>
-            <span class="chip">Colesterol</span>
+        <!-- Card: Serenity -->
+        <article
+          class="card"
+          style="
+            display: flex;
+            gap: var(--spacing-4);
+            margin-bottom: var(--spacing-6);
+          "
+        >
+          <div
+            class="img-placeholder"
+            style="
+              width: 80px;
+              height: 80px;
+              border-radius: 1.5rem;
+              flex-shrink: 0;
+            "
+          >
+            <span style="font-size: 2rem">💜</span>
           </div>
-        </div>
-      </article>
+          <div style="flex: 1">
+            <h2 class="headline-sm" style="margin-bottom: 2px">Serenity</h2>
+            <p
+              class="body-md text-variant"
+              style="margin-bottom: var(--spacing-2)"
+            >
+              Sono profundo e calma absoluta
+            </p>
+            <div class="flex gap-2 flex-wrap">
+              <span class="chip">Calmante</span>
+              <span class="chip">Sono</span>
+            </div>
+          </div>
+        </article>
 
-      <!--
+        <!-- Card: Cinnamon Bark -->
+        <article
+          class="card"
+          style="
+            display: flex;
+            gap: var(--spacing-4);
+            margin-bottom: var(--spacing-6);
+          "
+        >
+          <div
+            class="img-placeholder"
+            style="
+              width: 80px;
+              height: 80px;
+              border-radius: 1.5rem;
+              flex-shrink: 0;
+            "
+          >
+            <span style="font-size: 2rem">🫚</span>
+          </div>
+          <div style="flex: 1">
+            <h2 class="headline-sm" style="margin-bottom: 2px">
+              Cinnamon Bark
+            </h2>
+            <p
+              class="body-md text-variant"
+              style="margin-bottom: var(--spacing-2)"
+            >
+              Regulador glicêmico e corta-doce
+            </p>
+            <div class="flex gap-2 flex-wrap">
+              <span class="chip">Glicose</span>
+              <span class="chip">Apetite</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card: Wild Orange -->
+        <article
+          class="card"
+          style="
+            display: flex;
+            gap: var(--spacing-4);
+            margin-bottom: var(--spacing-6);
+          "
+        >
+          <div
+            class="img-placeholder"
+            style="
+              width: 80px;
+              height: 80px;
+              border-radius: 1.5rem;
+              flex-shrink: 0;
+            "
+          >
+            <span style="font-size: 2rem">🍊</span>
+          </div>
+          <div style="flex: 1">
+            <h2 class="headline-sm" style="margin-bottom: 2px">Wild Orange</h2>
+            <p
+              class="body-md text-variant"
+              style="margin-bottom: var(--spacing-2)"
+            >
+              Imunidade, humor e fígado limpo
+            </p>
+            <div class="flex gap-2 flex-wrap">
+              <span class="chip">Imunidade</span>
+              <span class="chip">Colesterol</span>
+            </div>
+          </div>
+        </article>
+
+        <!--
         ═══════════════════════════════════════════════════════
         PRODUÇÃO PENDENTE: MAIS 12 CARDS IDÊNTICOS
         
@@ -174,13 +294,15 @@
         No TSX: loop .map() sobre array de 17 óleos
         ═══════════════════════════════════════════════════════
       -->
-      <p class="text-center text-variant body-md" style="padding: var(--spacing-8) 0; opacity: 0.5;">
-        + 12 óleos adicionais (renderizar no TSX via .map())
-      </p>
+        <p
+          class="text-center text-variant body-md"
+          style="padding: var(--spacing-8) 0; opacity: 0.5"
+        >
+          + 12 óleos adicionais (renderizar no TSX via .map())
+        </p>
+      </section>
 
-    </section>
-
-    <!-- ═══════════════════════════════════════════════════════
+      <!-- ═══════════════════════════════════════════════════════
          SEÇÃO 4: FICHA INTERNA EXPANDIDA (exemplo: Grapefruit)
          Fonte: estrutura_componentes.md §2.3
          Dados: 04-oleos-essenciais/grapefruit.txt
@@ -190,70 +312,125 @@
          - Accordion "Uso Prático" (Aromático/Tópico/Ingestão)
          - Deep-links para receitas que usam este óleo
          ═══════════════════════════════════════════════════════ -->
-    <section aria-label="Ficha Detalhada — Grapefruit" style="background: var(--surface-container-low); margin: 0 calc(var(--spacing-5) * -1); padding: 0;">
+      <section
+        aria-label="Ficha Detalhada — Grapefruit"
+        style="
+          background: var(--surface-container-low);
+          margin: 0 calc(var(--spacing-5) * -1);
+          padding: 0;
+        "
+      >
+        <!-- Hero da Ficha (PLACEHOLDER — proporção 4:3 landscape) -->
+        <div
+          class="img-placeholder"
+          style="
+            width: 100%;
+            aspect-ratio: 4/3;
+            border-radius: 0 0 var(--round-xl) var(--round-xl);
+          "
+        >
+          <div style="text-align: center; padding: 2rem">
+            <p style="font-size: 4rem">🍊</p>
+            <p style="font-size: 0.7rem; opacity: 0.6">
+              PENDENTE: Foto macro do Grapefruit<br />
+              Edge-to-edge, mask orgânica inferior (onda)<br />
+              Formato: 4:3 (ex: 1080×810px)
+            </p>
+          </div>
+        </div>
 
-      <!-- Hero da Ficha (PLACEHOLDER — proporção 4:3 landscape) -->
-      <div class="img-placeholder" style="width: 100%; aspect-ratio: 4/3; border-radius: 0 0 var(--round-xl) var(--round-xl);">
-        <div style="text-align: center; padding: 2rem;">
-          <p style="font-size: 4rem;">🍊</p>
-          <p style="font-size: 0.7rem; opacity: 0.6;">
-            PENDENTE: Foto macro do Grapefruit<br>
-            Edge-to-edge, mask orgânica inferior (onda)<br>
-            Formato: 4:3 (ex: 1080×810px)
+        <div style="padding: var(--spacing-6) var(--spacing-5)">
+          <!-- Tag pills -->
+          <div
+            class="flex gap-2 flex-wrap"
+            style="margin-bottom: var(--spacing-4)"
+          >
+            <span class="chip">Metabolismo</span>
+            <span class="chip">Anticelulite</span>
+            <span class="chip">Cítrico</span>
+          </div>
+
+          <!-- Nome e subtítulo -->
+          <h2 class="display-lg" style="margin-bottom: var(--spacing-2)">
+            Grapefruit
+          </h2>
+          <p
+            class="body-md text-variant"
+            style="margin-bottom: var(--spacing-6)"
+          >
+            A molécula que reduz gordura
           </p>
-        </div>
-      </div>
 
-      <div style="padding: var(--spacing-6) var(--spacing-5);">
-        <!-- Tag pills -->
-        <div class="flex gap-2 flex-wrap" style="margin-bottom: var(--spacing-4);">
-          <span class="chip">Metabolismo</span>
-          <span class="chip">Anticelulite</span>
-          <span class="chip">Cítrico</span>
-        </div>
+          <!-- Corpo textual (de 04-oleos-essenciais/grapefruit.txt) -->
+          <div class="body-lg" style="line-height: 1.8">
+            <p>
+              O Grapefruit contém um composto especial chamado
+              <span class="headline-sm" style="font-style: italic"
+                >Nootkathone</span
+              >. Este ativo atua impulsionando o metabolismo através da ativação
+              da AMPK (enzima que regula o metabolismo energético no fígado e
+              músculo esquelético), consequentemente reduz o acúmulo de gordura
+              corporal.
+            </p>
 
-        <!-- Nome e subtítulo -->
-        <h2 class="display-lg" style="margin-bottom: var(--spacing-2);">Grapefruit</h2>
-        <p class="body-md text-variant" style="margin-bottom: var(--spacing-6);">A molécula que reduz gordura</p>
+            <p style="margin-top: var(--spacing-4)">
+              O uso diário, seja por ingestão, no difusor ou em massagens com 1
+              a 2 gotas diluídas em óleo de coco, ativa a lipólise de forma
+              mensurável. A consistência é o que transforma resultado pontual em
+              transformação real.
+            </p>
+          </div>
 
-        <!-- Corpo textual (de 04-oleos-essenciais/grapefruit.txt) -->
-        <div class="body-lg" style="line-height: 1.8;">
-          <p>O Grapefruit contém um composto especial chamado
-            <span class="headline-sm" style="font-style: italic;">Nootkathone</span>.
-            Este ativo atua impulsionando o metabolismo através da ativação da AMPK
-            (enzima que regula o metabolismo energético no fígado e músculo esquelético),
-            consequentemente reduz o acúmulo de gordura corporal.</p>
-
-          <p style="margin-top: var(--spacing-4);">O uso diário, seja por ingestão, no difusor ou em massagens
-            com 1 a 2 gotas diluídas em óleo de coco, ativa a lipólise de forma mensurável.
-            A consistência é o que transforma resultado pontual em transformação real.</p>
-        </div>
-
-        <!--
+          <!--
           PRODUÇÃO PENDENTE: Accordion "Uso Prático"
           - 3 seções toggle: Aromático / Tópico / Ingestão
           - aria-expanded="true/false"
           - Ícones com aria-hidden="true"
           - Cross-links para receitas que usam Grapefruit
         -->
-        <div style="margin-top: var(--spacing-8); padding: var(--spacing-4); background: var(--surface-container-lowest); border-radius: var(--round-lg);">
-          <p class="label-md text-variant" style="margin-bottom: var(--spacing-3);">USO PRÁTICO</p>
-          <p class="body-md">🌬 <strong>Aromático:</strong> 3-4 gotas no difusor pela manhã</p>
-          <p class="body-md" style="margin-top: var(--spacing-2);">💆 <strong>Tópico:</strong> Massagem anticelulite com óleo de coco</p>
-          <p class="body-md" style="margin-top: var(--spacing-2);">💊 <strong>Ingestão:</strong> 1-2 gotas na água ou cápsula vegetal</p>
+          <div
+            style="
+              margin-top: var(--spacing-8);
+              padding: var(--spacing-4);
+              background: var(--surface-container-lowest);
+              border-radius: var(--round-lg);
+            "
+          >
+            <p
+              class="label-md text-variant"
+              style="margin-bottom: var(--spacing-3)"
+            >
+              USO PRÁTICO
+            </p>
+            <p class="body-md">
+              🌬 <strong>Aromático:</strong> 3-4 gotas no difusor pela manhã
+            </p>
+            <p class="body-md" style="margin-top: var(--spacing-2)">
+              💆 <strong>Tópico:</strong> Massagem anticelulite com óleo de coco
+            </p>
+            <p class="body-md" style="margin-top: var(--spacing-2)">
+              💊 <strong>Ingestão:</strong> 1-2 gotas na água ou cápsula vegetal
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-  </main>
-
-  <!-- Bottom Navigation -->
-  <nav class="bottom-nav" aria-label="Navegação principal">
-    <a href="index.html"><span class="nav-icon">🏡</span><span>Home</span></a>
-    <a href="biblioteca.html" class="active" aria-current="page"><span class="nav-icon">🌿</span><span>Óleos</span></a>
-    <a href="rituais.html"><span class="nav-icon">🧪</span><span>Rituais</span></a>
-    <a href="mindset.html"><span class="nav-icon">🧠</span><span>Mente</span></a>
-    <a href="guias.html"><span class="nav-icon">⚖️</span><span>Guias</span></a>
-  </nav>
-</body>
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      <a href="index.html"><span class="nav-icon">🏡</span><span>Home</span></a>
+      <a href="biblioteca.html" class="active" aria-current="page"
+        ><span class="nav-icon">🌿</span><span>Óleos</span></a
+      >
+      <a href="rituais.html"
+        ><span class="nav-icon">🧪</span><span>Rituais</span></a
+      >
+      <a href="mindset.html"
+        ><span class="nav-icon">🧠</span><span>Mente</span></a
+      >
+      <a href="guias.html"
+        ><span class="nav-icon">⚖️</span><span>Guias</span></a
+      >
+    </nav>
+  </body>
 </html>

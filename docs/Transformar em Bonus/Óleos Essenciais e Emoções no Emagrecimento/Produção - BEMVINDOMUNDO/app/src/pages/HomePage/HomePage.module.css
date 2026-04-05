@@ -17,7 +17,11 @@
   height: 36px;
   place-items: center;
   border-radius: 1.5rem;
-  background: linear-gradient(135deg, rgba(250, 220, 211, 0.92), rgba(226, 232, 228, 0.95));
+  background: linear-gradient(
+    135deg,
+    rgba(250, 220, 211, 0.92),
+    rgba(226, 232, 228, 0.95)
+  );
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.42);
   font-size: 1rem;
 }
@@ -38,7 +42,11 @@
   flex-direction: column;
   justify-content: flex-end;
   padding: var(--spacing-8) var(--spacing-6);
-  background: linear-gradient(160deg, rgba(42, 75, 65, 0.9), rgba(61, 107, 94, 0.42));
+  background: linear-gradient(
+    160deg,
+    rgba(42, 75, 65, 0.9),
+    rgba(61, 107, 94, 0.42)
+  );
 }
 
 .heroPills {
@@ -123,7 +131,9 @@
 .neuralStep {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity var(--transition-slow), transform var(--transition-slow);
+  transition:
+    opacity var(--transition-slow),
+    transform var(--transition-slow);
 }
 
 .neuralStepVisible {

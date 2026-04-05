@@ -41,9 +41,7 @@
         "Portanto a produtora não é responsável por qualquer dano moral, físico ou outro relacionado ao uso desse livro.",
         "Recomendação: procure sempre um profissional na área, para ter um parecer e sanar qualquer dúvida relacionada ao guia."
       ],
-      "sourceFiles": [
-        "01-institucional/observacoes-legais.txt"
-      ]
+      "sourceFiles": ["01-institucional/observacoes-legais.txt"]
     },
     {
       "id": "alertas-de-seguranca",
@@ -57,9 +55,7 @@
         "Não sair ao sol quando utilizar óleos cítricos. Pode causar queimaduras.",
         "Por serem extremamente concentrados, alguns óleos podem causar reações alérgica. Use sempre diluído em óleo carregador."
       ],
-      "sourceFiles": [
-        "03-apresentacao/observacoes-importantes.txt"
-      ]
+      "sourceFiles": ["03-apresentacao/observacoes-importantes.txt"]
     },
     {
       "id": "guia-de-ingestao",
@@ -69,9 +65,7 @@
         "O difusor ultrassônico para óleos essenciais é muito funcional para questões emocionais e físicas. A forma aromática proporciona maior bem estar. Nos momentos em que a energia diminui, um aroma para melhorar o humor é muito bem vindo. A difusão regular dos óleos essenciais também pode ajudar a eduzir os desejos por comida. Os únicos óleos essenciais seguros para ingestão são os da doTerra, por terem autorização da Anvisa no Brasil, e por terem o CPTG Certificado de Pureza Testada e Garantida. E mesmo assim não são todos os óleos que podem ser ingeridos! Antes de ingerir óloes essenciais é importante estar informado e discutir com seu médico ou nutricionista, principalmente porque alguns podem interagir com medicamentos. É melhor evitar o uso interno se estiver tomando medicamentos para diabetes, hipertensão ou anti-coagulantes, ou se estiver se recuperando de alguma cirurgia recente. Evite ingestão se estiver grávida ou amamentando.",
         "Alguns óleos essenciais são contra-indicados para pessoas com epilepsia, ou com histórico de convulsões ou ataques. Consulte sempre um médico ou aromaterapeuta se tiver dúvidas em relação ao uso de algum óleo essencial."
       ],
-      "sourceFiles": [
-        "09-ingestao-e-aromaterapia/orientacoes-seguranca.txt"
-      ]
+      "sourceFiles": ["09-ingestao-e-aromaterapia/orientacoes-seguranca.txt"]
     },
     {
       "id": "guia-de-uso-topico",
@@ -90,9 +84,7 @@
         "Nos dias em que você estiver se exercitando, é importante ter uma boa circulação sanguínea. Uma massagem pode ajudar nessa questão.",
         "E para minimizar a dor no pós treino, pode-se utilizar algum dos muitos óleos essenciais que são analgésicos. O Deep Blue Rub é o melhor de todos, para pré e pós treino."
       ],
-      "sourceFiles": [
-        "08-uso-topico/orientacoes-massagem-e-diluicao.txt"
-      ]
+      "sourceFiles": ["08-uso-topico/orientacoes-massagem-e-diluicao.txt"]
     },
     {
       "id": "mensagem-final",
@@ -107,10 +99,7 @@
         "doTerra Brasil",
         "Livro \"Fundamentos Essenciais\""
       ],
-      "sourceFiles": [
-        "12-conclusao/conclusao.txt",
-        "12-conclusao/fontes.txt"
-      ]
+      "sourceFiles": ["12-conclusao/conclusao.txt", "12-conclusao/fontes.txt"]
     }
   ],
   "pullQuotes": [

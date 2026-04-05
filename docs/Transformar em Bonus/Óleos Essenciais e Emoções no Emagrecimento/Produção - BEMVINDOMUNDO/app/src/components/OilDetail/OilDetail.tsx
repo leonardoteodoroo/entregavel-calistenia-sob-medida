@@ -1,44 +1,49 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import Button from '../Button/Button'
-import Chip from '../Chip/Chip'
-import ImagePlaceholder from '../ImagePlaceholder/ImagePlaceholder'
-import OrganicIcon, { type OrganicIconName } from '../OrganicIcon/OrganicIcon'
-import { getOilEmoji, oilFilterLabels } from '../../data/presentation'
-import type { Oil } from '../../data/types'
-import styles from './OilDetail.module.css'
+import Button from "../Button/Button";
+import Chip from "../Chip/Chip";
+import ImagePlaceholder from "../ImagePlaceholder/ImagePlaceholder";
+import OrganicIcon, { type OrganicIconName } from "../OrganicIcon/OrganicIcon";
+import { getOilEmoji, oilFilterLabels } from "../../data/presentation";
+import type { Oil } from "../../data/types";
+import styles from "./OilDetail.module.css";
 
 const usageSections = [
-  { key: 'aromatic', label: 'Aromático', icon: 'droplet' },
-  { key: 'topical', label: 'Tópico', icon: 'hands' },
-  { key: 'ingestion', label: 'Ingestão', icon: 'capsule' },
-] as const
+  { key: "aromatic", label: "Aromático", icon: "droplet" },
+  { key: "topical", label: "Tópico", icon: "hands" },
+  { key: "ingestion", label: "Ingestão", icon: "capsule" },
+] as const;
 
-type UsageKey = (typeof usageSections)[number]['key']
+type UsageKey = (typeof usageSections)[number]["key"];
 
 function splitParagraphs(text: string) {
   return text
     .split(/\n+/)
-    .map((paragraph) => paragraph.trim())
-    .filter(Boolean)
+    .map(paragraph => paragraph.trim())
+    .filter(Boolean);
 }
 
 export interface OilDetailProps {
-  oil: Oil
-  catalogSearch?: string
+  oil: Oil;
+  catalogSearch?: string;
 }
 
-export default function OilDetail({ oil, catalogSearch = '' }: OilDetailProps) {
-  const [expandedSections, setExpandedSections] = useState<Record<UsageKey, boolean>>({
+export default function OilDetail({ oil, catalogSearch = "" }: OilDetailProps) {
+  const [expandedSections, setExpandedSections] = useState<
+    Record<UsageKey, boolean>
+  >({
     aromatic: true,
     topical: false,
     ingestion: false,
-  })
+  });
 
-  const paragraphs = splitParagraphs(oil.description)
+  const paragraphs = splitParagraphs(oil.description);
 
   return (
-    <section aria-label={`Ficha detalhada de ${oil.name}`} className={styles.shell}>
+    <section
+      aria-label={`Ficha detalhada de ${oil.name}`}
+      className={styles.shell}
+    >
       <ImagePlaceholder
         aspectRatio="4:3"
         emoji={getOilEmoji(oil.id)}
@@ -50,13 +55,16 @@ export default function OilDetail({ oil, catalogSearch = '' }: OilDetailProps) {
       <div className={styles.body}>
         <div className={styles.topRow}>
           <div className={styles.tags}>
-            {oil.tags.map((tag) => (
+            {oil.tags.map(tag => (
               <Chip key={`${oil.id}-${tag}`} label={tag} />
             ))}
             <Chip label={oilFilterLabels[oil.filter]} />
           </div>
 
-          <Button to={{ pathname: '/biblioteca', search: catalogSearch }} variant="secondary">
+          <Button
+            to={{ pathname: "/biblioteca", search: catalogSearch }}
+            variant="secondary"
+          >
             Fechar ficha
           </Button>
         </div>
@@ -65,7 +73,7 @@ export default function OilDetail({ oil, catalogSearch = '' }: OilDetailProps) {
         <p className={styles.subtitle}>{oil.subtitle}</p>
 
         <div className={styles.copy}>
-          {paragraphs.map((paragraph) => (
+          {paragraphs.map(paragraph => (
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
@@ -74,11 +82,12 @@ export default function OilDetail({ oil, catalogSearch = '' }: OilDetailProps) {
           <p className="label-md text-variant">Uso prático</p>
 
           <div className={styles.accordionList}>
-            {usageSections.map((section) => {
+            {usageSections.map(section => {
               const content =
-                oil.usage[section.key] || 'Sem orientação específica nesta categoria no texto-base.'
-              const isOpen = expandedSections[section.key]
-              const panelId = `${oil.id}-${section.key}`
+                oil.usage[section.key] ||
+                "Sem orientação específica nesta categoria no texto-base.";
+              const isOpen = expandedSections[section.key];
+              const panelId = `${oil.id}-${section.key}`;
 
               return (
                 <div key={section.key} className={styles.accordionItem}>
@@ -88,7 +97,7 @@ export default function OilDetail({ oil, catalogSearch = '' }: OilDetailProps) {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() =>
-                      setExpandedSections((current) => ({
+                      setExpandedSections(current => ({
                         ...current,
                         [section.key]: !current[section.key],
                       }))
@@ -99,21 +108,25 @@ export default function OilDetail({ oil, catalogSearch = '' }: OilDetailProps) {
                         name={section.icon as OrganicIconName}
                         size={16}
                         className={styles.accordionIcon}
-                      />{' '}
+                      />{" "}
                       {section.label}
                     </span>
-                    <span aria-hidden="true">{isOpen ? '−' : '+'}</span>
+                    <span aria-hidden="true">{isOpen ? "−" : "+"}</span>
                   </button>
 
-                  <div id={panelId} className={styles.accordionPanel} hidden={!isOpen}>
+                  <div
+                    id={panelId}
+                    className={styles.accordionPanel}
+                    hidden={!isOpen}
+                  >
                     <p>{content}</p>
                   </div>
                 </div>
-              )
+              );
             })}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
