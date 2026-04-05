@@ -114,6 +114,13 @@ function ApothecaryView() {
       <main className="pt-8 pb-12 px-6">
         {/* Hero Section */}
         <header className="mb-12">
+          <div className="aspect-video rounded-3xl overflow-hidden mb-8 shadow-sm">
+            <img
+              src="file:///home/leonardotl/.gemini/antigravity/brain/d1506739-2a26-464b-9db2-d80811f2f2ad/hero_apothecary_1775352539583.png"
+              className="w-full h-full object-cover"
+              alt="Apothecary Hero"
+            />
+          </div>
           <span className="text-primary-dark uppercase tracking-[0.2em] text-[10px] font-bold mb-3 block">
             Interactive Pocket Guide
           </span>
@@ -134,84 +141,114 @@ function ApothecaryView() {
           </h2>
           <div className="grid grid-cols-2 gap-4">
             {/* Anxiety */}
-            <div className="aspect-square bg-card-1 rounded-2xl p-5 flex flex-col justify-between group cursor-pointer hover:bg-stone-200 transition-all duration-500">
-              <div className="flex justify-between items-start">
-                <Waves
-                  className="text-primary-dark group-hover:scale-110 transition-transform"
-                  size={24}
-                  strokeWidth={1.5}
-                />
-                <span className="text-[10px] font-bold uppercase tracking-widest text-stone-500">
-                  01
-                </span>
-              </div>
-              <div>
-                <h3 className="font-serif text-2xl mb-1 text-stone-900">
-                  Anxiety
-                </h3>
-                <p className="text-xs text-stone-600 font-medium">
-                  Grounding Rituals
-                </p>
+            <div className="aspect-square bg-card-1 rounded-2xl overflow-hidden relative group cursor-pointer hover:opacity-90 transition-all duration-500">
+              <img
+                src="file:///home/leonardotl/.gemini/antigravity/brain/d1506739-2a26-464b-9db2-d80811f2f2ad/anxiety_hotspot_1775352556832.png"
+                className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
+                alt="Anxiety Rituals"
+              />
+              <div className="absolute inset-0 p-5 flex flex-col justify-between bg-gradient-to-t from-stone-900/10 to-transparent">
+                <div className="flex justify-between items-start relative">
+                  <Waves
+                    className="text-primary-dark group-hover:scale-110 transition-transform"
+                    size={24}
+                    strokeWidth={1.5}
+                  />
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-stone-500">
+                    01
+                  </span>
+                </div>
+                <div className="relative">
+                  <h3 className="font-serif text-2xl mb-1 text-stone-900">
+                    Anxiety
+                  </h3>
+                  <p className="text-xs text-stone-600 font-medium">
+                    Grounding Rituals
+                  </p>
+                </div>
               </div>
             </div>
 
             {/* Compulsion */}
-            <div className="aspect-square bg-card-2 rounded-2xl p-5 flex flex-col justify-between text-white group cursor-pointer hover:opacity-90 transition-all duration-500 mt-8">
-              <div className="flex justify-between items-start">
-                <Target
-                  className="group-hover:scale-110 transition-transform"
-                  size={24}
-                  strokeWidth={1.5}
-                />
-                <span className="text-[10px] font-bold uppercase tracking-widest opacity-70">
-                  02
-                </span>
-              </div>
-              <div>
-                <h3 className="font-serif text-2xl mb-1">Compulsion</h3>
-                <p className="text-xs opacity-80 font-medium">Clarity & Ease</p>
+            <div className="aspect-square bg-card-2 rounded-2xl overflow-hidden relative group cursor-pointer hover:opacity-90 transition-all duration-500 mt-8">
+              <img
+                src="https://i.etsystatic.com/8075141/r/il/e0d050/1725227829/il_fullxfull.1725227829_9xno.jpg"
+                className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
+                alt="Compulsion"
+              />
+              <div className="absolute inset-0 p-5 flex flex-col justify-between bg-gradient-to-t from-stone-900/30 to-transparent text-white">
+                <div className="flex justify-between items-start relative">
+                  <Target
+                    className="group-hover:scale-110 transition-transform"
+                    size={24}
+                    strokeWidth={1.5}
+                  />
+                  <span className="text-[10px] font-bold uppercase tracking-widest opacity-80">
+                    02
+                  </span>
+                </div>
+                <div className="relative">
+                  <h3 className="font-serif text-2xl mb-1">Compulsion</h3>
+                  <p className="text-xs opacity-90 font-medium">
+                    Clarity & Ease
+                  </p>
+                </div>
               </div>
             </div>
 
             {/* Fatigue */}
-            <div className="aspect-square bg-card-3 rounded-2xl p-5 flex flex-col justify-between text-stone-800 group cursor-pointer hover:opacity-90 transition-all duration-500 -mt-8">
-              <div className="flex justify-between items-start">
-                <Sun
-                  className="group-hover:scale-110 transition-transform"
-                  size={24}
-                  strokeWidth={1.5}
-                />
-                <span className="text-[10px] font-bold uppercase tracking-widest opacity-70">
-                  03
-                </span>
-              </div>
-              <div>
-                <h3 className="font-serif text-2xl mb-1">Fatigue</h3>
-                <p className="text-xs opacity-80 font-medium">
-                  Vibrant Essence
-                </p>
+            <div className="aspect-square bg-card-3 rounded-2xl overflow-hidden relative group cursor-pointer hover:opacity-90 transition-all duration-500 -mt-8">
+              <img
+                src="https://static.wixstatic.com/media/ec6e13_bd4543629776485bbcefff26e8f2b639~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg"
+                className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700"
+                alt="Fatigue"
+              />
+              <div className="absolute inset-0 p-5 flex flex-col justify-between text-stone-800 bg-gradient-to-t from-white/20 to-transparent">
+                <div className="flex justify-between items-start relative">
+                  <Sun
+                    className="group-hover:scale-110 transition-transform"
+                    size={24}
+                    strokeWidth={1.5}
+                  />
+                  <span className="text-[10px] font-bold uppercase tracking-widest opacity-70">
+                    03
+                  </span>
+                </div>
+                <div className="relative">
+                  <h3 className="font-serif text-2xl mb-1">Fatigue</h3>
+                  <p className="text-xs opacity-80 font-medium">
+                    Vibrant Essence
+                  </p>
+                </div>
               </div>
             </div>
 
             {/* Motivation */}
-            <div className="aspect-square bg-card-4 rounded-2xl p-5 flex flex-col justify-between group cursor-pointer hover:bg-stone-300 transition-all duration-500">
-              <div className="flex justify-between items-start">
-                <Zap
-                  className="text-stone-700 group-hover:scale-110 transition-transform"
-                  size={24}
-                  strokeWidth={1.5}
-                />
-                <span className="text-[10px] font-bold uppercase tracking-widest text-stone-500">
-                  04
-                </span>
-              </div>
-              <div>
-                <h3 className="font-serif text-2xl mb-1 text-stone-900">
-                  Motivation
-                </h3>
-                <p className="text-xs text-stone-600 font-medium">
-                  Ignite Purpose
-                </p>
+            <div className="aspect-square bg-card-4 rounded-2xl overflow-hidden relative group cursor-pointer hover:opacity-90 transition-all duration-500">
+              <img
+                src="https://www.naturalbody.com/wp-content/uploads/2025/07/essential-oils-aromatherapy-natural-body-spa-med-spa-atlanta-1000x750-2-300x225.jpg"
+                className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
+                alt="Motivation"
+              />
+              <div className="absolute inset-0 p-5 flex flex-col justify-between bg-gradient-to-t from-stone-900/10 to-transparent">
+                <div className="flex justify-between items-start relative">
+                  <Zap
+                    className="text-stone-700 group-hover:scale-110 transition-transform"
+                    size={24}
+                    strokeWidth={1.5}
+                  />
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-stone-500">
+                    04
+                  </span>
+                </div>
+                <div className="relative">
+                  <h3 className="font-serif text-2xl mb-1 text-stone-900">
+                    Motivation
+                  </h3>
+                  <p className="text-xs text-stone-600 font-medium">
+                    Ignite Purpose
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -254,21 +291,21 @@ function ApothecaryView() {
         {/* Metabolism Section */}
         <section className="mb-16">
           <div className="bg-card-1 rounded-3xl overflow-hidden p-8 flex flex-col gap-8 items-center">
-            <div className="relative w-32 h-48 flex-none">
-              <svg
-                className="w-full h-full fill-primary-light/50"
-                viewBox="0 0 200 400"
-              >
-                <path d="M100,20 C120,20 140,50 140,100 C140,150 160,200 160,280 C160,360 140,380 100,380 C60,380 40,360 40,280 C40,200 60,150 60,100 C60,50 80,20 100,20 Z"></path>
-              </svg>
+            <div className="relative w-32 h-48 flex-none rounded-2xl overflow-hidden shadow-inner">
+              <img
+                src="https://www.themidwestkitchenblog.com/wp-content/uploads/2025/01/Citrus-Ginger-Wellness-Shots-21.jpg"
+                className="w-full h-full object-cover"
+                alt="Metabolism"
+              />
+              <div className="absolute inset-0 bg-primary-dark/20 mix-blend-multiply"></div>
               <div className="absolute top-1/4 left-1/2 -translate-x-1/2 flex items-center justify-center">
-                <div className="w-5 h-5 rounded-full bg-stone-500 ring-8 ring-stone-500/20 animate-pulse"></div>
+                <div className="w-5 h-5 rounded-full bg-white ring-8 ring-white/20 animate-pulse"></div>
               </div>
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 flex items-center justify-center">
-                <div className="w-5 h-5 rounded-full bg-primary-dark ring-8 ring-primary-dark/20"></div>
+                <div className="w-5 h-5 rounded-full bg-primary-light ring-8 ring-primary-light/20"></div>
               </div>
               <div className="absolute bottom-1/4 left-1/2 -translate-x-1/2 flex items-center justify-center">
-                <div className="w-5 h-5 rounded-full bg-stone-600 ring-8 ring-stone-600/20"></div>
+                <div className="w-5 h-5 rounded-full bg-white ring-8 ring-white/20"></div>
               </div>
             </div>
             <div className="flex-1 space-y-6 w-full">
@@ -563,6 +600,13 @@ function RitualView() {
                   Dispense 5-10 drops into your palms. Notice the aroma as it
                   activates with the air.
                 </p>
+                <div className="mt-4 aspect-[4/3] rounded-2xl overflow-hidden shadow-sm">
+                  <img
+                    src="https://i.etsystatic.com/38221700/r/il/ebba68/6661412292/il_fullxfull.6661412292_g9zr.jpg"
+                    className="w-full h-full object-cover"
+                    alt="Dispense & Prepare"
+                  />
+                </div>
               </div>
             </div>
 
@@ -579,6 +623,13 @@ function RitualView() {
                   Warm by rubbing hands together and massage into affected areas
                   using firm, circular motions.
                 </p>
+                <div className="mt-4 aspect-[4/3] rounded-2xl overflow-hidden shadow-sm">
+                  <img
+                    src="https://media.istockphoto.com/id/1432129227/photo/bottle-of-serum-in-womens-hands-glass-bottle-with-dropper-cap-in-womens-hands-amber-glass.jpg?s=612x612&w=0&k=20&c=ROONoZjSOEJrnYruDElP2yMwKmCXWvlI1XDiuH8hHnA="
+                    className="w-full h-full object-cover"
+                    alt="Warm & Emulsify"
+                  />
+                </div>
               </div>
             </div>
 
@@ -619,6 +670,13 @@ function RitualView() {
                   Let the oils absorb for a few minutes before dressing.
                   Experience the gentle tingling sensation.
                 </p>
+                <div className="mt-4 aspect-[4/3] rounded-2xl overflow-hidden shadow-sm">
+                  <img
+                    src="https://images.surferseo.art/a361af3b-ce8e-4a50-95eb-d1851c3ae5d2.jpeg"
+                    className="w-full h-full object-cover"
+                    alt="Absorption"
+                  />
+                </div>
               </div>
             </div>
           </div>
