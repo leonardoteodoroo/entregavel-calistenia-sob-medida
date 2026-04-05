@@ -3,14 +3,15 @@ import { useState } from 'react'
 import Button from '../Button/Button'
 import Chip from '../Chip/Chip'
 import ImagePlaceholder from '../ImagePlaceholder/ImagePlaceholder'
+import OrganicIcon, { type OrganicIconName } from '../OrganicIcon/OrganicIcon'
 import { getOilEmoji, oilFilterLabels } from '../../data/presentation'
 import type { Oil } from '../../data/types'
 import styles from './OilDetail.module.css'
 
 const usageSections = [
-  { key: 'aromatic', label: 'Aromático', icon: '🌬' },
-  { key: 'topical', label: 'Tópico', icon: '💆' },
-  { key: 'ingestion', label: 'Ingestão', icon: '💊' },
+  { key: 'aromatic', label: 'Aromático', icon: 'droplet' },
+  { key: 'topical', label: 'Tópico', icon: 'hands' },
+  { key: 'ingestion', label: 'Ingestão', icon: 'capsule' },
 ] as const
 
 type UsageKey = (typeof usageSections)[number]['key']
@@ -94,7 +95,12 @@ export default function OilDetail({ oil, catalogSearch = '' }: OilDetailProps) {
                     }
                   >
                     <span>
-                      {section.icon} {section.label}
+                      <OrganicIcon
+                        name={section.icon as OrganicIconName}
+                        size={16}
+                        className={styles.accordionIcon}
+                      />{' '}
+                      {section.label}
                     </span>
                     <span aria-hidden="true">{isOpen ? '−' : '+'}</span>
                   </button>

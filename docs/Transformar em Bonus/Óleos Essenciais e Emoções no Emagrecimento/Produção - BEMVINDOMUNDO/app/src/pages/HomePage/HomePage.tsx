@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { startTransition, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import Button from '../../components/Button/Button'
@@ -6,10 +6,12 @@ import Card from '../../components/Card/Card'
 import Chip from '../../components/Chip/Chip'
 import GlassPill from '../../components/GlassPill/GlassPill'
 import ImagePlaceholder from '../../components/ImagePlaceholder/ImagePlaceholder'
+import OrganicIcon, { type OrganicIconName } from '../../components/OrganicIcon/OrganicIcon'
 import StepNumber from '../../components/StepNumber/StepNumber'
 import oilsData from '../../data/oils.json'
 import { getOilEmoji } from '../../data/presentation'
 import spotlightsData from '../../data/spotlights.json'
+import useInView from '../../hooks/useInView'
 import type { Oil, Spotlight } from '../../data/types'
 import styles from './HomePage.module.css'
 
@@ -44,29 +46,34 @@ const neuralSteps = [
 const quickLinks = [
   {
     to: '/biblioteca',
-    icon: '🌿',
+    icon: 'dropper',
     title: 'Biblioteca Botânica',
     description: '17 óleos essenciais para metabolismo, humor e digestão.',
   },
   {
     to: '/rituais',
-    icon: '🧪',
+    icon: 'hands',
     title: 'Rituais & Receitas',
     description: '29 protocolos práticos do despertar ao sono profundo.',
   },
   {
     to: '/mindset',
-    icon: '🧠',
+    icon: 'brainLeaf',
     title: 'Mindset',
     description: 'Cartas contra sabotagem emocional, culpa e impulso.',
   },
   {
     to: '/guias',
-    icon: '⚖️',
+    icon: 'shieldLeaf',
     title: 'Guias & Segurança',
     description: 'Uso responsável, alertas editoriais e respaldo técnico.',
   },
-] as const
+] as const satisfies ReadonlyArray<{
+  to: string
+  icon: OrganicIconName
+  title: string
+  description: string
+}>
 
 const featuredOilIds = ['grapefruit', 'peppermint', 'serenity', 'wild-orange'] as const
 const featuredOils = featuredOilIds
@@ -94,43 +101,68 @@ function getDayOfYear(date: Date) {
   return Math.floor((current - start) / 86_400_000)
 }
 
+function NeuralStepItem({
+  step,
+  index,
+}: {
+  step: (typeof neuralSteps)[number]
+  index: number
+}) {
+  const { ref, isInView } = useInView<HTMLDivElement>({
+    threshold: 0.2,
+    rootMargin: '0px 0px -12% 0px',
+  })
+  const stepClassName = [styles.neuralStep, isInView ? styles.neuralStepVisible : '']
+    .filter(Boolean)
+    .join(' ')
+
+  return (
+    <div ref={ref} data-step-index={index} className={stepClassName} style={{ transitionDelay: `${index * 120}ms` }}>
+      <StepNumber
+        number={step.number}
+        title={step.title}
+        description={
+          <>
+            <p className={styles.neuralEyebrow}>{step.eyebrow}</p>
+            <p>{step.description}</p>
+          </>
+        }
+      />
+    </div>
+  )
+}
+
 export default function HomePage() {
-  const [visibleSteps, setVisibleSteps] = useState<Record<number, boolean>>({})
-  const stepRefs = useRef<Array<HTMLDivElement | null>>([])
+  const [showDeferredSections, setShowDeferredSections] = useState(false)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            return
-          }
+    const activate = () => {
+      startTransition(() => {
+        setShowDeferredSections(true)
+      })
+    }
 
-          const index = Number(entry.target.getAttribute('data-step-index'))
+    const idleWindow = window as Window & {
+      requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number
+      cancelIdleCallback?: (handle: number) => void
+    }
 
-          setVisibleSteps((current) => {
-            if (current[index]) {
-              return current
-            }
-
-            return { ...current, [index]: true }
-          })
-
-          observer.unobserve(entry.target)
-        })
+    const timeoutId = window.setTimeout(activate, 180)
+    const idleId = idleWindow.requestIdleCallback?.(
+      () => {
+        window.clearTimeout(timeoutId)
+        activate()
       },
-      {
-        threshold: 0.2,
-      },
+      { timeout: 300 },
     )
 
-    stepRefs.current.forEach((element) => {
-      if (element) {
-        observer.observe(element)
-      }
-    })
+    return () => {
+      window.clearTimeout(timeoutId)
 
-    return () => observer.disconnect()
+      if (idleId !== undefined) {
+        idleWindow.cancelIdleCallback?.(idleId)
+      }
+    }
   }, [])
 
   if (spotlights.length === 0) {
@@ -193,114 +225,92 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section aria-label="Como funciona" className={styles.neuralSection}>
-        <p className="label-md text-variant">Como seu cérebro processa os óleos</p>
-        <h2 className={`headline-sm mt-4 ${styles.neuralHeading}`}>
-          O circuito olfativo entre impulso, humor e metabolismo
-        </h2>
+      {showDeferredSections ? (
+        <div className={styles.deferredShell}>
+          <section aria-label="Como funciona" className={styles.neuralSection}>
+            <p className="label-md text-variant">Como seu cérebro processa os óleos</p>
+            <h2 className={`headline-sm mt-4 ${styles.neuralHeading}`}>
+              O circuito olfativo entre impulso, humor e metabolismo
+            </h2>
 
-        <div className={styles.neuralList}>
-          {neuralSteps.map((step, index) => {
-            const isVisible = visibleSteps[index]
-            const stepClassName = [styles.neuralStep, isVisible ? styles.neuralStepVisible : '']
-              .filter(Boolean)
-              .join(' ')
+            <div className={styles.neuralList}>
+              {neuralSteps.map((step, index) => (
+                <NeuralStepItem key={step.title} step={step} index={index} />
+              ))}
+            </div>
+          </section>
 
-            return (
-              <div
-                key={step.title}
-                ref={(node) => {
-                  stepRefs.current[index] = node
-                }}
-                data-step-index={index}
-                className={stepClassName}
-                style={{ transitionDelay: `${index * 120}ms` }}
-              >
-                <StepNumber
-                  number={step.number}
-                  title={step.title}
-                  description={
-                    <>
-                      <p className={styles.neuralEyebrow}>{step.eyebrow}</p>
-                      <p>{step.description}</p>
-                    </>
-                  }
-                />
+          <section aria-label="Navegação rápida" className={styles.section}>
+            <div className={styles.sectionHeading}>
+              <p className="label-md text-variant">Atalhos rápidos</p>
+              <h2 className="headline-sm mt-4">Quatro portas para o seu ritual diário</h2>
+            </div>
+
+            <div className={styles.quickGrid}>
+              {quickLinks.map((item) => (
+                <Link key={item.to} to={item.to} className={styles.quickLink}>
+                  <Card className={styles.quickCard}>
+                    <span className={styles.quickIcon} aria-hidden="true">
+                      <OrganicIcon name={item.icon} size={34} />
+                    </span>
+                    <p className={styles.quickTitle}>{item.title}</p>
+                    <p className={styles.quickDescription}>{item.description}</p>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          <section aria-label="Compostos biológicos em destaque" className={styles.section}>
+            <div className={styles.sectionHeading}>
+              <div>
+                <p className="label-md text-variant">Slide to Compare</p>
+                <h2 className="headline-sm mt-4">Compostos biológicos em foco</h2>
               </div>
-            )
-          })}
+              <p className={styles.carouselHint}>Deslize lateralmente</p>
+            </div>
+
+            <div className={styles.carousel} role="list" aria-label="Óleos em destaque">
+              {featuredOils.map((oil) => (
+                <Card
+                  key={oil.id}
+                  as="article"
+                  role="listitem"
+                  variant="elevated"
+                  className={styles.compareCard}
+                >
+                  <ImagePlaceholder
+                    aspectRatio="4:3"
+                    emoji={getOilEmoji(oil.id)}
+                    alt={`Hero editorial de ${oil.name}`}
+                    pendingNote={`Hero 4:3 de ${oil.name}`}
+                    className={styles.compareImage}
+                  />
+
+                  <div className={styles.compareContent}>
+                    <div>
+                      <p className={styles.compareTitle}>{oil.name}</p>
+                      <p className={styles.compareSubtitle}>{oil.subtitle}</p>
+                    </div>
+
+                    <div className={styles.compareTags}>
+                      {oil.tags.slice(0, 2).map((tag) => (
+                        <Chip key={`${oil.id}-${tag}`} label={tag} />
+                      ))}
+                    </div>
+
+                    <p className={styles.compareSummary}>{oil.usageSummary}</p>
+
+                    <Button to={`/biblioteca/${oil.id}`} variant="secondary">
+                      Abrir ficha →
+                    </Button>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </section>
         </div>
-      </section>
-
-      <section aria-label="Navegação rápida" className={styles.section}>
-        <div className={styles.sectionHeading}>
-          <p className="label-md text-variant">Atalhos rápidos</p>
-          <h2 className="headline-sm mt-4">Quatro portas para o seu ritual diário</h2>
-        </div>
-
-        <div className={styles.quickGrid}>
-          {quickLinks.map((item) => (
-            <Link key={item.to} to={item.to} className={styles.quickLink}>
-              <Card className={styles.quickCard}>
-                <span className={styles.quickIcon} aria-hidden="true">
-                  {item.icon}
-                </span>
-                <p className={styles.quickTitle}>{item.title}</p>
-                <p className={styles.quickDescription}>{item.description}</p>
-              </Card>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section aria-label="Compostos biológicos em destaque" className={styles.section}>
-        <div className={styles.sectionHeading}>
-          <div>
-            <p className="label-md text-variant">Slide to Compare</p>
-            <h2 className="headline-sm mt-4">Compostos biológicos em foco</h2>
-          </div>
-          <p className={styles.carouselHint}>Deslize lateralmente</p>
-        </div>
-
-        <div className={styles.carousel} role="list" aria-label="Óleos em destaque">
-          {featuredOils.map((oil) => (
-            <Card
-              key={oil.id}
-              as="article"
-              role="listitem"
-              variant="elevated"
-              className={styles.compareCard}
-            >
-              <ImagePlaceholder
-                aspectRatio="4:3"
-                emoji={getOilEmoji(oil.id)}
-                alt={`Hero editorial de ${oil.name}`}
-                pendingNote={`Hero 4:3 de ${oil.name}`}
-                className={styles.compareImage}
-              />
-
-              <div className={styles.compareContent}>
-                <div>
-                  <p className={styles.compareTitle}>{oil.name}</p>
-                  <p className={styles.compareSubtitle}>{oil.subtitle}</p>
-                </div>
-
-                <div className={styles.compareTags}>
-                  {oil.tags.slice(0, 2).map((tag) => (
-                    <Chip key={`${oil.id}-${tag}`} label={tag} />
-                  ))}
-                </div>
-
-                <p className={styles.compareSummary}>{oil.usageSummary}</p>
-
-                <Button to={`/biblioteca/${oil.id}`} variant="secondary">
-                  Abrir ficha →
-                </Button>
-              </div>
-            </Card>
-          ))}
-        </div>
-      </section>
+      ) : null}
     </div>
   )
 }

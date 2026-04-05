@@ -47,6 +47,10 @@
   padding: 0 var(--spacing-5);
 }
 
+.panelAnimated {
+  animation: tab-enter 250ms ease both;
+}
+
 .editorialCard {
   display: grid;
   gap: var(--spacing-4);
@@ -65,4 +69,16 @@
 
 .recipeStack {
   margin-bottom: var(--spacing-6);
+}
+
+@keyframes tab-enter {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

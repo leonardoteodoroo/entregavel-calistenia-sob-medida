@@ -1,14 +1,19 @@
 import { Link, useLocation } from 'react-router-dom'
 
+import OrganicIcon, { type OrganicIconName } from '../OrganicIcon/OrganicIcon'
 import styles from './BottomNav.module.css'
 
 const items = [
-  { href: '/', label: 'Home', icon: 'H' },
-  { href: '/biblioteca', label: 'Óleos', icon: 'O' },
-  { href: '/rituais', label: 'Rituais', icon: 'R' },
-  { href: '/mindset', label: 'Mente', icon: 'M' },
-  { href: '/guias', label: 'Guias', icon: 'G' },
-]
+  { href: '/', label: 'Home', icon: 'home' },
+  { href: '/biblioteca', label: 'Óleos', icon: 'leaf' },
+  { href: '/rituais', label: 'Rituais', icon: 'hands' },
+  { href: '/mindset', label: 'Mente', icon: 'brainLeaf' },
+  { href: '/guias', label: 'Guias', icon: 'shieldLeaf' },
+] as const satisfies ReadonlyArray<{
+  href: string
+  label: string
+  icon: OrganicIconName
+}>
 
 function isActivePath(currentPath: string, href: string): boolean {
   if (href === '/') {
@@ -38,7 +43,7 @@ export default function BottomNav() {
               aria-current={isActive ? 'page' : undefined}
             >
               <span className={styles.icon} aria-hidden="true">
-                {item.icon}
+                <OrganicIcon name={item.icon} size={18} />
               </span>
               <span>{item.label}</span>
             </Link>

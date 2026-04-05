@@ -92,6 +92,11 @@
   padding: 0 var(--spacing-5);
 }
 
+.deferredShell {
+  content-visibility: auto;
+  contain-intrinsic-size: 1800px;
+}
+
 .sectionHeading {
   display: flex;
   align-items: flex-end;
@@ -155,6 +160,10 @@
 }
 
 .quickIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
   font-size: 2rem;
   line-height: 1;
 }

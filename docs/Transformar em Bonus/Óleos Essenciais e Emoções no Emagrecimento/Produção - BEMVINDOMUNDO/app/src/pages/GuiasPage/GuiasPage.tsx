@@ -1,4 +1,5 @@
 import ImagePlaceholder from '../../components/ImagePlaceholder/ImagePlaceholder'
+import OrganicIcon, { type OrganicIconName } from '../../components/OrganicIcon/OrganicIcon'
 import PullQuote from '../../components/PullQuote/PullQuote'
 import safetyData from '../../data/safety.json'
 import type { PullQuote as PullQuoteEntry, SafetyData, SafetySection } from '../../data/types'
@@ -23,7 +24,7 @@ const sectionMeta: Record<
   closing: { eyebrow: '🌿 MENSAGEM FINAL' },
 }
 
-const alertIcons = ['✅', '⛔', '📏', '☀️', '💧']
+const alertIcons: OrganicIconName[] = ['shield', 'capsule', 'dropper', 'sun', 'droplet']
 
 const contraindications = [
   'Grávidas e lactantes: consultar médico antes.',
@@ -110,7 +111,7 @@ function AlertsSection({ section }: { section: SafetySection }) {
         {section.bullets?.map((bullet, index) => (
           <li key={bullet} className={styles.alertItem}>
             <span className={styles.alertIcon} aria-hidden="true">
-              {alertIcons[index] ?? '•'}
+              <OrganicIcon name={alertIcons[index] ?? 'shield'} size={22} />
             </span>
             <p className={styles.body}>{bullet}</p>
           </li>

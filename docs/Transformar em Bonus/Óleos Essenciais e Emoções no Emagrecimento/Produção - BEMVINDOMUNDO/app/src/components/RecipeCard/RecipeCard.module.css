@@ -3,6 +3,17 @@
   width: 100%;
   cursor: pointer;
   text-align: left;
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+
+.triggerHidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.triggerVisible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card {

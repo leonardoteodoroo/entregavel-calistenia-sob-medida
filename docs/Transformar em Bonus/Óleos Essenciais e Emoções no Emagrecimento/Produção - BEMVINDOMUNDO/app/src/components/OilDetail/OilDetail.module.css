@@ -79,6 +79,11 @@
   text-align: left;
 }
 
+.accordionIcon {
+  vertical-align: -0.2em;
+  margin-right: var(--spacing-2);
+}
+
 .accordionPanel {
   padding: 0 var(--spacing-4) var(--spacing-4);
   color: var(--on-surface-variant);

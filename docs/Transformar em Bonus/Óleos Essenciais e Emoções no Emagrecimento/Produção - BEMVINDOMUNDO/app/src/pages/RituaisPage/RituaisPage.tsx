@@ -117,11 +117,12 @@ export default function RituaisPage() {
       </nav>
 
       <div
+        key={activeTab}
         id={`panel-${activeTab}`}
         role="tabpanel"
         aria-labelledby={`tab-${activeTab}`}
         tabIndex={0}
-        className={styles.panel}
+        className={[styles.panel, styles.panelAnimated].join(' ')}
       >
         {activeTab === 'topico' && topicalGuide ? (
           <Card className={styles.editorialCard}>

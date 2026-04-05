@@ -105,8 +105,11 @@
 }
 
 .alertIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding-top: 0.15rem;
-  font-size: 1.35rem;
+  color: var(--primary);
   line-height: 1;
 }
 

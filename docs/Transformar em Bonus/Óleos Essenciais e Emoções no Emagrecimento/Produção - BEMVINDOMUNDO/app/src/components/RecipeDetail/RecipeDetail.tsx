@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Card from '../Card/Card'
 import GlassPill from '../GlassPill/GlassPill'
 import ImagePlaceholder from '../ImagePlaceholder/ImagePlaceholder'
+import OrganicIcon from '../OrganicIcon/OrganicIcon'
 import StepNumber from '../StepNumber/StepNumber'
 import { getRecipeEmoji } from '../../data/recipesPresentation'
 import type { Recipe } from '../../data/types'
@@ -79,7 +80,9 @@ export default function RecipeDetail({ recipe, id }: RecipeDetailProps) {
                       }))
                     }
                   />
-                  <span>💧 {item}</span>
+                  <span>
+                    <OrganicIcon name="droplet" size={16} /> {item}
+                  </span>
                 </label>
               ))}
             </div>

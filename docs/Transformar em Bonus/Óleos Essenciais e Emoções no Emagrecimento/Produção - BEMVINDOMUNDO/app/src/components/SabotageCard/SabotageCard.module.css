@@ -4,17 +4,24 @@
   margin-bottom: var(--spacing-8);
   cursor: pointer;
   perspective: 1200px;
+  touch-action: pan-y;
 }
 
 .card3d {
   position: relative;
   min-height: 60svh;
+  transform: translateX(var(--swipe-shift, 0px)) rotateY(var(--swipe-rotate, 0deg));
   transform-style: preserve-3d;
   transition: transform 600ms ease;
+  will-change: transform;
 }
 
 .card3dFlipped {
-  transform: rotateY(180deg);
+  transform: translateX(var(--swipe-shift, 0px)) rotateY(calc(180deg + var(--swipe-rotate, 0deg)));
+}
+
+.card3dDragging {
+  transition-duration: 120ms;
 }
 
 .face {

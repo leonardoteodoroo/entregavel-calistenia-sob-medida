@@ -3,6 +3,7 @@ import GlassPill from '../GlassPill/GlassPill'
 import ImagePlaceholder from '../ImagePlaceholder/ImagePlaceholder'
 import { getRecipeEmoji } from '../../data/recipesPresentation'
 import type { Recipe } from '../../data/types'
+import useInView from '../../hooks/useInView'
 import styles from './RecipeCard.module.css'
 
 export interface RecipeCardProps {
@@ -18,10 +19,16 @@ export default function RecipeCard({
   detailsId,
   onToggle,
 }: RecipeCardProps) {
+  const { ref, isInView } = useInView<HTMLButtonElement>({
+    threshold: 0.12,
+    rootMargin: '0px 0px -10% 0px',
+  })
+
   return (
     <button
+      ref={ref}
       type="button"
-      className={styles.trigger}
+      className={[styles.trigger, isInView ? styles.triggerVisible : styles.triggerHidden].join(' ')}
       aria-expanded={isExpanded}
       aria-controls={detailsId}
       onClick={onToggle}
