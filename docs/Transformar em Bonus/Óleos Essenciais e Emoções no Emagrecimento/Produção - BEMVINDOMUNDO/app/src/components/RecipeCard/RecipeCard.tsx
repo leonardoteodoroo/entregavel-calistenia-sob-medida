@@ -43,7 +43,7 @@ export default function RecipeCard({
 
         <div className={styles.content}>
           <p className={styles.label}>{recipe.periodLabel}</p>
-          <h3 className={styles.title}>{recipe.sopTitle}</h3>
+          <h2 className={styles.title}>{recipe.sopTitle}</h2>
           <p className={styles.name}>{recipe.name}</p>
         </div>
       </Card>

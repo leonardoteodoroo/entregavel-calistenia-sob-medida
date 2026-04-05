@@ -86,6 +86,7 @@ export default function RituaisPage() {
       <nav
         role="tablist"
         aria-label="Categorias de receitas"
+        aria-orientation="horizontal"
         className={styles.tabs}
       >
         {recipeTabOptions.map((option, index) => {
@@ -102,6 +103,7 @@ export default function RituaisPage() {
               type="button"
               aria-selected={isActive}
               aria-controls={`panel-${option.value}`}
+              tabIndex={isActive ? 0 : -1}
               className={[styles.tabButton, isActive ? styles.tabButtonActive : '']
                 .filter(Boolean)
                 .join(' ')}
@@ -118,6 +120,7 @@ export default function RituaisPage() {
         id={`panel-${activeTab}`}
         role="tabpanel"
         aria-labelledby={`tab-${activeTab}`}
+        tabIndex={0}
         className={styles.panel}
       >
         {activeTab === 'topico' && topicalGuide ? (

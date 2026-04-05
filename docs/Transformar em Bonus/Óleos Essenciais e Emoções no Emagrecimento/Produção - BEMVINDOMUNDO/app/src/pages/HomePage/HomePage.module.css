@@ -111,6 +111,10 @@
   margin-top: var(--spacing-6);
 }
 
+.neuralHeading {
+  max-width: 18ch;
+}
+
 .neuralStep {
   opacity: 0;
   transform: translateY(24px);

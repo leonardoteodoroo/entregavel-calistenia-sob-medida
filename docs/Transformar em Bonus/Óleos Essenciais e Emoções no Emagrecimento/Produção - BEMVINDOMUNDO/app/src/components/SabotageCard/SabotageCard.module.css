@@ -50,6 +50,10 @@
   text-transform: uppercase;
 }
 
+.back .theme {
+  color: var(--primary);
+}
+
 .stateLabel {
   color: rgba(255, 255, 255, 0.72);
   font-size: 0.8rem;

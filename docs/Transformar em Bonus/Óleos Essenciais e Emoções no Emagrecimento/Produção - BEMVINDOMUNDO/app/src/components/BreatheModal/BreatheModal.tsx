@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 
 import styles from './BreatheModal.module.css'
@@ -29,30 +29,15 @@ function getPhase(elapsedSeconds: number) {
 export default function BreatheModal() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [elapsedSeconds, setElapsedSeconds] = useState(0)
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null)
+  const dialogRef = useRef<HTMLDivElement | null>(null)
+  const triggerRef = useRef<HTMLButtonElement | null>(null)
+  const previousFocusRef = useRef<HTMLElement | null>(null)
+  const titleId = useId()
+  const descriptionId = useId()
   const isOpen = searchParams.get('breathe') === 'open'
 
   const phase = getPhase(elapsedSeconds)
-
-  useEffect(() => {
-    if (!isOpen) {
-      setElapsedSeconds(0)
-      return
-    }
-
-    const startedAt = performance.now()
-    const intervalId = window.setInterval(() => {
-      const seconds = ((performance.now() - startedAt) / 1000) % cycleDuration
-      setElapsedSeconds(seconds)
-    }, 200)
-
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-
-    return () => {
-      window.clearInterval(intervalId)
-      document.body.style.overflow = previousOverflow
-    }
-  }, [isOpen])
 
   const openModal = () => {
     const next = new URLSearchParams(searchParams)
@@ -66,22 +51,113 @@ export default function BreatheModal() {
     setSearchParams(next, { replace: true })
   }
 
+  useEffect(() => {
+    if (!isOpen) {
+      setElapsedSeconds(0)
+      return
+    }
+
+    previousFocusRef.current =
+      document.activeElement instanceof HTMLElement ? document.activeElement : null
+
+    const startedAt = performance.now()
+    const intervalId = window.setInterval(() => {
+      const seconds = ((performance.now() - startedAt) / 1000) % cycleDuration
+      setElapsedSeconds(seconds)
+    }, 200)
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    const animationFrameId = window.requestAnimationFrame(() => {
+      closeButtonRef.current?.focus()
+    })
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (!dialogRef.current) {
+        return
+      }
+
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        closeModal()
+        return
+      }
+
+      if (event.key !== 'Tab') {
+        return
+      }
+
+      const focusableElements = Array.from(
+        dialogRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])',
+        ),
+      )
+
+      if (focusableElements.length === 0) {
+        event.preventDefault()
+        dialogRef.current.focus()
+        return
+      }
+
+      const firstElement = focusableElements[0]
+      const lastElement = focusableElements[focusableElements.length - 1]
+      const currentElement = document.activeElement
+
+      if (event.shiftKey && currentElement === firstElement) {
+        event.preventDefault()
+        lastElement.focus()
+      } else if (!event.shiftKey && currentElement === lastElement) {
+        event.preventDefault()
+        firstElement.focus()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      window.clearInterval(intervalId)
+      window.cancelAnimationFrame(animationFrameId)
+      document.removeEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = previousOverflow
+      previousFocusRef.current?.focus()
+    }
+  }, [isOpen])
+
   return (
     <>
-      <button type="button" className={styles.fab} aria-label="Respirar" onClick={openModal}>
+      <button
+        ref={triggerRef}
+        type="button"
+        className={styles.fab}
+        aria-label="Respirar"
+        onClick={openModal}
+      >
         🌬 Respirar
       </button>
 
       {isOpen ? (
         <div className={styles.overlay} role="presentation" onClick={closeModal}>
           <div
+            ref={dialogRef}
             className={styles.dialog}
             role="dialog"
             aria-modal="true"
-            aria-label="Respiração 4-7-8"
+            aria-labelledby={titleId}
+            aria-describedby={descriptionId}
+            tabIndex={-1}
             onClick={(event) => event.stopPropagation()}
           >
-            <button type="button" className={styles.closeButton} onClick={closeModal}>
+            <h2 id={titleId} className="sr-only">
+              Respiração 4-7-8
+            </h2>
+
+            <button
+              ref={closeButtonRef}
+              type="button"
+              className={styles.closeButton}
+              onClick={closeModal}
+            >
               Fechar
             </button>
 
@@ -90,7 +166,7 @@ export default function BreatheModal() {
             <div className={styles.copy} aria-live="polite">
               <p className={styles.phase}>{phase.label}</p>
               <p className={styles.counter}>{phase.secondsLeft}s</p>
-              <p className={styles.description}>
+              <p id={descriptionId} className={styles.description}>
                 Inspire por 4 segundos, segure por 7 e expire por 8. Repita até o impulso passar.
               </p>
             </div>

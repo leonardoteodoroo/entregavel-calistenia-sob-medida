@@ -195,6 +195,9 @@ export default function HomePage() {
 
       <section aria-label="Como funciona" className={styles.neuralSection}>
         <p className="label-md text-variant">Como seu cérebro processa os óleos</p>
+        <h2 className={`headline-sm mt-4 ${styles.neuralHeading}`}>
+          O circuito olfativo entre impulso, humor e metabolismo
+        </h2>
 
         <div className={styles.neuralList}>
           {neuralSteps.map((step, index) => {
@@ -261,7 +264,13 @@ export default function HomePage() {
 
         <div className={styles.carousel} role="list" aria-label="Óleos em destaque">
           {featuredOils.map((oil) => (
-            <Card key={oil.id} as="article" variant="elevated" className={styles.compareCard}>
+            <Card
+              key={oil.id}
+              as="article"
+              role="listitem"
+              variant="elevated"
+              className={styles.compareCard}
+            >
               <ImagePlaceholder
                 aspectRatio="4:3"
                 emoji={getOilEmoji(oil.id)}
