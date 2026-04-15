@@ -16,7 +16,6 @@ const ChecklistPage = lazy(() => import("@/pages/ChecklistPage"));
 const FaqPage = lazy(() => import("@/pages/FaqPage"));
 const Home = lazy(() => import("@/pages/Home"));
 const LibraryPage = lazy(() => import("@/pages/LibraryPage"));
-const MealPlanPage = lazy(() => import("@/pages/MealPlanPage"));
 const WeekPage = lazy(() => import("@/pages/WeekPage"));
 
 function ProductMobileNavShell() {
@@ -50,7 +49,6 @@ function AppRouter() {
         <Switch>
           <Route path="/bonus" component={Home} />
           <Route path="/" component={Home} />
-          <Route path="/alimentacao" component={MealPlanPage} />
           <Route path="/semana/:week/dia/:day" component={WeekPage} />
           <Route path="/semana/:week" component={WeekPage} />
           <Route path="/biblioteca" component={LibraryPage} />

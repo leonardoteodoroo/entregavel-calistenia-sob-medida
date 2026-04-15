@@ -1,30 +1,9 @@
 import {
   institutionalSlugs,
-  toPublicPath,
+  standaloneRoutes,
   type InstitutionalSlug,
+  toPublicPath,
 } from "@/content/siteConfig";
-
-const SECTION_ROUTE_MAP: Record<string, string> = {
-  alimentacao: "/alimentacao",
-  "plano-alimentar": "/alimentacao",
-  "biblioteca-exercicios": "/biblioteca",
-  checklist: "/checklist",
-  faq: "/faq",
-  "apoio-suporte": "/apoio",
-  continuidade: "/apoio",
-  "perdi-dias": "/apoio",
-  capa: "/",
-  "boas-vindas": "/",
-  "para-quem": "/",
-  "como-usar": "/",
-  estrutura: "/",
-  "visao-geral": "/",
-  encaixe: "/",
-  "escolher-caminho": "/",
-  "comeca-hoje": "/",
-  "o-que-esperar": "/",
-  "sinais-progresso": "/",
-};
 
 const LEGACY_INSTITUTIONAL_HASH_MAP: Record<string, InstitutionalSlug> = {
   "/sobre": institutionalSlugs.sobre,
@@ -34,9 +13,39 @@ const LEGACY_INSTITUTIONAL_HASH_MAP: Record<string, InstitutionalSlug> = {
   "/aviso-legal": institutionalSlugs.avisoLegal,
 };
 
-type RedirectTarget =
+const LEGACY_MEAL_PLAN_STANDALONE_PATH = standaloneRoutes.planoAlimentar;
+
+export type RedirectTarget =
   | { type: "hash"; path: string }
-  | { type: "clean-path"; slug: InstitutionalSlug };
+  | { type: "clean-path"; href: string };
+
+const SECTION_ROUTE_MAP: Record<string, RedirectTarget> = {
+  alimentacao: {
+    type: "clean-path",
+    href: LEGACY_MEAL_PLAN_STANDALONE_PATH,
+  },
+  "plano-alimentar": {
+    type: "clean-path",
+    href: LEGACY_MEAL_PLAN_STANDALONE_PATH,
+  },
+  "biblioteca-exercicios": { type: "hash", path: "/biblioteca" },
+  checklist: { type: "hash", path: "/checklist" },
+  faq: { type: "hash", path: "/faq" },
+  "apoio-suporte": { type: "hash", path: "/apoio" },
+  continuidade: { type: "hash", path: "/apoio" },
+  "perdi-dias": { type: "hash", path: "/apoio" },
+  capa: { type: "hash", path: "/" },
+  "boas-vindas": { type: "hash", path: "/" },
+  "para-quem": { type: "hash", path: "/" },
+  "como-usar": { type: "hash", path: "/" },
+  estrutura: { type: "hash", path: "/" },
+  "visao-geral": { type: "hash", path: "/" },
+  encaixe: { type: "hash", path: "/" },
+  "escolher-caminho": { type: "hash", path: "/" },
+  "comeca-hoje": { type: "hash", path: "/" },
+  "o-que-esperar": { type: "hash", path: "/" },
+  "sinais-progresso": { type: "hash", path: "/" },
+};
 
 function weekForDay(day: number): number {
   return Math.ceil(day / 7);
@@ -45,7 +54,6 @@ function weekForDay(day: number): number {
 function isCurrentHashRoute(value: string): boolean {
   return (
     value === "/" ||
-    value === "/alimentacao" ||
     value.startsWith("/semana/") ||
     value === "/biblioteca" ||
     value === "/checklist" ||
@@ -54,7 +62,9 @@ function isCurrentHashRoute(value: string): boolean {
   );
 }
 
-function parseLegacyHash(hashValue: string): RedirectTarget | null {
+export function resolveLegacyHashRedirect(
+  hashValue: string
+): RedirectTarget | null {
   const value = hashValue.trim().replace(/^#/, "");
   if (!value) return null;
 
@@ -66,7 +76,7 @@ function parseLegacyHash(hashValue: string): RedirectTarget | null {
 
   const institutionalSlug = LEGACY_INSTITUTIONAL_HASH_MAP[normalizedWithSlash];
   if (institutionalSlug) {
-    return { type: "clean-path", slug: institutionalSlug };
+    return { type: "clean-path", href: `/${institutionalSlug}` };
   }
 
   const normalized = normalizedWithSlash.slice(1);
@@ -89,7 +99,7 @@ function parseLegacyHash(hashValue: string): RedirectTarget | null {
 
   const sectionRoute = SECTION_ROUTE_MAP[normalized];
   if (sectionRoute) {
-    return { type: "hash", path: sectionRoute };
+    return sectionRoute;
   }
 
   return null;
@@ -98,11 +108,11 @@ function parseLegacyHash(hashValue: string): RedirectTarget | null {
 export function redirectLegacyHashIfNeeded(): void {
   if (typeof window === "undefined") return;
 
-  const redirectTarget = parseLegacyHash(window.location.hash);
+  const redirectTarget = resolveLegacyHashRedirect(window.location.hash);
   if (!redirectTarget) return;
 
   if (redirectTarget.type === "clean-path") {
-    const nextPath = toPublicPath(redirectTarget.slug);
+    const nextPath = toPublicPath(redirectTarget.href);
     const nextUrl = `${nextPath}${window.location.search}`;
 
     if (window.location.pathname === nextPath && window.location.hash === "") {
