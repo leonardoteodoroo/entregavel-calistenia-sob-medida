@@ -56,7 +56,7 @@ export const BONUS_RECIPES: BonusCard[] = [
     title: "Seu Plano Alimentar",
     href: toSpaHashPath(productRoutes.alimentacao),
     description:
-      "Abra seu plano com refeições base, trocas, hidratação e lista da semana.",
+      "Abra seu plano alimentar com refeições guiadas, trocas fáceis, hidratação do dia e lista da semana organizada para você.",
     thumbnail: {
       kind: "asset",
       src: toPublicPath("assets/images/alimentacao/v3/meal-prep-semanal.webp"),

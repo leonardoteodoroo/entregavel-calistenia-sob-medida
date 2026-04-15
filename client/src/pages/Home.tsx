@@ -87,7 +87,7 @@ const BONUS_RECIPES: BonusCard[] = [
     title: "Seu Plano Alimentar",
     href: toSpaHashPath(productRoutes.alimentacao),
     description:
-      "Abra seu plano com refeições base, trocas, hidratação e lista da semana.",
+      "Abra seu plano alimentar com refeições guiadas, trocas fáceis, hidratação do dia e lista da semana organizada para você.",
     thumbnail: {
       kind: "asset",
       src: toPublicPath("assets/images/alimentacao/v3/meal-prep-semanal.webp"),
@@ -573,11 +573,11 @@ export default function Home() {
                   onKeyDown={
                     isInteractive
                       ? event => {
-                        if (event.key === "Enter" || event.key === " ") {
-                          event.preventDefault();
-                          openBonusCard();
+                          if (event.key === "Enter" || event.key === " ") {
+                            event.preventDefault();
+                            openBonusCard();
+                          }
                         }
-                      }
                       : undefined
                   }
                 >
@@ -773,7 +773,8 @@ export default function Home() {
                               marginBottom: "0.45rem",
                             }}
                           >
-                            Você poderá calcular calorias do seu prato apenas enviando uma foto e a IA fará o resto.
+                            Você poderá calcular calorias do seu prato apenas
+                            enviando uma foto e a IA fará o resto.
                           </p>
 
                           <div
