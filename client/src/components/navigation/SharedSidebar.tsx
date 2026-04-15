@@ -23,6 +23,7 @@ export interface NavSection {
 
 export const navSections: NavSection[] = [
   { label: "Início", to: "/" },
+  { label: "Plano alimentar", to: "/alimentacao" },
   { label: "Biblioteca de exercícios", to: "/biblioteca" },
   {
     label: "Semana 1",

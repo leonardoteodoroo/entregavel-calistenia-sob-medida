@@ -13,8 +13,9 @@ describe("sticky navigation state", () => {
     expect(itemByKey.treino.isActive("/semana/4/dia/28")).toBe(true);
   });
 
-  it("marks Plano active only on the home route", () => {
-    expect(itemByKey.plano.isActive("/")).toBe(true);
+  it("marks Plano active only on the meal plan route", () => {
+    expect(itemByKey.plano.isActive("/alimentacao")).toBe(true);
+    expect(itemByKey.plano.isActive("/")).toBe(false);
     expect(itemByKey.plano.isActive("/biblioteca")).toBe(false);
   });
 

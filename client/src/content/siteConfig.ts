@@ -24,6 +24,7 @@ export const siteConfig = {
 
 export const productRoutes = {
   home: "/",
+  alimentacao: "/alimentacao",
   biblioteca: "/biblioteca",
   checklist: "/checklist",
   faq: "/faq",

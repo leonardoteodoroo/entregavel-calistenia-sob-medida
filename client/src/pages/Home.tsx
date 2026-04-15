@@ -771,7 +771,8 @@ export default function Home() {
               fontStyle: "italic",
             }}
           >
-            Biblioteca técnica, checklist e suporte agora têm páginas próprias.
+            Biblioteca técnica, alimentação, checklist e suporte agora têm
+            páginas próprias.
           </p>
 
           <div
@@ -782,6 +783,12 @@ export default function Home() {
             }}
           >
             {[
+              {
+                title: "Plano alimentar",
+                description:
+                  "Abra o módulo nutricional com refeições base, trocas e cálculo de hidratação.",
+                route: "/alimentacao",
+              },
               {
                 title: "Biblioteca de exercícios",
                 description:

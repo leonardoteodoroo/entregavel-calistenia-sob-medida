@@ -11,7 +11,8 @@ import {
 
 describe("MobileStickyNav", () => {
   it("maps product routes to the expected active slot", () => {
-    expect(getStickyNavActiveIndex("/")).toBe(1);
+    expect(getStickyNavActiveIndex("/")).toBe(-1);
+    expect(getStickyNavActiveIndex("/alimentacao")).toBe(1);
     expect(getStickyNavActiveIndex("/semana/3/dia/16")).toBe(0);
     expect(getStickyNavActiveIndex("/biblioteca")).toBe(2);
     expect(getStickyNavActiveIndex("/checklist")).toBe(3);
@@ -28,9 +29,9 @@ describe("MobileStickyNav", () => {
     expect(markup).not.toContain("bubble-gradient");
   });
 
-  it("renders the home route with the same active bubble offset used by the lab", () => {
+  it("renders the meal plan route with the same active bubble offset used by the lab", () => {
     const markup = renderToStaticMarkup(
-      <MobileStickyNav currentPath="/" onNavigate={vi.fn()} />
+      <MobileStickyNav currentPath="/alimentacao" onNavigate={vi.fn()} />
     );
 
     expect(markup).toContain("bubble-gradient");

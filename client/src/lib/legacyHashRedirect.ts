@@ -5,6 +5,8 @@ import {
 } from "@/content/siteConfig";
 
 const SECTION_ROUTE_MAP: Record<string, string> = {
+  alimentacao: "/alimentacao",
+  "plano-alimentar": "/alimentacao",
   "biblioteca-exercicios": "/biblioteca",
   checklist: "/checklist",
   faq: "/faq",
@@ -43,6 +45,7 @@ function weekForDay(day: number): number {
 function isCurrentHashRoute(value: string): boolean {
   return (
     value === "/" ||
+    value === "/alimentacao" ||
     value.startsWith("/semana/") ||
     value === "/biblioteca" ||
     value === "/checklist" ||

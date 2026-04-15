@@ -89,6 +89,7 @@ function createWeekChildren(week: number): NavChild[] {
 
 export const productNavSections: ProductNavSection[] = [
   { label: "Início", to: productRoutes.home },
+  { label: "Plano alimentar", to: productRoutes.alimentacao },
   { label: "Biblioteca de exercícios", to: productRoutes.biblioteca },
   {
     label: "Semana 1",
@@ -138,9 +139,9 @@ export const stickyNavItems: StickyNavItem[] = [
     key: "plano",
     label: "Plano",
     icon: CalendarRange,
-    path: productRoutes.home,
+    path: productRoutes.alimentacao,
     isActive: currentPath =>
-      normalizeNavPath(currentPath) === productRoutes.home,
+      normalizeNavPath(currentPath) === productRoutes.alimentacao,
   },
   {
     key: "biblioteca",
@@ -233,6 +234,10 @@ export function getDrawerMenuSections(): DrawerMenuSection[] {
     {
       label: "Início",
       href: toSpaHashPath(productRoutes.home),
+    },
+    {
+      label: "Plano alimentar",
+      href: toSpaHashPath(productRoutes.alimentacao),
     },
     ...Array.from({ length: 4 }, (_, index) => {
       const weekNumber = index + 1;

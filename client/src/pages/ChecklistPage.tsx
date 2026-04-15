@@ -318,6 +318,31 @@ export default function ChecklistPage() {
             </div>
           </div>
 
+          <div className="mb-4">
+            <p
+              className="font-body mb-1"
+              style={{
+                fontSize: "0.65rem",
+                fontWeight: 600,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "var(--color-rose)",
+              }}
+            >
+              Conquistas
+            </p>
+            <p
+              className="font-display"
+              style={{
+                fontSize: "0.95rem",
+                color: "var(--color-taupe)",
+                fontStyle: "italic",
+              }}
+            >
+              Marcos simples para visualizar a sua constância.
+            </p>
+          </div>
+
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
             {[
               { label: "Primeiro treino", day: 1, icon: "✦" },
@@ -335,6 +360,7 @@ export default function ChecklistPage() {
                       ? "var(--color-rose-muted)"
                       : "white",
                     border: `1px solid ${achieved ? "var(--color-rose-light)" : "var(--color-taupe-light)"}`,
+                    textAlign: "center",
                     transition: "all 0.3s ease",
                   }}
                 >
@@ -396,7 +422,7 @@ export default function ChecklistPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6">
+          <div className="grid grid-cols-2 gap-3 mt-6 sm:grid-cols-4">
             {[1, 2, 3, 4].map(week => (
               <button
                 key={week}

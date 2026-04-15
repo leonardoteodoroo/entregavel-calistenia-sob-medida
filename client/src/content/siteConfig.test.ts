@@ -17,6 +17,10 @@ describe("standalone routes", () => {
 });
 
 describe("product routes", () => {
+  it("exposes the meal plan route for the shared sticky navigation", () => {
+    expect(productRoutes.alimentacao).toBe("/alimentacao");
+  });
+
   it("exposes the bonus route for the shared sticky navigation", () => {
     expect(productRoutes.bonus).toBe("/bonus");
   });
