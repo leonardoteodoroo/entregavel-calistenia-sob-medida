@@ -1,4 +1,9 @@
-import { standaloneRoutes, toPublicPath } from "@/content/siteConfig";
+import {
+  productRoutes,
+  standaloneRoutes,
+  toPublicPath,
+  toSpaHashPath,
+} from "@/content/siteConfig";
 import BonusVisual from "@/components/bonus/BonusVisual";
 import Layout from "@/components/Layout";
 import { Clock3, Heart, ThumbsUp } from "lucide-react";
@@ -76,6 +81,19 @@ const BONUS_RECIPES: BonusCard[] = [
       alt: "Frascos âmbar de óleos essenciais com fatias cítricas e folhas verdes",
     },
     social: { likesBase: 115 },
+  },
+  {
+    id: "seu-plano-alimentar",
+    title: "Seu Plano Alimentar",
+    href: toSpaHashPath(productRoutes.alimentacao),
+    description:
+      "Abra seu plano com refeições base, trocas, hidratação e lista da semana.",
+    thumbnail: {
+      kind: "asset",
+      src: toPublicPath("assets/images/alimentacao/v3/meal-prep-semanal.webp"),
+      alt: "Ingredientes porcionados para a semana em potes organizados sobre bancada clara.",
+    },
+    social: { likesBase: 94 },
   },
   {
     id: "bonus-placeholder-2",
@@ -530,6 +548,9 @@ export default function Home() {
               const likesCount = item.social
                 ? item.social.likesBase + (isLiked ? 1 : 0)
                 : 0;
+              const renderRichCard = Boolean(
+                item.thumbnail || item.description || item.updatedAtLabel
+              );
               const isInteractive = Boolean(item.href);
               const openBonusCard = () => {
                 if (!item.href) return;
@@ -552,15 +573,15 @@ export default function Home() {
                   onKeyDown={
                     isInteractive
                       ? event => {
-                          if (event.key === "Enter" || event.key === " ") {
-                            event.preventDefault();
-                            openBonusCard();
-                          }
+                        if (event.key === "Enter" || event.key === " ") {
+                          event.preventDefault();
+                          openBonusCard();
                         }
+                      }
                       : undefined
                   }
                 >
-                  {item.social ? (
+                  {renderRichCard ? (
                     <>
                       {item.thumbnail ? (
                         <BonusVisual
@@ -604,47 +625,53 @@ export default function Home() {
                           className="mb-2 flex flex-wrap items-center gap-2"
                           style={{ rowGap: "0.4rem" }}
                         >
-                          <button
-                            type="button"
-                            aria-pressed={isLiked}
-                            onClick={event => {
-                              event.stopPropagation();
-                              setBonusLikes(prev => ({
-                                ...prev,
-                                [item.id]: !prev[item.id],
-                              }));
-                            }}
-                            onKeyDown={event => event.stopPropagation()}
-                            className="inline-flex items-center gap-1 rounded px-2 py-1 font-body"
-                            style={{
-                              fontSize: "0.72rem",
-                              fontWeight: 600,
-                              color: isLiked ? "#145fd1" : "var(--color-taupe)",
-                              border: isLiked
-                                ? "1px solid rgba(24,119,242,0.35)"
-                                : "1px solid var(--color-taupe-light)",
-                              backgroundColor: isLiked
-                                ? "rgba(24,119,242,0.10)"
-                                : "var(--color-ivory-dark)",
-                            }}
-                          >
-                            <ThumbsUp
-                              size={13}
-                              style={{ color: "#1877F2" }}
-                              fill={isLiked ? "#1877F2" : "none"}
-                              aria-hidden
-                            />
-                            Curtir
-                          </button>
-                          <span
-                            className="font-body"
-                            style={{
-                              fontSize: "0.72rem",
-                              color: "var(--color-taupe)",
-                            }}
-                          >
-                            {likesCount} curtidas
-                          </span>
+                          {item.social ? (
+                            <>
+                              <button
+                                type="button"
+                                aria-pressed={isLiked}
+                                onClick={event => {
+                                  event.stopPropagation();
+                                  setBonusLikes(prev => ({
+                                    ...prev,
+                                    [item.id]: !prev[item.id],
+                                  }));
+                                }}
+                                onKeyDown={event => event.stopPropagation()}
+                                className="inline-flex items-center gap-1 rounded px-2 py-1 font-body"
+                                style={{
+                                  fontSize: "0.72rem",
+                                  fontWeight: 600,
+                                  color: isLiked
+                                    ? "#145fd1"
+                                    : "var(--color-taupe)",
+                                  border: isLiked
+                                    ? "1px solid rgba(24,119,242,0.35)"
+                                    : "1px solid var(--color-taupe-light)",
+                                  backgroundColor: isLiked
+                                    ? "rgba(24,119,242,0.10)"
+                                    : "var(--color-ivory-dark)",
+                                }}
+                              >
+                                <ThumbsUp
+                                  size={13}
+                                  style={{ color: "#1877F2" }}
+                                  fill={isLiked ? "#1877F2" : "none"}
+                                  aria-hidden
+                                />
+                                Curtir
+                              </button>
+                              <span
+                                className="font-body"
+                                style={{
+                                  fontSize: "0.72rem",
+                                  color: "var(--color-taupe)",
+                                }}
+                              >
+                                {likesCount} curtidas
+                              </span>
+                            </>
+                          ) : null}
                         </div>
 
                         <p
@@ -692,53 +719,101 @@ export default function Home() {
                       <p
                         className="font-body"
                         style={{
-                          fontSize: "0.68rem",
-                          textTransform: "uppercase",
-                          letterSpacing: "0.1em",
-                          fontWeight: 600,
-                          color: "var(--color-taupe)",
-                          marginBottom: "0.45rem",
+                          fontSize: "0.85rem",
+                          fontWeight: 500,
+                          color: "var(--color-charcoal)",
+                          marginBottom: "0.3rem",
                         }}
                       >
-                        Em breve
+                        {item.title}
                       </p>
+                      {item.href ? (
+                        <>
+                          <p
+                            className="font-body mb-2 inline-flex items-center gap-1.5"
+                            style={{
+                              fontSize: "0.7rem",
+                              color: "var(--color-taupe)",
+                            }}
+                          >
+                            Atualização: {item.updatedAtLabel ?? updatedAtLabel}
+                            , com carinho
+                            <Heart
+                              size={12}
+                              style={{ color: "var(--color-rose)" }}
+                              fill="rgba(214,106,126,0.18)"
+                              aria-hidden
+                            />
+                          </p>
 
-                      <div
-                        className="inline-flex items-center gap-2 rounded-full"
-                        style={{
-                          padding: "0.36rem 0.62rem",
-                          border: "1px solid rgba(188,168,145,0.5)",
-                          backgroundColor: "rgba(255,255,255,0.7)",
-                        }}
-                      >
-                        <Clock3
-                          size={13}
-                          style={{ color: "var(--color-rose)" }}
-                          aria-hidden
-                        />
-                        <span
-                          className="font-display"
-                          style={{
-                            fontSize: "1rem",
-                            color: "var(--color-charcoal)",
-                            lineHeight: 1,
-                          }}
-                        >
-                          {item.placeholderDays ?? 16}
-                        </span>
-                        <span
-                          className="font-body"
-                          style={{
-                            fontSize: "0.68rem",
-                            letterSpacing: "0.08em",
-                            textTransform: "uppercase",
-                            color: "var(--color-taupe)",
-                            fontWeight: 600,
-                          }}
-                        >
-                          dias
-                        </span>
-                      </div>
+                          <p
+                            className="font-body inline-block"
+                            style={{
+                              marginTop: "0.1rem",
+                              fontSize: "0.7rem",
+                              color: "var(--color-rose)",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.08em",
+                              fontWeight: 500,
+                            }}
+                          >
+                            Abrir ambiente interativo
+                          </p>
+                        </>
+                      ) : (
+                        <>
+                          <p
+                            className="font-body"
+                            style={{
+                              fontSize: "0.68rem",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.1em",
+                              fontWeight: 600,
+                              color: "var(--color-taupe)",
+                              marginBottom: "0.45rem",
+                            }}
+                          >
+                            Você poderá calcular calorias do seu prato apenas enviando uma foto e a IA fará o resto.
+                          </p>
+
+                          <div
+                            className="inline-flex items-center gap-2 rounded-full"
+                            style={{
+                              padding: "0.36rem 0.62rem",
+                              border: "1px solid rgba(188,168,145,0.5)",
+                              backgroundColor: "rgba(255,255,255,0.7)",
+                            }}
+                          >
+                            <Clock3
+                              size={13}
+                              style={{ color: "var(--color-rose)" }}
+                              aria-hidden
+                            />
+                            <span
+                              className="font-display"
+                              style={{
+                                fontSize: "1rem",
+                                color: "var(--color-charcoal)",
+                                lineHeight: 1,
+                              }}
+                            >
+                              {item.placeholderDays ?? 16}
+                            </span>
+                            <span
+                              className="font-body"
+                              style={{
+                                fontSize: "0.68rem",
+                                letterSpacing: "0.08em",
+                                textTransform: "uppercase",
+                                color: "var(--color-taupe)",
+                                fontWeight: 600,
+                              }}
+                            >
+                              dias
+                            </span>
+                          </div>
+                        </>
+                      )}
                     </div>
                   )}
                 </article>

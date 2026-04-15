@@ -18,6 +18,26 @@ describe("Home bonus cards", () => {
     expect(markup).toContain("Atualização: 18/03/2026, com carinho");
   });
 
+  it("renders the new bonus card for the meal plan shelf", () => {
+    const markup = renderToStaticMarkup(<Home />);
+    const todayLabel = new Intl.DateTimeFormat("pt-BR", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    }).format(new Date());
+
+    expect(markup).toContain("Seu Plano Alimentar");
+    expect(markup).toContain("/#/alimentacao");
+    expect(markup).toContain(
+      "/assets/images/alimentacao/v3/meal-prep-semanal.webp"
+    );
+    expect(markup).toContain(
+      "Abra seu plano com refeições base, trocas, hidratação e lista da semana."
+    );
+    expect(markup).toContain("94 curtidas");
+    expect(markup).toContain(`Atualização: ${todayLabel}, com carinho`);
+  });
+
   it("keeps the oleos essenciais bonus hidden from the main project shelf", () => {
     const markup = renderToStaticMarkup(<Home />);
 
