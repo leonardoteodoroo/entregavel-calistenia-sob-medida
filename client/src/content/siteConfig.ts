@@ -33,6 +33,7 @@ export const productRoutes = {
 } as const;
 
 export const standaloneRoutes = {
+  planoAlimentar: "/plano-alimentar/",
   receitasLowCarb: "/receitas-low-carb/",
   sobremesasSaudaveis: "/sobremesas-saudaveis/",
   oleosEssenciais: "/oleos-essenciais-emagrecimento/",

@@ -777,7 +777,13 @@ function MealCard({
   );
 }
 
-export default function MealPlanPage() {
+interface MealPlanPageProps {
+  standalone?: boolean;
+}
+
+export default function MealPlanPage({
+  standalone = false,
+}: MealPlanPageProps = {}) {
   const [plannerState, setPlannerState] = useState(() =>
     readMealPlannerStorage()
   );
@@ -914,8 +920,8 @@ export default function MealPlanPage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  return (
-    <Layout>
+  const plannerContent = (
+    <>
       <div
         data-meal-theme="editorial"
         style={{
@@ -3187,6 +3193,12 @@ export default function MealPlanPage() {
           />
         )}
       </div>
-    </Layout>
+    </>
   );
+
+  if (standalone) {
+    return plannerContent;
+  }
+
+  return <Layout>{plannerContent}</Layout>;
 }

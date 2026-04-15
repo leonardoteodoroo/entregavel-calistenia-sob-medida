@@ -3,6 +3,12 @@ import { describe, expect, it } from "vitest";
 import { productRoutes, standaloneRoutes } from "./siteConfig";
 
 describe("standalone routes", () => {
+  it("exposes the meal planner standalone route", () => {
+    const routes = standaloneRoutes as Record<string, string>;
+
+    expect(routes.planoAlimentar).toBe("/plano-alimentar/");
+  });
+
   it("exposes the sobremesas saudaveis standalone route", () => {
     const routes = standaloneRoutes as Record<string, string>;
 
