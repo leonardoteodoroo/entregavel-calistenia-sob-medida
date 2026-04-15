@@ -1,8 +1,6 @@
 import {
-  productRoutes,
   standaloneRoutes,
   toPublicPath,
-  toSpaHashPath,
 } from "@/content/siteConfig";
 import BonusVisual from "@/components/bonus/BonusVisual";
 import Layout from "@/components/Layout";
@@ -85,7 +83,7 @@ const BONUS_RECIPES: BonusCard[] = [
   {
     id: "seu-plano-alimentar",
     title: "Seu Plano Alimentar",
-    href: toSpaHashPath(productRoutes.alimentacao),
+    href: toPublicPath(standaloneRoutes.planoAlimentar),
     description:
       "Abra seu plano alimentar com refeições guiadas, trocas fáceis, hidratação do dia e lista da semana organizada para você.",
     thumbnail: {

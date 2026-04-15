@@ -27,12 +27,12 @@ describe("Home bonus cards", () => {
     }).format(new Date());
 
     expect(markup).toContain("Seu Plano Alimentar");
-    expect(markup).toContain("/#/alimentacao");
+    expect(markup).toContain("/plano-alimentar/");
     expect(markup).toContain(
       "/assets/images/alimentacao/v3/meal-prep-semanal.webp"
     );
     expect(markup).toContain(
-      "Abra seu plano com refeições base, trocas, hidratação e lista da semana."
+      "Abra seu plano alimentar com refeições guiadas, trocas fáceis, hidratação do dia e lista da semana organizada para você."
     );
     expect(markup).toContain("94 curtidas");
     expect(markup).toContain(`Atualização: ${todayLabel}, com carinho`);
