@@ -19,6 +19,7 @@ import {
 
 import Layout from "@/components/Layout";
 import EditorialVisual from "@/components/meal-planner/EditorialVisual";
+import MealPlannerUnlockGate from "@/components/meal-planner/MealPlannerUnlockGate";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
@@ -40,6 +41,7 @@ import {
   type MealPlannerGoal,
   type MealPlannerRestrictionKey,
 } from "@/lib/mealPlanData";
+import { getMealPlannerUnlockState } from "@/lib/mealPlannerOnboarding";
 import {
   applyMealSubstitutionSelection,
   buildWeeklyShoppingGroups,
@@ -822,6 +824,8 @@ export default function MealPlanPage() {
   }, [plannerState]);
 
   const profile = plannerState.profile;
+  const unlockState = getMealPlannerUnlockState(profile, draft);
+  const plannerUnlocked = unlockState.isUnlocked;
   const activePlateMethod = getPlateMethodVariant(profile?.foodStyle);
   const currentWeightKg =
     profile?.weightKg ?? parseWeightInput(draft.weightInput);
@@ -912,6 +916,12 @@ export default function MealPlanPage() {
       mealPlanData.mealPrepSteps.length) *
       100
   );
+
+  const resumeLockedPlanner = () => {
+    setIsOnboardingOpen(true);
+    setWizardStep(unlockState.nextStep);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <Layout>
@@ -1396,11 +1406,13 @@ export default function MealPlanPage() {
           </div>
         </section>
 
-        <section
-          data-meal-section="flat"
-          className="page-card mb-6"
-          style={sectionCardStyle}
-        >
+        {plannerUnlocked ? (
+          <>
+            <section
+              data-meal-section="flat"
+              className="page-card mb-6"
+              style={sectionCardStyle}
+            >
           <MealSectionEyebrow>Como usar</MealSectionEyebrow>
           <h2 className="font-display mb-2" style={sectionTitleStyle}>
             Como usar seu plano
@@ -1468,13 +1480,13 @@ export default function MealPlanPage() {
               </article>
             ))}
           </div>
-        </section>
+            </section>
 
-        <section
-          data-meal-section="flat"
-          className="page-card mb-6"
-          style={sectionCardStyle}
-        >
+            <section
+              data-meal-section="flat"
+              className="page-card mb-6"
+              style={sectionCardStyle}
+            >
           <MealSectionEyebrow tone="sage">
             Quando quiser adiantar
           </MealSectionEyebrow>
@@ -1621,13 +1633,13 @@ export default function MealPlanPage() {
               </div>
             </div>
           </div>
-        </section>
+            </section>
 
-        <section
-          data-meal-section="flat"
-          className="page-card mb-6"
-          style={sectionCardStyle}
-        >
+            <section
+              data-meal-section="flat"
+              className="page-card mb-6"
+              style={sectionCardStyle}
+            >
           <MealSectionEyebrow>Quando quiser repetir</MealSectionEyebrow>
           <div className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
             <div>
@@ -1847,13 +1859,13 @@ export default function MealPlanPage() {
               </div>
             </div>
           </div>
-        </section>
+            </section>
 
-        <section
-          data-meal-section="flat"
-          className="page-card mb-6"
-          style={sectionCardStyle}
-        >
+            <section
+              data-meal-section="flat"
+              className="page-card mb-6"
+              style={sectionCardStyle}
+            >
           <MealSectionEyebrow tone="sage">
             Como montar o prato
           </MealSectionEyebrow>
@@ -1954,13 +1966,13 @@ export default function MealPlanPage() {
               </article>
             ))}
           </div>
-        </section>
+            </section>
 
-        <section
-          data-meal-section="flat"
-          className="page-card mb-6"
-          style={sectionCardStyle}
-        >
+            <section
+              data-meal-section="flat"
+              className="page-card mb-6"
+              style={sectionCardStyle}
+            >
           <MealSectionEyebrow>Hoje</MealSectionEyebrow>
           <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="space-y-4">
@@ -2238,13 +2250,13 @@ export default function MealPlanPage() {
               </div>
             </div>
           </div>
-        </section>
+            </section>
 
-        <section
-          data-meal-section="flat"
-          className="page-card mb-6"
-          style={sectionCardStyle}
-        >
+            <section
+              data-meal-section="flat"
+              className="page-card mb-6"
+              style={sectionCardStyle}
+            >
           <MealSectionEyebrow>Escolha sua refeição</MealSectionEyebrow>
           <h2 className="font-display mb-2" style={sectionTitleStyle}>
             Escolha sua refeição
@@ -2504,13 +2516,13 @@ export default function MealPlanPage() {
               ))}
             </div>
           )}
-        </section>
+            </section>
 
-        <section
-          data-meal-section="flat"
-          className="page-card mb-8"
-          style={sectionCardStyle}
-        >
+            <section
+              data-meal-section="flat"
+              className="page-card mb-8"
+              style={sectionCardStyle}
+            >
           <MealSectionEyebrow tone="sage">Mapa de trocas</MealSectionEyebrow>
           <h2 className="font-display mb-2" style={sectionTitleStyle}>
             Mapa de trocas
@@ -3198,7 +3210,15 @@ export default function MealPlanPage() {
               </div>
             ))}
           </div>
-        </section>
+            </section>
+          </>
+        ) : (
+          <MealPlannerUnlockGate
+            completedSteps={unlockState.completedSteps}
+            totalSteps={unlockState.totalSteps}
+            onResume={resumeLockedPlanner}
+          />
+        )}
       </div>
     </Layout>
   );
