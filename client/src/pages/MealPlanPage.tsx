@@ -19,6 +19,7 @@ import {
 
 import Layout from "@/components/Layout";
 import EditorialVisual from "@/components/meal-planner/EditorialVisual";
+import PlannerChoiceButton from "@/components/meal-planner/PlannerChoiceButton";
 import MealPlannerUnlockGate from "@/components/meal-planner/MealPlannerUnlockGate";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -381,46 +382,6 @@ function WizardChoiceButton({
   );
 }
 
-function MealOptionButton({
-  active,
-  disabled,
-  children,
-  onClick,
-}: {
-  active: boolean;
-  disabled?: boolean;
-  children: React.ReactNode;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      disabled={disabled}
-      className="rounded-full px-3 py-2 font-body transition-colors"
-      style={{
-        fontSize: "0.74rem",
-        fontWeight: 700,
-        minHeight: "42px",
-        whiteSpace: "nowrap",
-        flexShrink: 0,
-        backgroundColor: active
-          ? "var(--color-charcoal)"
-          : "rgba(244,234,220,0.96)",
-        color: active ? "#fffaf5" : "var(--color-charcoal)",
-        border: `1px solid ${
-          active ? "var(--color-charcoal)" : "rgba(95,86,75,0.18)"
-        }`,
-        boxShadow: active
-          ? "0 12px 22px rgba(31,38,40,0.18)"
-          : "0 8px 18px rgba(52,37,25,0.04)",
-      }}
-    >
-      {children}
-    </button>
-  );
-}
-
 function StatCard({
   label,
   value,
@@ -570,6 +531,28 @@ function MealCard({
                 </span>
               ))}
             </div>
+            <div
+              className="mt-2 inline-flex items-center gap-2 rounded-full px-2.5 py-1"
+              style={{
+                backgroundColor: "rgba(221,236,231,0.86)",
+                border: "1px solid rgba(47,93,89,0.2)",
+                ...noWrapPillStyle,
+              }}
+            >
+              <ArrowRightLeft size={14} style={{ color: "var(--color-teal)" }} />
+              <span
+                className="font-body"
+                style={{
+                  fontSize: "0.68rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  color: "var(--color-teal)",
+                }}
+              >
+                Personalizável agora
+              </span>
+            </div>
           </div>
           <span
             className="rounded-full px-2.5 py-1 font-body"
@@ -594,32 +577,30 @@ function MealCard({
           <p
             className="font-body mb-2"
             style={{
-              fontSize: "0.72rem",
-              fontWeight: 600,
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              color: "var(--color-rose)",
+              fontSize: "0.8rem",
+              color: "var(--color-charcoal-light)",
+              lineHeight: 1.6,
             }}
           >
-            Sua escolha
+            Escolha uma base ou uma versão pronta.
           </p>
-          <div className="flex flex-wrap gap-2">
-            <MealOptionButton
+          <div className="flex flex-col gap-2">
+            <PlannerChoiceButton
+              label="Base do plano"
+              hint="Personalize pelas trocas abaixo"
               active={activeMode === "base"}
               disabled={disabled}
               onClick={onUseBase}
-            >
-              Base
-            </MealOptionButton>
+            />
             {meal.variants.map(variant => (
-              <MealOptionButton
+              <PlannerChoiceButton
                 key={variant.id}
+                label={variant.label}
+                hint="Usa uma combinação pronta"
                 active={activeMode === variant.id}
                 disabled={disabled}
                 onClick={() => onUseVariant(variant.id)}
-              >
-                {variant.label}
-              </MealOptionButton>
+              />
             ))}
           </div>
         </div>
@@ -631,32 +612,42 @@ function MealCard({
                 <p
                   className="font-body mb-2"
                   style={{
+                    fontSize: "0.78rem",
+                    color: "var(--color-charcoal-light)",
+                    lineHeight: 1.6,
+                  }}
+                >
+                  Toque em uma opção para trocar na hora.
+                </p>
+                <p
+                  className="font-body mb-2"
+                  style={{
                     fontSize: "0.76rem",
                     fontWeight: 600,
                     color: "var(--color-charcoal)",
                   }}
                 >
-                  Se quiser trocar {slot.from}
+                  Troque {slot.from}
                 </p>
-                <div className="flex flex-wrap gap-2">
-                  <MealOptionButton
+                <div className="flex flex-col gap-2">
+                  <PlannerChoiceButton
+                    label="Manter original"
+                    hint="Volta para o item base"
                     active={!selectedSlots[slot.slotId]}
                     disabled={disabled}
                     onClick={() => onSelectSubstitution(slot.slotId, null)}
-                  >
-                    Manter original
-                  </MealOptionButton>
+                  />
                   {slot.options.map(option => (
-                    <MealOptionButton
+                    <PlannerChoiceButton
                       key={option.id}
+                      label={option.name}
+                      hint={option.portion}
                       active={selectedSlots[slot.slotId] === option.id}
                       disabled={disabled}
                       onClick={() =>
                         onSelectSubstitution(slot.slotId, option.id)
                       }
-                    >
-                      {option.name}
-                    </MealOptionButton>
+                    />
                   ))}
                 </div>
               </div>
@@ -1839,8 +1830,11 @@ export default function MealPlanPage() {
                   {(
                     Object.keys(mealPlannerFilterLabels) as MealFilterKey[]
                   ).map(filterKey => (
-                    <MealOptionButton
+                    <PlannerChoiceButton
                       key={filterKey}
+                      compact
+                      label={mealPlannerFilterLabels[filterKey]}
+                      hint="Filtro da visualização"
                       active={plannerState.ui.activeMealFilter === filterKey}
                       onClick={() =>
                         setPlannerState(current => ({
@@ -1851,9 +1845,7 @@ export default function MealPlanPage() {
                           },
                         }))
                       }
-                    >
-                      {mealPlannerFilterLabels[filterKey]}
-                    </MealOptionButton>
+                    />
                   ))}
                 </div>
               </div>
@@ -2650,26 +2642,41 @@ export default function MealPlanPage() {
             )}
           </div>
 
-          <div className="mb-4 flex flex-wrap gap-2">
-            {swapMapMeals.map(meal => {
-              const activeCount = getActiveSwapCountByMeal(
-                mealPlanData,
-                plannerState,
-                meal.key
-              );
+          <div className="mb-4">
+            <p
+              className="font-body mb-2"
+              style={{
+                fontSize: "0.78rem",
+                color: "var(--color-charcoal-light)",
+                lineHeight: 1.6,
+              }}
+            >
+              Escolha a refeição e toque para ajustar agora.
+            </p>
+            <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-4">
+              {swapMapMeals.map(meal => {
+                const activeCount = getActiveSwapCountByMeal(
+                  mealPlanData,
+                  plannerState,
+                  meal.key
+                );
 
-              return (
-                <MealOptionButton
-                  key={meal.key}
-                  active={activeSwapMeal?.key === meal.key}
-                  onClick={() => setActiveSwapMapMealKey(meal.key)}
-                >
-                  {activeCount > 0
-                    ? `${meal.label} ${activeCount}`
-                    : meal.label}
-                </MealOptionButton>
-              );
-            })}
+                return (
+                  <PlannerChoiceButton
+                    key={meal.key}
+                    interactiveKind="swap-map"
+                    label={meal.label}
+                    hint={
+                      activeCount > 0
+                        ? `${activeCount} trocas ativas`
+                        : "Toque para ajustar agora"
+                    }
+                    active={activeSwapMeal?.key === meal.key}
+                    onClick={() => setActiveSwapMapMealKey(meal.key)}
+                  />
+                );
+              })}
+            </div>
           </div>
 
           <div
@@ -2799,8 +2806,11 @@ export default function MealPlanPage() {
                             </span>
                           ) : null}
                         </div>
-                        <div className="flex flex-wrap gap-2">
-                          <MealOptionButton
+                        <div className="flex flex-col gap-2">
+                          <PlannerChoiceButton
+                            interactiveKind="swap-map"
+                            label="Manter original"
+                            hint="Volta para o item base"
                             active={!group.selectedOptionId}
                             disabled={!plannerState.profile}
                             onClick={() =>
@@ -2813,13 +2823,14 @@ export default function MealPlanPage() {
                                 )
                               )
                             }
-                          >
-                            Manter original
-                          </MealOptionButton>
+                          />
                           {group.options.map(option => (
-                            <button
+                            <PlannerChoiceButton
                               key={option.id}
-                              type="button"
+                              interactiveKind="swap-map"
+                              label={option.name}
+                              hint={option.portion}
+                              active={option.active}
                               disabled={!plannerState.profile}
                               onClick={() =>
                                 setPlannerState(current =>
@@ -2831,51 +2842,7 @@ export default function MealPlanPage() {
                                   )
                                 )
                               }
-                              className="rounded-[16px] border px-3 py-2 text-left transition-all"
-                              style={{
-                                minWidth: "10rem",
-                                borderColor: option.active
-                                  ? "rgba(114,55,69,0.4)"
-                                  : "rgba(95,86,75,0.16)",
-                                backgroundColor: option.active
-                                  ? "var(--color-rose-muted)"
-                                  : "var(--color-surface-soft)",
-                                color: "var(--color-charcoal)",
-                                opacity: plannerState.profile ? 1 : 0.6,
-                                boxShadow: option.active
-                                  ? "0 12px 24px rgba(114,55,69,0.14)"
-                                  : "0 8px 18px rgba(52,37,25,0.04)",
-                              }}
-                            >
-                              <span className="mb-1 flex items-center justify-between gap-2">
-                                <span
-                                  className="font-body block"
-                                  style={{
-                                    fontSize: "0.8rem",
-                                    fontWeight: 600,
-                                    lineHeight: 1.4,
-                                  }}
-                                >
-                                  {option.name}
-                                </span>
-                                {option.active ? (
-                                  <CheckCircle2
-                                    size={14}
-                                    style={{ color: "var(--color-rose)" }}
-                                  />
-                                ) : null}
-                              </span>
-                              <span
-                                className="font-body block"
-                                style={{
-                                  fontSize: "0.72rem",
-                                  color: "var(--color-warm-gray)",
-                                  marginTop: "0.2rem",
-                                }}
-                              >
-                                {option.portion}
-                              </span>
-                            </button>
+                            />
                           ))}
                         </div>
                       </>
