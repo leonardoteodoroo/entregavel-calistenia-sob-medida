@@ -2,19 +2,16 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
 describe("lab extras bonus cards", () => {
-  it("keeps the curated extras layout while using the real bonus content", () => {
+  it("keeps the current lab experience source wired to the curated alongamento layout", () => {
     const source = readFileSync(
       new URL("../../lab/src/App.tsx", import.meta.url),
       "utf8"
     );
 
-    expect(source).toContain("const featuredExtra = BONUS_RECIPES[0]");
-    expect(source).toContain(
-      "const secondaryExtras = BONUS_RECIPES.slice(1, 3)"
-    );
-    expect(source).not.toContain("BONUS_RECIPES.map(item =>");
-    expect(source).toContain("readBonusLikesState");
-    expect(source).toContain("featuredExtra.title");
-    expect(source).toContain("secondaryExtras.map");
+    expect(source).toContain("const menus = [");
+    expect(source).toContain("const toggleDay = (day: number)");
+    expect(source).toContain("Alongamento Posterior");
+    expect(source).toContain("activeIndex === 2");
+    expect(source).toContain("Laboratório MVP · Biblioteca Confiável");
   });
 });
