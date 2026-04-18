@@ -1,9 +1,7 @@
-import {
-  standaloneRoutes,
-  toPublicPath,
-} from "@/content/siteConfig";
+import { standaloneRoutes, toPublicPath } from "@/content/siteConfig";
 import BonusVisual from "@/components/bonus/BonusVisual";
 import Layout from "@/components/Layout";
+import SnakeBorder from "@/components/ui/SnakeBorder";
 import { Clock3, Heart, ThumbsUp, Download, AlertTriangle } from "lucide-react";
 import type { RecipeVisual } from "@/content/bonus/bonusRecipeTypes";
 import {
@@ -288,45 +286,53 @@ export default function Home() {
                     "repeat(auto-fit, minmax(min(140px, 100%), 1fr))",
                 }}
               >
+                {/* Botões de cronograma da Hero — SnakeBorder rose-light */}
                 {weeks.map(week => (
-                  <button
+                  <SnakeBorder
                     key={week.number}
-                    onClick={() => setLocation(`/semana/${week.number}`)}
-                    className="text-left border bg-[rgba(255,255,255,0.05)] border-[rgba(181,169,154,0.42)] transition-[transform,box-shadow,border-color,background-color] duration-200 ease-out hover:scale-[0.98] hover:border-[rgba(181,169,154,0.58)] hover:bg-[rgba(255,255,255,0.08)] hover:shadow-[0_1px_4px_rgba(44,44,44,0.08),0_6px_14px_rgba(44,44,44,0.10)] active:scale-[0.98] active:border-[rgba(181,169,154,0.66)] active:bg-[rgba(255,255,255,0.10)] active:shadow-[0_1px_2px_rgba(44,44,44,0.06),0_3px_8px_rgba(44,44,44,0.08)]"
-                    style={{
-                      backdropFilter: "blur(16px)",
-                      WebkitBackdropFilter: "blur(16px)",
-                      padding: "0.72rem 0.78rem",
-                      borderRadius: "0.8rem",
-                      boxShadow:
-                        "0 2px 8px rgba(44, 44, 44, 0.1), 0 12px 22px rgba(44, 44, 44, 0.12)",
-                    }}
+                    color="var(--color-rose-light)"
+                    thickness={1.5}
+                    duration={3}
+                    borderRadius="0.8rem"
                   >
-                    <p
-                      className="font-body"
+                    <button
+                      onClick={() => setLocation(`/semana/${week.number}`)}
+                      className="w-full text-left border bg-[rgba(255,255,255,0.05)] border-[rgba(181,169,154,0.42)] transition-[transform,box-shadow,border-color,background-color] duration-200 ease-out hover:scale-[0.98] hover:border-[rgba(181,169,154,0.58)] hover:bg-[rgba(255,255,255,0.08)] hover:shadow-[0_1px_4px_rgba(44,44,44,0.08),0_6px_14px_rgba(44,44,44,0.10)] active:scale-[0.98] active:border-[rgba(181,169,154,0.66)] active:bg-[rgba(255,255,255,0.10)] active:shadow-[0_1px_2px_rgba(44,44,44,0.06),0_3px_8px_rgba(44,44,44,0.08)]"
                       style={{
-                        fontSize: "0.6rem",
-                        textTransform: "uppercase",
-                        letterSpacing: "0.1em",
-                        color: "var(--color-charcoal-light)",
-                        fontWeight: 600,
+                        backdropFilter: "blur(16px)",
+                        WebkitBackdropFilter: "blur(16px)",
+                        padding: "0.72rem 0.78rem",
+                        borderRadius: "0.8rem",
+                        boxShadow:
+                          "0 2px 8px rgba(44, 44, 44, 0.1), 0 12px 22px rgba(44, 44, 44, 0.12)",
                       }}
                     >
-                      Semana {week.number}
-                    </p>
-                    <p
-                      className="font-display"
-                      style={{
-                        marginTop: "0.22rem",
-                        fontSize: "0.82rem",
-                        color: "var(--color-charcoal)",
-                        fontWeight: 500,
-                        lineHeight: 1.25,
-                      }}
-                    >
-                      {week.title}
-                    </p>
-                  </button>
+                      <p
+                        className="font-body"
+                        style={{
+                          fontSize: "0.6rem",
+                          textTransform: "uppercase",
+                          letterSpacing: "0.1em",
+                          color: "var(--color-charcoal-light)",
+                          fontWeight: 600,
+                        }}
+                      >
+                        Semana {week.number}
+                      </p>
+                      <p
+                        className="font-display"
+                        style={{
+                          marginTop: "0.22rem",
+                          fontSize: "0.82rem",
+                          color: "var(--color-charcoal)",
+                          fontWeight: 500,
+                          lineHeight: 1.25,
+                        }}
+                      >
+                        {week.title}
+                      </p>
+                    </button>
+                  </SnakeBorder>
                 ))}
               </div>
             </div>
@@ -507,19 +513,28 @@ export default function Home() {
                 >
                   {week.description}
                 </p>
-                <button
-                  onClick={() => setLocation(`/semana/${week.number}`)}
-                  className="mt-auto w-full rounded font-body border bg-white border-[var(--color-taupe-light)] text-[var(--color-charcoal)] transition-[transform,box-shadow,border-color] duration-200 ease-out hover:scale-[0.98] hover:border-[rgba(181,169,154,0.62)] hover:shadow-[0_1px_3px_rgba(44,44,44,0.04),0_4px_10px_rgba(44,44,44,0.06)] active:scale-[0.98] active:border-[rgba(181,169,154,0.72)] active:shadow-[0_1px_2px_rgba(44,44,44,0.03),0_3px_8px_rgba(44,44,44,0.05)]"
-                  style={{
-                    padding: "0.5rem 0.65rem",
-                    fontSize: "0.68rem",
-                    lineHeight: 1.2,
-                    boxShadow:
-                      "0 1px 4px rgba(44, 44, 44, 0.05), 0 6px 14px rgba(44, 44, 44, 0.07)",
-                  }}
+                {/* Botão "Abrir semana" — SnakeBorder teal */}
+                <SnakeBorder
+                  color="var(--color-teal-light)"
+                  thickness={1.5}
+                  duration={3.5}
+                  borderRadius="calc(var(--radius) - 2px)"
+                  className="mt-auto"
                 >
-                  Abrir semana {week.number}
-                </button>
+                  <button
+                    onClick={() => setLocation(`/semana/${week.number}`)}
+                    className="w-full rounded font-body border bg-white border-[var(--color-taupe-light)] text-[var(--color-charcoal)] transition-[transform,box-shadow,border-color] duration-200 ease-out hover:scale-[0.98] hover:border-[rgba(181,169,154,0.62)] hover:shadow-[0_1px_3px_rgba(44,44,44,0.04),0_4px_10px_rgba(44,44,44,0.06)] active:scale-[0.98] active:border-[rgba(181,169,154,0.72)] active:shadow-[0_1px_2px_rgba(44,44,44,0.03),0_3px_8px_rgba(44,44,44,0.05)]"
+                    style={{
+                      padding: "0.5rem 0.65rem",
+                      fontSize: "0.68rem",
+                      lineHeight: 1.2,
+                      boxShadow:
+                        "0 1px 4px rgba(44, 44, 44, 0.05), 0 6px 14px rgba(44, 44, 44, 0.07)",
+                    }}
+                  >
+                    Abrir semana {week.number}
+                  </button>
+                </SnakeBorder>
               </div>
             ))}
           </div>
@@ -583,9 +598,10 @@ export default function Home() {
               };
 
               return (
+                /* Cards de bônus interativos */
                 <article
                   key={item.id}
-                  className="px-4 py-4 rounded"
+                  className="px-4 py-4 rounded relative"
                   data-href={item.href}
                   style={{
                     backgroundColor: "white",
@@ -598,11 +614,11 @@ export default function Home() {
                   onKeyDown={
                     isInteractive
                       ? event => {
-                        if (event.key === "Enter" || event.key === " ") {
-                          event.preventDefault();
-                          openBonusCard();
+                          if (event.key === "Enter" || event.key === " ") {
+                            event.preventDefault();
+                            openBonusCard();
+                          }
                         }
-                      }
                       : undefined
                   }
                 >
@@ -717,19 +733,29 @@ export default function Home() {
                         </p>
                       </div>
 
-                      <p
-                        className="font-body inline-block"
-                        style={{
-                          marginTop: "0.1rem",
-                          fontSize: "0.7rem",
-                          color: "var(--color-rose)",
-                          textTransform: "uppercase",
-                          letterSpacing: "0.08em",
-                          fontWeight: 500,
-                        }}
+                      <SnakeBorder
+                        color="var(--color-rose)"
+                        thickness={1}
+                        duration={3}
+                        borderRadius="4px"
+                        className="inline-block mt-[0.1rem]"
                       >
-                        Abrir ambiente interativo
-                      </p>
+                        <p
+                          className="font-body inline-block"
+                          style={{
+                            padding: "0.2rem 0.5rem",
+                            fontSize: "0.7rem",
+                            color: "var(--color-rose)",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.08em",
+                            fontWeight: 500,
+                            backgroundColor: "rgba(214,106,126,0.05)",
+                            borderRadius: "4px",
+                          }}
+                        >
+                          Abrir ambiente interativo
+                        </p>
+                      </SnakeBorder>
                     </>
                   ) : (
                     <div
@@ -771,19 +797,29 @@ export default function Home() {
                             />
                           </p>
 
-                          <p
-                            className="font-body inline-block"
-                            style={{
-                              marginTop: "0.1rem",
-                              fontSize: "0.7rem",
-                              color: "var(--color-rose)",
-                              textTransform: "uppercase",
-                              letterSpacing: "0.08em",
-                              fontWeight: 500,
-                            }}
+                          <SnakeBorder
+                            color="var(--color-rose)"
+                            thickness={1}
+                            duration={3}
+                            borderRadius="4px"
+                            className="inline-block mt-[0.1rem]"
                           >
-                            Abrir ambiente interativo
-                          </p>
+                            <p
+                              className="font-body inline-block"
+                              style={{
+                                padding: "0.2rem 0.5rem",
+                                fontSize: "0.7rem",
+                                color: "var(--color-rose)",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.08em",
+                                fontWeight: 500,
+                                backgroundColor: "rgba(214,106,126,0.05)",
+                                borderRadius: "4px",
+                              }}
+                            >
+                              Abrir ambiente interativo
+                            </p>
+                          </SnakeBorder>
                         </>
                       ) : (
                         <>
@@ -872,16 +908,19 @@ export default function Home() {
               fontStyle: "italic",
             }}
           >
-            Baixe com um toque e leve para onde quiser. Documentos diretos ao ponto para impressão ou consulta offline.
+            Baixe com um toque e leve para onde quiser. Documentos diretos ao
+            ponto para impressão ou consulta offline.
           </p>
 
           <div
             className="grid gap-4"
             style={{
-              gridTemplateColumns: "repeat(auto-fit, minmax(min(320px, 100%), 1fr))",
+              gridTemplateColumns:
+                "repeat(auto-fit, minmax(min(320px, 100%), 1fr))",
             }}
           >
             {/* Card 1: Tônico Coreano */}
+            {/* Card PDF Tônico Coreano */}
             <article
               className="px-4 py-4 rounded flex flex-col xl:flex-row gap-5"
               style={{
@@ -891,16 +930,18 @@ export default function Home() {
             >
               {/* Coluna da Imagem */}
               <div className="xl:w-1/3 flex-shrink-0">
-                <div 
+                <div
                   className="rounded overflow-hidden"
                   style={{
                     border: "1px solid var(--color-taupe-light)",
-                    aspectRatio: "3/4"
+                    aspectRatio: "3/4",
                   }}
                 >
-                  <img 
-                    src={toPublicPath("bonus/tonico-milenar-coreano/novo-tonico-milenar-coreano.webp")} 
-                    alt="Capa do material em PDF: Tônico Milenar Coreano" 
+                  <img
+                    src={toPublicPath(
+                      "bonus/tonico-milenar-coreano/novo-tonico-milenar-coreano.webp"
+                    )}
+                    alt="Capa do material em PDF: Tônico Milenar Coreano"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
@@ -930,30 +971,33 @@ export default function Home() {
                       marginBottom: "1.2rem",
                     }}
                   >
-                    Guia de uso do tônico focando na regulação da glicose e redução do armazenamento de gordura usando propriedades do ácido acético (vinagre de maçã) e gengibre.
+                    Guia de uso do tônico focando na regulação da glicose e
+                    redução do armazenamento de gordura usando propriedades do
+                    ácido acético (vinagre de maçã) e gengibre.
                   </p>
 
-                  <div 
-                    className="p-3.5 rounded mb-4" 
-                    style={{ 
+                  <div
+                    className="p-3.5 rounded mb-4"
+                    style={{
                       backgroundColor: "var(--color-rose-muted)",
-                      border: "1px solid var(--color-rose-light)" 
+                      border: "1px solid var(--color-rose-light)",
                     }}
                     role="alert"
                   >
-                    <p 
+                    <p
                       className="font-body flex items-center gap-1.5 mb-2.5"
-                      style={{ 
-                        fontSize: "0.75rem", 
-                        fontWeight: 600, 
+                      style={{
+                        fontSize: "0.75rem",
+                        fontWeight: 600,
                         color: "var(--color-rose)",
                         textTransform: "uppercase",
-                        letterSpacing: "0.05em"
+                        letterSpacing: "0.05em",
                       }}
                     >
-                      <AlertTriangle size={14} aria-hidden="true" /> Orientações de Uso Seguro
+                      <AlertTriangle size={14} aria-hidden="true" /> Orientações
+                      de Uso Seguro
                     </p>
-                    <ul 
+                    <ul
                       className="font-body space-y-2.5"
                       style={{
                         fontSize: "0.8rem",
@@ -961,33 +1005,55 @@ export default function Home() {
                         lineHeight: 1.5,
                       }}
                     >
-                      <li><strong>• Consuma após as refeições:</strong> O vinagre é naturalmente ácido. Evite o estômago vazio para prevenir desconfortos gástricos.</li>
-                      <li><strong>• Cuidado com o esmalte dental:</strong> O ácido pode sensibilizar os dentes. Recomendamos bochechar água ou escovar os dentes após o uso.</li>
-                      <li><strong>• Monitoramento de Glicose:</strong> Se você utiliza remédios para diabetes, fique atenta, pois estes ingredientes naturais podem baixar o açúcar no sangue.</li>
+                      <li>
+                        <strong>• Consuma após as refeições:</strong> O vinagre
+                        é naturalmente ácido. Evite o estômago vazio para
+                        prevenir desconfortos gástricos.
+                      </li>
+                      <li>
+                        <strong>• Cuidado com o esmalte dental:</strong> O ácido
+                        pode sensibilizar os dentes. Recomendamos bochechar água
+                        ou escovar os dentes após o uso.
+                      </li>
+                      <li>
+                        <strong>• Monitoramento de Glicose:</strong> Se você
+                        utiliza remédios para diabetes, fique atenta, pois estes
+                        ingredientes naturais podem baixar o açúcar no sangue.
+                      </li>
                     </ul>
                   </div>
                 </div>
 
                 <div className="mt-2 md:mt-auto">
-                  <a
-                    href={toPublicPath("bonus/tonico-milenar-coreano/novo-Tonico-Milenar-Coreano.pdf")}
-                    download="Tonico-Milenar-Coreano.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 w-full md:w-auto px-5 py-2.5 rounded font-body transition-colors hover:opacity-90 active:scale-[0.98]"
-                    style={{
-                      backgroundColor: "var(--color-charcoal)",
-                      color: "white",
-                      fontSize: "0.85rem",
-                      fontWeight: 500,
-                      textTransform: "uppercase",
-                      letterSpacing: "0.05em"
-                    }}
-                    aria-label="Baixar PDF Completo do Tônico Milenar Coreano"
+                  <SnakeBorder
+                    color="white"
+                    thickness={1.5}
+                    duration={4}
+                    borderRadius="0.25rem"
+                    className="w-full md:w-auto block md:inline-block"
                   >
-                    <Download size={16} aria-hidden="true" />
-                    Baixar PDF Completo
-                  </a>
+                    <a
+                      href={toPublicPath(
+                        "bonus/tonico-milenar-coreano/novo-Tonico-Milenar-Coreano.pdf"
+                      )}
+                      download="Tonico-Milenar-Coreano.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 w-full px-5 py-2.5 rounded font-body transition-colors hover:opacity-90 active:scale-[0.98]"
+                      style={{
+                        backgroundColor: "var(--color-charcoal)",
+                        color: "white",
+                        fontSize: "0.85rem",
+                        fontWeight: 500,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.05em",
+                      }}
+                      aria-label="Baixar PDF Completo do Tônico Milenar Coreano"
+                    >
+                      <Download size={16} aria-hidden="true" />
+                      Baixar PDF Completo
+                    </a>
+                  </SnakeBorder>
                 </div>
               </div>
             </article>
@@ -1002,16 +1068,18 @@ export default function Home() {
             >
               {/* Coluna da Imagem */}
               <div className="xl:w-1/3 flex-shrink-0">
-                <div 
+                <div
                   className="rounded overflow-hidden"
                   style={{
                     border: "1px solid var(--color-taupe-light)",
-                    aspectRatio: "3/4"
+                    aspectRatio: "3/4",
                   }}
                 >
-                  <img 
-                    src={toPublicPath("bonus/tonico-capilar/capa-tonico-capilar.webp")} 
-                    alt="Capa do material em PDF: Tônico Capilar Receitas" 
+                  <img
+                    src={toPublicPath(
+                      "bonus/tonico-capilar/capa-tonico-capilar.webp"
+                    )}
+                    alt="Capa do material em PDF: Tônico Capilar Receitas"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
@@ -1041,30 +1109,33 @@ export default function Home() {
                       marginBottom: "1.2rem",
                     }}
                   >
-                    Guia completo com receitas naturais para fortalecimento e crescimento capilar acelerado, utilizando ingredientes botânicos e técnicas de infusão.
+                    Guia completo com receitas naturais para fortalecimento e
+                    crescimento capilar acelerado, utilizando ingredientes
+                    botânicos e técnicas de infusão.
                   </p>
 
-                  <div 
-                    className="p-3.5 rounded mb-4" 
-                    style={{ 
+                  <div
+                    className="p-3.5 rounded mb-4"
+                    style={{
                       backgroundColor: "var(--color-rose-muted)",
-                      border: "1px solid var(--color-rose-light)" 
+                      border: "1px solid var(--color-rose-light)",
                     }}
                     role="alert"
                   >
-                    <p 
+                    <p
                       className="font-body flex items-center gap-1.5 mb-2.5"
-                      style={{ 
-                        fontSize: "0.75rem", 
-                        fontWeight: 600, 
+                      style={{
+                        fontSize: "0.75rem",
+                        fontWeight: 600,
                         color: "var(--color-rose)",
                         textTransform: "uppercase",
-                        letterSpacing: "0.05em"
+                        letterSpacing: "0.05em",
                       }}
                     >
-                      <AlertTriangle size={14} aria-hidden="true" /> Cuidados Recomendados
+                      <AlertTriangle size={14} aria-hidden="true" /> Cuidados
+                      Recomendados
                     </p>
-                    <ul 
+                    <ul
                       className="font-body space-y-2.5"
                       style={{
                         fontSize: "0.8rem",
@@ -1072,33 +1143,55 @@ export default function Home() {
                         lineHeight: 1.5,
                       }}
                     >
-                      <li><strong>• Uso do Jaborandi:</strong> Devido à Pilocarpina natural, evite o uso se tiver condições cardíacas ou asma sem consultar um médico.</li>
-                      <li><strong>• Teste de Sensibilidade:</strong> Ingredientes como alho e canela podem ser fortes. Evite sol direto logo após a aplicação no couro cabeludo.</li>
-                      <li><strong>• Frescor das Receitas:</strong> Como são preparos naturais sem conservantes, recomendamos fazer pequenas doses e utilizar em até 48 horas.</li>
+                      <li>
+                        <strong>• Uso do Jaborandi:</strong> Devido à
+                        Pilocarpina natural, evite o uso se tiver condições
+                        cardíacas ou asma sem consultar um médico.
+                      </li>
+                      <li>
+                        <strong>• Teste de Sensibilidade:</strong> Ingredientes
+                        como alho e canela podem ser fortes. Evite sol direto
+                        logo após a aplicação no couro cabeludo.
+                      </li>
+                      <li>
+                        <strong>• Frescor das Receitas:</strong> Como são
+                        preparos naturais sem conservantes, recomendamos fazer
+                        pequenas doses e utilizar em até 48 horas.
+                      </li>
                     </ul>
                   </div>
                 </div>
 
                 <div className="mt-2 md:mt-auto">
-                  <a
-                    href={toPublicPath("bonus/tonico-capilar/novo-tonico-capilar-receitas.pdf")}
-                    download="Tonico-Capilar-Receitas.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 w-full md:w-auto px-5 py-2.5 rounded font-body transition-colors hover:opacity-90 active:scale-[0.98]"
-                    style={{
-                      backgroundColor: "var(--color-charcoal)",
-                      color: "white",
-                      fontSize: "0.85rem",
-                      fontWeight: 500,
-                      textTransform: "uppercase",
-                      letterSpacing: "0.05em"
-                    }}
-                    aria-label="Baixar PDF do Tônico Capilar Receitas"
+                  <SnakeBorder
+                    color="white"
+                    thickness={1.5}
+                    duration={4}
+                    borderRadius="0.25rem"
+                    className="w-full md:w-auto block md:inline-block"
                   >
-                    <Download size={16} aria-hidden="true" />
-                    Baixar PDF Completo
-                  </a>
+                    <a
+                      href={toPublicPath(
+                        "bonus/tonico-capilar/novo-tonico-capilar-receitas.pdf"
+                      )}
+                      download="Tonico-Capilar-Receitas.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 w-full px-5 py-2.5 rounded font-body transition-colors hover:opacity-90 active:scale-[0.98]"
+                      style={{
+                        backgroundColor: "var(--color-charcoal)",
+                        color: "white",
+                        fontSize: "0.85rem",
+                        fontWeight: 500,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.05em",
+                      }}
+                      aria-label="Baixar PDF do Tônico Capilar Receitas"
+                    >
+                      <Download size={16} aria-hidden="true" />
+                      Baixar PDF Completo
+                    </a>
+                  </SnakeBorder>
                 </div>
               </div>
             </article>
@@ -1179,41 +1272,49 @@ export default function Home() {
                 route: "/bonus",
               },
             ].map(item => (
-              <button
+              /* Cards de navegação rápida */
+              <SnakeBorder
                 key={item.route}
-                onClick={() => setLocation(item.route)}
-                className="text-left transition-[transform,box-shadow,border-color] duration-200 ease-out hover:scale-[0.98] hover:border-[rgba(181,169,154,0.62)] hover:shadow-[0_1px_3px_rgba(44,44,44,0.04),0_5px_12px_rgba(44,44,44,0.06)] active:scale-[0.98] active:border-[rgba(181,169,154,0.72)] active:shadow-[0_1px_2px_rgba(44,44,44,0.03),0_3px_8px_rgba(44,44,44,0.05)]"
-                style={{
-                  backgroundColor: "white",
-                  border: "1px solid var(--color-taupe-light)",
-                  padding: "0.85rem 0.9rem",
-                  borderRadius: "0.65rem",
-                  boxShadow:
-                    "0 2px 6px rgba(44, 44, 44, 0.05), 0 10px 24px rgba(44, 44, 44, 0.08)",
-                }}
+                color="var(--color-taupe)"
+                thickness={2}
+                duration={3}
+                borderRadius="0.65rem"
               >
-                <p
-                  className="font-body"
+                <button
+                  onClick={() => setLocation(item.route)}
+                  className="w-full text-left transition-[transform,box-shadow,border-color] duration-200 ease-out hover:scale-[0.98] hover:border-[rgba(181,169,154,0.62)] hover:shadow-[0_1px_3px_rgba(44,44,44,0.04),0_5px_12px_rgba(44,44,44,0.06)] active:scale-[0.98] active:border-[rgba(181,169,154,0.72)] active:shadow-[0_1px_2px_rgba(44,44,44,0.03),0_3px_8px_rgba(44,44,44,0.05)]"
                   style={{
-                    fontSize: "0.8rem",
-                    fontWeight: 500,
-                    color: "var(--color-charcoal)",
-                    marginBottom: "0.2rem",
+                    backgroundColor: "white",
+                    border: "1px solid var(--color-taupe-light)",
+                    padding: "0.85rem 0.9rem",
+                    borderRadius: "0.65rem",
+                    boxShadow:
+                      "0 2px 6px rgba(44, 44, 44, 0.05), 0 10px 24px rgba(44, 44, 44, 0.08)",
                   }}
                 >
-                  {item.title}
-                </p>
-                <p
-                  className="font-body"
-                  style={{
-                    fontSize: "0.72rem",
-                    color: "var(--color-warm-gray)",
-                    lineHeight: 1.5,
-                  }}
-                >
-                  {item.description}
-                </p>
-              </button>
+                  <p
+                    className="font-body"
+                    style={{
+                      fontSize: "0.8rem",
+                      fontWeight: 500,
+                      color: "var(--color-charcoal)",
+                      marginBottom: "0.2rem",
+                    }}
+                  >
+                    {item.title}
+                  </p>
+                  <p
+                    className="font-body"
+                    style={{
+                      fontSize: "0.72rem",
+                      color: "var(--color-warm-gray)",
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    {item.description}
+                  </p>
+                </button>
+              </SnakeBorder>
             ))}
           </div>
         </section>
