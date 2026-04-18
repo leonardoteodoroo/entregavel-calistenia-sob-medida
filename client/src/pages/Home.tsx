@@ -1279,10 +1279,11 @@ export default function Home() {
                 thickness={2}
                 duration={3}
                 borderRadius="0.65rem"
+                className="h-full"
               >
                 <button
                   onClick={() => setLocation(item.route)}
-                  className="w-full text-left transition-[transform,box-shadow,border-color] duration-200 ease-out hover:scale-[0.98] hover:border-[rgba(181,169,154,0.62)] hover:shadow-[0_1px_3px_rgba(44,44,44,0.04),0_5px_12px_rgba(44,44,44,0.06)] active:scale-[0.98] active:border-[rgba(181,169,154,0.72)] active:shadow-[0_1px_2px_rgba(44,44,44,0.03),0_3px_8px_rgba(44,44,44,0.05)]"
+                  className="h-full w-full text-left flex flex-col justify-start transition-[transform,box-shadow,border-color] duration-200 ease-out hover:scale-[0.98] hover:border-[rgba(181,169,154,0.62)] hover:shadow-[0_1px_3px_rgba(44,44,44,0.04),0_5px_12px_rgba(44,44,44,0.06)] active:scale-[0.98] active:border-[rgba(181,169,154,0.72)] active:shadow-[0_1px_2px_rgba(44,44,44,0.03),0_3px_8px_rgba(44,44,44,0.05)]"
                   style={{
                     backgroundColor: "white",
                     border: "1px solid var(--color-taupe-light)",
