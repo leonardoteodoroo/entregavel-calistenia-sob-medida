@@ -871,7 +871,7 @@ export default function Home() {
                   }}
                 >
                   <img 
-                    src={toPublicPath("bonus/novo-tonico-milenar-coreano.webp")} 
+                    src={toPublicPath("bonus/tonico-milenar-coreano/novo-tonico-milenar-coreano.webp")} 
                     alt="Capa do material em PDF: Tônico Milenar Coreano" 
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -942,7 +942,7 @@ export default function Home() {
 
                 <div className="mt-2 md:mt-auto">
                   <a
-                    href={toPublicPath("bonus/novo-Tonico-Milenar-Coreano.pdf")}
+                    href={toPublicPath("bonus/tonico-milenar-coreano/novo-Tonico-Milenar-Coreano.pdf")}
                     download="Tonico-Milenar-Coreano.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
