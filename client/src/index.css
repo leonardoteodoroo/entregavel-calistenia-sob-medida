@@ -3,14 +3,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* @property para animar o ângulo do conic-gradient sem
-   rotacionar o pseudo-elemento (evita vazamento nos cantos) */
-@property --snake-angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-
 /* ============================================================
    DESIGN SYSTEM — Calistenia Feminina Sob Medida
    Philosophy: Editorial Wellness Minimalista
@@ -582,18 +574,23 @@
   }
 
   /* ---- Snake Border (efeito de feixe de luz na borda) ---- */
-  /* Abordagem Definitiva: conic-gradient + mask-composite + @property
-     - O @property anima apenas o ângulo do gradiente (evita vazamento nos cantos
-       causado por transform: rotate).
-     - O mask-composite recorta o centro, permitindo que fundos semi-transparentes
-       (glassmorphism) nos filhos funcionem perfeitamente. */
+  /* Abordagem 60fps (GPU Accelerated + Lazy):
+     1. O wrapper (.snake-border) cria o contexto de stacking.
+     2. A máscara (.snake-border-mask) é do exato tamanho do elemento, com overflow:hidden
+        e mask-composite para esconder o centro, revelando apenas a espessura da borda.
+     3. O brilho (.snake-border-glow) é uma div gigante (-100%) que roda girando via
+        'transform: rotate' (100% offload para a GPU). As pontas não vazam pois a máscara 
+        (camada 2) recorta as pontas através do border-radius + overflow:hidden. */
 
   .snake-border {
     position: relative;
+    /* Isolate previne z-index issues com os absolutes filhos */
+    isolation: isolate;
     border-radius: var(--snake-radius, 0.65rem);
   }
 
-  .snake-border > * {
+  /* O conteúdo recebe z-index 1 para ficar por cima de tudo e o pointer-events não interage com o brilho */
+  .snake-border-content {
     position: relative;
     z-index: 1;
     width: 100%;
@@ -601,18 +598,17 @@
     display: block;
   }
 
-  .snake-border::after {
-    content: "";
+  .snake-border-mask {
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: conic-gradient(
-      from var(--snake-angle, 0deg),
-      transparent 0deg,
-      transparent 260deg,
-      var(--snake-color, var(--color-rose-light)) 300deg,
-      transparent 360deg
-    );
+    /* Force Hardware Acceleration (evita bug de overflow hidden em Safari) */
+    transform: translateZ(0);
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2; /* Fica acima do filho para desenhar a borda em cima, mas tem pointer-events: none */
+
+    /* Recorta o centro, restando apenas a borda onde brilhará */
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
@@ -622,14 +618,32 @@
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     padding: var(--snake-thickness, 1.5px);
-    animation: snakeRotate var(--snake-duration, 3s) linear infinite;
-    pointer-events: none;
-    z-index: 2; /* Garante que o feixe passe por cima da borda do filho */
   }
 
-  @keyframes snakeRotate {
+  .snake-border-glow {
+    position: absolute;
+    /* Tamanho massivo para cobrir o container inteiro durante toda a rotação */
+    top: -100%;
+    left: -100%;
+    right: -100%;
+    bottom: -100%;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 260deg,
+      var(--snake-color, var(--color-rose-light)) 300deg,
+      transparent 360deg
+    );
+    /* Anima apenas o transform: performance extrema 60fps constante */
+    animation: snakeRotateGPU var(--snake-duration, 3s) linear infinite;
+  }
+
+  @keyframes snakeRotateGPU {
+    from {
+      transform: rotate(0deg);
+    }
     to {
-      --snake-angle: 360deg;
+      transform: rotate(360deg);
     }
   }
 

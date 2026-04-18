@@ -1,9 +1,14 @@
 // ============================================================
 // SnakeBorder — Efeito premium de feixe de luz percorrendo a borda
-// Técnica Definitiva: conic-gradient + mask-composite + @property animável
-// O pseudo-elemento fica sobre a borda sem distorcer o layout
+// Técnica Definitiva (60fps GPU + Lazy):
+// - Wrapper principal estabelece contexto
+// - Máscara vazada com overflow: hidden recorta cantos perfeitos
+// - Div gigante giratória animada puramente via transform: rotate
+// - framer-motion/useInView suspende a carga fora da viewport
 // ============================================================
+import { useRef } from "react";
 import type { CSSProperties, ReactNode } from "react";
+import { useInView } from "framer-motion";
 
 interface SnakeBorderProps {
   children: ReactNode;
@@ -21,24 +26,6 @@ interface SnakeBorderProps {
   style?: CSSProperties;
 }
 
-/**
- * Envolve qualquer elemento com um feixe de luz animado percorrendo a borda.
- *
- * Técnica Definitiva:
- * - Um ::after cobre o elemento com inset: 0 e border-radius: inherit
- * - mask-composite "exclude" recorta o miolo, deixando APENAS a borda
- * - @property --snake-angle anima o ângulo do conic-gradient sem rotacionar
- *   o elemento (evitando vazamento de cantos - o "transform: rotate" bug)
- * - Essa técnica permite o uso de backgrounds transparentes (glassmorphism)
- *   no filho, já que o miolo da máscara é 100% vazado.
- *
- * Uso:
- * <SnakeBorder color="var(--color-rose-light)" thickness={1.5}>
- *   <button style={{ backgroundColor: "rgba(255,255,255,0.05)", backdropFilter: "blur(16px)", borderRadius: "..." }}>
- *     Semana 1
- *   </button>
- * </SnakeBorder>
- */
 export default function SnakeBorder({
   children,
   color = "var(--color-rose-light)",
@@ -48,8 +35,15 @@ export default function SnakeBorder({
   className = "",
   style = {},
 }: SnakeBorderProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // once: false (suspende o efeito quando sair da tela).
+  // margin: 400px (começa a renderizar 400px antes de aparecer para evitar piscar)
+  const isInView = useInView(containerRef, { once: false, margin: "400px" });
+
   return (
     <div
+      ref={containerRef}
       className={`snake-border ${className}`}
       style={
         {
@@ -61,7 +55,11 @@ export default function SnakeBorder({
         } as CSSProperties
       }
     >
-      {children}
+      <div className="snake-border-mask">
+        {/* Renderiza o peso do gradiente apenas quando em tela (lazy 60fps) */}
+        {isInView && <div className="snake-border-glow" />}
+      </div>
+      <div className="snake-border-content">{children}</div>
     </div>
   );
 }
