@@ -199,14 +199,18 @@ export default function Home() {
           style={{ minHeight: "520px" }}
         >
           <div className="relative" style={{ minHeight: "520px" }}>
-            <div
-              className="absolute inset-0"
+            <img
+              src={HERO_IMG}
+              alt=""
+              className="absolute inset-0 w-full h-full"
               style={{
-                backgroundImage: `url(${HERO_IMG})`,
-                backgroundSize: "cover",
-                backgroundPosition: "85% center",
+                objectFit: "cover",
+                objectPosition: "85% center",
                 opacity: 0.65,
               }}
+              fetchPriority="high"
+              loading="eager"
+              decoding="sync"
             />
             <div
               className="absolute inset-0"
