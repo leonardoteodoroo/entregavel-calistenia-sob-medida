@@ -182,7 +182,7 @@ export default function SiteFooter() {
                 color: "var(--color-taupe)",
               }}
             >
-              VERSÃO v.1.0.1
+              VERSÃO 2.4.0 (18/04/2026)
             </span>
           </p>
         </div>

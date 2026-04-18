@@ -53,10 +53,10 @@
   --color-ivory-dark: #f0ebe3;
   --color-taupe: #706555; /* Escurecido para WCAG AA (era #b5a99a) */
   --color-taupe-light: #d4ccc4;
-  --color-rose: #8b4a52;
+  --color-rose: #723a41; /* Escurecido para WCAG AA sobre rose-muted (era #8b4a52) */
   --color-rose-light: #c4858e;
   --color-rose-muted: #e8d5d7;
-  --color-teal: #5b8a8b;
+  --color-teal: #3b6263; /* Escurecido para WCAG AA sobre teal-muted (era #5b8a8b) */
   --color-teal-light: #8bb5b6;
   --color-teal-muted: #d0e4e4;
   --color-charcoal: #2c2c2c;
@@ -449,8 +449,6 @@
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--color-charcoal);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
     transform: translateY(0) scale(1);
     transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
     will-change: transform;

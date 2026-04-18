@@ -297,10 +297,8 @@ export default function Home() {
                   >
                     <button
                       onClick={() => setLocation(`/semana/${week.number}`)}
-                      className="w-full text-left border bg-[rgba(255,255,255,0.05)] border-[rgba(181,169,154,0.42)] transition-[transform,box-shadow,border-color,background-color] duration-200 ease-out hover:scale-[0.98] hover:border-[rgba(181,169,154,0.58)] hover:bg-[rgba(255,255,255,0.08)] hover:shadow-[0_1px_4px_rgba(44,44,44,0.08),0_6px_14px_rgba(44,44,44,0.10)] active:scale-[0.98] active:border-[rgba(181,169,154,0.66)] active:bg-[rgba(255,255,255,0.10)] active:shadow-[0_1px_2px_rgba(44,44,44,0.06),0_3px_8px_rgba(44,44,44,0.08)]"
+                      className="w-full text-left border bg-[rgba(249,246,240,0.85)] border-[rgba(181,169,154,0.42)] transition-[transform,box-shadow,border-color,background-color] duration-200 ease-out hover:scale-[0.98] hover:border-[rgba(181,169,154,0.58)] hover:bg-[rgba(249,246,240,0.95)] hover:shadow-[0_1px_4px_rgba(44,44,44,0.08),0_6px_14px_rgba(44,44,44,0.10)] active:scale-[0.98] active:border-[rgba(181,169,154,0.66)] active:bg-[#fff] active:shadow-[0_1px_2px_rgba(44,44,44,0.06),0_3px_8px_rgba(44,44,44,0.08)]"
                       style={{
-                        backdropFilter: "blur(16px)",
-                        WebkitBackdropFilter: "blur(16px)",
                         padding: "0.72rem 0.78rem",
                         borderRadius: "0.8rem",
                         boxShadow:
