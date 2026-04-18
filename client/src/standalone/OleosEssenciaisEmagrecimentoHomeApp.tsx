@@ -93,15 +93,10 @@ export default function OleosEssenciaisEmagrecimentoHomeApp({
                 Guia Interativo de Bolso
               </span>
               <h1 className="text-[2.75rem] md:text-[3.5rem] font-light text-[#2f3b31] leading-[1.1] mb-6">
-                Mapeando o seu <br />
-                <span className="italic font-medium text-[#2f4e35]">
-                  Equilíbrio
-                </span>
+                {viewModel.title}
               </h1>
               <p className="text-[#4f544d] text-lg leading-relaxed max-w-[90%] mb-8">
-                Uma curadoria de sabedoria botânica desenhada para recalibrar
-                seu ritmo interno através da arte dos óleos essenciais e do
-                suporte metabólico.
+                {viewModel.subtitle}
               </p>
               <div className="flex flex-wrap gap-4">
                 <button

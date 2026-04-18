@@ -1,0 +1,77 @@
+.trigger {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+  transition:
+    opacity 400ms ease,
+    transform 400ms ease;
+}
+
+.triggerHidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.triggerVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card {
+  overflow: hidden;
+  margin-bottom: var(--spacing-4);
+  padding: 0;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.trigger:hover .card {
+  transform: translateY(-1px);
+}
+
+.expanded {
+  box-shadow: var(--shadow-lg);
+}
+
+.hero {
+  border-radius: var(--round-xl) var(--round-xl) 0 0;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-5) 0;
+  margin-top: calc(var(--spacing-4) * -1);
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  display: grid;
+  gap: var(--spacing-2);
+  padding: var(--spacing-4) var(--spacing-5) var(--spacing-5);
+}
+
+.label {
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.title {
+  color: var(--on-surface);
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+.name {
+  color: var(--on-surface-variant);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}

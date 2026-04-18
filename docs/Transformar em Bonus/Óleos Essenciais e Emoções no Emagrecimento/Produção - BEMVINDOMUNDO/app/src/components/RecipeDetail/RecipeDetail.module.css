@@ -1,0 +1,94 @@
+.shell {
+  margin-bottom: var(--spacing-6);
+}
+
+.card {
+  overflow: hidden;
+  padding: 0;
+}
+
+.hero {
+  border-radius: var(--round-xl) var(--round-xl) 0 0;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-5) 0;
+  margin-top: calc(var(--spacing-4) * -1);
+  position: relative;
+  z-index: 1;
+}
+
+.body {
+  display: grid;
+  gap: var(--spacing-5);
+  padding: var(--spacing-4) var(--spacing-5) var(--spacing-6);
+}
+
+.label {
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.title {
+  color: var(--on-surface);
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  line-height: 1.35;
+}
+
+.name {
+  color: var(--on-surface-variant);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.section {
+  display: grid;
+  gap: var(--spacing-4);
+}
+
+.checklist {
+  display: grid;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4);
+  border-radius: var(--round-lg);
+  background: var(--surface-container-lowest);
+}
+
+.checkItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-2);
+  color: var(--on-surface);
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.checkItem input {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--primary);
+}
+
+.steps {
+  display: grid;
+  gap: var(--spacing-6);
+}
+
+.stepBlock {
+  display: grid;
+  gap: var(--spacing-4);
+}
+
+.stepImage {
+  border-radius: var(--round-lg);
+}

@@ -22,6 +22,22 @@ interface RecipeProgress {
 
 type RecipeProgressMap = Record<string, RecipeProgress>;
 
+function readRecipeFromHash(book: RecipeBook): Recipe | null {
+  if (typeof window === "undefined") return null;
+
+  const rawHash = window.location?.hash ?? "";
+  const normalizedHash = rawHash.startsWith("#/")
+    ? rawHash.slice(2)
+    : rawHash.startsWith("#")
+      ? rawHash.slice(1)
+      : rawHash;
+
+  if (!normalizedHash) return null;
+
+  const decodedHash = decodeURIComponent(normalizedHash);
+  return book.recipes.find(recipe => recipe.id === decodedHash) ?? null;
+}
+
 function matchesQuery(recipe: Recipe, query: string): boolean {
   if (!query) return true;
 
@@ -633,7 +649,9 @@ function RecipeDetail({
 }
 
 export default function BonusRecipeBookApp({ book }: { book: RecipeBook }) {
-  const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
+  const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(() =>
+    readRecipeFromHash(book)
+  );
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [recipeProgress, setRecipeProgress] = useState<RecipeProgressMap>(() =>

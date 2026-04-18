@@ -1,0 +1,97 @@
+METADADOS UNIFICADOS POR DICA — MINDSET
+(Label Editorial + Óleo Aliado, para uso direto no card de dica)
+Cada linha contém: arquivo → label evocativo | óleo essencial relacionado + justificativa
+
+═══════════════════════════════════════════════════════════
+
+00-introducao-as-dicas.txt
+  Label: "Não Existe Milagre"
+  Óleo Aliado: Smart & Sassy — O blend completo para quem quer resultados reais, não milagres.
+
+01-hidratacao.txt
+  Label: "A Fonte da Vitalidade"
+  Óleo Aliado: Lemon — Adicione 1 gota na água; o Limoneno potencializa a hidratação e ativa o metabolismo.
+
+02-horario-de-jantar.txt
+  Label: "O Relógio do Seu Metabolismo"
+  Óleo Aliado: Peppermint — Inale antes do jantar para suprimir a compulsão noturna e reduzir a quantidade.
+
+03-jejum-e-frequencia-de-refeicoes.txt
+  Label: "O Repouso Que Desintoxica"
+  Óleo Aliado: Cinnamon Bark — Regula a glicose durante o jejum, estabilizando a energia sem pico.
+
+04-desjejum-matinal-e-variedade.txt
+  Label: "O Despertar Intencional"
+  Óleo Aliado: Gengibre — 2 gotas em água morna com limão em jejum disparam a digestão do dia.
+
+05-sem-dietas-mirabolantes.txt
+  Label: "Substituição, Nunca Restrição"
+  Óleo Aliado: Wild Orange — Melhora o humor; com humor bom, substituições são mais fáceis que restrições.
+
+06-leitura-de-rotulos-e-produtos.txt
+  Label: "Os Olhos Que Protegem"
+  Óleo Aliado: Cilantro — Agente de limpeza e desintoxicação do que já entrou.
+
+07-reducao-de-acucar-e-ultraprocessados.txt
+  Label: "O Açúcar Invisível"
+  Óleo Aliado: Peppermint — Suprime o desejo por açúcar de forma instantânea pela inalação.
+
+08-reducao-de-industrializados.txt
+  Label: "Comida Que Saiu da Terra"
+  Óleo Aliado: Basil — Anti-inflamatório natural que compensa os danos dos ultraprocessados.
+
+09-exercicios-fisicos.txt
+  Label: "O Corpo em Movimento"
+  Óleo Aliado: Peppermint — Energizante pré-treino; inale na palma das mãos antes de se exercitar.
+
+10-meditacao-e-relaxamento.txt
+  Label: "O Silêncio Que Cura"
+  Óleo Aliado: Serenity — Combinação de Lavanda, Cedro e Ylang Ylang perfeita para meditação guiada.
+
+11-contato-com-a-natureza.txt
+  Label: "Pés Descalços, Alma Cheia"
+  Óleo Aliado: Balance — O blend que traz harmonia ao corpo e mente, potencializando o contato com a natureza.
+
+12-chas-e-shots.txt
+  Label: "Rituais Que Nutrem"
+  Óleo Aliado: Camomila Romana — Adicione 1 gota ao chá de ervas; ação antioxidante e sedativa.
+
+13-rotina-com-oleos-essenciais.txt
+  Label: "Sua Farmácia Botânica"
+  Óleo Aliado: Smart & Sassy — O blend metabólico diário que integra todos os protocolos.
+
+14-desligar-eletronicos.txt
+  Label: "O Descanso dos Olhos"
+  Óleo Aliado: Serenity — No difusor, cria atmosfera de descanso que substitui o estímulo da tela.
+
+15-educacao-nutricional.txt
+  Label: "Aprender Para Escolher"
+  Óleo Aliado: Turmeric — O Curcuma acelera o metabolismo; entender por quê é educação nutricional aplicada.
+
+16-suplementacao.txt
+  Label: "O Que Falta no Prato"
+  Óleo Aliado: Fennel — Estimula a melatonina, o suplemento noturno que o corpo já produz.
+
+17-gerenciamento-de-estresse.txt
+  Label: "O Peso Que Não É Gordura"
+  Óleo Aliado: Balance — Abeto, Olíbano e Blue Tansy combatem o cortisol, o hormônio que sabota a dieta.
+
+18-hobbies-relaxantes.txt
+  Label: "O Prazer Que Não Engorda"
+  Óleo Aliado: Sândalo Hawaiano — Use no difusor durante seus hobbies; aroma que mantém a lucidez e a calma.
+
+19-sono-adequado.txt
+  Label: "A Cura Noturna"
+  Óleo Aliado: Serenity — O blend de sono profundo: Lavanda + Cedro + Vetiver nos pulsos antes de deitar.
+
+20-nutricionista-funcional.txt
+  Label: "A Guia Certa ao Seu Lado"
+  Óleo Aliado: Turmeric — Um bom nutricionista funcional saberá integrar óleos essenciais no seu plano.
+
+21-planos-de-longo-prazo.txt
+  Label: "Saúde, Não Verão"
+  Óleo Aliado: Grapefruit — Lipólise sustentada pelo Nootkathone é resultado de uso consistente, não pontual.
+
+22-evitar-autossabotagem.txt
+  Label: "O Espelho Honesto"
+  Óleo Aliado: Sândalo Hawaiano — Nos momentos vulneráveis, o aroma devolve a lucidez contra o impulso.

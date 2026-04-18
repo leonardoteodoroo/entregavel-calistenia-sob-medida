@@ -139,8 +139,7 @@ export const stickyNavItems: StickyNavItem[] = [
     label: "Plano",
     icon: CalendarRange,
     path: productRoutes.home,
-    isActive: currentPath =>
-      normalizeNavPath(currentPath) === productRoutes.home,
+    isActive: currentPath => normalizeNavPath(currentPath) === productRoutes.home,
   },
   {
     key: "biblioteca",

@@ -1,0 +1,15 @@
+.card {
+  display: block;
+  border-radius: var(--round-xl);
+  background: var(--surface-container-low);
+  color: var(--on-surface);
+}
+
+.default {
+  box-shadow: var(--shadow-md);
+}
+
+.elevated {
+  background: var(--surface-bright);
+  box-shadow: var(--shadow-lg);
+}

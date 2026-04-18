@@ -1,0 +1,55 @@
+.frame {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--round-xl);
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.8), transparent 42%),
+    linear-gradient(145deg, rgba(61, 107, 94, 0.18), rgba(250, 220, 211, 0.58));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+}
+
+.media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-6);
+  color: var(--on-surface-variant);
+  text-align: center;
+}
+
+.emoji {
+  font-size: clamp(2.25rem, 10vw, 3.5rem);
+  line-height: 1;
+}
+
+.caption {
+  max-width: 18ch;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.note {
+  position: absolute;
+  right: var(--spacing-3);
+  bottom: var(--spacing-3);
+  max-width: min(60%, 15rem);
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--round-lg);
+  background: rgba(250, 249, 246, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: var(--on-surface-variant);
+  font-size: 0.625rem;
+  line-height: 1.4;
+}

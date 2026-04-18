@@ -1,0 +1,46 @@
+NEURAL TRANSMISSION FLOW
+Copy original para a seção de autoridade científica da Home.
+Baseado no MVP V1 (Arquétipo Sage/Bio-Hacker) + dados reais do e-book (apresentacao.txt, fichas de óleos).
+
+═══════════════════════════════════════════════════════════
+
+STEP 01 — AMYGDALA RESPONSE
+Título: Resposta Amigdalar
+Subtítulo: O portal olfativo do emagrecimento
+
+Quando você inala um óleo essencial, os compostos voláteis (VOCs) não passam pelo sistema digestivo nem pelo fígado — eles entram diretamente pelo epitélio olfativo e atingem a amígdala cerebral em menos de 3 segundos. A amígdala é o centro de processamento emocional do cérebro, a mesma estrutura que dispara a compulsão alimentar por estresse. Os óleos essenciais intervêm nesse circuito antes que a decisão de abrir a geladeira sequer se forme.
+
+Dado Real: "Os óleos essenciais são conhecidos por sua capacidade de equilibrar nosso humor. Isso pode ajudar na compulsão alimentar, desejos, fadiga, estresse e motivação." (apresentacao.txt)
+
+═══════════════════════════════════════════════════════════
+
+STEP 02 — VOC SIGNAL TRANSMISSION
+Título: Transmissão de Sinal Molecular
+Subtítulo: Compostos que reprogramam receptores
+
+Os compostos ativos — Limoneno (Lime, Lemon, Grapefruit, Wild Orange), Nootkathone (Grapefruit), Linalol (Cilantro) — são moléculas com ação farmacológica real. O Limoneno dissolve gordura corporal e eleva a norepinefrina cerebral; o Nootkathone ativa enzimas no fígado e no sistema esquelético muscular que impulsionam metabolismo e reduzem células armazenadoras de gordura. Estes compostos são tão potentes que uma única gota pode equivaler a vários quilos de matéria-prima vegetal.
+
+Dado Real: "Os compostos extraídos dos óleos essenciais são tão potentes que uma gota pode equivaler a vários quilos de materia prima." (apresentacao.txt) + "Contém Nootkathone, um composto que ativa e acelera o metabolismo." (grapefruit.txt)
+
+═══════════════════════════════════════════════════════════
+
+STEP 03 — DOPAMINERGIC REGULATION
+Título: Regulação Dopaminérgica
+Subtítulo: Do humor ao metabolismo — o circuito completo
+
+O ponto final do circuito: os óleos essenciais regulam os neurotransmissores que governam saciedade, motivação e sono. A Canela suprime o desejo por doces regulando a tolerância à glicose. O Peppermint melhora o humor e suprime a compulsão por açúcar. O Fennel estimula a melatonina — e um estudo de 2011 demonstrou que a melatonina pode fazer o corpo queimar gordura ao invés de armazená-la. Quando o sistema dopaminérgico está equilibrado, o corpo para de pedir recompensa calórica.
+
+Dado Real: "Um estudo em 2011 mostrou como a melatonina pode afetar positivamente a perda de peso, permitindo que o corpo queime gordura ao invés de armazena-la." (fennel.txt) + "A ingestão de óleo de canela provou ser eficaz para suprimir o apetite e o desejo por doces." (cinnamon-bark.txt)
+
+═══════════════════════════════════════════════════════════
+
+FONTE DOS DADOS
+Todos os dados científicos citados foram extraídos dos textos originais do e-book:
+- apresentacao.txt (seções sobre mecanismos fisiológicos)
+- grapefruit.txt (Nootkathone)
+- lime-e-lemon.txt (Limoneno, norepinefrina, estudo in vitro)
+- cinnamon-bark.txt (regulação glicêmica)
+- fennel.txt (melatonina, estudo 2011)
+- cilantro.txt (Linalol, Trans-2-decenal)
+- peppermint.txt (enzimas digestivas, supressão de açúcar)
+Vocabulário técnico ("Amygdala Response", "VOC Signal", "Dopaminergic Regulation") inspirado na nomenclatura do MVP V1.

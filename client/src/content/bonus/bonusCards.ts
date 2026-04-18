@@ -1,4 +1,9 @@
-import { standaloneRoutes, toPublicPath } from "@/content/siteConfig";
+import {
+  productRoutes,
+  standaloneRoutes,
+  toPublicPath,
+  toSpaHashPath,
+} from "@/content/siteConfig";
 import type { RecipeVisual } from "@/content/bonus/bonusRecipeTypes";
 
 export const BONUS_LIKES_STORAGE_KEY = "cf-bonus-receitas-like-v1";
@@ -47,8 +52,21 @@ export const BONUS_RECIPES: BonusCard[] = [
     social: { likesBase: 77 },
   },
   {
+    id: "seu-plano-alimentar",
+    title: "Seu Plano Alimentar",
+    href: toSpaHashPath(productRoutes.alimentacao),
+    description:
+      "Abra seu plano alimentar com refeições guiadas, trocas fáceis, hidratação do dia e lista da semana organizada para você.",
+    thumbnail: {
+      kind: "asset",
+      src: toPublicPath("assets/images/alimentacao/v3/meal-prep-semanal.webp"),
+      alt: "Ingredientes porcionados para a semana em potes organizados sobre bancada clara.",
+    },
+    social: { likesBase: 94 },
+  },
+  {
     id: "bonus-placeholder-2",
-    title: "Em breve",
+    title: "Em desenvolvimento...",
     placeholderDays: 16,
   },
 ];

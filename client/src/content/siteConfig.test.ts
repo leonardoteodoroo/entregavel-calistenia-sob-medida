@@ -3,6 +3,12 @@ import { describe, expect, it } from "vitest";
 import { productRoutes, standaloneRoutes } from "./siteConfig";
 
 describe("standalone routes", () => {
+  it("exposes the meal planner standalone route", () => {
+    const routes = standaloneRoutes as Record<string, string>;
+
+    expect(routes.planoAlimentar).toBe("/plano-alimentar/");
+  });
+
   it("exposes the sobremesas saudaveis standalone route", () => {
     const routes = standaloneRoutes as Record<string, string>;
 
@@ -17,6 +23,10 @@ describe("standalone routes", () => {
 });
 
 describe("product routes", () => {
+  it("exposes the meal plan route for the shared sticky navigation", () => {
+    expect(productRoutes.alimentacao).toBe("/alimentacao");
+  });
+
   it("exposes the bonus route for the shared sticky navigation", () => {
     expect(productRoutes.bonus).toBe("/bonus");
   });

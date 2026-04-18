@@ -1,0 +1,440 @@
+/* ═══════════════════════════════════════════════════════════
+   DESIGN SYSTEM: Botanical Essence — "The Curated Sanctuary"
+   ═══════════════════════════════════════════════════════════
+   Fonte: 00-design_system.md + estrutura_componentes.md
+   Conceito: Revista editorial de bem-estar, não app genérico.
+   Regras Globais:
+   - ZERO borders sólidas (usar Tonal Nesting)
+   - ZERO cantos 90° (min border-radius: 0.75rem)
+   - Glassmorphism com backdrop-blur nos overlays
+   - Assimetria intencional (margens ímpares)
+   ═══════════════════════════════════════════════════════════ */
+
+/* === IMPORTAÇÃO DE FONTES === */
+/* Noto Serif: voz de autoridade (títulos, destaques) */
+/* Manrope: voz funcional (corpo, labels) */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+/* === CSS CUSTOM PROPERTIES (Design Tokens) === */
+:root {
+  /* --- Paleta Principal --- */
+  --primary: #2a4b41; /* Eucalipto Profundo — âncora de toda a UI */
+  --primary-light: #3d6b5e; /* Variante hover */
+  --on-primary: #ffffff; /* Texto sobre primary */
+  --secondary: #a8b5a2; /* Verde sálvia suave */
+  --secondary-fixed: #fadcd3; /* Pêssego para chips de benefício */
+  --on-secondary-fixed: #442b2d; /* Texto sobre chips pêssego */
+  --tertiary: #e2e8e4; /* Cinza-verde neutro */
+
+  /* --- Superfícies (Tonal Nesting — substitui borders) --- */
+  --surface: #faf9f6; /* Creme-marfim base (NUNCA branco puro) */
+  --surface-container-low: #f4f4ef; /* Fundo de cards */
+  --surface-container-lowest: #efede8; /* Fundo de inputs, pills internas */
+  --surface-container: #eaeae5; /* Fundo de seções destacadas */
+  --surface-bright: #ffffff; /* Apenas para cards de substituição positiva */
+  --surface-container-highest: #e0ded9; /* FAB e elementos máxima elevação */
+
+  /* --- Texto --- */
+  --on-surface: #1b1c1c; /* Texto principal */
+  --on-surface-variant: #434843; /* Texto secundário/placeholder */
+  --outline-variant: rgba(67, 72, 67, 0.15); /* Ghost borders (15% opacity) */
+
+  /* --- Tipografia --- */
+  --font-serif: "Noto Serif", Georgia, serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
+
+  /* --- Espaçamento (escala 4px) --- */
+  --spacing-1: 0.25rem; /* 4px */
+  --spacing-2: 0.5rem; /* 8px */
+  --spacing-3: 0.75rem; /* 12px */
+  --spacing-4: 1rem; /* 16px */
+  --spacing-5: 1.25rem; /* 20px */
+  --spacing-6: 1.5rem; /* 24px */
+  --spacing-8: 2rem; /* 32px */
+  --spacing-10: 2.5rem; /* 40px */
+  --spacing-12: 3rem; /* 48px */
+  --spacing-16: 4rem; /* 64px */
+
+  /* --- Roundness (nunca 0, mínimo md) --- */
+  --round-sm: 0.5rem; /* 8px — botões pequenos */
+  --round-md: 0.75rem; /* 12px — cards menores */
+  --round-lg: 1rem; /* 16px — cards médios */
+  --round-xl: 1.5rem; /* 24px — cards principais */
+  --round-full: 9999px; /* Pebble — CTAs, Chips, FAB */
+
+  /* --- Elevação (sombras ambientais, tom esverdeado) --- */
+  --shadow-sm: 0 4px 8px -2px rgba(18, 52, 43, 0.04);
+  --shadow-md: 0 12px 24px -4px rgba(27, 28, 28, 0.06);
+  --shadow-lg: 0 20px 40px rgba(18, 52, 43, 0.06);
+
+  /* --- Transições --- */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+}
+
+/* === RESET & BASE === */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Smooth scroll para âncoras internas */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--on-surface);
+  background-color: var(--surface);
+  line-height: 1.6;
+  /* Mobile-first: largura máxima do conteúdo */
+  max-width: 430px;
+  margin: 0 auto;
+  /* Sem scroll horizontal */
+  overflow-x: hidden;
+}
+
+/* === ACESSIBILIDADE (WCAG 2.4.1) === */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: var(--spacing-2) var(--spacing-4);
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background: var(--primary);
+  color: var(--on-primary);
+  border-radius: var(--round-sm);
+  z-index: 9999;
+}
+
+/* Focus ring para teclado (acessibilidade) */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* === TIPOGRAFIA === */
+.display-lg {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em; /* Optical Kerning */
+  font-weight: 400;
+}
+.headline-lg {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  line-height: 1.3;
+  font-weight: 400;
+}
+.headline-sm {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 400;
+}
+.title-sm {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 700;
+}
+.label-md {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.body-lg {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.8;
+  font-weight: 400;
+}
+.body-md {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* === COMPONENTES REUTILIZÁVEIS === */
+
+/* --- Botão Primário (CTA: pebble-like, min 44x44 AA) --- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-6);
+  min-height: 44px; /* WCAG 2.5.5 AAA touch target */
+  min-width: 44px;
+  background: var(--primary);
+  color: var(--on-primary);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--round-full);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary:hover {
+  background: var(--primary-light);
+}
+
+/* --- Chip (tags de benefício, filtros) --- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-1) var(--spacing-3);
+  background: var(--secondary-fixed);
+  color: var(--on-secondary-fixed);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: none;
+  border-radius: var(--round-full);
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+  white-space: nowrap;
+}
+.chip:hover {
+  opacity: 0.85;
+}
+.chip.active {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+/* --- Card (Tonal Nesting, sem border) --- */
+.card {
+  background: var(--surface-container-low);
+  border-radius: var(--round-xl);
+  padding: var(--spacing-5);
+  box-shadow: var(--shadow-md);
+  /* Nunca: border: 1px solid */
+}
+
+/* --- Glassmorphism Pill --- */
+.glass-pill {
+  background: rgba(250, 249, 246, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--round-full);
+  padding: var(--spacing-1) var(--spacing-3);
+  font-size: 0.75rem;
+  color: var(--on-surface);
+}
+
+/* --- Placeholder de Imagem --- */
+/* 
+  PRODUÇÃO PENDENTE: Todas as imagens abaixo são placeholders.
+  Na fase de produção, substituir pelo generate_image ou assets reais.
+  O loading="lazy" e decoding="async" já estão preparados nos <img>.
+*/
+.img-placeholder {
+  background: linear-gradient(
+    135deg,
+    var(--surface-container),
+    var(--tertiary)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--on-surface-variant);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+.img-placeholder::after {
+  content: "📷 Placeholder";
+  position: absolute;
+  bottom: var(--spacing-2);
+  right: var(--spacing-2);
+  font-size: 0.625rem;
+  opacity: 0.5;
+}
+
+/* --- Navbar Bottom (navegação entre telas) --- */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: var(--spacing-2) 0;
+  /* Glassmorphism no nav */
+  background: rgba(250, 249, 246, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 100;
+  /* Sombra invertida (acima do nav) */
+  box-shadow: 0 -4px 12px rgba(18, 52, 43, 0.04);
+}
+.bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-decoration: none;
+  color: var(--on-surface-variant);
+  font-size: 0.625rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  padding: var(--spacing-1);
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
+  transition: color var(--transition-fast);
+}
+.bottom-nav a.active {
+  color: var(--primary);
+}
+.bottom-nav a .nav-icon {
+  font-size: 1.25rem;
+}
+
+/* --- Padding inferior para compensar bottom-nav fixo --- */
+.page-content {
+  padding-bottom: calc(56px + var(--spacing-8));
+}
+
+/* --- Seção com respiro editorial --- */
+.section {
+  padding: var(--spacing-8) var(--spacing-5);
+}
+.section + .section {
+  /* Tonal Nesting: alternância de fundo entre seções */
+}
+
+/* --- Pull-Quote Editorial --- */
+.pull-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  text-align: center;
+  color: var(--primary);
+  padding: var(--spacing-16) var(--spacing-8);
+  opacity: 0.85;
+}
+
+/* --- Drop Cap (Guias & Segurança) --- */
+.drop-cap::first-letter {
+  font-family: var(--font-serif);
+  font-size: 3.5em;
+  float: left;
+  line-height: 0.8;
+  padding-right: var(--spacing-2);
+  padding-top: var(--spacing-1);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* --- Tabs (Rituais & Receitas) --- */
+.tabs {
+  display: flex;
+  gap: var(--spacing-1);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: var(--spacing-3) var(--spacing-5);
+  position: sticky;
+  top: 0;
+  background: rgba(250, 249, 246, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 50;
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+.tab-btn {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: var(--spacing-2) var(--spacing-4);
+  border: none;
+  background: transparent;
+  color: var(--on-surface-variant);
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: var(--round-full);
+  min-height: 36px;
+  transition: all var(--transition-fast);
+}
+.tab-btn.active {
+  font-family: var(--font-serif);
+  color: var(--primary);
+  background: var(--surface-container-low);
+  font-weight: 700;
+}
+
+/* === UTILITÁRIOS === */
+.text-center {
+  text-align: center;
+}
+.text-variant {
+  color: var(--on-surface-variant);
+}
+.mt-4 {
+  margin-top: var(--spacing-4);
+}
+.mt-8 {
+  margin-top: var(--spacing-8);
+}
+.mb-4 {
+  margin-bottom: var(--spacing-4);
+}
+.gap-2 {
+  gap: var(--spacing-2);
+}
+.gap-3 {
+  gap: var(--spacing-3);
+}
+.flex {
+  display: flex;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.items-center {
+  align-items: center;
+}
+.hidden {
+  display: none;
+}

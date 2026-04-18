@@ -1,0 +1,78 @@
+{
+  "sabotage": [
+    "Hoje posso comer um doce porque mereço!",
+    "Só um docinho não vai me fazer mal!",
+    "Semana que vem começo a dieta",
+    "No verão começo a malhar",
+    "Adoro comer, é um hobby!",
+    "Não ligo para que os outros falam, estou feliz com meu corpo!",
+    "Melhor ser gordinho feliz, que magrelo infeliz",
+    "Eu não consigo!"
+  ],
+  "positive": [
+    "A saúde é meu bem mais precioso",
+    "Meu corpo é minha morada, preciso cuidar bem dele",
+    "Como recompensa vou tomar um bom chá e relaxar um pouco",
+    "Eu posso, eu consigo!",
+    "Sou forte, preciso pensar no meu bem estar",
+    "Posso perfeitamente viver sem esse doce, vou deixar para uma data especial.",
+    "Posso comer apenas um doce, mesmo que os outros não façam assim"
+  ],
+  "pairs": [
+    {
+      "id": "par-1",
+      "theme": "RECOMPENSA ALIMENTAR",
+      "sabotage": "Hoje posso comer um doce porque mereço!",
+      "positive": ["Como recompensa vou tomar um bom chá e relaxar um pouco."]
+    },
+    {
+      "id": "par-2",
+      "theme": "MINIMIZAÇÃO",
+      "sabotage": "Só um docinho não vai me fazer mal!",
+      "positive": [
+        "Posso perfeitamente viver sem esse doce, vou deixar para uma data especial."
+      ]
+    },
+    {
+      "id": "par-3",
+      "theme": "PROCRASTINAÇÃO",
+      "sabotage": "Semana que vem começo a dieta.",
+      "positive": ["A saúde é meu bem mais precioso."]
+    },
+    {
+      "id": "par-4",
+      "theme": "ADIAMENTO SAZONAL",
+      "sabotage": "No verão começo a malhar.",
+      "positive": ["Sou forte, preciso pensar no meu bem estar."]
+    },
+    {
+      "id": "par-5",
+      "theme": "IDENTIDADE FALSA",
+      "sabotage": "Adoro comer, é um hobby!",
+      "positive": ["Meu corpo é minha morada, preciso cuidar bem dele."]
+    },
+    {
+      "id": "par-6",
+      "theme": "NEGAÇÃO DEFENSIVA",
+      "sabotage": "Não ligo para que os outros falam, estou feliz com meu corpo!",
+      "positive": [
+        "Posso comer apenas um doce, mesmo que os outros não façam assim."
+      ]
+    },
+    {
+      "id": "par-7",
+      "theme": "CONFORMISMO",
+      "sabotage": "Melhor ser gordinho feliz, que magrelo infeliz.",
+      "positive": [
+        "A saúde é meu bem mais precioso.",
+        "Sou forte, preciso pensar no meu bem estar."
+      ]
+    },
+    {
+      "id": "par-8",
+      "theme": "DESISTÊNCIA",
+      "sabotage": "Eu não consigo!",
+      "positive": ["Eu posso, eu consigo!"]
+    }
+  ]
+}

@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rituais & Receitas — Óleos & Emoções</title>
+    <meta
+      name="description"
+      content="29 protocolos práticos: uso tópico, culinária, TrimShakes, bebidas e aromaterapia com óleos essenciais."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a href="#main" class="sr-only">Pular para o conteúdo principal</a>
+
+    <main id="main" class="page-content">
+      <!-- Header -->
+      <header class="section" style="padding-bottom: 0">
+        <h1 class="headline-lg">Rituais & Receitas</h1>
+        <p class="body-md text-variant" style="margin-top: var(--spacing-1)">
+          29 protocolos — do café da manhã ao sono
+        </p>
+      </header>
+
+      <!-- ═══════════════════════════════════════════════════════
+         NAVEGAÇÃO POR ABAS (Sticky + ARIA)
+         Fonte: estrutura_componentes.md §3.1
+         5 abas: Uso Tópico | Culinária | TrimShake | Bebidas | Difusão
+         
+         PRODUÇÃO PENDENTE (TSX):
+         - Tab switching com role="tablist" / role="tab"
+         - aria-selected="true/false"
+         - Keyboard navigation (← →)
+         - position: sticky top: 0
+         - Cada aba mostra/esconde seu tab-panel
+         ═══════════════════════════════════════════════════════ -->
+      <nav role="tablist" aria-label="Categorias de Receitas" class="tabs">
+        <button
+          role="tab"
+          aria-selected="true"
+          class="tab-btn active"
+          id="tab-topico"
+        >
+          Uso Tópico
+        </button>
+        <button
+          role="tab"
+          aria-selected="false"
+          class="tab-btn"
+          id="tab-culinaria"
+        >
+          Culinária
+        </button>
+        <button
+          role="tab"
+          aria-selected="false"
+          class="tab-btn"
+          id="tab-trimshake"
+        >
+          TrimShake
+        </button>
+        <button
+          role="tab"
+          aria-selected="false"
+          class="tab-btn"
+          id="tab-bebidas"
+        >
+          Bebidas
+        </button>
+        <button
+          role="tab"
+          aria-selected="false"
+          class="tab-btn"
+          id="tab-difusao"
+        >
+          Difusão
+        </button>
+      </nav>
+
+      <!-- ═══════════════════════════════════════════════════════
+         TAB PANEL: USO TÓPICO (6 itens)
+         Fonte: estrutura_componentes.md §3.2, Aba Uso Tópico
+         Dados: 08-uso-topico/ + metadados-receitas.txt
+         
+         Inclui 1 texto educativo (orientações) + 5 receitas
+         ═══════════════════════════════════════════════════════ -->
+      <div
+        role="tabpanel"
+        aria-labelledby="tab-topico"
+        style="padding: 0 var(--spacing-5)"
+      >
+        <!--
+        NOTA: orientacoes-massagem-e-diluicao.txt deve ser renderizado
+        como bloco EDITORIAL antes das receitas (não como card de ação)
+      -->
+        <div
+          style="
+            background: var(--surface-container-low);
+            border-radius: var(--round-xl);
+            padding: var(--spacing-5);
+            margin-bottom: var(--spacing-6);
+            margin-top: var(--spacing-4);
+          "
+        >
+          <p
+            class="label-md text-variant"
+            style="margin-bottom: var(--spacing-3)"
+          >
+            ORIENTAÇÕES DE DILUIÇÃO
+          </p>
+          <p class="body-md">
+            Nunca aplique óleos puros na pele. Dilua sempre em óleo carregador
+            (coco fracionado, amêndoas doce ou jojoba). Proporção segura: 1-2
+            gotas de óleo essencial para 1 colher de sopa de carregador.
+          </p>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════
+           RITUAL CARD ABERTO — Exemplo: Óleo Anti-Celulite V2
+           Fonte: estrutura_componentes.md §3.3
+           Dados: 08-uso-topico/oleo-massagem-anti-celulite-v2.txt
+                  + metadados-receitas.txt (título SOP, período, tempo)
+           
+           PRODUÇÃO PENDENTE:
+           - Foto hero (food/wellness photography)
+           - Fotos de passo-a-passo demonstrativas
+           - Checkboxes reais nos ingredientes (focus ring 2px)
+           - Ícone 💧 no lugar do bullet point
+           ═══════════════════════════════════════════════════ -->
+        <article
+          class="card"
+          style="padding: 0; overflow: hidden; margin-bottom: var(--spacing-6)"
+        >
+          <!-- Hero (PLACEHOLDER — proporção 16:9) -->
+          <div
+            class="img-placeholder"
+            style="
+              width: 100%;
+              aspect-ratio: 16/9;
+              border-radius: var(--round-xl) var(--round-xl) 0 0;
+            "
+          >
+            <div
+              style="
+                text-align: center;
+                padding: 1.5rem;
+                position: relative;
+                z-index: 1;
+              "
+            >
+              <p style="font-size: 2.5rem">💆</p>
+              <p style="font-size: 0.65rem; opacity: 0.6">
+                PENDENTE: Foto wellness — mãos massageando<br />
+                16:9 (1080×607px) · loading="lazy"
+              </p>
+            </div>
+          </div>
+
+          <!-- Glassmorphism pill: tempo + frequência -->
+          <div
+            style="
+              display: flex;
+              gap: var(--spacing-2);
+              padding: var(--spacing-3) var(--spacing-5);
+              margin-top: calc(var(--spacing-4) * -1);
+              position: relative;
+              z-index: 2;
+            "
+          >
+            <span class="glass-pill">⏱ 12 min</span>
+            <span class="glass-pill">📅 2x/semana</span>
+            <span class="glass-pill">🌙 PM</span>
+          </div>
+
+          <div
+            style="padding: var(--spacing-4) var(--spacing-5) var(--spacing-6)"
+          >
+            <!-- Label SOP (taxonomia temporal do MVP V1) -->
+            <p
+              class="label-md"
+              style="color: var(--primary); margin-bottom: var(--spacing-2)"
+            >
+              RESTAURAÇÃO ENDÓCRINA PM
+            </p>
+
+            <!-- Título SOP Editorial (de titulos-sop-receitas.txt) -->
+            <h2 class="headline-sm" style="margin-bottom: var(--spacing-6)">
+              Protocolo Anticelulite Nº2 — Blend Grapefruit, Alecrim e Eucalipto
+            </h2>
+
+            <!-- THE COMPOSITION: O Que Usar -->
+            <div
+              style="
+                background: var(--surface-container-lowest);
+                border-radius: var(--round-lg);
+                padding: var(--spacing-4);
+                margin-bottom: var(--spacing-6);
+              "
+            >
+              <p
+                class="label-md text-variant"
+                style="margin-bottom: var(--spacing-3)"
+              >
+                📋 O QUE USAR
+              </p>
+              <!--
+              PRODUÇÃO PENDENTE (TSX):
+              - Checkboxes reais com focus ring 2px
+              - Ícone 💧 no lugar do bullet
+            -->
+              <label
+                class="body-md"
+                style="
+                  display: flex;
+                  align-items: flex-start;
+                  gap: var(--spacing-2);
+                  margin-bottom: var(--spacing-2);
+                  cursor: pointer;
+                "
+              >
+                <input
+                  type="checkbox"
+                  style="
+                    margin-top: 3px;
+                    width: 18px;
+                    height: 18px;
+                    accent-color: var(--primary);
+                  "
+                />
+                💧 30ml de óleo de coco fracionado
+              </label>
+              <label
+                class="body-md"
+                style="
+                  display: flex;
+                  align-items: flex-start;
+                  gap: var(--spacing-2);
+                  margin-bottom: var(--spacing-2);
+                  cursor: pointer;
+                "
+              >
+                <input
+                  type="checkbox"
+                  style="
+                    margin-top: 3px;
+                    width: 18px;
+                    height: 18px;
+                    accent-color: var(--primary);
+                  "
+                />
+                💧 15 gotas de Grapefruit
+              </label>
+              <label
+                class="body-md"
+                style="
+                  display: flex;
+                  align-items: flex-start;
+                  gap: var(--spacing-2);
+                  margin-bottom: var(--spacing-2);
+                  cursor: pointer;
+                "
+              >
+                <input
+                  type="checkbox"
+                  style="
+                    margin-top: 3px;
+                    width: 18px;
+                    height: 18px;
+                    accent-color: var(--primary);
+                  "
+                />
+                💧 10 gotas de Alecrim
+              </label>
+              <label
+                class="body-md"
+                style="
+                  display: flex;
+                  align-items: flex-start;
+                  gap: var(--spacing-2);
+                  margin-bottom: var(--spacing-2);
+                  cursor: pointer;
+                "
+              >
+                <input
+                  type="checkbox"
+                  style="
+                    margin-top: 3px;
+                    width: 18px;
+                    height: 18px;
+                    accent-color: var(--primary);
+                  "
+                />
+                💧 10 gotas de Eucalipto
+              </label>
+              <label
+                class="body-md"
+                style="
+                  display: flex;
+                  align-items: flex-start;
+                  gap: var(--spacing-2);
+                  cursor: pointer;
+                "
+              >
+                <input
+                  type="checkbox"
+                  style="
+                    margin-top: 3px;
+                    width: 18px;
+                    height: 18px;
+                    accent-color: var(--primary);
+                  "
+                />
+                🖐 Massageador Corporal
+              </label>
+            </div>
+
+            <!-- STANDARD PROTOCOL: Como Fazer -->
+            <p
+              class="label-md text-variant"
+              style="margin-bottom: var(--spacing-4)"
+            >
+              🔢 COMO FAZER
+            </p>
+
+            <!-- Step 1 (UI numeral serifado — herança MVP V1) -->
+            <div
+              style="
+                display: flex;
+                gap: var(--spacing-4);
+                margin-bottom: var(--spacing-6);
+              "
+            >
+              <div
+                style="
+                  width: 44px;
+                  height: 44px;
+                  flex-shrink: 0;
+                  background: var(--surface-container-lowest);
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <span
+                  class="headline-lg"
+                  style="font-style: italic; color: var(--primary)"
+                  >1</span
+                >
+              </div>
+              <div>
+                <h3 class="title-sm">Combine & Armazene</h3>
+                <p class="body-md text-variant">
+                  Adicione todos os óleos em um frasco de vidro escuro. Misture
+                  suavemente.
+                </p>
+              </div>
+            </div>
+
+            <!--
+            PRODUÇÃO PENDENTE: Foto demonstrativa entre steps
+            - Mãos misturando óleos em frasco
+            - Proporção 3:2, border-radius round-lg
+          -->
+            <div
+              class="img-placeholder"
+              style="
+                width: 100%;
+                aspect-ratio: 3/2;
+                border-radius: var(--round-lg);
+                margin-bottom: var(--spacing-6);
+              "
+            >
+              <p style="font-size: 0.65rem; opacity: 0.5">
+                PENDENTE: Foto demonstrativa — mãos + frasco
+              </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div
+              style="
+                display: flex;
+                gap: var(--spacing-4);
+                margin-bottom: var(--spacing-6);
+              "
+            >
+              <div
+                style="
+                  width: 44px;
+                  height: 44px;
+                  flex-shrink: 0;
+                  background: var(--surface-container-lowest);
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <span
+                  class="headline-lg"
+                  style="font-style: italic; color: var(--primary)"
+                  >2</span
+                >
+              </div>
+              <div>
+                <h3 class="title-sm">Aqueça & Emulsifique</h3>
+                <p class="body-md text-variant">
+                  Coloque 5-10 gotas na palma das mãos. Esfregue para aquecer
+                  com calor corporal.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div style="display: flex; gap: var(--spacing-4)">
+              <div
+                style="
+                  width: 44px;
+                  height: 44px;
+                  flex-shrink: 0;
+                  background: var(--surface-container-lowest);
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <span
+                  class="headline-lg"
+                  style="font-style: italic; color: var(--primary)"
+                  >3</span
+                >
+              </div>
+              <div>
+                <h3 class="title-sm">Massageie & Absorva</h3>
+                <p class="body-md text-variant">
+                  Passe o massageador de forma consistente nas áreas com
+                  celulite. Deixe agir por 10 minutos.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!--
+        ═══════════════════════════════════════════════════════
+        PRODUÇÃO PENDENTE: MAIS 4 CARDS de Uso Tópico
+        (mesmo template acima)
+        
+        - oleo-massagem-gordura-localizada.txt (Diário, PM)
+        - oleo-massagem-anti-celulite-v1.txt (1x/dia)
+        - escalda-pes-detox.txt (1-2x/semana)
+        - wrap-detox.txt (1x/semana)
+        
+        Todas as 5 abas restantes seguem o mesmo padrão:
+        - Culinária: 6 receitas (05-receitas-com-oleos/)
+        - TrimShake: 9 receitas (06-receitas-com-trimshake/)
+        - Bebidas: 5 receitas (07-bebidas-com-oleos/)
+        - Difusão: 3 combos + 1 cápsula (09-ingestao-e-aromaterapia/)
+        
+        Total: 29 cards de receita no TSX via .map()
+        ═══════════════════════════════════════════════════════
+      -->
+        <p
+          class="text-center text-variant body-md"
+          style="padding: var(--spacing-8) 0; opacity: 0.5"
+        >
+          + 4 rituais de uso tópico · + 4 abas com 23 receitas<br />
+          (renderizar no TSX via tabs + .map())
+        </p>
+      </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      <a href="index.html"><span class="nav-icon">🏡</span><span>Home</span></a>
+      <a href="biblioteca.html"
+        ><span class="nav-icon">🌿</span><span>Óleos</span></a
+      >
+      <a href="rituais.html" class="active" aria-current="page"
+        ><span class="nav-icon">🧪</span><span>Rituais</span></a
+      >
+      <a href="mindset.html"
+        ><span class="nav-icon">🧠</span><span>Mente</span></a
+      >
+      <a href="guias.html"
+        ><span class="nav-icon">⚖️</span><span>Guias</span></a
+      >
+    </nav>
+  </body>
+</html>

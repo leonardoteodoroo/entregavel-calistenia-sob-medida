@@ -24,6 +24,7 @@ export const siteConfig = {
 
 export const productRoutes = {
   home: "/",
+  alimentacao: "/alimentacao",
   biblioteca: "/biblioteca",
   checklist: "/checklist",
   faq: "/faq",
@@ -32,6 +33,7 @@ export const productRoutes = {
 } as const;
 
 export const standaloneRoutes = {
+  planoAlimentar: "/plano-alimentar/",
   receitasLowCarb: "/receitas-low-carb/",
   sobremesasSaudaveis: "/sobremesas-saudaveis/",
   oleosEssenciais: "/oleos-essenciais-emagrecimento/",

@@ -15,6 +15,7 @@ describe("sticky navigation state", () => {
 
   it("marks Plano active only on the home route", () => {
     expect(itemByKey.plano.isActive("/")).toBe(true);
+    expect(itemByKey.plano.isActive("/alimentacao")).toBe(false);
     expect(itemByKey.plano.isActive("/biblioteca")).toBe(false);
   });
 

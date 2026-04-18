@@ -29,7 +29,7 @@ function VideoPlaceholder() {
             className="font-body text-[10px] uppercase tracking-[0.2em] text-white font-medium px-4 py-1.5 rounded-full"
             style={{ backgroundColor: "rgba(0,0,0,0.4)" }}
           >
-            Vídeo em breve
+            Vídeo em desenvolvimento...
           </span>
         </div>
       </div>

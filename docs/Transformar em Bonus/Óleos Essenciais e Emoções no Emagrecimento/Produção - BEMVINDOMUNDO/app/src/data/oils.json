@@ -1,0 +1,257 @@
+[
+  {
+    "id": "alecrim",
+    "name": "Alecrim",
+    "subtitle": "Nervos calmos, apetite domado",
+    "tags": ["Humor", "Tópico"],
+    "filter": "especiarias",
+    "description": "Massageie as áreas de gordura acumulada no seu corpo com algumas gotas de óleo de alecrim com um pouco de óleo de coco fracionado, podendo combinar também com o óleo de Grapefruit.\n\nInale também seu aroma 30 minutos antes das refeições para ajudar na redução do apetite.",
+    "usageSummary": "É conhecido por seus diversos efeitos terapêuticos. A inalação relaxa os nervos e eleva o humor, o que ajuda suprimir o apetite e o desejo por comida.",
+    "usage": {
+      "aromatic": "É conhecido por seus diversos efeitos terapêuticos. A inalação relaxa os nervos e eleva o humor, o que ajuda suprimir o apetite e o desejo por comida.",
+      "topical": "",
+      "ingestion": ""
+    },
+    "sourceFile": "04-oleos-essenciais/alecrim.txt"
+  },
+  {
+    "id": "balance",
+    "name": "Balance",
+    "subtitle": "Harmonia contra a compulsão alimentar",
+    "tags": ["Compulsão", "Equilíbrio"],
+    "filter": "florais",
+    "description": "É um mix de óleos essenciais exclusivo da doTerra. Em sua composição há óleos essenciais de Abeto, Ho Wood, Olíbano, Blue Tansy, Camomila e Osmanthus, à base de óleo de coco fracionado.\n\nOferece um aroma atraente, que cria uma atmosfera tranquila e relaxante. É usado pra trazer harmonia ao corpo e mente.\n\nAjuda a ter equilibrio, o que pode ajudar na compulsão alimentar.",
+    "usageSummary": "Este óleo pode ser utilizado topicamente e aromaticamente. Passe ao longo da coluna, pulsos e solas dos pés, ou coloque algumas gotas no difusor.",
+    "usage": {
+      "aromatic": "Este óleo pode ser utilizado topicamente e aromaticamente. Passe ao longo da coluna, pulsos e solas dos pés, ou coloque algumas gotas no difusor.",
+      "topical": "Este óleo pode ser utilizado topicamente e aromaticamente. Passe ao longo da coluna, pulsos e solas dos pés, ou coloque algumas gotas no difusor.",
+      "ingestion": ""
+    },
+    "sourceFile": "04-oleos-essenciais/balance.txt"
+  },
+  {
+    "id": "basil",
+    "name": "Basil",
+    "subtitle": "Ancestralidade anti-inflamatória viva",
+    "tags": ["Anti-inflamatório", "Diurético"],
+    "filter": "especiarias",
+    "description": "Como um antiinflamatório natural, antiviral, antibiótico e diurético, o manjericão tem sido usado nas práticas tradicionais da medicina indiana asiática há anos. Hoje, o manjericão é conhecido por seu uso em casos de espasmos estomacais, perda de apetite, retenção de líquidos, resfriados, verrugas e até infecções por vermes intestinais.",
+    "usageSummary": "Em estudos científicos com a semente do manjericão, ele interrompeu as comorbidades relacionadas a obesidade. Além disso, a supressão do estresse oxidativo das células vasculares e da inflamação metabólica, apoia a proliferação das células vasculares relacionadas ao envelhecimento. Pode ser colocado no azeite (1 gota para 750ml), água ou capsulas para ingestão.",
+    "usage": {
+      "aromatic": "",
+      "topical": "",
+      "ingestion": "Em estudos científicos com a semente do manjericão, ele interrompeu as comorbidades relacionadas a obesidade. Além disso, a supressão do estresse oxidativo das células vasculares e da inflamação metabólica, apoia a proliferação das células vasculares relacionadas ao envelhecimento. Pode ser colocado no azeite (1 gota para 750ml), água ou capsulas para ingestão."
+    },
+    "sourceFile": "04-oleos-essenciais/basil.txt"
+  },
+  {
+    "id": "camomila-romana",
+    "name": "Camomila Romana",
+    "subtitle": "Serenidade contra a raiva interna",
+    "tags": ["Antioxidante", "Ansiedade"],
+    "filter": "florais",
+    "description": "O óleo de Camomila Romana tem ação antioxidante, anti-inflamatoria, anti-microbiana e sedativa, alem de melhorar a função gastrointestinal.\n\nAtua na prevenção da obesidade e complicações do diabetes.\n\nAjudar a controlar muitas situações que estejam relacionadas a stress, ansiedade, raiva, momentos de irritabilidade e outras situações semelhantes, que podem influenciar no processo de perda de peso.",
+    "usageSummary": "Pode ser utilizado aromaticamente, e também na agua, chás ou cápsulas.",
+    "usage": {
+      "aromatic": "Pode ser utilizado aromaticamente, e também na agua, chás ou cápsulas.",
+      "topical": "",
+      "ingestion": "Pode ser utilizado aromaticamente, e também na agua, chás ou cápsulas."
+    },
+    "sourceFile": "04-oleos-essenciais/camomila-romana.txt"
+  },
+  {
+    "id": "cilantro",
+    "name": "Cilantro",
+    "subtitle": "Detox silencioso e profundo",
+    "tags": ["Detox", "Ansiedade"],
+    "filter": "detox",
+    "description": "O óleo essencial Cilantro, é extraido das folhas do Coentro. São utilizados habitualmente na cozinha por seu sabor fresco e agradável, principalmente por chefes de culinária que criam experiências a partir de óleos essenciais.\n\nÉ excelente para ajudar na desentoxicação do organismo. Quando utilizado internamente, contribui para um sistema digestivo, nervoso e imunológico saudável.",
+    "usageSummary": "Os seus dois principais componentes, Linalol e Trans-2-decenal, fazem deste óleo um poderoso agente de limpeza e de combate a ansiedade.",
+    "usage": {
+      "aromatic": "Os seus dois principais componentes, Linalol e Trans-2-decenal, fazem deste óleo um poderoso agente de limpeza e de combate a ansiedade.",
+      "topical": "",
+      "ingestion": ""
+    },
+    "sourceFile": "04-oleos-essenciais/cilantro.txt"
+  },
+  {
+    "id": "cinnamon-bark",
+    "name": "Cinnamon Bark",
+    "subtitle": "Regulador glicêmico e corta-doce",
+    "tags": ["Glicose", "Apetite"],
+    "filter": "especiarias",
+    "description": "O óleo de Canela ajuda a regular os níveis de glicose no sangue e o fator de tolerância a glicose. É benéfico para pessoas que sofrem de obesidade e diabetes. A ingestão de óleo de canela provou ser eficaz para suprimir o apetite e o desejo por doces.\n\nAdicione 1 gota de óleo de canela em suas preparações alimentares como smoothies, saladas, assados, etc.",
+    "usageSummary": "Usar o óleo de canela de forma aromática ajuda a suprimir o apetite, e a reduzir o estresse e a ansiedade.",
+    "usage": {
+      "aromatic": "Usar o óleo de canela de forma aromática ajuda a suprimir o apetite, e a reduzir o estresse e a ansiedade.",
+      "topical": "",
+      "ingestion": ""
+    },
+    "sourceFile": "04-oleos-essenciais/cinnamon-bark.txt"
+  },
+  {
+    "id": "fennel",
+    "name": "Fennel",
+    "subtitle": "Melatonina e queima noturna",
+    "tags": ["Melatonina", "Digestão"],
+    "filter": "amadeirados",
+    "description": "O óleo de erva doce é excelente para melhorar a digestão, suprimir o apetite e regular os ciclos do sono.\n\nA erva doce estimula a melatonina, o hormônio responsável por regular os ritmos circadianos e desencadear os ciclos de virgília e sono do cerébro.\n\nUm estudo em 2011 mostrou como a melatonina pode afetar positivamente a perda de peso, permitindo que o corpo queime gordura ao invés de armazena-la.",
+    "usageSummary": "Coloque 1 gota em um copo d'água e beba antes das refeições. Use topicamente nos pulsos também.",
+    "usage": {
+      "aromatic": "",
+      "topical": "Coloque 1 gota em um copo d'água e beba antes das refeições. Use topicamente nos pulsos também.",
+      "ingestion": "Coloque 1 gota em um copo d'água e beba antes das refeições. Use topicamente nos pulsos também."
+    },
+    "sourceFile": "04-oleos-essenciais/fennel.txt"
+  },
+  {
+    "id": "gengibre",
+    "name": "Gengibre",
+    "subtitle": "Fogo digestivo e absorção plena",
+    "tags": ["Digestão", "Gordura"],
+    "filter": "especiarias",
+    "description": "É um óleo poderoso para reduzir a gordura corporal, pois ajuda a minimizar o desejo por doces e prevenir a inflamação. É excelente para melhorar a digestão e absorção de nutrientes.\n\nAjuda a melhorar o movimento do intestino, promovendo os níveis de energia e reduzindo o acúmulo de gordura corporal.\n\nAdicione 1 gota de óleo de Gengibre em Smoothies ou sucos.",
+    "usageSummary": "Outra dica é colocar 2 gotas de Gengibre em uma xícara de água morna, suco de limão e mel. Beba todas as manhãs com o estômago vazio.",
+    "usage": {
+      "aromatic": "",
+      "topical": "",
+      "ingestion": "Outra dica é colocar 2 gotas de Gengibre em uma xícara de água morna, suco de limão e mel. Beba todas as manhãs com o estômago vazio."
+    },
+    "sourceFile": "04-oleos-essenciais/gengibre.txt"
+  },
+  {
+    "id": "grapefruit",
+    "name": "Grapefruit",
+    "subtitle": "A molécula que reduz gordura",
+    "tags": ["Metabolismo", "Anticelulite"],
+    "filter": "citricos",
+    "description": "Contém Nootkathone, um composto que ativa e acelera o metabolismo, e ajuda o corpo a reduzir células armazenadoras de gordura. Este potente composto aciona uma enzima no fígado e no sistema esquelético muscular para impulsionar o desempenho físico e o metabolismo.\n\nMuitos cremes para celulite tem este óleo como ingrediente por causa de seus efeitos diuréticos e de estimulação linfática.",
+    "usageSummary": "Pode ser ingerido, utilizado no difusor ou em massagens corporais.",
+    "usage": {
+      "aromatic": "Pode ser ingerido, utilizado no difusor ou em massagens corporais.",
+      "topical": "Pode ser ingerido, utilizado no difusor ou em massagens corporais.",
+      "ingestion": "Pode ser ingerido, utilizado no difusor ou em massagens corporais."
+    },
+    "sourceFile": "04-oleos-essenciais/grapefruit.txt"
+  },
+  {
+    "id": "lime-e-lemon",
+    "name": "Lime e Lemon",
+    "subtitle": "Lipólise cítrica e humor elevado",
+    "tags": ["Lipólise", "Humor"],
+    "filter": "citricos",
+    "description": "Seu composto de Limoneno ajuda a dissolver a gordura corporal, ao mesmo tempo em que melhora o humor por meio de um aumento nos níveis de norepinefrina no cérebro.\n\nEm estudos científicos, ratos obesos induzidos por dieta rica em gordura, o uso deste composto resultou em uma diminuição significativa do peso corporal, do tecido adiposo e do colesterol, depois de ingerir o óleo essencial Lime (estudos in vitro). Foi observado diminuição das gotículas de lipídios em adipócitos.",
+    "usageSummary": "Pode ser utilizado por ingestão, adicionado aos pratos, azeite, água ou capsula. Pode também ser inalado para dar motivação e energia.",
+    "usage": {
+      "aromatic": "Pode ser utilizado por ingestão, adicionado aos pratos, azeite, água ou capsula. Pode também ser inalado para dar motivação e energia.",
+      "topical": "",
+      "ingestion": "Pode ser utilizado por ingestão, adicionado aos pratos, azeite, água ou capsula. Pode também ser inalado para dar motivação e energia."
+    },
+    "sourceFile": "04-oleos-essenciais/lime-e-lemon.txt"
+  },
+  {
+    "id": "peppermint",
+    "name": "Peppermint",
+    "subtitle": "Emergência instantânea contra açúcar",
+    "tags": ["Açúcar", "Estômago"],
+    "filter": "mentolados",
+    "description": "Contém propriedades químicas que podem ativar as enzimas digestivas.\n\nO óleo de Peppermint pode melhorar o humor, aliviar o estresse e a ansiedade; isso ajuda a prevenir a compulsão alimentar e promove um melhor metabolismo. Super efetivo para problemas estomacais e intestinais, e muito eficaz para suprimir o desejo por açúcar.\n\nInale 1 gotinha na palma da mão para suprimir o apetite e aliviar o estresse.",
+    "usageSummary": "Pode ser ingerido na água, chá, cápsulas.",
+    "usage": {
+      "aromatic": "",
+      "topical": "",
+      "ingestion": "Pode ser ingerido na água, chá, cápsulas."
+    },
+    "sourceFile": "04-oleos-essenciais/peppermint.txt"
+  },
+  {
+    "id": "petitgrain",
+    "name": "Petitgrain",
+    "subtitle": "Gordura localizada sob controle",
+    "tags": ["Gordura Localizada", "Cardiovascular"],
+    "filter": "amadeirados",
+    "description": "O óleo essencial Petitgrain deriva das folhas e galhos da árvore da Laranja amarga. Conhecida por seus efeitos purificadores para o organismo, acelera o metabolismo e potencializa a queima de gorduras localizadas.\n\nAlém disso contribui para nosso sistema cardiovascular e sistema imunológico.",
+    "usageSummary": "Utilize no difusor para ajudar na ansiedade alimentar ou dilua em óleo carreador para massagear áreas com gordura localizada.",
+    "usage": {
+      "aromatic": "Utilize no difusor para ajudar na ansiedade alimentar ou dilua em óleo carreador para massagear áreas com gordura localizada.",
+      "topical": "Utilize no difusor para ajudar na ansiedade alimentar ou dilua em óleo carreador para massagear áreas com gordura localizada.",
+      "ingestion": ""
+    },
+    "sourceFile": "04-oleos-essenciais/petitgrain.txt"
+  },
+  {
+    "id": "sandalo-hawaiano",
+    "name": "Sândalo Hawaiano",
+    "subtitle": "Lucidez nos momentos vulneráveis",
+    "tags": ["Digestão", "Impulso"],
+    "filter": "amadeirados",
+    "description": "O óleo de Sândalo tonifica a função digestiva para impulsionar o funcionamento do intestino e do estômago, e isso, aparentemente simples, pode ajuda-lo a perder peso.\n\nO aroma do Sandalo nos deixa lúcidos em momentos vulneráveis, garantindo que você não coma por impulso.",
+    "usageSummary": "Use no difusor junto com Grapefruit para controlar o apetite.",
+    "usage": {
+      "aromatic": "Use no difusor junto com Grapefruit para controlar o apetite.",
+      "topical": "",
+      "ingestion": ""
+    },
+    "sourceFile": "04-oleos-essenciais/sandalo-hawaiano.txt"
+  },
+  {
+    "id": "serenity",
+    "name": "Serenity",
+    "subtitle": "Sono profundo e calma absoluta",
+    "tags": ["Calmante", "Sono"],
+    "filter": "florais",
+    "description": "O doTERRA Serenity™ possui um aroma calmante e relaxante que proporciona uma experiência única. Os efeitos deste mix equilibrador podem ser sentidos imediatamente, transportando o usuário a um calmo e feliz estado de repouso.",
+    "usageSummary": "O doTERRA Serenity combina os seguintes óleos essenciais: Lavanda, Cedro, Ylang Ylang, Manjerona, Camomila romana, Vetiver, Baunilha Absoluta e Sândalo Havaiano, conhecidos por sua capacidade de diminuir sentimentos de tensão e de acalmar emoções. Quando utilizado aromaticamente, promove um sono tranquilo, o que ajuda no emagrecimento.",
+    "usage": {
+      "aromatic": "O doTERRA Serenity combina os seguintes óleos essenciais: Lavanda, Cedro, Ylang Ylang, Manjerona, Camomila romana, Vetiver, Baunilha Absoluta e Sândalo Havaiano, conhecidos por sua capacidade de diminuir sentimentos de tensão e de acalmar emoções. Quando utilizado aromaticamente, promove um sono tranquilo, o que ajuda no emagrecimento.",
+      "topical": "",
+      "ingestion": ""
+    },
+    "sourceFile": "04-oleos-essenciais/serenity.txt"
+  },
+  {
+    "id": "smart-e-sassy",
+    "name": "Smart & Sassy",
+    "subtitle": "O corte seco do apetite",
+    "tags": ["Apetite", "Metabolismo"],
+    "filter": "detox",
+    "description": "É um mix de óleos essenciais exclusivo da doTerra. Em sua composição há óleos essenciais de Toranja, Hortelã Pimenta, Gengibre e Canela.\n\nAjuda a controlar a fome e o apetite por doces, e ao mesmo tempo apoia o metabolismo saudável.\n\nPode ser consumido na água antes das refeições para controlar o apetite e ter energia. Pode-se também adicionar algumas gotas ao TrimShake doTerra.",
+    "usageSummary": "Ajuda também no controle da diabete. Quando ingerido pode ajudar no objetivo de controle de peso.",
+    "usage": {
+      "aromatic": "",
+      "topical": "",
+      "ingestion": "Ajuda também no controle da diabete. Quando ingerido pode ajudar no objetivo de controle de peso."
+    },
+    "sourceFile": "04-oleos-essenciais/smart-e-sassy.txt"
+  },
+  {
+    "id": "turmeric",
+    "name": "Turmeric",
+    "subtitle": "O acelerador do motor lento",
+    "tags": ["Metabolismo", "Anti-inflamatório"],
+    "filter": "especiarias",
+    "description": "Um metabolismo lento é um forte indicador de que você não está queimando gordura adequadamente.\n\nVários estudos revelam que o óleo de Curcuma pode ser utilizado para acelerar o metabolismo.\n\nNão ingerir se estiver tomando medicamento para diabetes, pois pode haver interação medicamentosa.",
+    "usageSummary": "Em um pequeno recipiente adicione 10ml de mel, coloque 2 gotas de Turmeric e misture bem. Despeje essa mistura em uma xicara de água quente e beba diariamente.",
+    "usage": {
+      "aromatic": "",
+      "topical": "",
+      "ingestion": "Em um pequeno recipiente adicione 10ml de mel, coloque 2 gotas de Turmeric e misture bem. Despeje essa mistura em uma xicara de água quente e beba diariamente."
+    },
+    "sourceFile": "04-oleos-essenciais/turmeric.txt"
+  },
+  {
+    "id": "wild-orange",
+    "name": "Wild Orange",
+    "subtitle": "Imunidade, humor e fígado limpo",
+    "tags": ["Imunidade", "Colesterol"],
+    "filter": "citricos",
+    "description": "Ideal para apoiar o funcionamento do sistema imunológico saudável quando utilizado internamente. Ajuda a reduzir o peso, o colesterol e a gordura no fígado.\n\nTambém contem Limoneno, que melhora o humor e ajuda na ansiedade.\n\nPode ser utilizado por ingestão em alimentos, cápsulas ou água.",
+    "usageSummary": "Use no difusor ou por inalação consciente na palma das mãos, inspirando profundamente por várias vezes.",
+    "usage": {
+      "aromatic": "Use no difusor ou por inalação consciente na palma das mãos, inspirando profundamente por várias vezes.",
+      "topical": "",
+      "ingestion": ""
+    },
+    "sourceFile": "04-oleos-essenciais/wild-orange.txt"
+  }
+]

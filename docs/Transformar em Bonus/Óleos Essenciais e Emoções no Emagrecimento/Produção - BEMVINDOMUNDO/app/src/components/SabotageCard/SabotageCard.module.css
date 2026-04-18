@@ -1,0 +1,102 @@
+.trigger {
+  display: block;
+  width: 100%;
+  margin-bottom: var(--spacing-8);
+  cursor: pointer;
+  perspective: 1200px;
+  touch-action: pan-y;
+}
+
+.card3d {
+  position: relative;
+  min-height: 60svh;
+  transform: translateX(var(--swipe-shift, 0px))
+    rotateY(var(--swipe-rotate, 0deg));
+  transform-style: preserve-3d;
+  transition: transform 600ms ease;
+  will-change: transform;
+}
+
+.card3dFlipped {
+  transform: translateX(var(--swipe-shift, 0px))
+    rotateY(calc(180deg + var(--swipe-rotate, 0deg)));
+}
+
+.card3dDragging {
+  transition-duration: 120ms;
+}
+
+.face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-6);
+  padding: var(--spacing-8) var(--spacing-6);
+  border-radius: var(--round-xl);
+  backface-visibility: hidden;
+  text-align: center;
+}
+
+.front {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+.back {
+  background: var(--surface-bright);
+  color: var(--on-surface);
+  box-shadow: var(--shadow-md);
+  transform: rotateY(180deg);
+}
+
+.theme {
+  color: var(--secondary-fixed);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.back .theme {
+  color: var(--primary);
+}
+
+.stateLabel {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.stateLabelPositive {
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.quote {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.8;
+}
+
+.positiveList {
+  display: grid;
+  gap: var(--spacing-4);
+}
+
+.hint {
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.8rem;
+}
+
+.hintPositive {
+  color: var(--on-surface-variant);
+  font-size: 0.8rem;
+}

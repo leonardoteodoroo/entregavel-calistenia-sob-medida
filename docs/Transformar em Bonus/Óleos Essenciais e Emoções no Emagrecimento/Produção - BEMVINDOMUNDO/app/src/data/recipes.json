@@ -1,0 +1,815 @@
+[
+  {
+    "id": "brownie-com-wild-orange",
+    "name": "Brownie com Wild Orange",
+    "sopTitle": "Protocolo Termogênico Doce Nº1 — Brownie Cítrico",
+    "tab": "culinaria",
+    "format": "recipe",
+    "period": "atemporal",
+    "periodLabel": "ATEMPORAL",
+    "time": "35 min (20 forno + 15 mistura)",
+    "frequency": "Ocasional",
+    "ingredients": [
+      "150 g de chocolate 70% picado",
+      "4 gotas de óleo essencial Wild Orange",
+      "1/2 xícara de óleo de coco",
+      "3/4 xícara de açúcar de coco",
+      "1/2 xícara de farinha de amêndoas",
+      "1/4 xícara de farinha de aveia",
+      "4g de sal",
+      "5g bicarbonato de sódio",
+      "2 ovos",
+      "1 colher de sopa de extrato de baunilha",
+      "1/2 xícara de amêndoas picadas"
+    ],
+    "steps": [
+      "Pré aqueça o forno a 160º. Derreta o chocolate e o óleo de coco em banho-maria. Quando desligar, acrescente o óleo essencial Wild Orange. Acrescente e misture o açúcar e a baunilha.",
+      "Acrescente os ovos e misture com o Fouet. Adicione as farinhas, o sal e o bicarbonato de sódio. Coloque sobre uma assadeira forrada com papel manteiga e untada. Leve ao forno pré-aquecido a 160º para assar aproximadamente por 20 minutos. Retire e deixe esfriar.",
+      "Corte em quadrados e sirva."
+    ],
+    "notes": [],
+    "oilsUsed": ["Wild Orange"],
+    "sourceFile": "05-receitas-com-oleos/brownie-com-wild-orange.txt"
+  },
+  {
+    "id": "bruschetta",
+    "name": "Bruschetta",
+    "sopTitle": "Indução Herbal Mediterrânea — Bruschetta com Basil",
+    "tab": "culinaria",
+    "format": "recipe",
+    "period": "atemporal",
+    "periodLabel": "ATEMPORAL",
+    "time": "15 min (cortar, gratinar)",
+    "frequency": "—",
+    "ingredients": [
+      "Pão Italiano",
+      "4 tomates",
+      "1 dente de alho",
+      "Parmesão fresco ralado",
+      "2 gotas de óleo essencial Basil",
+      "Azeite a gosto",
+      "Sal e Pimenta a gosto"
+    ],
+    "steps": [
+      "Corte o pão em fatias. Aqueça a frigideira com um fio de azeite e acrescente o pão, doure dos dois lados rapidamente. Com o pão ainda quente, corte o dente de alho ao meio e passe no pão para trazer ainda mais sabor. Corte o tomate em cubos, tempere com sal e pimenta, e as gotas de óleo essencial de Basil.",
+      "Coloque os tomates picadinhos sobre os pães, finalize com o queijo parmesão e um fio de azeite. Leve ao forno rapidamente somente para gratinar o queijo."
+    ],
+    "notes": [],
+    "oilsUsed": ["Basil"],
+    "sourceFile": "05-receitas-com-oleos/bruschetta.txt"
+  },
+  {
+    "id": "granola-salgada",
+    "name": "Granola Salgada",
+    "sopTitle": "Reserva Energética Matinal — Granola de Sementes com Zimbro",
+    "tab": "culinaria",
+    "format": "recipe",
+    "period": "AM",
+    "periodLabel": "AM — METABOLIC INDUCTION",
+    "time": "20 min (10 forno + 10 mistura)",
+    "frequency": "Semanal (duradoura)",
+    "ingredients": [
+      "3 gotas de óleo essencial Zimbro",
+      "40g de Semente de Linhaça Dourada",
+      "40g de Semente de Linhaça Marrom",
+      "40g de Semente de Chia",
+      "40g de Semente de Abóbora",
+      "40g de Semente de Girassol",
+      "20g de Gergelin",
+      "40 g de Aveia em Flocos",
+      "20g de Flocos de Arroz",
+      "20g de Quinoa em Flocos",
+      "50g de Castanha de Cajú",
+      "80g de Castanha do Pará",
+      "3 colheres de sopa de Azeite",
+      "1/2 limão",
+      "Temperos: sal, páprica defumada, alho em pó."
+    ],
+    "steps": [
+      "Misture o óleo essencial de Juniper Berry com o azeite. Misture todas as sementes, grãos e castanhas em um recipiente. Tempere com sal, páprica defumada, alho em pó, limão e o azeite com Juniper Berry. Misture tudo. Disponha em uma assadeira e leve ao forno pré-aquecido a 180º por aproximadamente 10 minutos. Abra o forno na metade do tempo para misturar a granola.",
+      "Guarde em recipiente bem fechado."
+    ],
+    "notes": [],
+    "oilsUsed": ["Juniper Berry"],
+    "sourceFile": "05-receitas-com-oleos/granola-salgada.txt"
+  },
+  {
+    "id": "guacamole",
+    "name": "Guacamole",
+    "sopTitle": "Composto Lipídico Cítrico — Guacamole com Lime & Lemon",
+    "tab": "culinaria",
+    "format": "recipe",
+    "period": "atemporal",
+    "periodLabel": "ATEMPORAL",
+    "time": "10 min (sem fogo)",
+    "frequency": "—",
+    "ingredients": [
+      "2 abacates maduros e grandes amassados",
+      "1 xicara de cebola roxa picadinha",
+      "2 dentes de alho amassados",
+      "2 gotas de óleo essencial Lemon",
+      "2 gotas de óleo essencial Lime",
+      "1 tomate pequeno em cubos",
+      "1/2 lata de creme de leite sem soro.",
+      "2 colheres de folhas frescas de Coentro picado",
+      "Sal a gosto"
+    ],
+    "steps": [
+      "Adicione a polpa do abacate a uma tigela e amasse com garfo. Misture a cebola roxa, o alho amassado, os óleos essenciais Lemon e Lime, o tomate e o coentro picado, o creme de leite e o sal a gosto.",
+      "Servir com nachos ou torradas."
+    ],
+    "notes": [],
+    "oilsUsed": ["Lemon", "Lime"],
+    "sourceFile": "05-receitas-com-oleos/guacamole.txt"
+  },
+  {
+    "id": "mousse-de-chocolate-com-tangerina",
+    "name": "Mousse de Chocolate com Tangerina",
+    "sopTitle": "Recompensa Metabólica — Mousse de Cacau com Tangerina",
+    "tab": "culinaria",
+    "format": "recipe",
+    "period": "atemporal",
+    "periodLabel": "ATEMPORAL",
+    "time": "15 min + 4h geladeira",
+    "frequency": "Ocasional",
+    "ingredients": [
+      "400g de leite de coco",
+      "4 gotas de óleo essencial Tangerina",
+      "2 gemas",
+      "250g de chocolate meio amargo picado",
+      "30g de xilitol ou açucar de coco",
+      "10 gotas de extrato de Baunilha"
+    ],
+    "steps": [
+      "Leve ao fogo o leite de coco e as gemas até engrossar levemente, sempre mexendo, por aproximadamente 3 min. No liquidificador, despeje o chocolate picado, o xilitol, o extrato de baunilha e o óleo de Tangerina. Adicione o creme da panela ainda quente. Bata por 3 minutos para incorporar bastante ar. Despeje em potes individuais e leve para gelar por pelo menos 4 horas."
+    ],
+    "notes": [],
+    "oilsUsed": ["Tangerina"],
+    "sourceFile": "05-receitas-com-oleos/mousse-de-chocolate-com-tangerina.txt"
+  },
+  {
+    "id": "pao-de-abobora",
+    "name": "Pão de Abóbora",
+    "sopTitle": "Carboidrato Funcional Nº1 — Pão de Abóbora com Basil",
+    "tab": "culinaria",
+    "format": "recipe",
+    "period": "atemporal",
+    "periodLabel": "ATEMPORAL",
+    "time": "1h20 (30 descanso + 40 forno + 10 mistura)",
+    "frequency": "Semanal",
+    "ingredients": [
+      "250g de purê de abóbora japonesa",
+      "5 gotas de óleo essencial Basil",
+      "80ml de água",
+      "1 ovo",
+      "80 ml de azeite",
+      "3 colheres de sopa de açúcar de coco",
+      "1/2 colher de sopa de sal",
+      "200g de farinha de arroz",
+      "100g de polvilho doce",
+      "2 colheres de sopa de semente de chia",
+      "2 colheres de chá de goma xantana",
+      "1/2 colher de sopa de fermento biológico"
+    ],
+    "steps": [
+      "Em uma tigela misture todos os ingredientes secos. Em outra tigela misture todos os inredientes úmidos, inclusive o óleo essencial Basil. Junte as duas misturas e bata bem.",
+      "Coloque a massa em uma forma untada com azeite e farinha de aveia. Adicione as sementes.",
+      "Deixe a massa descansar em forno aquecido, fazendo uma \"estufa\" por aproximadamente 30 minutos.",
+      "Após esse periodo, leve ao forno pré aquecido a 180ºC para assar aproximadamente por 40 minutos."
+    ],
+    "notes": [],
+    "oilsUsed": ["Basil"],
+    "sourceFile": "05-receitas-com-oleos/pao-de-abobora.txt"
+  },
+  {
+    "id": "chai-com-baunilha",
+    "name": "Chai com Baunilha",
+    "sopTitle": "Protocolo Térmico Especiado — Chai com Baunilha",
+    "tab": "trimshake",
+    "format": "recipe",
+    "period": "AM",
+    "periodLabel": "AM — METABOLIC INDUCTION",
+    "time": "5 min (água morna)",
+    "frequency": "Diária",
+    "ingredients": [
+      "2 medidas de TrimShake de Baunilha",
+      "250 ml de leite",
+      "1/4 de colher de chá de pimenta jamaica",
+      "1 gota de óleo essencial Cinnamon Bark",
+      "1 gota de óleo essencial Ginger",
+      "1 gota de óleo essencial Clove",
+      "1 gota de óleo essencial Black Pepper"
+    ],
+    "steps": [
+      "Aqueça o leite (250ml) levemente — não precisa ferver, apenas morno. O calor ativa os compostos aromáticos dos óleos essenciais especiados.",
+      "Despeje o leite morno no liquidificador. Adicione as 2 medidas de TrimShake de Baunilha e a pimenta jamaica (1/4 colher de chá).",
+      "Bata em velocidade baixa por 15 segundos até dissolver.",
+      "Desligue. Adicione as 4 gotas de óleos essenciais: 1 de Cinnamon Bark, 1 de Ginger, 1 de Clove e 1 de Black Pepper. Mexa com colher — não bata novamente.",
+      "Despeje em caneca grande e sirva quente."
+    ],
+    "notes": [
+      "Esta é a única receita TrimShake que funciona melhor quente. Os 4 óleos especiados juntos criam um protocolo térmico que acelera o metabolismo pela termogênese — o corpo gasta energia extra para processar as especiarias. Ideal para manhãs frias."
+    ],
+    "oilsUsed": ["Cinnamon Bark", "Clove"],
+    "sourceFile": "06-receitas-com-trimshake/chai-com-baunilha.txt"
+  },
+  {
+    "id": "horchata",
+    "name": "Horchata",
+    "sopTitle": "Shake de Indução Canela — Horchata Metabólica",
+    "tab": "trimshake",
+    "format": "recipe",
+    "period": "AM",
+    "periodLabel": "AM — METABOLIC INDUCTION",
+    "time": "3 min",
+    "frequency": "Diária",
+    "ingredients": [
+      "2 medidas de Trim Shake Baunilha",
+      "250ml de Leite de Amêndoas",
+      "4 gotas de óleo essencial Cinnamon Bark",
+      "2 gotas de óleo essencial Clove",
+      "5 cubos de gelo",
+      "Adoçante de sua preferência"
+    ],
+    "steps": [
+      "Em um liquidificador, adicione o Leite de Amêndoas (250ml) como base líquida.",
+      "Acrescente as 2 medidas de Trim Shake Baunilha e os 5 cubos de gelo.",
+      "Bata em velocidade alta por 30 segundos até a mistura ficar homogênea e espumosa.",
+      "Desligue o liquidificador. Adicione as 4 gotas de Cinnamon Bark e as 2 gotas de Clove por último — isso preserva as propriedades voláteis dos óleos essenciais que se degradam com o atrito prolongado das lâminas.",
+      "Pulse rapidamente 3 vezes apenas para incorporar os óleos.",
+      "Prove e ajuste o adoçante de sua preferência.",
+      "Sirva imediatamente em copo gelado."
+    ],
+    "notes": [
+      "A Canela regula a glicose no sangue — esta receita funciona especialmente bem como primeira refeição do dia, quando o pâncreas precisa de estabilidade para iniciar o metabolismo."
+    ],
+    "oilsUsed": ["Cinnamon Bark", "Clove"],
+    "sourceFile": "06-receitas-com-trimshake/horchata.txt"
+  },
+  {
+    "id": "maquina-verde",
+    "name": "Máquina Verde",
+    "sopTitle": "Motor Detox Matinal — Máquina Verde com Peppermint",
+    "tab": "trimshake",
+    "format": "recipe",
+    "period": "AM",
+    "periodLabel": "AM — METABOLIC INDUCTION",
+    "time": "3 min",
+    "frequency": "Diária",
+    "ingredients": [
+      "1 medida de TrimShake de Baunilha",
+      "1 xícara de leite",
+      "1/3 de xícara de iogurte grego",
+      "1 xícara de frutas congeladas de sua escolha",
+      "1 colher de sopa de sementes de chia",
+      "1 gota de óleo essencial Wild Orange",
+      "2-3 xícaras de espinafre fresco"
+    ],
+    "steps": [
+      "Lave bem as 2–3 xícaras de espinafre fresco e adicione ao liquidificador. Bata primeiro com o leite (1 xícara) em velocidade alta por 20 segundos — isso quebra as fibras do espinafre e evita pedaços no shake final.",
+      "Abra a tampa e acrescente: TrimShake de Baunilha (1 medida), iogurte grego (1/3 xícara), frutas congeladas de sua escolha (1 xícara) e sementes de chia (1 colher de sopa).",
+      "Bata novamente em velocidade alta por 30 segundos até obter textura verde homogênea.",
+      "Desligue. Pingue 1 gota de Wild Orange sobre o shake e mexa suavemente. O Wild Orange mascara o sabor terroso do espinafre e adiciona propriedades lipolíticas.",
+      "Sirva imediatamente — as sementes de chia absorvem líquido rapidamente e o shake engrossa se demorar."
+    ],
+    "notes": [
+      "Este é o shake mais nutritivo e completo: proteína (TrimShake + iogurte), fibra (chia + espinafre), vitaminas (frutas) e lipólise (Wild Orange). Funciona como café da manhã completo para quem treina calistenia pela manhã."
+    ],
+    "oilsUsed": ["Wild Orange"],
+    "sourceFile": "06-receitas-com-trimshake/maquina-verde.txt"
+  },
+  {
+    "id": "menta-com-chocolate",
+    "name": "Menta com Chocolate",
+    "sopTitle": "Supressor de Açúcar Nº1 — Menta com Cacao",
+    "tab": "trimshake",
+    "format": "recipe",
+    "period": "16h",
+    "periodLabel": "16:00 — CORTISOL STABILIZATION",
+    "time": "3 min",
+    "frequency": "Diária",
+    "ingredients": [
+      "2 medidas de TrimShake de Baunilha",
+      "250 ml de leite",
+      "5-8 cubos de gelo",
+      "1 gota de óleo essencial Peppermint",
+      "12 gotas de chocolate"
+    ],
+    "steps": [
+      "Adicione o leite (250ml) ao liquidificador.",
+      "Acrescente as 2 medidas de TrimShake de Baunilha e as 12 gotas de chocolate.",
+      "Bata em velocidade média por 20 segundos para dissolver o TrimShake e o chocolate.",
+      "Adicione os 5–8 cubos de gelo e bata em velocidade alta por mais 15 segundos até atingir textura cremosa de milkshake.",
+      "Desligue o liquidificador. Pingue a gota de Peppermint diretamente sobre o shake já pronto — o Peppermint é extremamente potente e volátil; bater com as lâminas dispersa o aroma e reduz o efeito supressor de açúcar.",
+      "Misture delicadamente com uma colher longa e sirva."
+    ],
+    "notes": [
+      "Esta é a receita de emergência das 16h. Quando a vontade de doce bater, o Peppermint suprime o desejo por açúcar em minutos enquanto o chocolate satisfaz o paladar sem sabotar a dieta."
+    ],
+    "oilsUsed": ["Peppermint"],
+    "sourceFile": "06-receitas-com-trimshake/menta-com-chocolate.txt"
+  },
+  {
+    "id": "picole-cremoso-de-laranja",
+    "name": "Picolé Cremoso de Laranja",
+    "sopTitle": "Recompensa Gelada Nº2 — Picolé Cremoso de Wild Orange",
+    "tab": "trimshake",
+    "format": "recipe",
+    "period": "PM",
+    "periodLabel": "PM — ENDOCRINE RECOVERY",
+    "time": "10 min + 4h congelador",
+    "frequency": "Semanal",
+    "ingredients": [
+      "2 medidas de TrimShake de Baunilha",
+      "2 colheres de chá de extrato de baunilha",
+      "120 ml de água",
+      "180 ml de suco de laranja",
+      "1-2 gotas de óleo essencial Wild Orange",
+      "1/2 xícara de iogurte grego",
+      "5-8 cubos de gelo"
+    ],
+    "steps": [
+      "Em uma tigela grande, misture todos os ingredientes. Bata até formar uma mistura homogênea. Coloque em formas de picolé e acrescente os palitos no meio. Coloque no freezer para congelar durante a noite."
+    ],
+    "notes": [],
+    "oilsUsed": ["Wild Orange"],
+    "sourceFile": "06-receitas-com-trimshake/picole-cremoso-de-laranja.txt"
+  },
+  {
+    "id": "picole-de-chocolate",
+    "name": "Picolé de Chocolate",
+    "sopTitle": "Recompensa Gelada Nº1 — Picolé de Cacao com Smart & Sassy",
+    "tab": "trimshake",
+    "format": "recipe",
+    "period": "PM",
+    "periodLabel": "PM — ENDOCRINE RECOVERY",
+    "time": "10 min + 4h congelador",
+    "frequency": "Semanal",
+    "ingredients": [
+      "1 vidro de leite de coco",
+      "1 colher de chá de baunilha",
+      "2 colheres de sopa de mel",
+      "3 colheres de sopa de cacau em pó",
+      "3 medidas de TrimShake de Chocolate"
+    ],
+    "steps": [
+      "Em uma tigela grande, misture todos os ingredientes. Bata até formar uma mistura homogênea. Coloque em formas de picolé e acrescente os palitos no meio. Coloque no freezer para congelar durante a noite."
+    ],
+    "notes": [],
+    "oilsUsed": [],
+    "sourceFile": "06-receitas-com-trimshake/picole-de-chocolate.txt"
+  },
+  {
+    "id": "smoothie-de-aveia-com-mirtilos",
+    "name": "Smoothie de Aveia com Mirtilos",
+    "sopTitle": "Fibra Antioxidante Nº1 — Aveia com Mirtilos e Lime",
+    "tab": "trimshake",
+    "format": "recipe",
+    "period": "AM",
+    "periodLabel": "AM — METABOLIC INDUCTION",
+    "time": "3 min",
+    "frequency": "Diária",
+    "ingredients": [
+      "2 medidas de TrimShake de Baunilha",
+      "250 ml de leite",
+      "1/2 a 1 xícara de aveia",
+      "1/2 xícara de mirtilos frescos",
+      "1 colher de sopa de mel"
+    ],
+    "steps": [
+      "Adicione o leite (250ml) ao liquidificador junto com a aveia (1/2 a 1 xícara). Deixe descansar por 2 minutos — a aveia precisa hidratar levemente para não ficar com textura granulosa.",
+      "Acrescente as 2 medidas de TrimShake de Baunilha e o mel (1 colher de sopa).",
+      "Bata em velocidade média por 20 segundos até a aveia se dissolver parcialmente — alguns pedacinhos são desejáveis, dão corpo e textura rústica ao smoothie.",
+      "Adicione os mirtilos frescos (1/2 xícara) e pulse 5 vezes rapidamente. Isso quebra os mirtilos sem destruí-los completamente, criando veios roxos na textura cremosa.",
+      "Sirva em copo largo ou tigela de smoothie bowl."
+    ],
+    "notes": [
+      "Este é o smoothie mais rico em fibra da coleção. A aveia prolonga a saciedade por horas e os mirtilos são antioxidantes de primeira linha. Tomar pela manhã garante energia estável até o almoço sem picos glicêmicos."
+    ],
+    "oilsUsed": [],
+    "sourceFile": "06-receitas-com-trimshake/smoothie-de-aveia-com-mirtilos.txt"
+  },
+  {
+    "id": "torta-de-limao",
+    "name": "Torta de Limão",
+    "sopTitle": "Shake Digestivo Cítrico — Torta de Limão",
+    "tab": "trimshake",
+    "format": "recipe",
+    "period": "atemporal",
+    "periodLabel": "ATEMPORAL",
+    "time": "3 min",
+    "frequency": "Diária",
+    "ingredients": [
+      "2 medidas de TrimShake de Baunilha",
+      "1 copo de leite",
+      "1 colher de sopa de suco de limão",
+      "6 cubos de gelo",
+      "1-2 gotas de óleo essencial Lime",
+      "Opcional: 2 colheres de sopa de biscoito Maizena esfarelado"
+    ],
+    "steps": [
+      "Adicione o leite (1 copo) ao liquidificador junto com as 2 medidas de TrimShake de Baunilha.",
+      "Acrescente 1 colher de sopa de suco de limão fresco — esprema na hora para manter a vitamina C ativa.",
+      "Bata por 20 segundos em velocidade média.",
+      "Adicione os 6 cubos de gelo e bata em velocidade alta por mais 15 segundos.",
+      "Desligue. Pingue as 1–2 gotas de óleo essencial Lime por cima e misture com colher.",
+      "Opcional: polvilhe o biscoito Maizena esfarelado por cima como uma crumble, sem bater — a textura crocante contrasta com o shake gelado e simula a base de torta.",
+      "Sirva imediatamente."
+    ],
+    "notes": [
+      "O Lime contém Limoneno, o mesmo composto que dissolve gordura corporal. Nesta receita, o prazer da sobremesa coexiste com a lipólise ativa — recompensa sem culpa."
+    ],
+    "oilsUsed": ["Lime"],
+    "sourceFile": "06-receitas-com-trimshake/torta-de-limao.txt"
+  },
+  {
+    "id": "tropical-colada",
+    "name": "Tropical Colada",
+    "sopTitle": "Shake Imunológico Tropical — Colada com Wild Orange",
+    "tab": "trimshake",
+    "format": "recipe",
+    "period": "16h",
+    "periodLabel": "16:00 — CORTISOL STABILIZATION",
+    "time": "3 min",
+    "frequency": "Diária",
+    "ingredients": [
+      "1 medida de TrimShake de Baunilha",
+      "1 xícara de leite de amêndoas",
+      "1/2 xícara de abacaxi congelado",
+      "1/2 xícara de mangas congeladas",
+      "1/2 xícara de iogurte grego sabor coco",
+      "1 banana",
+      "1–2 gotas de óleo essencial Wild Orange"
+    ],
+    "steps": [
+      "Corte a banana em rodelas e adicione ao liquidificador junto com o abacaxi congelado e as mangas congeladas.",
+      "Acrescente o leite de amêndoas (1 xícara) e o iogurte grego sabor coco (1/2 xícara).",
+      "Adicione a medida de TrimShake de Baunilha.",
+      "Bata em velocidade alta por 40 segundos — as frutas congeladas precisam de mais tempo para se incorporarem completamente e darem a textura densa de smoothie tropical.",
+      "Desligue. Pingue as 1–2 gotas de Wild Orange e mexa em movimentos circulares lentos com uma colher.",
+      "Sirva em copo largo decorado com uma rodela de abacaxi, se desejar."
+    ],
+    "notes": [
+      "O Wild Orange reduz gordura no fígado e melhora o humor via Limoneno. Com 5 ingredientes congelados, este shake é o mais denso e nutritivo da coleção — funciona como refeição completa da tarde."
+    ],
+    "oilsUsed": ["Wild Orange"],
+    "sourceFile": "06-receitas-com-trimshake/tropical-colada.txt"
+  },
+  {
+    "id": "laranja-e-limao",
+    "name": "Laranja e Limão",
+    "sopTitle": "Hidratação Lipolítica — Suco de Laranja e Limão",
+    "tab": "bebidas",
+    "format": "recipe",
+    "period": "AM",
+    "periodLabel": "AM — METABOLIC INDUCTION",
+    "time": "5 min",
+    "frequency": "Diária",
+    "ingredients": [
+      "1 limão cortado em rodelas",
+      "1 laranja espremida",
+      "1 litro de água com gás",
+      "10 folhas de hortelã fresca picada",
+      "1 gota de óleo essencial Wild Orange",
+      "Beber no mesmo dia."
+    ],
+    "steps": [
+      "Misture ou prepare a receita conforme a orientação editorial original."
+    ],
+    "notes": [],
+    "oilsUsed": ["Wild Orange"],
+    "sourceFile": "07-bebidas-com-oleos/laranja-e-limao.txt"
+  },
+  {
+    "id": "maca-e-canela",
+    "name": "Maçã e Canela",
+    "sopTitle": "Regulador Glicêmico Frutado — Maçã com Canela",
+    "tab": "bebidas",
+    "format": "recipe",
+    "period": "16h",
+    "periodLabel": "16:00 — CORTISOL STABILIZATION",
+    "time": "5 min",
+    "frequency": "Diária",
+    "ingredients": [
+      "1 copo de água",
+      "2 colheres de sopa de vinagre de maçã orgânico",
+      "1 colher de chá de canela",
+      "fatias de 1/2 maçã",
+      "1 gota de óleo essencial Lemon (coloque antes de beber)",
+      "Deixe descansar na geladeira de 3 a 5 horas antes de beber."
+    ],
+    "steps": [
+      "Misture ou prepare a receita conforme a orientação editorial original."
+    ],
+    "notes": [],
+    "oilsUsed": ["Lemon"],
+    "sourceFile": "07-bebidas-com-oleos/maca-e-canela.txt"
+  },
+  {
+    "id": "melancia-com-hortela",
+    "name": "Melancia com Hortelã",
+    "sopTitle": "Refrescância Digestiva — Melancia com Hortelã",
+    "tab": "bebidas",
+    "format": "recipe",
+    "period": "16h",
+    "periodLabel": "16:00 — CORTISOL STABILIZATION",
+    "time": "5 min",
+    "frequency": "—",
+    "ingredients": [
+      "350ml de água",
+      "Punhado de folhas de hortelã",
+      "2 xicaras de melancia em cubos,",
+      "Fatias de 1 limão",
+      "1 gota de óleo essencial Lemon (coloque antes de beber)",
+      "Deixe descansar na geladeira de 3 a 5 horas antes de beber."
+    ],
+    "steps": [
+      "Misture ou prepare a receita conforme a orientação editorial original."
+    ],
+    "notes": [],
+    "oilsUsed": ["Lemon"],
+    "sourceFile": "07-bebidas-com-oleos/melancia-com-hortela.txt"
+  },
+  {
+    "id": "morango-e-melancia",
+    "name": "Morango e Melancia",
+    "sopTitle": "Hidratação Cítrica Vermelha — Morango e Melancia",
+    "tab": "bebidas",
+    "format": "recipe",
+    "period": "16h",
+    "periodLabel": "16:00 — CORTISOL STABILIZATION",
+    "time": "5 min",
+    "frequency": "—",
+    "ingredients": [
+      "1 xícara de morango fatiado",
+      "2 xícaras de melancia em cubos",
+      "2 raminhos de alecrim fresco",
+      "1 gota de óleo essencial Grapefruit (coloque antes de beber)",
+      "Deixe descansar na geladeira de 3 a 5 horas antes de beber."
+    ],
+    "steps": [
+      "Misture ou prepare a receita conforme a orientação editorial original."
+    ],
+    "notes": [],
+    "oilsUsed": ["Alecrim", "Grapefruit"],
+    "sourceFile": "07-bebidas-com-oleos/morango-e-melancia.txt"
+  },
+  {
+    "id": "suco-de-maca",
+    "name": "Suco de Maçã",
+    "sopTitle": "Limpeza Hepática Natural — Suco de Maçã Puro",
+    "tab": "bebidas",
+    "format": "recipe",
+    "period": "AM",
+    "periodLabel": "AM — METABOLIC INDUCTION",
+    "time": "5 min",
+    "frequency": "Diária (em jejum)",
+    "ingredients": [
+      "5 limões espremidos",
+      "1 litro de água",
+      "2 maças com casca",
+      "1 xícara de chá de couve picada",
+      "2 gotas de óleo essencial Grapefruit",
+      "Bata tudo no liquidificador, e após acrescente as gotas de óleo essencial."
+    ],
+    "steps": [
+      "Misture ou prepare a receita conforme a orientação editorial original."
+    ],
+    "notes": [],
+    "oilsUsed": ["Grapefruit"],
+    "sourceFile": "07-bebidas-com-oleos/suco-de-maca.txt"
+  },
+  {
+    "id": "escalda-pes-detox",
+    "name": "Escalda Pés Detox",
+    "sopTitle": "Ritual Detox por Imersão — Escalda Pés com Sal Epsom",
+    "tab": "topico",
+    "format": "recipe",
+    "period": "PM",
+    "periodLabel": "PM — ENDOCRINE RECOVERY",
+    "time": "3 min | Duração: 20 min imersão",
+    "frequency": "1-2x/semana",
+    "ingredients": [
+      "1 xícara de chá de Sal Epsom ou Sulfato de Magnésio",
+      "3 gotas de Zendocrine",
+      "3 gotas de Grapefruit",
+      "3 gotas de Gengibre",
+      "3 gotas de Cipreste",
+      "Em uma bacia com água levemente morna, acrescente os ingredientes e mergulhe os pés por pelo menos 20 minutos.",
+      "Esse escalda pés pode ser feito também na banheira, para um banho detox; dessa forma coloque 6 gotas de cada óleo essencial e 2 xicaras de Sal Epson. Fique imersa por pelo menos 20 minutos."
+    ],
+    "steps": [
+      "Misture ou prepare a receita conforme a orientação editorial original."
+    ],
+    "notes": [],
+    "oilsUsed": ["Grapefruit", "Gengibre"],
+    "sourceFile": "08-uso-topico/escalda-pes-detox.txt"
+  },
+  {
+    "id": "oleo-massagem-anti-celulite-v1",
+    "name": "Óleo de Massagem Anti-Celulite",
+    "sopTitle": "Protocolo Anticelulite Nº1 — Blend Grapefruit e Petitgrain",
+    "tab": "topico",
+    "format": "recipe",
+    "period": "PM",
+    "periodLabel": "PM — ENDOCRINE RECOVERY",
+    "time": "2 min",
+    "frequency": "1x/dia",
+    "ingredients": [
+      "10ml de óleo de coco fracionado",
+      "3 gotas de Grapefruit",
+      "3 gotas de Petitgrain",
+      "2 gotas de Lime",
+      "1 gotas de Gengibre",
+      "Adicione essa mistura em um pequeno frasco e massageie áreas afetadas durante 5 minutos uma vez ao dia."
+    ],
+    "steps": [
+      "Misture ou prepare a receita conforme a orientação editorial original."
+    ],
+    "notes": [],
+    "oilsUsed": ["Grapefruit", "Petitgrain", "Lime", "Gengibre"],
+    "sourceFile": "08-uso-topico/oleo-massagem-anti-celulite-v1.txt"
+  },
+  {
+    "id": "oleo-massagem-anti-celulite-v2",
+    "name": "Óleo de Massagem Anti-Celulite 2",
+    "sopTitle": "Protocolo Anticelulite Nº2 — Blend Grapefruit, Alecrim e Eucalipto",
+    "tab": "topico",
+    "format": "recipe",
+    "period": "PM",
+    "periodLabel": "PM — ENDOCRINE RECOVERY",
+    "time": "2 min + 10 min massagem",
+    "frequency": "2x/semana",
+    "ingredients": [
+      "30ml de óleo de coco fracionado",
+      "15 gotas de Grapefruit",
+      "10 gotas de Alecrim",
+      "10 gotas de Eucalipto",
+      "Massageador Corporal",
+      "Adicione todos os óleos em um frasco de vidro conta-gotas e guarde em um local seco e fresco.",
+      "Para usar, coloque de 5 a 10 gotas dessa mistura na palma das mãos, esfregue e massageie áreas afetadas pela celulite.",
+      "Após a aplicação, passe o massageador de forma consistente pressionando as áreas aplicadas. Deixe os óleos agirem por alguns minutos. Faça isso 2x na semana pelo menos."
+    ],
+    "steps": [
+      "Misture ou prepare a receita conforme a orientação editorial original."
+    ],
+    "notes": [],
+    "oilsUsed": ["Grapefruit", "Alecrim", "Eucalipto"],
+    "sourceFile": "08-uso-topico/oleo-massagem-anti-celulite-v2.txt"
+  },
+  {
+    "id": "oleo-massagem-gordura-localizada",
+    "name": "Óleo de Massagem para Gordura Localizada",
+    "sopTitle": "Protocolo Tópico Nº1 — Blend para Gordura Localizada",
+    "tab": "topico",
+    "format": "recipe",
+    "period": "PM",
+    "periodLabel": "PM — ENDOCRINE RECOVERY",
+    "time": "2 min (mistura)",
+    "frequency": "Diária (à noite)",
+    "ingredients": [
+      "15ml de óleo de coco fracionado",
+      "3 gotas de Grapefruit",
+      "3 gotas de Lime",
+      "2 gotas de Gengibre",
+      "2 gotas de Fennel",
+      "2 gotas de Juniper Berry",
+      "Nessa mistura teremos uma taxa de diluição de 2% que é considerada segura para adultos. Para idosos, pode se usar a metade da quantidade de óleos essenciais."
+    ],
+    "steps": [
+      "Misture ou prepare a receita conforme a orientação editorial original."
+    ],
+    "notes": [],
+    "oilsUsed": ["Grapefruit", "Lime", "Gengibre", "Fennel", "Juniper Berry"],
+    "sourceFile": "08-uso-topico/oleo-massagem-gordura-localizada.txt"
+  },
+  {
+    "id": "wrap-detox",
+    "name": "Wrap Detox",
+    "sopTitle": "Protocolo de Envoltório Linfático — Wrap Detox Corporal",
+    "tab": "topico",
+    "format": "recipe",
+    "period": "PM",
+    "periodLabel": "PM — ENDOCRINE RECOVERY",
+    "time": "10 min (esfoliação + mistura) | Duração: 45 min envoltório",
+    "frequency": "1x/semana",
+    "ingredients": [
+      "Algumas tiras grandes de tecido de algodão",
+      "1/4 de xícara de óleo de coco fracionado",
+      "10 gotas de Grapefruit",
+      "10 gotas de Alecrim",
+      "5 gotas de Gengibre",
+      "5 gotas de Petitgrain",
+      "Esfolie todo o corpo (você pode fazer seu esfoliante natural com",
+      "1/2 xícara de açucar e 1/4 de xícara de óleo de coco) e depois",
+      "tome um banho quente. Seque-se com palmadinhas. Massagear",
+      "todo o corpo com a mistura, de baixo para cima para estimular o",
+      "fluxo sanguíneo e linfático.",
+      "Após, envolva seu corpo com o tecido e deixe por 45 minutos.",
+      "Enquanto o envoltório estiver colocado, beba pelo menos 2 copos",
+      "de água para eliminar as toxinas. Você poderá sentir um leve",
+      "formigamento.",
+      "Remova o tecido. Faça esse processo por pelo menos 1x na semana",
+      "para perder gordura localizada."
+    ],
+    "steps": [
+      "Misture ou prepare a receita conforme a orientação editorial original."
+    ],
+    "notes": [],
+    "oilsUsed": ["Grapefruit", "Alecrim", "Gengibre", "Petitgrain"],
+    "sourceFile": "08-uso-topico/wrap-detox.txt"
+  },
+  {
+    "id": "capsula-para-reduzir-apetite",
+    "name": "Ingestão para Reduzir Apetite",
+    "sopTitle": "Protocolo de Ingestão Nº1 — Cápsula Supressora de Apetite",
+    "tab": "difusao",
+    "format": "capsule",
+    "period": "AM",
+    "periodLabel": "AM — METABOLIC INDUCTION",
+    "time": "2 min",
+    "frequency": "2x/dia (nunca à noite)",
+    "ingredients": [
+      "1 gota de Grapefruit",
+      "1 gota de Peppermint",
+      "1 gota de Lemon",
+      "1 gota de Smart & Sassy"
+    ],
+    "steps": [
+      "Coloque 1 gota de cada óleo em uma capsula de gelatina vazia.",
+      "Encha o restante da capsula com azeite e feche a cápsula.",
+      "Tome 2x ao dia enquanto tiver em processo de perda de peso. Não tomar a noite para não atrapalhar o sono.",
+      "Prepare as cápsulas na hora de usar."
+    ],
+    "notes": [],
+    "oilsUsed": ["Grapefruit", "Peppermint", "Lemon", "Smart & Sassy"],
+    "sourceFile": "09-ingestao-e-aromaterapia/capsula-para-reduzir-apetite.txt"
+  },
+  {
+    "id": "combinacoes-para-difusor-combo-1",
+    "name": "Canela, Olíbano, Cedro e Hortelã",
+    "sopTitle": "Difusão Estabilizadora — Canela, Olíbano, Cedro e Hortelã",
+    "tab": "difusao",
+    "format": "diffuser",
+    "period": "PM",
+    "periodLabel": "PM — ENDOCRINE RECOVERY",
+    "time": "1 min",
+    "frequency": "Diária",
+    "ingredients": [
+      "2 gotas de Cinnamon Bark",
+      "2 gotas de Frankincense",
+      "2 gotas de Cedro",
+      "2 gotas de Peppermint"
+    ],
+    "steps": [
+      "Adicione as gotas ao difusor ultrassônico com água e inicie a difusão conforme a capacidade do aparelho."
+    ],
+    "notes": [],
+    "oilsUsed": ["Cinnamon Bark", "Frankincense", "Cedro", "Peppermint"],
+    "sourceFile": "09-ingestao-e-aromaterapia/combinacoes-para-difusor.txt"
+  },
+  {
+    "id": "combinacoes-para-difusor-combo-2",
+    "name": "Grapefruit, Peppermint e Ylang Ylang",
+    "sopTitle": "Difusão Metabólica — Grapefruit, Peppermint e Ylang Ylang",
+    "tab": "difusao",
+    "format": "diffuser",
+    "period": "16h",
+    "periodLabel": "16:00 — CORTISOL STABILIZATION",
+    "time": "1 min",
+    "frequency": "Diária",
+    "ingredients": [
+      "2 gotas de Grapefruit",
+      "2 gotas de Peppermint",
+      "2 gotas de Ylang Ylang"
+    ],
+    "steps": [
+      "Adicione as gotas ao difusor ultrassônico com água e inicie a difusão conforme a capacidade do aparelho."
+    ],
+    "notes": [],
+    "oilsUsed": ["Grapefruit", "Peppermint", "Ylang Ylang"],
+    "sourceFile": "09-ingestao-e-aromaterapia/combinacoes-para-difusor.txt"
+  },
+  {
+    "id": "combinacoes-para-difusor-combo-3",
+    "name": "Clary Sage, Lemon e Lavanda",
+    "sopTitle": "Difusão Restauradora — Clary Sage, Lemon e Lavanda",
+    "tab": "difusao",
+    "format": "diffuser",
+    "period": "PM",
+    "periodLabel": "PM — ENDOCRINE RECOVERY",
+    "time": "1 min",
+    "frequency": "Diária",
+    "ingredients": [
+      "2 gotas de Clary Sage",
+      "2 gotas Lemon",
+      "2 gotas de Lavanda"
+    ],
+    "steps": [
+      "Adicione as gotas ao difusor ultrassônico com água e inicie a difusão conforme a capacidade do aparelho."
+    ],
+    "notes": [],
+    "oilsUsed": ["Clary Sage", "Lemon", "Lavanda"],
+    "sourceFile": "09-ingestao-e-aromaterapia/combinacoes-para-difusor.txt"
+  }
+]

@@ -1,0 +1,121 @@
+.fab {
+  position: fixed;
+  left: 50%;
+  bottom: calc(56px + var(--spacing-4));
+  z-index: 90;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-6);
+  border-radius: var(--round-full);
+  background: var(--surface-container-highest);
+  box-shadow: var(--shadow-lg);
+  color: var(--on-surface);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 700;
+  transform: translateX(-50%);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  padding: var(--spacing-6);
+  background: rgba(27, 28, 28, 0.48);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.dialog {
+  display: grid;
+  width: min(100%, 24rem);
+  gap: var(--spacing-5);
+  padding: var(--spacing-6);
+  border-radius: var(--round-xl);
+  background: var(--surface-bright);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+.closeButton {
+  justify-self: end;
+  color: var(--on-surface-variant);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.orb {
+  width: 10rem;
+  height: 10rem;
+  justify-self: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.9), transparent 36%),
+    linear-gradient(180deg, rgba(42, 75, 65, 0.9), rgba(168, 181, 162, 0.92));
+  animation: breathe-pulse 19s ease-in-out infinite;
+}
+
+.copy {
+  display: grid;
+  gap: var(--spacing-2);
+}
+
+.phase {
+  color: var(--primary);
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+}
+
+.counter {
+  color: var(--on-surface);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.description {
+  color: var(--on-surface-variant);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.suggestion {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: var(--spacing-3) var(--spacing-5);
+  border-radius: var(--round-full);
+  background: var(--surface-container-low);
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@keyframes breathe-pulse {
+  0%,
+  100% {
+    transform: scale(0.92);
+    opacity: 0.84;
+  }
+
+  21% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+
+  58% {
+    transform: scale(1.18);
+    opacity: 0.95;
+  }
+
+  100% {
+    transform: scale(0.88);
+    opacity: 0.78;
+  }
+}
