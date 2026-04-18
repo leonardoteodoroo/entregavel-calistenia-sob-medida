@@ -868,7 +868,7 @@ export default function Home() {
                   className="rounded overflow-hidden"
                   style={{
                     border: "1px solid var(--color-taupe-light)",
-                    aspectRatio: "16/25"
+                    aspectRatio: "3/4"
                   }}
                 >
                   <img 
@@ -979,7 +979,7 @@ export default function Home() {
                   className="rounded overflow-hidden"
                   style={{
                     border: "1px solid var(--color-taupe-light)",
-                    aspectRatio: "16/25"
+                    aspectRatio: "3/4"
                   }}
                 >
                   <img 
