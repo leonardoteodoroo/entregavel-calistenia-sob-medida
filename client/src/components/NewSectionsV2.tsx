@@ -662,6 +662,54 @@ export function SectionOQueEsperar() {
 
 // ── BLOCO 5: SINAIS DE PROGRESSO ALÉM DO PESO ──
 export function SectionSinaisProgresso() {
+  const sinais = [
+    {
+      icon: "⚡",
+      title: "Mais energia",
+      desc: "Você acorda menos cansada. Tem mais disposição para o dia.",
+    },
+    {
+      icon: "💪",
+      title: "Mais força",
+      desc: "Você consegue fazer coisas que antes eram difíceis. Carregar compras, subir escadas.",
+    },
+    {
+      icon: "🧘",
+      title: "Melhor mobilidade",
+      desc: "Você consegue se mexer melhor. Menos rigidez, mais flexibilidade.",
+    },
+    {
+      icon: "😌",
+      title: "Menos dor",
+      desc: "Com prática consistente, dores de rigidez podem diminuir ao longo das semanas.",
+    },
+    {
+      icon: "😊",
+      title: "Mais confiança",
+      desc: "Você se sente melhor no próprio corpo. Mais segura, mais presente.",
+    },
+    {
+      icon: "🎯",
+      title: "Mais constância",
+      desc: "Treinar virou hábito. Você não precisa se forçar tanto para começar.",
+    },
+    {
+      icon: "👖",
+      title: "Roupas caem diferente",
+      desc: "Você percebe que suas roupas ficam diferentes. Mais folgadas, mais ajustadas.",
+    },
+    {
+      icon: "😴",
+      title: "Melhor sono",
+      desc: "Você dorme melhor. Mais profundo, mais restaurador.",
+    },
+    {
+      icon: "🧠",
+      title: "Melhor foco mental",
+      desc: "Você consegue se concentrar melhor. A mente fica mais clara.",
+    },
+  ];
+
   return (
     <section
       id="sinais-progresso"
@@ -700,93 +748,60 @@ export function SectionSinaisProgresso() {
       />
 
       <div
-        className="grid gap-3"
+        className="grid"
         style={{
+          gap: "0.65rem",
           gridTemplateColumns:
-            "repeat(auto-fit, minmax(min(200px, 100%), 1fr))",
+            "repeat(auto-fit, minmax(min(140px, 100%), 1fr))",
         }}
       >
-        {[
-          {
-            icon: "⚡",
-            title: "Mais energia",
-            desc: "Você acorda menos cansada. Tem mais disposição para o dia.",
-          },
-          {
-            icon: "💪",
-            title: "Mais força",
-            desc: "Você consegue fazer coisas que antes eram difíceis. Carregar compras, subir escadas.",
-          },
-          {
-            icon: "🧘",
-            title: "Melhor mobilidade",
-            desc: "Você consegue se mexer melhor. Menos rigidez, mais flexibilidade.",
-          },
-          {
-            icon: "😌",
-            title: "Menos dor",
-            desc: "Com prática consistente, dores de rigidez podem diminuir ao longo das semanas.",
-          },
-          {
-            icon: "😊",
-            title: "Mais confiança",
-            desc: "Você se sente melhor no próprio corpo. Mais segura, mais presente.",
-          },
-          {
-            icon: "🎯",
-            title: "Mais constância",
-            desc: "Treinar virou hábito. Você não precisa se forçar tanto para começar.",
-          },
-          {
-            icon: "👖",
-            title: "Roupas caem diferente",
-            desc: "Você percebe que suas roupas ficam diferentes. Mais folgadas, mais ajustadas.",
-          },
-          {
-            icon: "😴",
-            title: "Melhor sono",
-            desc: "Você dorme melhor. Mais profundo, mais restaurador.",
-          },
-          {
-            icon: "🧠",
-            title: "Melhor foco mental",
-            desc: "Você consegue se concentrar melhor. A mente fica mais clara.",
-          },
-        ].map((sinal, i) => (
-          <div
-            key={i}
-            className="px-4 py-4 rounded"
-            style={{
-              backgroundColor: "white",
-              border: "1px solid var(--color-taupe-light)",
-            }}
-          >
-            <p style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>
-              {sinal.icon}
-            </p>
-            <p
-              className="font-body"
+        {sinais.map((sinal, i) => {
+          const isLastCard = i === sinais.length - 1;
+
+          return (
+            <div
+              key={sinal.title}
+              className={isLastCard ? "rounded col-span-full sm:col-span-1" : "rounded"}
               style={{
-                fontSize: "0.875rem",
-                fontWeight: 500,
-                color: "var(--color-charcoal)",
-                marginBottom: "0.25rem",
+                backgroundColor: "white",
+                border: "1px solid var(--color-taupe-light)",
+                padding: isLastCard ? "0.95rem 0.95rem 1rem" : "0.78rem 0.78rem 0.82rem",
               }}
             >
-              {sinal.title}
-            </p>
-            <p
-              className="font-body"
-              style={{
-                fontSize: "0.78rem",
-                color: "var(--color-warm-gray)",
-                lineHeight: 1.5,
-              }}
-            >
-              {sinal.desc}
-            </p>
-          </div>
-        ))}
+              <p
+                style={{
+                  fontSize: isLastCard ? "1.35rem" : "1.1rem",
+                  marginBottom: isLastCard ? "0.45rem" : "0.35rem",
+                  textAlign: isLastCard ? "center" : undefined,
+                }}
+              >
+                {sinal.icon}
+              </p>
+              <p
+                className="font-body"
+                style={{
+                  fontSize: isLastCard ? "0.88rem" : "0.79rem",
+                  fontWeight: 500,
+                  color: "var(--color-charcoal)",
+                  marginBottom: isLastCard ? "0.3rem" : "0.22rem",
+                  textAlign: isLastCard ? "center" : undefined,
+                }}
+              >
+                {sinal.title}
+              </p>
+              <p
+                className="font-body"
+                style={{
+                  fontSize: isLastCard ? "0.8rem" : "0.71rem",
+                  color: "var(--color-warm-gray)",
+                  lineHeight: isLastCard ? 1.5 : 1.45,
+                }}
+              >
+                {sinal.desc}
+              </p>
+            </div>
+          );
+        })}
       </div>
 
       <div

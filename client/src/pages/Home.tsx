@@ -138,12 +138,12 @@ function WeekBadge({ week }: { week: number }) {
     <div
       className="inline-flex items-center justify-center font-body"
       style={{
-        width: "2rem",
-        height: "2rem",
+        width: "1.75rem",
+        height: "1.75rem",
         borderRadius: "50%",
         backgroundColor: c.bg,
         color: c.text,
-        fontSize: "0.75rem",
+        fontSize: "0.68rem",
         fontWeight: 600,
       }}
     >
@@ -280,36 +280,48 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4 mt-6">
+              <div
+                className="grid mt-5"
+                style={{
+                  gap: "0.55rem",
+                  gridTemplateColumns:
+                    "repeat(auto-fit, minmax(min(140px, 100%), 1fr))",
+                }}
+              >
                 {weeks.map(week => (
                   <button
                     key={week.number}
                     onClick={() => setLocation(`/semana/${week.number}`)}
-                    className="px-4 py-3 rounded text-left transition-all hover:scale-[1.02] active:scale-[0.98]"
+                    className="text-left border bg-[rgba(255,255,255,0.05)] border-[rgba(181,169,154,0.42)] transition-[transform,box-shadow,border-color,background-color] duration-200 ease-out hover:scale-[0.98] hover:border-[rgba(181,169,154,0.58)] hover:bg-[rgba(255,255,255,0.08)] hover:shadow-[0_1px_4px_rgba(44,44,44,0.08),0_6px_14px_rgba(44,44,44,0.10)] active:scale-[0.98] active:border-[rgba(181,169,154,0.66)] active:bg-[rgba(255,255,255,0.10)] active:shadow-[0_1px_2px_rgba(44,44,44,0.06),0_3px_8px_rgba(44,44,44,0.08)]"
                     style={{
-                      backgroundColor: "rgba(255, 255, 255, 0.04)",
                       backdropFilter: "blur(16px)",
                       WebkitBackdropFilter: "blur(16px)",
-                      border: "1px solid rgba(181, 169, 154, 0.4)",
+                      padding: "0.72rem 0.78rem",
+                      borderRadius: "0.8rem",
+                      boxShadow:
+                        "0 2px 8px rgba(44, 44, 44, 0.1), 0 12px 22px rgba(44, 44, 44, 0.12)",
                     }}
                   >
                     <p
                       className="font-body"
                       style={{
-                        fontSize: "0.65rem",
+                        fontSize: "0.6rem",
                         textTransform: "uppercase",
-                        letterSpacing: "0.12em",
-                        color: "var(--color-taupe)",
+                        letterSpacing: "0.1em",
+                        color: "var(--color-charcoal-light)",
+                        fontWeight: 600,
                       }}
                     >
                       Semana {week.number}
                     </p>
                     <p
-                      className="font-display mt-1"
+                      className="font-display"
                       style={{
-                        fontSize: "0.95rem",
+                        marginTop: "0.22rem",
+                        fontSize: "0.82rem",
                         color: "var(--color-charcoal)",
                         fontWeight: 500,
+                        lineHeight: 1.25,
                       }}
                     >
                       {week.title}
@@ -398,13 +410,13 @@ export default function Home() {
         <section
           id="visao-geral"
           className="page-card mb-6 overflow-hidden"
-          style={{ padding: "clamp(5px, 3.5vw, 3.5rem)" }}
+          style={{ padding: "clamp(5px, 3vw, 3rem)" }}
         >
           <SectionLabel>Método em 4 etapas</SectionLabel>
           <h2
             className="font-display mb-2"
             style={{
-              fontSize: "clamp(1.5rem, 4vw, 2.25rem)",
+              fontSize: "clamp(1.35rem, 3.7vw, 2rem)",
               color: "var(--color-charcoal)",
               fontWeight: 400,
             }}
@@ -412,9 +424,9 @@ export default function Home() {
             A lógica das 4 semanas
           </h2>
           <p
-            className="font-display mb-6"
+            className="font-display mb-5"
             style={{
-              fontSize: "1rem",
+              fontSize: "0.9rem",
               color: "var(--color-taupe)",
               fontStyle: "italic",
             }}
@@ -428,15 +440,22 @@ export default function Home() {
               width: "2.5rem",
               height: "1px",
               backgroundColor: "var(--color-rose)",
-              marginBottom: "2rem",
+              marginBottom: "1.5rem",
             }}
           />
 
-          <div className="space-y-4">
+          <div
+            className="grid"
+            style={{
+              gap: "0.7rem",
+              gridTemplateColumns:
+                "repeat(auto-fit, minmax(min(140px, 100%), 1fr))",
+            }}
+          >
             {weeks.map(week => (
               <div
                 key={week.number}
-                className="flex gap-4 items-start px-5 py-4 rounded"
+                className="flex h-full flex-col gap-2 rounded transition-[box-shadow,border-color,background-color] duration-200 ease-out hover:shadow-[0_1px_4px_rgba(44,44,44,0.03),0_6px_14px_rgba(44,44,44,0.04)]"
                 style={{
                   backgroundColor:
                     week.color === "teal"
@@ -445,17 +464,21 @@ export default function Home() {
                         ? "var(--color-rose-muted)"
                         : "var(--color-ivory-dark)",
                   border: `1px solid ${week.color === "teal" ? "var(--color-teal-light)" : week.color === "rose" ? "var(--color-rose-light)" : "var(--color-taupe-light)"}`,
+                  padding: "0.82rem",
+                  boxShadow:
+                    "0 2px 8px rgba(44, 44, 44, 0.04), 0 10px 22px rgba(44, 44, 44, 0.05)",
                 }}
               >
-                <WeekBadge week={week.number} />
-                <div className="flex-1">
-                  <div className="flex items-baseline gap-2 flex-wrap">
+                <div className="flex items-start gap-2.5">
+                  <WeekBadge week={week.number} />
+                  <div className="min-w-0 flex-1">
                     <p
                       className="font-display"
                       style={{
-                        fontSize: "1.05rem",
+                        fontSize: "0.92rem",
                         color: "var(--color-charcoal)",
                         fontWeight: 500,
+                        lineHeight: 1.2,
                       }}
                     >
                       {week.title}
@@ -463,36 +486,40 @@ export default function Home() {
                     <p
                       className="font-body"
                       style={{
-                        fontSize: "0.75rem",
-                        color: "var(--color-taupe)",
+                        marginTop: "0.12rem",
+                        fontSize: "0.7rem",
+                        color: "var(--color-charcoal-light)",
+                        lineHeight: 1.35,
+                        fontWeight: 500,
                       }}
                     >
                       {week.subtitle}
                     </p>
                   </div>
-                  <p
-                    className="font-body mt-1"
-                    style={{
-                      fontSize: "0.82rem",
-                      color: "var(--color-charcoal-light)",
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    {week.description}
-                  </p>
-                  <button
-                    onClick={() => setLocation(`/semana/${week.number}`)}
-                    className="mt-3 px-3 py-2 rounded font-body"
-                    style={{
-                      fontSize: "0.75rem",
-                      backgroundColor: "white",
-                      color: "var(--color-charcoal)",
-                      border: "1px solid var(--color-taupe-light)",
-                    }}
-                  >
-                    Abrir semana {week.number}
-                  </button>
                 </div>
+                <p
+                  className="font-body"
+                  style={{
+                    fontSize: "0.74rem",
+                    color: "var(--color-charcoal-light)",
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {week.description}
+                </p>
+                <button
+                  onClick={() => setLocation(`/semana/${week.number}`)}
+                  className="mt-auto w-full rounded font-body border bg-white border-[var(--color-taupe-light)] text-[var(--color-charcoal)] transition-[transform,box-shadow,border-color] duration-200 ease-out hover:scale-[0.98] hover:border-[rgba(181,169,154,0.62)] hover:shadow-[0_1px_3px_rgba(44,44,44,0.04),0_4px_10px_rgba(44,44,44,0.06)] active:scale-[0.98] active:border-[rgba(181,169,154,0.72)] active:shadow-[0_1px_2px_rgba(44,44,44,0.03),0_3px_8px_rgba(44,44,44,0.05)]"
+                  style={{
+                    padding: "0.5rem 0.65rem",
+                    fontSize: "0.68rem",
+                    lineHeight: 1.2,
+                    boxShadow:
+                      "0 1px 4px rgba(44, 44, 44, 0.05), 0 6px 14px rgba(44, 44, 44, 0.07)",
+                  }}
+                >
+                  Abrir semana {week.number}
+                </button>
               </div>
             ))}
           </div>
@@ -1081,13 +1108,13 @@ export default function Home() {
         <section
           id="navegacao-rapida"
           className="page-card mb-8"
-          style={{ padding: "clamp(5px, 3.5vw, 3rem)" }}
+          style={{ padding: "clamp(5px, 3vw, 2.5rem)" }}
         >
           <SectionLabel>Navegação rápida</SectionLabel>
           <h2
-            className="font-display mb-2"
+            className="font-display mb-1.5"
             style={{
-              fontSize: "clamp(1.4rem, 4vw, 2rem)",
+              fontSize: "clamp(1.25rem, 3.7vw, 1.8rem)",
               color: "var(--color-charcoal)",
               fontWeight: 400,
             }}
@@ -1095,9 +1122,9 @@ export default function Home() {
             Acesse direto o que você precisa
           </h2>
           <p
-            className="font-display mb-6"
+            className="font-display mb-5"
             style={{
-              fontSize: "0.95rem",
+              fontSize: "0.88rem",
               color: "var(--color-taupe)",
               fontStyle: "italic",
             }}
@@ -1107,10 +1134,11 @@ export default function Home() {
           </p>
 
           <div
-            className="grid gap-3"
+            className="grid"
             style={{
+              gap: "0.65rem",
               gridTemplateColumns:
-                "repeat(auto-fit, minmax(min(220px, 100%), 1fr))",
+                "repeat(auto-fit, minmax(min(140px, 100%), 1fr))",
             }}
           >
             {[
@@ -1154,19 +1182,23 @@ export default function Home() {
               <button
                 key={item.route}
                 onClick={() => setLocation(item.route)}
-                className="px-4 py-4 rounded text-left"
+                className="text-left transition-[transform,box-shadow,border-color] duration-200 ease-out hover:scale-[0.98] hover:border-[rgba(181,169,154,0.62)] hover:shadow-[0_1px_3px_rgba(44,44,44,0.04),0_5px_12px_rgba(44,44,44,0.06)] active:scale-[0.98] active:border-[rgba(181,169,154,0.72)] active:shadow-[0_1px_2px_rgba(44,44,44,0.03),0_3px_8px_rgba(44,44,44,0.05)]"
                 style={{
                   backgroundColor: "white",
                   border: "1px solid var(--color-taupe-light)",
+                  padding: "0.85rem 0.9rem",
+                  borderRadius: "0.65rem",
+                  boxShadow:
+                    "0 2px 6px rgba(44, 44, 44, 0.05), 0 10px 24px rgba(44, 44, 44, 0.08)",
                 }}
               >
                 <p
                   className="font-body"
                   style={{
-                    fontSize: "0.85rem",
+                    fontSize: "0.8rem",
                     fontWeight: 500,
                     color: "var(--color-charcoal)",
-                    marginBottom: "0.3rem",
+                    marginBottom: "0.2rem",
                   }}
                 >
                   {item.title}
@@ -1174,9 +1206,9 @@ export default function Home() {
                 <p
                   className="font-body"
                   style={{
-                    fontSize: "0.78rem",
+                    fontSize: "0.72rem",
                     color: "var(--color-warm-gray)",
-                    lineHeight: 1.6,
+                    lineHeight: 1.5,
                   }}
                 >
                   {item.description}
