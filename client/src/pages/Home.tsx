@@ -4,7 +4,7 @@ import {
 } from "@/content/siteConfig";
 import BonusVisual from "@/components/bonus/BonusVisual";
 import Layout from "@/components/Layout";
-import { Clock3, Heart, ThumbsUp } from "lucide-react";
+import { Clock3, Heart, ThumbsUp, Download, AlertTriangle } from "lucide-react";
 import type { RecipeVisual } from "@/content/bonus/bonusRecipeTypes";
 import {
   SectionCaminhos,
@@ -95,7 +95,7 @@ const BONUS_RECIPES: BonusCard[] = [
   },
   {
     id: "bonus-placeholder-2",
-    title: "Em breve",
+    title: "Em desenvolvimento...",
     placeholderDays: 16,
   },
 ];
@@ -571,11 +571,11 @@ export default function Home() {
                   onKeyDown={
                     isInteractive
                       ? event => {
-                          if (event.key === "Enter" || event.key === " ") {
-                            event.preventDefault();
-                            openBonusCard();
-                          }
+                        if (event.key === "Enter" || event.key === " ") {
+                          event.preventDefault();
+                          openBonusCard();
                         }
+                      }
                       : undefined
                   }
                 >
@@ -818,6 +818,151 @@ export default function Home() {
                 </article>
               );
             })}
+          </div>
+        </section>
+
+        <section
+          id="materiais-pdf"
+          className="page-card mb-6 overflow-hidden"
+          style={{ padding: "clamp(5px, 3.5vw, 3.5rem)" }}
+        >
+          <SectionLabel>Materiais Prontos</SectionLabel>
+          <h2
+            className="font-display mb-2"
+            style={{
+              fontSize: "clamp(1.4rem, 4vw, 2rem)",
+              color: "var(--color-charcoal)",
+              fontWeight: 400,
+            }}
+          >
+            Seus guias práticos em PDF.
+          </h2>
+          <p
+            className="font-display mb-6"
+            style={{
+              fontSize: "0.95rem",
+              color: "var(--color-taupe)",
+              fontStyle: "italic",
+            }}
+          >
+            Baixe com um toque e leve para onde quiser. Documentos diretos ao ponto para impressão ou consulta offline.
+          </p>
+
+          <div
+            className="grid gap-3"
+            style={{
+              gridTemplateColumns: "1fr",
+            }}
+          >
+            <article
+              className="px-4 py-4 rounded flex flex-col md:flex-row gap-5"
+              style={{
+                backgroundColor: "white",
+                border: "1px solid var(--color-taupe-light)",
+              }}
+            >
+              {/* Coluna da Imagem */}
+              <div className="md:w-1/3 flex-shrink-0">
+                <div 
+                  className="rounded overflow-hidden"
+                  style={{
+                    border: "1px solid var(--color-taupe-light)",
+                    aspectRatio: "16/25"
+                  }}
+                >
+                  <img 
+                    src={toPublicPath("bonus/novo-tonico-milenar-coreano.webp")} 
+                    alt="Capa do material em PDF: Tônico Milenar Coreano" 
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              {/* Coluna de Conteúdo */}
+              <div className="flex-1 min-w-0 flex flex-col justify-between">
+                <div>
+                  <h3
+                    className="font-body"
+                    style={{
+                      fontSize: "1.2rem",
+                      fontWeight: 600,
+                      color: "var(--color-charcoal)",
+                      marginBottom: "0.5rem",
+                    }}
+                  >
+                    Tônico Milenar Coreano
+                  </h3>
+                  <p
+                    className="font-body"
+                    style={{
+                      fontSize: "0.85rem",
+                      color: "var(--color-warm-gray)",
+                      lineHeight: 1.6,
+                      marginBottom: "1.2rem",
+                    }}
+                  >
+                    Guia de uso do tônico focando na regulação da glicose e redução do armazenamento de gordura usando propriedades do ácido acético (vinagre de maçã) e gengibre.
+                  </p>
+
+                  <div 
+                    className="p-3.5 rounded mb-4" 
+                    style={{ 
+                      backgroundColor: "var(--color-rose-muted)",
+                      border: "1px solid var(--color-rose-light)" 
+                    }}
+                    role="alert"
+                  >
+                    <p 
+                      className="font-body flex items-center gap-1.5 mb-2.5"
+                      style={{ 
+                        fontSize: "0.75rem", 
+                        fontWeight: 600, 
+                        color: "var(--color-rose)",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.05em"
+                      }}
+                    >
+                      <AlertTriangle size={14} aria-hidden="true" /> Avisos de Saúde Importantes
+                    </p>
+                    <ul 
+                      className="font-body space-y-2.5"
+                      style={{
+                        fontSize: "0.8rem",
+                        color: "var(--color-charcoal-light)",
+                        lineHeight: 1.5,
+                      }}
+                    >
+                      <li><strong>• NÃO tome em jejum:</strong> O vinagre é altamente ácido. Tomar de estômago vazio aumenta risco de gastrite severa, náuseas e indigestão.</li>
+                      <li><strong>• Atenção ao Esôfago e Dentes:</strong> Ácido acético corrói o esmalte dentário e pode queimar o esôfago se tomado logo antes de dormir.</li>
+                      <li><strong>• Risco de Interações (Hipoglicemia):</strong> Gengibre, canela e vinagre reduzem drasticamente o açúcar. Combiná-los com medicações para diabetes é perigoso.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="mt-2 md:mt-auto">
+                  <a
+                    href={toPublicPath("bonus/novo-Tonico-Milenar-Coreano.pdf")}
+                    download="Tonico-Milenar-Coreano.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 w-full md:w-auto px-5 py-2.5 rounded font-body transition-colors hover:opacity-90 active:scale-[0.98]"
+                    style={{
+                      backgroundColor: "var(--color-charcoal)",
+                      color: "white",
+                      fontSize: "0.85rem",
+                      fontWeight: 500,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.05em"
+                    }}
+                    aria-label="Baixar PDF Completo do Tônico Milenar Coreano"
+                  >
+                    <Download size={16} aria-hidden="true" />
+                    Baixar PDF Completo
+                  </a>
+                </div>
+              </div>
+            </article>
           </div>
         </section>
 
