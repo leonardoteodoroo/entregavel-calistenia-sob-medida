@@ -153,7 +153,8 @@ export function MobileStickyNav({
         <div className="absolute inset-0 flex items-end justify-center overflow-hidden">
           <ul className="relative m-0 flex h-full w-[350px] list-none p-0">
             {activeIndex >= 0 ? (
-              <div
+              <li
+                aria-hidden="true"
                 className="absolute top-0 left-[-40px] z-0 h-[55px] w-[150px] transition-transform duration-500"
                 style={{
                   transform: `translateX(${activeIndex * 70}px)`,
@@ -187,7 +188,7 @@ export function MobileStickyNav({
                     fill="url(#bubble-gradient)"
                   />
                 </svg>
-              </div>
+              </li>
             ) : null}
 
             {stickyNavItems.map((item, index) => {

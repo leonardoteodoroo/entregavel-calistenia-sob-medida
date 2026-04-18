@@ -177,9 +177,9 @@ export default function SiteFooter() {
             <span
               style={{
                 fontSize: "0.6rem",
-                opacity: 0.5,
                 marginLeft: "12px",
                 letterSpacing: "0.05em",
+                color: "var(--color-taupe)",
               }}
             >
               VERSÃO v.1.0.1

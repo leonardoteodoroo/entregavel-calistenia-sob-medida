@@ -51,7 +51,7 @@
   /* Custom design tokens */
   --color-ivory: #f9f6f0;
   --color-ivory-dark: #f0ebe3;
-  --color-taupe: #b5a99a;
+  --color-taupe: #706555; /* Escurecido para WCAG AA (era #b5a99a) */
   --color-taupe-light: #d4ccc4;
   --color-rose: #8b4a52;
   --color-rose-light: #c4858e;
@@ -61,7 +61,7 @@
   --color-teal-muted: #d0e4e4;
   --color-charcoal: #2c2c2c;
   --color-charcoal-light: #4a4a4a;
-  --color-warm-gray: #7a7570;
+  --color-warm-gray: #6b635a; /* Escurecido para WCAG AA (era #7a7570) */
 }
 
 :root {
