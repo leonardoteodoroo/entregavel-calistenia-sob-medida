@@ -849,20 +849,21 @@ export default function Home() {
           </p>
 
           <div
-            className="grid gap-3"
+            className="grid gap-4"
             style={{
-              gridTemplateColumns: "1fr",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(320px, 100%), 1fr))",
             }}
           >
+            {/* Card 1: Tônico Coreano */}
             <article
-              className="px-4 py-4 rounded flex flex-col md:flex-row gap-5"
+              className="px-4 py-4 rounded flex flex-col xl:flex-row gap-5"
               style={{
                 backgroundColor: "white",
                 border: "1px solid var(--color-taupe-light)",
               }}
             >
               {/* Coluna da Imagem */}
-              <div className="md:w-1/3 flex-shrink-0">
+              <div className="xl:w-1/3 flex-shrink-0">
                 <div 
                   className="rounded overflow-hidden"
                   style={{
@@ -923,7 +924,7 @@ export default function Home() {
                         letterSpacing: "0.05em"
                       }}
                     >
-                      <AlertTriangle size={14} aria-hidden="true" /> Avisos de Saúde Importantes
+                      <AlertTriangle size={14} aria-hidden="true" /> Orientações de Uso Seguro
                     </p>
                     <ul 
                       className="font-body space-y-2.5"
@@ -933,9 +934,9 @@ export default function Home() {
                         lineHeight: 1.5,
                       }}
                     >
-                      <li><strong>• NÃO tome em jejum:</strong> O vinagre é altamente ácido. Tomar de estômago vazio aumenta risco de gastrite severa, náuseas e indigestão.</li>
-                      <li><strong>• Atenção ao Esôfago e Dentes:</strong> Ácido acético corrói o esmalte dentário e pode queimar o esôfago se tomado logo antes de dormir.</li>
-                      <li><strong>• Risco de Interações (Hipoglicemia):</strong> Gengibre, canela e vinagre reduzem drasticamente o açúcar. Combiná-los com medicações para diabetes é perigoso.</li>
+                      <li><strong>• Consuma após as refeições:</strong> O vinagre é naturalmente ácido. Evite o estômago vazio para prevenir desconfortos gástricos.</li>
+                      <li><strong>• Cuidado com o esmalte dental:</strong> O ácido pode sensibilizar os dentes. Recomendamos bochechar água ou escovar os dentes após o uso.</li>
+                      <li><strong>• Monitoramento de Glicose:</strong> Se você utiliza remédios para diabetes, fique atenta, pois estes ingredientes naturais podem baixar o açúcar no sangue.</li>
                     </ul>
                   </div>
                 </div>
@@ -956,6 +957,117 @@ export default function Home() {
                       letterSpacing: "0.05em"
                     }}
                     aria-label="Baixar PDF Completo do Tônico Milenar Coreano"
+                  >
+                    <Download size={16} aria-hidden="true" />
+                    Baixar PDF Completo
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            {/* Card 2: Tônico Capilar */}
+            <article
+              className="px-4 py-4 rounded flex flex-col xl:flex-row gap-5"
+              style={{
+                backgroundColor: "white",
+                border: "1px solid var(--color-taupe-light)",
+              }}
+            >
+              {/* Coluna da Imagem */}
+              <div className="xl:w-1/3 flex-shrink-0">
+                <div 
+                  className="rounded overflow-hidden"
+                  style={{
+                    border: "1px solid var(--color-taupe-light)",
+                    aspectRatio: "16/25"
+                  }}
+                >
+                  <img 
+                    src={toPublicPath("bonus/tonico-capilar/capa-tonico-capilar.webp")} 
+                    alt="Capa do material em PDF: Tônico Capilar Receitas" 
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              {/* Coluna de Conteúdo */}
+              <div className="flex-1 min-w-0 flex flex-col justify-between">
+                <div>
+                  <h3
+                    className="font-body"
+                    style={{
+                      fontSize: "1.2rem",
+                      fontWeight: 600,
+                      color: "var(--color-charcoal)",
+                      marginBottom: "0.5rem",
+                    }}
+                  >
+                    Tônico Capilar: Receitas
+                  </h3>
+                  <p
+                    className="font-body"
+                    style={{
+                      fontSize: "0.85rem",
+                      color: "var(--color-warm-gray)",
+                      lineHeight: 1.6,
+                      marginBottom: "1.2rem",
+                    }}
+                  >
+                    Guia completo com receitas naturais para fortalecimento e crescimento capilar acelerado, utilizando ingredientes botânicos e técnicas de infusão.
+                  </p>
+
+                  <div 
+                    className="p-3.5 rounded mb-4" 
+                    style={{ 
+                      backgroundColor: "var(--color-rose-muted)",
+                      border: "1px solid var(--color-rose-light)" 
+                    }}
+                    role="alert"
+                  >
+                    <p 
+                      className="font-body flex items-center gap-1.5 mb-2.5"
+                      style={{ 
+                        fontSize: "0.75rem", 
+                        fontWeight: 600, 
+                        color: "var(--color-rose)",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.05em"
+                      }}
+                    >
+                      <AlertTriangle size={14} aria-hidden="true" /> Cuidados Recomendados
+                    </p>
+                    <ul 
+                      className="font-body space-y-2.5"
+                      style={{
+                        fontSize: "0.8rem",
+                        color: "var(--color-charcoal-light)",
+                        lineHeight: 1.5,
+                      }}
+                    >
+                      <li><strong>• Uso do Jaborandi:</strong> Devido à Pilocarpina natural, evite o uso se tiver condições cardíacas ou asma sem consultar um médico.</li>
+                      <li><strong>• Teste de Sensibilidade:</strong> Ingredientes como alho e canela podem ser fortes. Evite sol direto logo após a aplicação no couro cabeludo.</li>
+                      <li><strong>• Frescor das Receitas:</strong> Como são preparos naturais sem conservantes, recomendamos fazer pequenas doses e utilizar em até 48 horas.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="mt-2 md:mt-auto">
+                  <a
+                    href={toPublicPath("bonus/tonico-capilar/novo-tonico-capilar-receitas.pdf")}
+                    download="Tonico-Capilar-Receitas.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 w-full md:w-auto px-5 py-2.5 rounded font-body transition-colors hover:opacity-90 active:scale-[0.98]"
+                    style={{
+                      backgroundColor: "var(--color-charcoal)",
+                      color: "white",
+                      fontSize: "0.85rem",
+                      fontWeight: 500,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.05em"
+                    }}
+                    aria-label="Baixar PDF do Tônico Capilar Receitas"
                   >
                     <Download size={16} aria-hidden="true" />
                     Baixar PDF Completo
