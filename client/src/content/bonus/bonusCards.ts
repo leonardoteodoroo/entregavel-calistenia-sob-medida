@@ -66,7 +66,7 @@ export const BONUS_RECIPES: BonusCard[] = [
   },
   {
     id: "bonus-placeholder-2",
-    title: "Em breve",
+    title: "Em desenvolvimento...",
     placeholderDays: 16,
   },
 ];

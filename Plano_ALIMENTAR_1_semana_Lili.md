@@ -233,3 +233,11 @@ Vamos calcular sua quantidade ideal de água por dia?
 | Maxixe                  | 1 colher de sopa cheia    | 40g    |
 | Quiabo Refogado         | 2 Colheres De Sopa Rasa   | 35g    |
 | Vagem Cozida            | 1 Pires De Sobremesa      | 96g    |
+
+---
+
+### Orientação Extra de Suplementação
+
+Para suplementos como whey, creatina e barras de cereais, acesse o link abaixo e utilize o cupom de desconto: **timelili**
+
+🔗 [GSuplementos](https://www.gsuplementos.com.br)
