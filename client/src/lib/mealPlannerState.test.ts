@@ -17,6 +17,7 @@ import {
   getMealPlannerWeekKey,
   getMealsWithSubstitutions,
   getRecommendedVariantId,
+  getResolvedMealSelection,
   getWeeklySummary,
   readMealPlannerStorage,
   toggleFavoriteComposition,
@@ -192,6 +193,71 @@ describe("mealPlannerState", () => {
     ).toBe(false);
   });
 
+  it("resolve o lanche híbrido com trocas estruturadas e reflete isso na lista de compras", () => {
+    const planner = createInitialMealPlannerStorage(
+      new Date("2026-04-10T08:00:00")
+    );
+
+    planner.today.selectedSubstitutionsByMeal = {
+      lanche: {
+        "lanche-base-cremosa": "lanche-leite-amendoa",
+        "lanche-fruta": "lanche-morango",
+        "lanche-carbo": "lanche-farelo-aveia",
+        "lanche-complemento": "lanche-cacau-po",
+      },
+    };
+
+    const lanche = mealPlanData.meals.find(meal => meal.key === "lanche");
+    expect(lanche).toBeDefined();
+
+    const resolved = getResolvedMealSelection(
+      lanche!,
+      planner.profile,
+      planner.today
+    );
+
+    expect(resolved.items.map(item => item.name)).toEqual([
+      "Leite de amêndoa",
+      "Morango",
+      "Farelo de aveia",
+      "Cacau em pó",
+    ]);
+    expect(resolved.appliedSubstitutions).toEqual({
+      "lanche-base-cremosa": expect.objectContaining({
+        name: "Leite de amêndoa",
+      }),
+      "lanche-fruta": expect.objectContaining({
+        name: "Morango",
+      }),
+      "lanche-carbo": expect.objectContaining({
+        name: "Farelo de aveia",
+      }),
+      "lanche-complemento": expect.objectContaining({
+        name: "Cacau em pó",
+      }),
+    });
+
+    const groups = buildWeeklyShoppingGroups(mealPlanData, planner);
+    expect(
+      groups.find(group => group.key === "laticinios-bebidas")?.items
+    ).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          name: "Leite de amêndoa",
+          weeklyPortion: "7 x 240 ml",
+        }),
+      ])
+    );
+    expect(groups.find(group => group.key === "frutas")?.items).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          name: "Morango",
+          weeklyPortion: "7 x 10 unidades médias (120 g)",
+        }),
+      ])
+    );
+  });
+
   it("applies a swap-map selection by switching the meal to base mode", () => {
     const planner = createInitialMealPlannerStorage(
       new Date("2026-04-10T08:00:00")
@@ -247,7 +313,7 @@ describe("mealPlannerState", () => {
 
     expect(
       getMealsWithSubstitutions(mealPlanData).map(meal => meal.key)
-    ).toEqual(["cafe", "almoco", "jantar"]);
+    ).toEqual(["cafe", "almoco", "lanche", "jantar"]);
     expect(groups.map(group => group.slotId)).toEqual([
       "almoco-carbo",
       "almoco-proteina",
@@ -281,6 +347,36 @@ describe("mealPlannerState", () => {
         }),
       ])
     );
+  });
+
+  it("salva o resumo com Base com N ajustes quando houver duas ou mais trocas", () => {
+    const planner = createInitialMealPlannerStorage(
+      new Date("2026-04-10T08:00:00")
+    );
+    planner.today.activeVariantByMeal = {
+      lanche: "base",
+    };
+    planner.today.selectedSubstitutionsByMeal = {
+      lanche: {
+        "lanche-base-cremosa": "lanche-leite-amendoa",
+        "lanche-fruta": "lanche-morango",
+      },
+    };
+
+    const lanche = mealPlanData.meals.find(meal => meal.key === "lanche");
+    expect(lanche).toBeDefined();
+
+    const favorite = createSavedMealComposition(
+      lanche!,
+      planner,
+      new Date("2026-04-10T12:00:00")
+    );
+
+    expect(favorite.label).toBe("Lanche da tarde · Base com 2 ajustes");
+    expect(favorite.substitutionSelections).toEqual({
+      "lanche-base-cremosa": "lanche-leite-amendoa",
+      "lanche-fruta": "lanche-morango",
+    });
   });
 
   it("counts only active swaps for meals currently resolved on the base plan", () => {

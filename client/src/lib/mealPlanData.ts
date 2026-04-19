@@ -93,6 +93,9 @@ export interface MealSubstitutionOption extends MealItem {
 export interface MealSubstitution {
   slotId: string;
   from: string;
+  groupLabel: string;
+  modalDescription: string;
+  swapMapLabel: string;
   options: MealSubstitutionOption[];
 }
 
@@ -421,6 +424,10 @@ export const mealPlanData: MealPlanData = {
         {
           slotId: "cafe-fruta",
           from: "Melão",
+          groupLabel: "Fruta do café",
+          modalDescription:
+            "Troque a fruta do café da manhã por opções mais refrescantes ou práticas.",
+          swapMapLabel: "Fruta do café",
           options: [
             {
               id: "cafe-melancia",
@@ -441,6 +448,10 @@ export const mealPlanData: MealPlanData = {
         {
           slotId: "cafe-proteina",
           from: "Ovos de galinha",
+          groupLabel: "Proteína do café",
+          modalDescription:
+            "Troque a proteína do café da manhã por versões mais leves ou cremosas.",
+          swapMapLabel: "Proteína do café",
           options: [
             {
               id: "cafe-mucarela",
@@ -589,6 +600,10 @@ export const mealPlanData: MealPlanData = {
         {
           slotId: "almoco-carbo",
           from: "Abóbora cabotiá cozida",
+          groupLabel: "Carboidrato do almoço",
+          modalDescription:
+            "Troque a base de carboidrato do almoço sem desmontar o prato.",
+          swapMapLabel: "Carboidrato do almoço",
           options: [
             {
               id: "almoco-batata-inglesa",
@@ -616,6 +631,10 @@ export const mealPlanData: MealPlanData = {
         {
           slotId: "almoco-proteina",
           from: "Filé de frango grelhado",
+          groupLabel: "Proteína do almoço",
+          modalDescription:
+            "Troque a proteína central do almoço mantendo a estrutura da refeição.",
+          swapMapLabel: "Proteína do almoço",
           options: [
             {
               id: "almoco-tilapia",
@@ -726,7 +745,97 @@ export const mealPlanData: MealPlanData = {
           shoppingKey: "Semente de chia",
         },
       ],
-      substitutions: [],
+      substitutions: [
+        {
+          slotId: "lanche-base-cremosa",
+          from: "Iogurte natural desnatado",
+          groupLabel: "Base cremosa do lanche",
+          modalDescription:
+            "Troque a base cremosa do lanche por uma opção sem lactose ou vegetal.",
+          swapMapLabel: "Base cremosa",
+          options: [
+            {
+              id: "lanche-zero-lactose",
+              name: "Iogurte zero lactose",
+              portion: "1 unidade",
+              category: "laticinios-bebidas",
+              shoppingKey: "Iogurte zero lactose",
+            },
+            {
+              id: "lanche-leite-amendoa",
+              name: "Leite de amêndoa",
+              portion: "240 ml",
+              category: "laticinios-bebidas",
+              shoppingKey: "Leite de amêndoa",
+            },
+          ],
+        },
+        {
+          slotId: "lanche-fruta",
+          from: "Pera",
+          groupLabel: "Fruta do lanche",
+          modalDescription:
+            "Troque a fruta do lanche para variar sabor, textura e praticidade.",
+          swapMapLabel: "Fruta do lanche",
+          options: [
+            {
+              id: "lanche-abacaxi",
+              name: "Abacaxi",
+              portion: "1 fatia média (75 g)",
+              category: "frutas",
+              shoppingKey: "Abacaxi",
+            },
+            {
+              id: "lanche-morango",
+              name: "Morango",
+              portion: "10 unidades médias (120 g)",
+              category: "frutas",
+              shoppingKey: "Morango",
+            },
+            {
+              id: "lanche-banana-prata",
+              name: "Banana prata",
+              portion: "1 unidade grande (55 g)",
+              category: "frutas",
+              shoppingKey: "Banana prata",
+            },
+          ],
+        },
+        {
+          slotId: "lanche-carbo",
+          from: "Aveia",
+          groupLabel: "Carboidrato do lanche",
+          modalDescription:
+            "Troque o carboidrato do lanche por uma versão mais leve e prática.",
+          swapMapLabel: "Carboidrato do lanche",
+          options: [
+            {
+              id: "lanche-farelo-aveia",
+              name: "Farelo de aveia",
+              portion: "1 colher de sopa (10 g)",
+              category: "carboidratos",
+              shoppingKey: "Farelo de aveia",
+            },
+          ],
+        },
+        {
+          slotId: "lanche-complemento",
+          from: "Semente de chia",
+          groupLabel: "Complemento do lanche",
+          modalDescription:
+            "Troque o complemento do lanche para ajustar sabor e funcionalidade.",
+          swapMapLabel: "Complemento do lanche",
+          options: [
+            {
+              id: "lanche-cacau-po",
+              name: "Cacau em pó",
+              portion: "1 colher de chá cheia (4 g)",
+              category: "gorduras-complementos",
+              shoppingKey: "Cacau em pó",
+            },
+          ],
+        },
+      ],
       variants: [
         {
           id: "lanche-zero-lactose",
@@ -881,6 +990,10 @@ export const mealPlanData: MealPlanData = {
         {
           slotId: "jantar-carbo",
           from: "Batata inglesa assada",
+          groupLabel: "Carboidrato do jantar",
+          modalDescription:
+            "Troque a base de carboidrato do jantar sem alterar a estrutura do prato.",
+          swapMapLabel: "Carboidrato do jantar",
           options: [
             {
               id: "jantar-abobora",
@@ -901,6 +1014,10 @@ export const mealPlanData: MealPlanData = {
         {
           slotId: "jantar-proteina",
           from: "Acém moído refogado",
+          groupLabel: "Proteína do jantar",
+          modalDescription:
+            "Troque a proteína do jantar mantendo os acompanhamentos.",
+          swapMapLabel: "Proteína do jantar",
           options: [
             {
               id: "jantar-frango-desfiado",

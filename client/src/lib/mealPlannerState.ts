@@ -667,10 +667,13 @@ function getMealLabelSuffix(
 
   const substitutions = Object.values(selection.appliedSubstitutions);
   if (substitutions.length === 0) return "Base";
+  if (substitutions.length === 1) {
+    const first = substitutions[0];
+    if (!first) return "Base";
+    return `Base com ${first.name.toLowerCase()}`;
+  }
 
-  const first = substitutions[0];
-  if (!first) return "Base";
-  return `Base com ${first.name.toLowerCase()}`;
+  return `Base com ${substitutions.length} ajustes`;
 }
 
 export function createSavedMealComposition(
