@@ -24,6 +24,20 @@ function createLocalStorageMock(initial: Record<string, string> = {}) {
   };
 }
 
+function getMealCardMarkup(markup: string, mealKey: string): string {
+  const marker = `data-meal-card="${mealKey}"`;
+  const startIndex = markup.indexOf(marker);
+
+  if (startIndex === -1) {
+    throw new Error(`Card da refeicao nao encontrado: ${mealKey}`);
+  }
+
+  const endIndex = markup.indexOf("</article>", startIndex);
+  return endIndex === -1
+    ? markup.slice(startIndex)
+    : markup.slice(startIndex, endIndex + "</article>".length);
+}
+
 describe("MealPlanPage", () => {
   beforeEach(() => {
     vi.useFakeTimers();
@@ -206,6 +220,8 @@ describe("MealPlanPage", () => {
     expect(markup).toContain("Contrafilé sem gordura grelhado");
     expect(markup).toContain("Alcachofra cozida");
     expect(markup).toContain("Troque Melão");
+    expect(markup.match(/Troque Melão/g)).toHaveLength(1);
+    expect(getMealCardMarkup(markup, "jantar")).not.toContain("Troque Melão");
     expect(markup).toContain("Lista da semana");
     expect(markup).not.toContain("Meal prep semanal");
     expect(markup).not.toContain("Seu plano de hoje");

@@ -461,6 +461,7 @@ function MealCard({
 
   return (
     <article
+      data-meal-card={meal.key}
       data-meal-surface="elevated"
       className="inner-card overflow-hidden"
       style={{
