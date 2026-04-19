@@ -191,10 +191,9 @@ describe("MealPlanPage", () => {
     expect(markup).toContain("Almoço");
     expect(markup).toContain("trocas ativas");
     expect(markup).toContain("Personalizável agora");
-    expect(markup).toContain("Escolha uma base ou uma versão pronta");
-    expect(markup).toContain("Toque em uma opção para trocar na hora");
-    expect(markup).toContain("Toque para ajustar agora");
-    expect(markup).toContain("Selecionada agora");
+    expect(markup).toContain("Selecione aqui os itens para montar seu prato");
+    expect(markup).not.toContain("Escolha uma base ou uma versão pronta");
+    expect(markup).not.toContain("Toque em uma opção para trocar na hora");
     expect(markup).toContain('data-meal-interactive="choice"');
     expect(markup).toContain('data-meal-interactive="swap-map"');
     expect(markup).toContain('data-selected="true"');

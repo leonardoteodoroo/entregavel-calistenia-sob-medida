@@ -444,9 +444,6 @@ function MealCard({
   activeModeLabel,
   onToggleCompleted,
   onToggleFavorite,
-  onUseBase,
-  onUseVariant,
-  onSelectSubstitution,
   plannerState,
   profile,
 }: {
@@ -457,17 +454,10 @@ function MealCard({
   activeModeLabel: string;
   onToggleCompleted: () => void;
   onToggleFavorite: () => void;
-  onUseBase: () => void;
-  onUseVariant: (variantId: string) => void;
-  onSelectSubstitution: (slotId: string, optionId: string | null) => void;
   plannerState: MealPlannerStorage;
   profile: MealPlannerProfile | null;
 }) {
   const resolved = getResolvedMealSelection(meal, profile, plannerState.today);
-  const activeMode =
-    resolved.mode === "variant" ? resolved.activeVariant?.id : "base";
-  const selectedSlots =
-    plannerState.today.selectedSubstitutionsByMeal[meal.key] ?? {};
 
   return (
     <article
@@ -574,86 +564,23 @@ function MealCard({
         </div>
 
         <div className="mb-4">
-          <p
-            className="font-body mb-2"
+          <Button
+            type="button"
+            variant="outline"
+            disabled={disabled}
+            className="w-full justify-start whitespace-normal text-left"
             style={{
-              fontSize: "0.8rem",
-              color: "var(--color-charcoal-light)",
-              lineHeight: 1.6,
+              minHeight: "3.4rem",
+              borderRadius: "18px",
+              borderColor: "rgba(47,93,89,0.24)",
+              backgroundColor: "rgba(221,236,231,0.72)",
+              color: "var(--color-charcoal)",
             }}
           >
-            Escolha uma base ou uma versão pronta.
-          </p>
-          <div className="flex flex-col gap-2">
-            <PlannerChoiceButton
-              label="Base do plano"
-              hint="Personalize pelas trocas abaixo"
-              active={activeMode === "base"}
-              disabled={disabled}
-              onClick={onUseBase}
-            />
-            {meal.variants.map(variant => (
-              <PlannerChoiceButton
-                key={variant.id}
-                label={variant.label}
-                hint="Usa uma combinação pronta"
-                active={activeMode === variant.id}
-                disabled={disabled}
-                onClick={() => onUseVariant(variant.id)}
-              />
-            ))}
-          </div>
+            <SlidersHorizontal size={16} />
+            Selecione aqui os itens para montar seu prato
+          </Button>
         </div>
-
-        {resolved.mode === "base" && meal.substitutions.length > 0 ? (
-          <div className="mb-4 space-y-3">
-            {meal.substitutions.map(slot => (
-              <div key={slot.slotId}>
-                <p
-                  className="font-body mb-2"
-                  style={{
-                    fontSize: "0.78rem",
-                    color: "var(--color-charcoal-light)",
-                    lineHeight: 1.6,
-                  }}
-                >
-                  Toque em uma opção para trocar na hora.
-                </p>
-                <p
-                  className="font-body mb-2"
-                  style={{
-                    fontSize: "0.76rem",
-                    fontWeight: 600,
-                    color: "var(--color-charcoal)",
-                  }}
-                >
-                  Troque {slot.from}
-                </p>
-                <div className="flex flex-col gap-2">
-                  <PlannerChoiceButton
-                    label="Manter original"
-                    hint="Volta para o item base"
-                    active={!selectedSlots[slot.slotId]}
-                    disabled={disabled}
-                    onClick={() => onSelectSubstitution(slot.slotId, null)}
-                  />
-                  {slot.options.map(option => (
-                    <PlannerChoiceButton
-                      key={option.id}
-                      label={option.name}
-                      hint={option.portion}
-                      active={selectedSlots[slot.slotId] === option.id}
-                      disabled={disabled}
-                      onClick={() =>
-                        onSelectSubstitution(slot.slotId, option.id)
-                      }
-                    />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : null}
 
         <div
           data-meal-panel="active-choice"
@@ -2339,44 +2266,10 @@ export default function MealPlanPage({
                           )
                             ? current.today.completedMeals.filter(
                                 currentMeal => currentMeal !== meal.key
-                              )
+                          )
                             : [...current.today.completedMeals, meal.key],
                         },
                       }))
-                    }
-                    onUseBase={() =>
-                      setPlannerState(current => ({
-                        ...current,
-                        today: {
-                          ...current.today,
-                          activeVariantByMeal: {
-                            ...current.today.activeVariantByMeal,
-                            [meal.key]: "base",
-                          },
-                        },
-                      }))
-                    }
-                    onUseVariant={variantId =>
-                      setPlannerState(current => ({
-                        ...current,
-                        today: {
-                          ...current.today,
-                          activeVariantByMeal: {
-                            ...current.today.activeVariantByMeal,
-                            [meal.key]: variantId,
-                          },
-                        },
-                      }))
-                    }
-                    onSelectSubstitution={(slotId, optionId) =>
-                      setPlannerState(current =>
-                        applyMealSubstitutionSelection(
-                          current,
-                          meal.key,
-                          slotId,
-                          optionId
-                        )
-                      )
                     }
                   />
                 );
