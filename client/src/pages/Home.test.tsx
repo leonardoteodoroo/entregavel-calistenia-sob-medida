@@ -15,16 +15,11 @@ describe("Home bonus cards", () => {
     expect(markup).toContain("Miniatura de sobremesas saudaveis");
     expect(markup).not.toContain("Miniatura editorial de sobremesas saudaveis");
     expect(markup).toContain("77 curtidas");
-    expect(markup).toContain("Atualização: 18/03/2026, com carinho");
+    expect(markup).toContain("Atualização: 22/03/2026, com carinho");
   });
 
   it("renders the new bonus card for the meal plan shelf", () => {
     const markup = renderToStaticMarkup(<Home />);
-    const todayLabel = new Intl.DateTimeFormat("pt-BR", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-    }).format(new Date());
 
     expect(markup).toContain("Seu Plano Alimentar");
     expect(markup).toContain("/plano-alimentar/");
@@ -35,7 +30,7 @@ describe("Home bonus cards", () => {
       "Abra seu plano alimentar com refeições guiadas, trocas fáceis, hidratação do dia e lista da semana organizada para você."
     );
     expect(markup).toContain("94 curtidas");
-    expect(markup).toContain(`Atualização: ${todayLabel}, com carinho`);
+    expect(markup).toContain("Atualização: 18/04/2026, com carinho");
   });
 
   it("keeps the oleos essenciais bonus hidden from the main project shelf", () => {
@@ -115,7 +110,8 @@ describe("Home bonus cards", () => {
     expect(markup).toContain(
       "box-shadow:0 2px 8px rgba(44, 44, 44, 0.04), 0 10px 22px rgba(44, 44, 44, 0.05)"
     );
-    expect(markup).toContain("mt-auto w-full rounded font-body");
+    expect(markup).toContain("mt-auto");
+    expect(markup).toContain("w-full rounded font-body");
     expect(markup).toContain("transition-[transform,box-shadow,border-color]");
     expect(markup).toContain(
       "box-shadow:0 1px 4px rgba(44, 44, 44, 0.05), 0 6px 14px rgba(44, 44, 44, 0.07)"

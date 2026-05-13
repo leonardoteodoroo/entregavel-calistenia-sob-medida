@@ -49,6 +49,7 @@ const BONUS_RECIPES: BonusCard[] = [
       src: toPublicPath("bonus/receitas-low-carb/01-crepioca.webp"),
       alt: "Miniatura da receita de crepioca low carb",
     },
+    updatedAtLabel: "22/03/2026",
     social: { likesBase: 287 },
   },
   {
@@ -62,7 +63,7 @@ const BONUS_RECIPES: BonusCard[] = [
       src: toPublicPath("bonus/sobremesas-saudaveis/01-mousse-maracuja.webp"),
       alt: "Miniatura de sobremesas saudaveis",
     },
-    updatedAtLabel: "18/03/2026",
+    updatedAtLabel: "22/03/2026",
     social: { likesBase: 77 },
   },
   {
@@ -89,6 +90,7 @@ const BONUS_RECIPES: BonusCard[] = [
       src: toPublicPath("assets/images/alimentacao/v3/meal-prep-semanal.webp"),
       alt: "Ingredientes porcionados para a semana em potes organizados sobre bancada clara.",
     },
+    updatedAtLabel: "18/04/2026",
     social: { likesBase: 94 },
   },
   {

@@ -280,6 +280,57 @@ describe("mealPlannerState", () => {
     });
   });
 
+  it("mantem o mapa global interativo para lanche e salva a composicao favorita confirmada", () => {
+    const planner = createInitialMealPlannerStorage(
+      new Date("2026-04-10T08:00:00")
+    );
+    planner.profile = {
+      weightKg: 58,
+      goal: "praticidade",
+      foodStyle: "padrao",
+      restrictions: [],
+    };
+    planner.today.activeVariantByMeal = {
+      lanche: "lanche-sem-gluten",
+    };
+
+    const next = applyMealSubstitutionSelection(
+      planner,
+      "lanche",
+      "lanche-fruta",
+      "lanche-morango"
+    );
+    const activeSummary = getActiveSwapSummaryEntries(mealPlanData, next);
+    const favorite = createSavedMealComposition(
+      mealPlanData.meals.find(meal => meal.key === "lanche")!,
+      next,
+      new Date("2026-04-10T09:30:00.000Z")
+    );
+
+    expect(next.today.activeVariantByMeal.lanche).toBe("base");
+    expect(next.today.selectedSubstitutionsByMeal.lanche).toEqual({
+      "lanche-fruta": "lanche-morango",
+    });
+    expect(activeSummary).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          mealKey: "lanche",
+          slotId: "lanche-fruta",
+          selectedOptionName: "Morango",
+        }),
+      ])
+    );
+    expect(favorite).toMatchObject({
+      mealKey: "lanche",
+      sourceMode: "base",
+      variantId: null,
+      substitutionSelections: {
+        "lanche-fruta": "lanche-morango",
+      },
+    });
+    expect(favorite.label).toContain("Base com morango");
+  });
+
   it("clears a swap-map selection for a slot", () => {
     const planner = createInitialMealPlannerStorage(
       new Date("2026-04-10T08:00:00")

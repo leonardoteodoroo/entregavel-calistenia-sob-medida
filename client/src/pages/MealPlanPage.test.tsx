@@ -1,7 +1,16 @@
+import { isValidElement, type ReactNode } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
+import { mealPlanData } from "@/lib/mealPlanData";
+import { applyDraftSelection } from "@/lib/mealPlannerCustomization";
+import { createInitialMealPlannerStorage } from "@/lib/mealPlannerState";
 import { MEAL_PLANNER_STORAGE_KEY } from "@/lib/mealPlannerState";
+import {
+  MealCard,
+  commitMealCustomizationFlow,
+  openMealCustomizationFlow,
+} from "./MealPlanPage";
 import MealPlanPage from "./MealPlanPage";
 
 vi.mock("wouter", () => ({
@@ -36,6 +45,61 @@ function getMealCardMarkup(markup: string, mealKey: string): string {
   return endIndex === -1
     ? markup.slice(startIndex)
     : markup.slice(startIndex, endIndex + "</article>".length);
+}
+
+function getMealByKey(mealKey: "almoco" | "lanche") {
+  const meal = mealPlanData.meals.find(candidate => candidate.key === mealKey);
+
+  if (!meal) {
+    throw new Error(`Refeicao nao encontrada: ${mealKey}`);
+  }
+
+  return meal;
+}
+
+function getNodeText(node: ReactNode): string {
+  if (
+    typeof node === "string" ||
+    typeof node === "number" ||
+    typeof node === "bigint"
+  ) {
+    return String(node);
+  }
+
+  if (Array.isArray(node)) {
+    return node.map(child => getNodeText(child)).join("");
+  }
+
+  if (!isValidElement(node)) {
+    return "";
+  }
+
+  return getNodeText(node.props.children);
+}
+
+function findElementByText(
+  node: ReactNode,
+  text: string
+): React.ReactElement | null {
+  if (!isValidElement(node)) {
+    if (Array.isArray(node)) {
+      for (const child of node) {
+        const match = findElementByText(child, text);
+        if (match) return match;
+      }
+    }
+
+    return null;
+  }
+
+  if (typeof node.props.onClick === "function") {
+    const nodeText = getNodeText(node.props.children);
+    if (nodeText.includes(text)) {
+      return node;
+    }
+  }
+
+  return findElementByText(node.props.children, text);
 }
 
 describe("MealPlanPage", () => {
@@ -225,5 +289,98 @@ describe("MealPlanPage", () => {
     expect(markup).toContain("Lista da semana");
     expect(markup).not.toContain("Meal prep semanal");
     expect(markup).not.toContain("Seu plano de hoje");
+  });
+
+  it("aciona a abertura do fluxo de personalizacao ao clicar no CTA do card", () => {
+    const plannerState = createInitialMealPlannerStorage(
+      new Date("2026-04-10T08:00:00")
+    );
+    plannerState.profile = {
+      weightKg: 62,
+      goal: "constancia",
+      foodStyle: "padrao",
+      restrictions: [],
+    };
+
+    const meal = getMealByKey("almoco");
+    const onOpenCustomization = vi.fn();
+
+    const tree = MealCard({
+      meal,
+      plannerState,
+      profile: plannerState.profile,
+      disabled: false,
+      completed: false,
+      isFavorited: false,
+      activeModeLabel: "Base do plano com as trocas que você escolheu",
+      onToggleCompleted: vi.fn(),
+      onToggleFavorite: vi.fn(),
+      onOpenCustomization,
+    });
+
+    const cta = findElementByText(
+      tree,
+      "Selecione aqui os itens para montar seu prato"
+    );
+
+    expect(cta).not.toBeNull();
+    cta?.props.onClick();
+
+    expect(onOpenCustomization).toHaveBeenCalledWith(meal);
+  });
+
+  it("abre o rascunho da refeicao, salva a composicao confirmada e reflete no markup da pagina", () => {
+    const plannerState = createInitialMealPlannerStorage(
+      new Date("2026-04-10T08:00:00")
+    );
+    plannerState.profile = {
+      weightKg: 62,
+      goal: "saciedade",
+      foodStyle: "padrao",
+      restrictions: [],
+    };
+
+    const meal = getMealByKey("lanche");
+    const openedFlow = openMealCustomizationFlow(plannerState, meal);
+    const nextDraft = applyDraftSelection(
+      openedFlow.draft,
+      "lanche-fruta",
+      "lanche-morango"
+    );
+    const committedFlow = commitMealCustomizationFlow(
+      plannerState,
+      nextDraft,
+      meal
+    );
+
+    expect(openedFlow.openMealKey).toBe("lanche");
+    expect(committedFlow.openMealKey).toBeNull();
+    expect(committedFlow.draft).toBeNull();
+    expect(
+      committedFlow.plannerState.today.selectedSubstitutionsByMeal.lanche
+    ).toEqual({
+      "lanche-fruta": "lanche-morango",
+    });
+    expect(committedFlow.plannerState.today.activeVariantByMeal.lanche).toBe(
+      "base"
+    );
+
+    vi.stubGlobal("window", {
+      localStorage: createLocalStorageMock({
+        [MEAL_PLANNER_STORAGE_KEY]: JSON.stringify(committedFlow.plannerState),
+      }),
+      innerWidth: 1280,
+      scrollTo: vi.fn(),
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+      dispatchEvent: vi.fn(),
+    });
+
+    const markup = renderToStaticMarkup(<MealPlanPage />);
+
+    expect(markup).toContain("Morango");
+    expect(markup).toContain("Fruta do lanche");
+    expect(markup).toContain("Lanche");
+    expect(markup).toContain("Trocas ativas agora");
   });
 });

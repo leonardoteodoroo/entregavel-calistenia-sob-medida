@@ -1,7 +1,11 @@
 import { describe, expect, it } from "vitest";
 
 import { mealPlanData } from "./mealPlanData";
-import { createInitialMealPlannerStorage } from "./mealPlannerState";
+import {
+  buildWeeklyShoppingGroups,
+  createInitialMealPlannerStorage,
+  getResolvedMealSelection,
+} from "./mealPlannerState";
 import {
   applyDraftSelection,
   applyDraftVariant,
@@ -208,5 +212,37 @@ describe("mealPlannerCustomization", () => {
         "lanche-fruta": "lanche-abacaxi",
       },
     });
+  });
+
+  it("confirma o rascunho do lanche e atualiza resumo e lista de compras com a composicao salva", () => {
+    const storage = createInitialMealPlannerStorage(
+      new Date("2026-04-10T08:00:00")
+    );
+    const meal = getMealOrThrow("lanche");
+    const draft = applyDraftSelection(
+      createMealCustomizationDraft(meal, storage),
+      "lanche-fruta",
+      "lanche-morango"
+    );
+    const nextStorage = commitMealCustomizationDraft(storage, draft);
+    const resolved = getResolvedMealSelection(
+      meal,
+      nextStorage.profile,
+      nextStorage.today
+    );
+    const shoppingGroups = buildWeeklyShoppingGroups(mealPlanData, nextStorage);
+
+    expect(resolved.mode).toBe("base");
+    expect(resolved.items.map(item => item.name)).toContain("Morango");
+    expect(
+      shoppingGroups.find(group => group.key === "frutas")?.items
+    ).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          name: "Morango",
+          weeklyPortion: "7 x 10 unidades médias (120 g)",
+        }),
+      ])
+    );
   });
 });
