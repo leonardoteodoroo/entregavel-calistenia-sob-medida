@@ -1,0 +1,43 @@
+# Calistenia Feminina Sob Medida
+
+> Produto digital de 28 dias para mulheres iniciantes ou em retomada criarem constancia com treinos curtos em casa, apoio pratico, biblioteca de exercicios, checklist, FAQ e bonus de alimentacao saudavel.
+
+Site canonico: https://calistenia-sob-medida-28-dias.semprenamoda.com.br/
+
+Este arquivo oferece uma visao resumida do projeto para assistentes de IA. Use os links abaixo como mapa de leitura. O arquivo completo de contexto publico esta em `llms-full.txt`.
+
+## Contexto para LLMs
+
+- [Contexto publico completo](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/llms-full.txt): versao expandida em Markdown com posicionamento, publico-alvo, estrutura do produto, FAQ, suporte e paginas institucionais.
+
+## Produto
+
+- [Pagina principal](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/): apresentacao do metodo digital, proposta de 28 dias, navegacao para treino, biblioteca, checklist, FAQ, apoio e bonus.
+- [Biblioteca de exercicios](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/#/biblioteca): area de referencia visual e tecnica para movimentos do programa.
+- [Checklist](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/#/checklist): acompanhamento de constancia e progresso ao longo do desafio.
+- [FAQ](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/#/faq): respostas diretas sobre uso do produto, retomada e adaptacao de rotina.
+- [Apoio e continuidade](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/#/apoio): orientacoes de retomada, continuidade e planejamento apos o ciclo inicial.
+
+## Bonus e conteudos complementares
+
+- [Plano alimentar](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/plano-alimentar/): organizacao alimentar complementar com orientacao pratica e foco em rotina real.
+- [Receitas Low Carb](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/receitas-low-carb/): bonus culinario com opcoes simples para reduzir friccao na cozinha.
+- [Sobremesas Saudaveis](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/sobremesas-saudaveis/): bonus de sobremesas praticas para manter aderencia.
+- [Oleos Essenciais e Emocoes no Emagrecimento](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/oleos-essenciais-emagrecimento/): bonus consultivo de autocuidado, rotina e emocoes.
+
+## Institucional
+
+- [Sobre](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/sobre/): origem, proposta e compromisso do projeto.
+- [Contato](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/contato/): suporte oficial para duvidas de acesso e continuidade.
+- [Politica de Privacidade](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/politica-de-privacidade/): diretrizes de tratamento de dados.
+- [Termos de Servico](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/termos-de-servico/): regras essenciais de uso do produto digital.
+- [Aviso Legal](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/aviso-legal/): responsabilidade, propriedade intelectual e transparencia.
+
+## Contato
+
+- [Email oficial](mailto:sac@semprenamoda.com.br): sac@semprenamoda.com.br
+- Telefone informativo: (62) 99991-8702
+
+## Optional
+
+- [Blog Sempre Na Moda](https://semprenamoda.com.br/blogs/todos-os-posts): conteudos externos da marca relacionados a estilo de vida e bem-estar.
