@@ -19,8 +19,10 @@ export function ensureGtm(): void {
 
   const script = document.createElement("script");
   script.async = true;
+  script.type = "text/partytown";
   script.src = `https://www.googletagmanager.com/gtm.js?id=${gtmId}`;
   document.head.appendChild(script);
+  window.dispatchEvent(new CustomEvent("ptupdate"));
 
   const noscript = document.createElement("noscript");
   const iframe = document.createElement("iframe");

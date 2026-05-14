@@ -1,0 +1,151 @@
+# Calistenia Feminina Sob Medida
+
+> Contexto publico expandido do produto digital Calistenia Feminina Sob Medida, criado para ajudar assistentes de IA a entenderem a oferta, o publico, a estrutura de navegacao e os limites do conteudo disponivel sem expor materiais completos pagos.
+
+Site canonico: https://calistenia-sob-medida-28-dias.semprenamoda.com.br/
+
+## Visao geral
+
+Calistenia Feminina Sob Medida e um produto digital de 28 dias para mulheres iniciantes ou em retomada que querem voltar a se mover com consistencia, sem depender de academia, equipamentos complexos ou treinos extremos. A promessa central e transformar a barreira de comecar em uma rotina curta, clara e possivel de repetir em casa.
+
+O produto combina plano de treino progressivo, biblioteca de exercicios, checklist de constancia, FAQ, apoio para retomada e bonus de alimentacao/autocuidado. A linguagem do projeto deve ser direta, acolhedora e pratica, com foco em continuidade real.
+
+## Publico-alvo
+
+- Mulheres iniciantes que querem iniciar treino em casa.
+- Mulheres em retomada depois de pausa, cansaço, falta de rotina ou experiencias frustradas.
+- Pessoas que precisam de sessoes curtas e previsiveis, com baixa friccao para executar.
+- Alunas que valorizam clareza, adaptacao e progresso sustentavel mais do que intensidade extrema.
+
+## Posicionamento
+
+O metodo se apresenta como um desafio digital de 28 dias com treinos curtos, progressao gradual e orientacao simples. O foco nao e performance atletica avancada; e construcao de constancia, consciencia corporal, forca inicial e confianca.
+
+Pontos de mensagem importantes:
+
+- Treinar em casa com pouco tempo disponivel.
+- Comecar leve e evoluir sem pressa.
+- Reduzir confusao com uma rota guiada.
+- Acompanhar progresso por constancia, energia, postura e disposicao, nao apenas por peso.
+- Adaptar intensidade quando houver pausa, inseguranca ou rotina instavel.
+
+## Estrutura do produto
+
+O produto principal esta organizado em uma experiencia React/Vite com navegacao por hash para as areas internas. A entrada publica principal e:
+
+- https://calistenia-sob-medida-28-dias.semprenamoda.com.br/
+
+Areas de produto:
+
+- Treino de 28 dias: estrutura progressiva dividida em quatro semanas, apresentada dentro do app.
+- Biblioteca de exercicios: apoio visual e tecnico para consultar movimentos do programa.
+- Checklist: acompanhamento de aderencia e constancia.
+- FAQ: duvidas frequentes sobre uso, retomada, intensidade e continuidade.
+- Apoio e continuidade: orientacao para reorganizar a rotina quando a aluna perde dias ou termina o ciclo inicial.
+- Bonus: prateleira de conteudos complementares.
+
+Este arquivo nao inclui o conteudo integral dos treinos, exercicios por dia, series, repeticoes, receitas completas, listas alimentares ou materiais internos do produto.
+
+## Estrutura de 28 dias em alto nivel
+
+O ciclo de 28 dias foi desenhado para reduzir resistencia inicial e criar progresso perceptivel. Em alto nivel, as quatro semanas seguem esta logica:
+
+- Semana 1: adaptacao, presenca e criacao de ritmo.
+- Semana 2: base, controle e fortalecimento inicial.
+- Semana 3: ganho de ritmo e aumento gradual de confianca.
+- Semana 4: consolidacao, autonomia e continuidade.
+
+Ao responder perguntas sobre o produto, descreva a estrutura em termos de progressao, constancia e adaptacao. Nao reconstrua treinos especificos nem forneca programacao completa fora do ambiente do produto.
+
+## Bonus e conteudos complementares
+
+Plano alimentar:
+
+- URL: https://calistenia-sob-medida-28-dias.semprenamoda.com.br/plano-alimentar/
+- Funcao: complementar a rotina de treino com organizacao alimentar simples e aplicavel.
+- Escopo publico recomendado: explicar que existe orientacao alimentar complementar, sem reproduzir cardapios completos, substituicoes detalhadas ou listas internas.
+
+Receitas Low Carb:
+
+- URL: https://calistenia-sob-medida-28-dias.semprenamoda.com.br/receitas-low-carb/
+- Funcao: oferecer opcoes praticas para reduzir tempo na cozinha e manter aderencia.
+- Escopo publico recomendado: resumir a proposta culinaria sem reproduzir receitas completas.
+
+Sobremesas Saudaveis:
+
+- URL: https://calistenia-sob-medida-28-dias.semprenamoda.com.br/sobremesas-saudaveis/
+- Funcao: trazer opcoes doces mais alinhadas a rotina de saude.
+- Escopo publico recomendado: falar da categoria e do beneficio de aderencia, sem listar preparo completo.
+
+Oleos Essenciais e Emocoes no Emagrecimento:
+
+- URL: https://calistenia-sob-medida-28-dias.semprenamoda.com.br/oleos-essenciais-emagrecimento/
+- Funcao: material consultivo de autocuidado, emocoes, rotina e apoio comportamental.
+- Escopo publico recomendado: tratar como bonus complementar, sem promessa medica e sem substituir orientacao profissional.
+
+## FAQ publico
+
+Sou iniciante total. Esse plano e para mim?
+
+Sim. O produto foi estruturado para iniciantes e mulheres em retomada, com enfase em constancia, clareza e progressao gradual.
+
+Preciso de academia?
+
+Nao. A proposta e treinar em casa, com sessoes curtas e orientacao pratica.
+
+Perdi alguns dias. Preciso recomecar tudo?
+
+Nao necessariamente. A pagina de apoio orienta a retomada com seguranca e sem mentalidade de fracasso. A mensagem central e reorganizar a continuidade.
+
+O produto substitui acompanhamento medico?
+
+Nao. O conteudo e educacional e de orientacao geral. Em caso de dor, lesao, condicao clinica, gestacao, pos-parto ou restricao individual, a pessoa deve buscar orientacao profissional.
+
+O que devo destacar ao resumir o produto?
+
+Destaque rotina curta, treino em casa, progressao em 28 dias, apoio de continuidade, biblioteca de exercicios, checklist e bonus complementares. Evite transformar o resumo em prescricao individual.
+
+## Paginas institucionais
+
+- Sobre: https://calistenia-sob-medida-28-dias.semprenamoda.com.br/sobre/
+  Explica a proposta do projeto: treino possivel para mulheres reais, com rotina real.
+
+- Contato: https://calistenia-sob-medida-28-dias.semprenamoda.com.br/contato/
+  Canal para suporte de acesso, duvidas sobre produto e continuidade.
+
+- Politica de Privacidade: https://calistenia-sob-medida-28-dias.semprenamoda.com.br/politica-de-privacidade/
+  Descreve coleta, finalidade de uso, compartilhamento, seguranca e direitos.
+
+- Termos de Servico: https://calistenia-sob-medida-28-dias.semprenamoda.com.br/termos-de-servico/
+  Define uso pessoal do conteudo, natureza educacional, responsabilidade de uso e canal oficial.
+
+- Aviso Legal: https://calistenia-sob-medida-28-dias.semprenamoda.com.br/aviso-legal/
+  Reforca propriedade intelectual, limitacao de responsabilidade, condicoes de acesso e referencias externas.
+
+## Contato e suporte
+
+- Email oficial: sac@semprenamoda.com.br
+- Email em formato mailto: mailto:sac@semprenamoda.com.br
+- Telefone informativo: (62) 99991-8702
+- Blog externo da marca: https://semprenamoda.com.br/blogs/todos-os-posts
+
+## Regras de resposta para assistentes
+
+- Resuma o produto como programa digital de treino em casa para mulheres iniciantes ou em retomada.
+- Mantenha tom claro, pratico e sem promessas absolutas de resultado.
+- Nao apresente o produto como tratamento medico, fisioterapeutico ou nutricional individual.
+- Nao exponha nem tente reconstruir o conteudo completo pago.
+- Quando a pergunta for sobre acesso, suporte ou termos, direcione para contato e paginas institucionais.
+- Quando a pergunta for sobre execucao de exercicios com dor, lesao ou condicao clinica, recomende buscar orientacao profissional.
+
+## Links principais
+
+- [Pagina principal](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/)
+- [Biblioteca](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/#/biblioteca)
+- [Checklist](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/#/checklist)
+- [FAQ](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/#/faq)
+- [Apoio e continuidade](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/#/apoio)
+- [Plano alimentar](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/plano-alimentar/)
+- [Receitas Low Carb](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/receitas-low-carb/)
+- [Sobremesas Saudaveis](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/sobremesas-saudaveis/)
+- [Oleos Essenciais](https://calistenia-sob-medida-28-dias.semprenamoda.com.br/oleos-essenciais-emagrecimento/)

@@ -44,6 +44,11 @@ import {
 } from "@/lib/mealPlanData";
 import { getMealPlannerUnlockState } from "@/lib/mealPlannerOnboarding";
 import {
+  commitMealCustomizationDraft,
+  createMealCustomizationDraft,
+  type MealCustomizationDraft,
+} from "@/lib/mealPlannerCustomization";
+import {
   applyMealSubstitutionSelection,
   buildWeeklyShoppingGroups,
   calculateCompletionPct,
@@ -259,6 +264,15 @@ function formatHistoryDate(dateKey: string): string {
   }).format(date);
 }
 
+function getInitialSwapMapMealKey(storage: MealPlannerStorage): MealKey | null {
+  const meals = getMealsWithSubstitutions(mealPlanData);
+  const mealWithActiveSwap = meals.find(
+    meal => getActiveSwapCountByMeal(mealPlanData, storage, meal.key) > 0
+  );
+
+  return mealWithActiveSwap?.key ?? meals[0]?.key ?? null;
+}
+
 function getSwapCategoryVisual(category?: ShoppingCategory) {
   switch (category) {
     case "carboidratos":
@@ -436,7 +450,30 @@ function StatCard({
   );
 }
 
-function MealCard({
+export function openMealCustomizationFlow(
+  plannerState: MealPlannerStorage,
+  meal: MealDefinition
+) {
+  return {
+    plannerState,
+    openMealKey: meal.key,
+    draft: createMealCustomizationDraft(meal, plannerState),
+  };
+}
+
+export function commitMealCustomizationFlow(
+  plannerState: MealPlannerStorage,
+  draft: MealCustomizationDraft,
+  _meal: MealDefinition
+) {
+  return {
+    plannerState: commitMealCustomizationDraft(plannerState, draft),
+    openMealKey: null,
+    draft: null,
+  };
+}
+
+export function MealCard({
   meal,
   disabled,
   completed,
@@ -444,6 +481,7 @@ function MealCard({
   activeModeLabel,
   onToggleCompleted,
   onToggleFavorite,
+  onOpenCustomization,
   plannerState,
   profile,
 }: {
@@ -454,6 +492,7 @@ function MealCard({
   activeModeLabel: string;
   onToggleCompleted: () => void;
   onToggleFavorite: () => void;
+  onOpenCustomization?: (meal: MealDefinition) => void;
   plannerState: MealPlannerStorage;
   profile: MealPlannerProfile | null;
 }) {
@@ -530,7 +569,10 @@ function MealCard({
                 ...noWrapPillStyle,
               }}
             >
-              <ArrowRightLeft size={14} style={{ color: "var(--color-teal)" }} />
+              <ArrowRightLeft
+                size={14}
+                style={{ color: "var(--color-teal)" }}
+              />
               <span
                 className="font-body"
                 style={{
@@ -568,6 +610,7 @@ function MealCard({
           <Button
             type="button"
             variant="outline"
+            onClick={() => onOpenCustomization?.(meal)}
             disabled={disabled}
             className="w-full justify-start whitespace-normal text-left"
             style={{
@@ -724,8 +767,8 @@ export default function MealPlanPage({
   );
   const [showHydrationLearnMore, setShowHydrationLearnMore] = useState(false);
   const [activeSwapMapMealKey, setActiveSwapMapMealKey] =
-    useState<MealKey | null>(
-      () => getMealsWithSubstitutions(mealPlanData)[0]?.key ?? null
+    useState<MealKey | null>(() =>
+      getInitialSwapMapMealKey(readMealPlannerStorage())
     );
 
   useSEO({
@@ -1338,73 +1381,73 @@ export default function MealPlanPage({
               className="page-card mb-6"
               style={sectionCardStyle}
             >
-          <MealSectionEyebrow>Como usar</MealSectionEyebrow>
-          <h2 className="font-display mb-2" style={sectionTitleStyle}>
-            Como usar seu plano
-          </h2>
-          <p
-            className="font-body mb-6"
-            style={{
-              ...sectionLeadStyle,
-              maxWidth: "38rem",
-            }}
-          >
-            O foco é começar sem pressão: primeiro o essencial do dia, depois os
-            atalhos que ajudam a repetir o que funciona.
-          </p>
-
-          <div
-            className="grid gap-3 md:grid-cols-4"
-            style={{
-              gridTemplateColumns:
-                "repeat(auto-fit, minmax(min(210px, 100%), 1fr))",
-            }}
-          >
-            {planUseSteps.map(item => (
-              <article
-                data-meal-surface="soft"
-                key={item.step}
-                className="inner-card h-full"
+              <MealSectionEyebrow>Como usar</MealSectionEyebrow>
+              <h2 className="font-display mb-2" style={sectionTitleStyle}>
+                Como usar seu plano
+              </h2>
+              <p
+                className="font-body mb-6"
                 style={{
-                  padding: "1rem",
-                  ...softSurfaceStyle,
+                  ...sectionLeadStyle,
+                  maxWidth: "38rem",
                 }}
               >
-                <div
-                  className="mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full font-body"
-                  style={{
-                    fontSize: "0.8rem",
-                    fontWeight: 700,
-                    color: "var(--color-rose)",
-                    backgroundColor: "var(--color-rose-muted)",
-                    border: "1px solid var(--color-rose-light)",
-                  }}
-                >
-                  {item.step}
-                </div>
-                <p
-                  className="font-body mb-2"
-                  style={{
-                    fontSize: "0.86rem",
-                    fontWeight: 600,
-                    color: "var(--color-charcoal)",
-                  }}
-                >
-                  {item.title}
-                </p>
-                <p
-                  className="font-body"
-                  style={{
-                    fontSize: "0.78rem",
-                    color: "var(--color-warm-gray)",
-                    lineHeight: 1.65,
-                  }}
-                >
-                  {item.description}
-                </p>
-              </article>
-            ))}
-          </div>
+                O foco é começar sem pressão: primeiro o essencial do dia,
+                depois os atalhos que ajudam a repetir o que funciona.
+              </p>
+
+              <div
+                className="grid gap-3 md:grid-cols-4"
+                style={{
+                  gridTemplateColumns:
+                    "repeat(auto-fit, minmax(min(210px, 100%), 1fr))",
+                }}
+              >
+                {planUseSteps.map(item => (
+                  <article
+                    data-meal-surface="soft"
+                    key={item.step}
+                    className="inner-card h-full"
+                    style={{
+                      padding: "1rem",
+                      ...softSurfaceStyle,
+                    }}
+                  >
+                    <div
+                      className="mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full font-body"
+                      style={{
+                        fontSize: "0.8rem",
+                        fontWeight: 700,
+                        color: "var(--color-rose)",
+                        backgroundColor: "var(--color-rose-muted)",
+                        border: "1px solid var(--color-rose-light)",
+                      }}
+                    >
+                      {item.step}
+                    </div>
+                    <p
+                      className="font-body mb-2"
+                      style={{
+                        fontSize: "0.86rem",
+                        fontWeight: 600,
+                        color: "var(--color-charcoal)",
+                      }}
+                    >
+                      {item.title}
+                    </p>
+                    <p
+                      className="font-body"
+                      style={{
+                        fontSize: "0.78rem",
+                        color: "var(--color-warm-gray)",
+                        lineHeight: 1.65,
+                      }}
+                    >
+                      {item.description}
+                    </p>
+                  </article>
+                ))}
+              </div>
             </section>
 
             <section
@@ -1412,152 +1455,154 @@ export default function MealPlanPage({
               className="page-card mb-6"
               style={sectionCardStyle}
             >
-          <MealSectionEyebrow tone="sage">
-            Quando quiser adiantar
-          </MealSectionEyebrow>
-          <div className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
-            <div>
-              <div className="mb-4 overflow-hidden rounded border border-[rgba(181,169,154,0.4)]">
-                <EditorialVisual
-                  visual={mealPlanData.sectionVisuals.mealPrep}
-                />
-              </div>
-              <h2 className="font-display mb-2" style={sectionTitleStyle}>
-                Prepare sua semana
-              </h2>
-              <p
-                className="font-body"
-                style={{
-                  ...sectionLeadStyle,
-                  maxWidth: "34rem",
-                }}
-              >
-                Use este checklist quando quiser deixar a semana mais fácil. O
-                plano já funciona sem esta etapa.
-              </p>
-            </div>
-
-            <div
-              data-meal-surface="soft"
-              className="inner-card"
-              style={{
-                padding: "1rem",
-                ...softSurfaceStyle,
-              }}
-            >
-              <div className="mb-3 flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2">
-                  <CalendarDays
-                    size={15}
-                    style={{ color: "var(--color-teal)" }}
-                  />
+              <MealSectionEyebrow tone="sage">
+                Quando quiser adiantar
+              </MealSectionEyebrow>
+              <div className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
+                <div>
+                  <div className="mb-4 overflow-hidden rounded border border-[rgba(181,169,154,0.4)]">
+                    <EditorialVisual
+                      visual={mealPlanData.sectionVisuals.mealPrep}
+                    />
+                  </div>
+                  <h2 className="font-display mb-2" style={sectionTitleStyle}>
+                    Prepare sua semana
+                  </h2>
                   <p
                     className="font-body"
                     style={{
-                      fontSize: "0.76rem",
-                      fontWeight: 600,
-                      letterSpacing: "0.08em",
-                      textTransform: "uppercase",
-                      color: "var(--color-teal)",
+                      ...sectionLeadStyle,
+                      maxWidth: "34rem",
                     }}
                   >
-                    Passos da semana
+                    Use este checklist quando quiser deixar a semana mais fácil.
+                    O plano já funciona sem esta etapa.
                   </p>
                 </div>
-                <span
-                  className="rounded-full px-2.5 py-1 font-body"
+
+                <div
+                  data-meal-surface="soft"
+                  className="inner-card"
                   style={{
-                    fontSize: "0.68rem",
-                    fontWeight: 700,
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    ...noWrapPillStyle,
-                    color: "var(--color-teal)",
-                    backgroundColor: "var(--color-teal-muted)",
+                    padding: "1rem",
+                    ...softSurfaceStyle,
                   }}
                 >
-                  {mealPrepCompletionPct}%
-                </span>
-              </div>
-              <Progress
-                value={mealPrepCompletionPct}
-                className="mb-4 h-2.5 bg-[rgba(91,138,139,0.18)] [&_[data-slot=progress-indicator]]:bg-[var(--color-teal)]"
-              />
-              <div className="space-y-3">
-                {mealPlanData.mealPrepSteps.map(step => {
-                  const checked =
-                    plannerState.mealPrep.completedStepIds.includes(step.id);
-
-                  return (
-                    <label
-                      key={step.id}
-                      className="flex items-start gap-3 rounded px-3 py-3"
+                  <div className="mb-3 flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-2">
+                      <CalendarDays
+                        size={15}
+                        style={{ color: "var(--color-teal)" }}
+                      />
+                      <p
+                        className="font-body"
+                        style={{
+                          fontSize: "0.76rem",
+                          fontWeight: 600,
+                          letterSpacing: "0.08em",
+                          textTransform: "uppercase",
+                          color: "var(--color-teal)",
+                        }}
+                      >
+                        Passos da semana
+                      </p>
+                    </div>
+                    <span
+                      className="rounded-full px-2.5 py-1 font-body"
                       style={{
-                        ...(checked ? tealSurfaceStyle : softSurfaceStyle),
-                        padding: "0.8rem",
-                        borderRadius: "18px",
+                        fontSize: "0.68rem",
+                        fontWeight: 700,
+                        letterSpacing: "0.08em",
+                        textTransform: "uppercase",
+                        ...noWrapPillStyle,
+                        color: "var(--color-teal)",
+                        backgroundColor: "var(--color-teal-muted)",
                       }}
                     >
-                      <Checkbox
-                        checked={checked}
-                        onCheckedChange={() =>
-                          setPlannerState(current => ({
-                            ...current,
-                            mealPrep: {
-                              ...current.mealPrep,
-                              completedStepIds: checked
-                                ? current.mealPrep.completedStepIds.filter(
-                                    currentStep => currentStep !== step.id
-                                  )
-                                : [
-                                    ...current.mealPrep.completedStepIds,
-                                    step.id,
-                                  ],
-                            },
-                          }))
-                        }
-                        aria-label={step.title}
-                      />
-                      <span className="block">
-                        <span
-                          className="font-body block"
+                      {mealPrepCompletionPct}%
+                    </span>
+                  </div>
+                  <Progress
+                    value={mealPrepCompletionPct}
+                    className="mb-4 h-2.5 bg-[rgba(91,138,139,0.18)] [&_[data-slot=progress-indicator]]:bg-[var(--color-teal)]"
+                  />
+                  <div className="space-y-3">
+                    {mealPlanData.mealPrepSteps.map(step => {
+                      const checked =
+                        plannerState.mealPrep.completedStepIds.includes(
+                          step.id
+                        );
+
+                      return (
+                        <label
+                          key={step.id}
+                          className="flex items-start gap-3 rounded px-3 py-3"
                           style={{
-                            fontSize: "0.82rem",
-                            fontWeight: 600,
-                            color: "var(--color-charcoal)",
+                            ...(checked ? tealSurfaceStyle : softSurfaceStyle),
+                            padding: "0.8rem",
+                            borderRadius: "18px",
                           }}
                         >
-                          {step.title}
-                        </span>
-                        <span
-                          className="font-body block"
-                          style={{
-                            fontSize: "0.76rem",
-                            color: "var(--color-warm-gray)",
-                            lineHeight: 1.65,
-                            marginTop: "0.2rem",
-                          }}
-                        >
-                          {step.description}
-                        </span>
-                        <span
-                          className="font-body block"
-                          style={{
-                            fontSize: "0.72rem",
-                            color: "var(--color-taupe)",
-                            lineHeight: 1.55,
-                            marginTop: "0.35rem",
-                          }}
-                        >
-                          {step.suggestedItems.join(" · ")}
-                        </span>
-                      </span>
-                    </label>
-                  );
-                })}
+                          <Checkbox
+                            checked={checked}
+                            onCheckedChange={() =>
+                              setPlannerState(current => ({
+                                ...current,
+                                mealPrep: {
+                                  ...current.mealPrep,
+                                  completedStepIds: checked
+                                    ? current.mealPrep.completedStepIds.filter(
+                                        currentStep => currentStep !== step.id
+                                      )
+                                    : [
+                                        ...current.mealPrep.completedStepIds,
+                                        step.id,
+                                      ],
+                                },
+                              }))
+                            }
+                            aria-label={step.title}
+                          />
+                          <span className="block">
+                            <span
+                              className="font-body block"
+                              style={{
+                                fontSize: "0.82rem",
+                                fontWeight: 600,
+                                color: "var(--color-charcoal)",
+                              }}
+                            >
+                              {step.title}
+                            </span>
+                            <span
+                              className="font-body block"
+                              style={{
+                                fontSize: "0.76rem",
+                                color: "var(--color-warm-gray)",
+                                lineHeight: 1.65,
+                                marginTop: "0.2rem",
+                              }}
+                            >
+                              {step.description}
+                            </span>
+                            <span
+                              className="font-body block"
+                              style={{
+                                fontSize: "0.72rem",
+                                color: "var(--color-taupe)",
+                                lineHeight: 1.55,
+                                marginTop: "0.35rem",
+                              }}
+                            >
+                              {step.suggestedItems.join(" · ")}
+                            </span>
+                          </span>
+                        </label>
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
             </section>
 
             <section
@@ -1565,31 +1610,647 @@ export default function MealPlanPage({
               className="page-card mb-6"
               style={sectionCardStyle}
             >
-          <MealSectionEyebrow>Quando quiser repetir</MealSectionEyebrow>
-          <div className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
-            <div>
-              <div className="mb-4 overflow-hidden rounded border border-[rgba(181,169,154,0.4)]">
-                <EditorialVisual
-                  visual={mealPlanData.sectionVisuals.favorites}
-                />
+              <MealSectionEyebrow>Quando quiser repetir</MealSectionEyebrow>
+              <div className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
+                <div>
+                  <div className="mb-4 overflow-hidden rounded border border-[rgba(181,169,154,0.4)]">
+                    <EditorialVisual
+                      visual={mealPlanData.sectionVisuals.favorites}
+                    />
+                  </div>
+                  <h2 className="font-display mb-2" style={sectionTitleStyle}>
+                    Opções salvas
+                  </h2>
+                  <p
+                    className="font-body"
+                    style={{
+                      ...sectionLeadStyle,
+                      maxWidth: "34rem",
+                    }}
+                  >
+                    Guarde as escolhas que funcionam bem para não decidir tudo
+                    de novo.
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  {favoriteMeals.length === 0 ? (
+                    <div
+                      data-meal-surface="soft"
+                      className="inner-card"
+                      style={{
+                        padding: "1rem 1.15rem",
+                        ...softSurfaceStyle,
+                      }}
+                    >
+                      <p
+                        className="font-body"
+                        style={{
+                          fontSize: "0.82rem",
+                          color: "var(--color-warm-gray)",
+                          lineHeight: 1.7,
+                        }}
+                      >
+                        Quando uma escolha funcionar bem, toque em salvar esta
+                        opção na própria refeição.
+                      </p>
+                    </div>
+                  ) : (
+                    <div
+                      className="grid gap-3"
+                      style={{
+                        gridTemplateColumns:
+                          "repeat(auto-fit, minmax(min(240px, 100%), 1fr))",
+                      }}
+                    >
+                      {favoriteMeals.map(({ favorite, meal }) => (
+                        <article
+                          data-meal-surface="elevated"
+                          key={favorite.id}
+                          className="inner-card"
+                          style={{
+                            padding: "1rem",
+                            ...elevatedSurfaceStyle,
+                          }}
+                        >
+                          <div className="mb-3 flex items-center justify-between gap-3">
+                            <div className="flex items-center gap-2">
+                              <Star
+                                size={15}
+                                style={{ color: "var(--color-rose)" }}
+                              />
+                              <p
+                                className="font-body"
+                                style={{
+                                  fontSize: "0.76rem",
+                                  fontWeight: 600,
+                                  letterSpacing: "0.08em",
+                                  textTransform: "uppercase",
+                                  color: "var(--color-rose)",
+                                }}
+                              >
+                                {meal.label}
+                              </p>
+                            </div>
+                            <Button
+                              type="button"
+                              variant="outline"
+                              size="sm"
+                              onClick={() =>
+                                setPlannerState(current =>
+                                  toggleFavoriteComposition(current, favorite)
+                                )
+                              }
+                            >
+                              Tirar
+                            </Button>
+                          </div>
+                          <p
+                            className="font-display mb-2"
+                            style={{
+                              fontSize: "1.05rem",
+                              color: "var(--color-charcoal)",
+                              fontWeight: 500,
+                            }}
+                          >
+                            {favorite.label}
+                          </p>
+                          <p
+                            className="font-body mb-4"
+                            style={{
+                              fontSize: "0.76rem",
+                              color: "var(--color-warm-gray)",
+                              lineHeight: 1.6,
+                            }}
+                          >
+                            Aplica essa escolha na refeição de hoje.
+                          </p>
+                          <Button
+                            type="button"
+                            onClick={() =>
+                              setPlannerState(current => ({
+                                ...current,
+                                today: {
+                                  ...current.today,
+                                  activeVariantByMeal: {
+                                    ...current.today.activeVariantByMeal,
+                                    [favorite.mealKey]:
+                                      favorite.sourceMode === "variant" &&
+                                      favorite.variantId
+                                        ? favorite.variantId
+                                        : "base",
+                                  },
+                                  selectedSubstitutionsByMeal: {
+                                    ...current.today
+                                      .selectedSubstitutionsByMeal,
+                                    [favorite.mealKey]:
+                                      favorite.sourceMode === "base"
+                                        ? favorite.substitutionSelections
+                                        : {},
+                                  },
+                                },
+                              }))
+                            }
+                            style={{
+                              backgroundColor: "var(--color-rose)",
+                              color: "white",
+                              borderColor: "var(--color-rose)",
+                            }}
+                          >
+                            Usar esta opção
+                          </Button>
+                        </article>
+                      ))}
+                    </div>
+                  )}
+
+                  <div
+                    data-meal-surface="soft"
+                    className="inner-card"
+                    style={{
+                      padding: "1rem",
+                      ...softSurfaceStyle,
+                    }}
+                  >
+                    <div className="mb-4 overflow-hidden rounded border border-[rgba(181,169,154,0.35)]">
+                      <EditorialVisual
+                        visual={mealPlanData.sectionVisuals.filters}
+                      />
+                    </div>
+                    <div className="mb-3 flex items-center gap-2">
+                      <SlidersHorizontal
+                        size={15}
+                        style={{ color: "var(--color-teal)" }}
+                      />
+                      <p
+                        className="font-body"
+                        style={{
+                          fontSize: "0.76rem",
+                          fontWeight: 600,
+                          letterSpacing: "0.08em",
+                          textTransform: "uppercase",
+                          color: "var(--color-teal)",
+                        }}
+                      >
+                        Atalhos
+                      </p>
+                    </div>
+                    <p
+                      className="font-body mb-3"
+                      style={{
+                        fontSize: "0.78rem",
+                        color: "var(--color-warm-gray)",
+                        lineHeight: 1.65,
+                      }}
+                    >
+                      Use os atalhos quando quiser enxugar a tela e rever só o
+                      que faz sentido agora.
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {(
+                        Object.keys(mealPlannerFilterLabels) as MealFilterKey[]
+                      ).map(filterKey => (
+                        <PlannerChoiceButton
+                          key={filterKey}
+                          compact
+                          label={mealPlannerFilterLabels[filterKey]}
+                          hint="Filtro da visualização"
+                          active={
+                            plannerState.ui.activeMealFilter === filterKey
+                          }
+                          onClick={() =>
+                            setPlannerState(current => ({
+                              ...current,
+                              ui: {
+                                ...current.ui,
+                                activeMealFilter: filterKey,
+                              },
+                            }))
+                          }
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
+            </section>
+
+            <section
+              data-meal-section="flat"
+              className="page-card mb-6"
+              style={sectionCardStyle}
+            >
+              <MealSectionEyebrow tone="sage">
+                Como montar o prato
+              </MealSectionEyebrow>
               <h2 className="font-display mb-2" style={sectionTitleStyle}>
-                Opções salvas
+                Como montar o prato
               </h2>
               <p
-                className="font-body"
+                className="font-body mb-6"
                 style={{
                   ...sectionLeadStyle,
                   maxWidth: "34rem",
                 }}
               >
-                Guarde as escolhas que funcionam bem para não decidir tudo de
-                novo.
+                {activePlateMethod.description}
               </p>
-            </div>
+              <div
+                className="grid gap-4 md:grid-cols-3"
+                style={{
+                  gridTemplateColumns:
+                    "repeat(auto-fit, minmax(min(220px, 100%), 1fr))",
+                }}
+              >
+                {activePlateMethod.segments.map(segment => (
+                  <article
+                    data-meal-surface={
+                      segment.accent === "teal"
+                        ? "accent-teal"
+                        : segment.accent === "rose"
+                          ? "accent-rose"
+                          : "soft"
+                    }
+                    key={segment.title}
+                    className="inner-card h-full"
+                    style={{
+                      padding: "1.15rem",
+                      ...(segment.accent === "teal"
+                        ? tealSurfaceStyle
+                        : segment.accent === "rose"
+                          ? roseSurfaceStyle
+                          : softSurfaceStyle),
+                    }}
+                  >
+                    <div
+                      className="mb-4 inline-flex items-center gap-2 rounded-full px-3 py-1"
+                      style={{
+                        backgroundColor:
+                          segment.accent === "teal"
+                            ? "var(--color-teal-muted)"
+                            : segment.accent === "rose"
+                              ? "var(--color-rose-muted)"
+                              : "var(--color-ivory-dark)",
+                        border: `1px solid ${
+                          segment.accent === "teal"
+                            ? "var(--color-teal-light)"
+                            : segment.accent === "rose"
+                              ? "var(--color-rose-light)"
+                              : "var(--color-taupe-light)"
+                        }`,
+                        ...noWrapPillStyle,
+                      }}
+                    >
+                      <span
+                        className="font-body"
+                        style={{
+                          fontSize: "0.8rem",
+                          fontWeight: 700,
+                          color:
+                            segment.accent === "teal"
+                              ? "var(--color-teal)"
+                              : segment.accent === "rose"
+                                ? "var(--color-rose)"
+                                : "var(--color-taupe)",
+                        }}
+                      >
+                        {segment.percentage}
+                      </span>
+                    </div>
+                    <p
+                      className="font-body mb-2"
+                      style={{
+                        fontSize: "0.9rem",
+                        fontWeight: 600,
+                        color: "var(--color-charcoal)",
+                      }}
+                    >
+                      {segment.title}
+                    </p>
+                    <p
+                      className="font-body"
+                      style={{
+                        fontSize: "0.8rem",
+                        color: "var(--color-warm-gray)",
+                        lineHeight: 1.7,
+                      }}
+                    >
+                      {segment.description}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </section>
 
-            <div className="space-y-4">
-              {favoriteMeals.length === 0 ? (
+            <section
+              data-meal-section="flat"
+              className="page-card mb-6"
+              style={sectionCardStyle}
+            >
+              <MealSectionEyebrow>Hoje</MealSectionEyebrow>
+              <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+                <div className="space-y-4">
+                  <h2 className="font-display" style={sectionTitleStyle}>
+                    Hoje
+                  </h2>
+                  <p
+                    className="font-body"
+                    style={{
+                      ...sectionLeadStyle,
+                      maxWidth: "34rem",
+                    }}
+                  >
+                    Veja só o que importa agora: refeições feitas, água do dia e
+                    a escolha atual de cada refeição.
+                  </p>
+
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <StatCard
+                      label="Refeições feitas"
+                      value={`${completionCount} de ${mealPlanData.meals.length} refeições feitas`}
+                      note="O que você concluir hoje entra no histórico automaticamente no próximo dia."
+                    />
+                    <StatCard
+                      label="Água"
+                      value={
+                        profile
+                          ? `${formatMlToLiters(plannerState.today.waterMl)} / ${formatMlToLiters(
+                              waterTargetMl
+                            )}`
+                          : formatMlToLiters(plannerState.today.waterMl)
+                      }
+                      note={
+                        profile
+                          ? "Meta ideal calculada pelo peso que você salvou no perfil."
+                          : "Finalize o começo do plano para personalizar a meta hídrica."
+                      }
+                    />
+                  </div>
+
+                  <div
+                    data-meal-surface="accent-teal"
+                    className="inner-card"
+                    style={{
+                      padding: "1rem",
+                      ...tealSurfaceStyle,
+                    }}
+                  >
+                    <div className="mb-3 flex items-center gap-2">
+                      <Droplets
+                        size={15}
+                        style={{ color: "var(--color-teal)" }}
+                      />
+                      <p
+                        className="font-body"
+                        style={{
+                          fontSize: "0.76rem",
+                          fontWeight: 600,
+                          letterSpacing: "0.08em",
+                          textTransform: "uppercase",
+                          color: "var(--color-teal)",
+                        }}
+                      >
+                        Hidratação
+                      </p>
+                    </div>
+                    <Progress
+                      value={waterPct}
+                      className="mb-3 h-2.5 bg-[rgba(91,138,139,0.18)] [&_[data-slot=progress-indicator]]:bg-[var(--color-teal)]"
+                    />
+                    <div className="mb-3 flex flex-wrap gap-2">
+                      {[250, 500, 750].map(amount => (
+                        <Button
+                          key={amount}
+                          type="button"
+                          variant="outline"
+                          size="sm"
+                          onClick={() =>
+                            setPlannerState(current => ({
+                              ...current,
+                              today: {
+                                ...current.today,
+                                waterMl: current.today.waterMl + amount,
+                              },
+                            }))
+                          }
+                          disabled={!profile}
+                        >
+                          +{amount} ml
+                        </Button>
+                      ))}
+                    </div>
+                    <label
+                      htmlFor="water-manual-input"
+                      className="font-body mb-2 block"
+                      style={{
+                        fontSize: "0.74rem",
+                        color: "var(--color-charcoal-light)",
+                      }}
+                    >
+                      Ajuste manual em ml
+                    </label>
+                    <Input
+                      id="water-manual-input"
+                      inputMode="numeric"
+                      value={String(plannerState.today.waterMl || "")}
+                      onChange={event => {
+                        const nextValue = Number(event.target.value);
+                        setPlannerState(current => ({
+                          ...current,
+                          today: {
+                            ...current.today,
+                            waterMl:
+                              Number.isFinite(nextValue) && nextValue > 0
+                                ? Math.round(nextValue)
+                                : 0,
+                          },
+                        }));
+                      }}
+                      disabled={!profile}
+                      style={{
+                        backgroundColor: "rgba(255,250,243,0.96)",
+                        borderColor: "rgba(47,93,89,0.26)",
+                        color: "var(--color-charcoal)",
+                      }}
+                    />
+                    <div className="mt-4 border-t border-[rgba(47,93,89,0.18)] pt-3">
+                      <button
+                        type="button"
+                        className="font-body"
+                        onClick={() =>
+                          setShowHydrationLearnMore(current => !current)
+                        }
+                        style={{
+                          fontSize: "0.78rem",
+                          color: "var(--color-teal)",
+                          fontWeight: 700,
+                          textDecoration: "underline",
+                          textUnderlineOffset: "2px",
+                        }}
+                      >
+                        {showHydrationLearnMore
+                          ? "Ocultar detalhes de hidratação"
+                          : mealPlanData.hydration.learnMoreTitle}
+                      </button>
+                      {showHydrationLearnMore ? (
+                        <ul
+                          className="mt-2 space-y-2"
+                          style={{
+                            paddingLeft: "1rem",
+                          }}
+                        >
+                          {mealPlanData.hydration.learnMorePoints.map(point => (
+                            <li
+                              key={point}
+                              className="font-body"
+                              style={{
+                                fontSize: "0.76rem",
+                                color: "var(--color-charcoal-light)",
+                                lineHeight: 1.6,
+                              }}
+                            >
+                              {point}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : null}
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  data-meal-surface="elevated"
+                  className="inner-card"
+                  style={{
+                    padding: "1rem 1rem 1.15rem",
+                    ...elevatedSurfaceStyle,
+                  }}
+                >
+                  <div className="mb-3 flex items-center gap-2">
+                    <ClipboardList
+                      size={15}
+                      style={{ color: "var(--color-rose)" }}
+                    />
+                    <p
+                      className="font-body"
+                      style={{
+                        fontSize: "0.76rem",
+                        fontWeight: 600,
+                        letterSpacing: "0.08em",
+                        textTransform: "uppercase",
+                        color: "var(--color-rose)",
+                      }}
+                    >
+                      Hoje
+                    </p>
+                  </div>
+                  <p
+                    className="font-display mb-2"
+                    style={{
+                      fontSize: "1.3rem",
+                      color: "var(--color-charcoal)",
+                      fontWeight: 500,
+                    }}
+                  >
+                    {completionCount} de {mealPlanData.meals.length} refeições
+                    feitas
+                  </p>
+                  <p
+                    className="font-body mb-4"
+                    style={{
+                      fontSize: "0.8rem",
+                      color: "var(--color-warm-gray)",
+                      lineHeight: 1.65,
+                    }}
+                  >
+                    O progresso do dia entra no histórico automaticamente quando
+                    a data muda.
+                  </p>
+                  <Progress
+                    value={completionPct}
+                    className="mb-4 h-2.5 bg-[rgba(139,74,82,0.16)] [&_[data-slot=progress-indicator]]:bg-[var(--color-rose)]"
+                  />
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    {mealPlanData.meals.map(meal => {
+                      const resolved = getResolvedMealSelection(
+                        meal,
+                        profile,
+                        plannerState.today
+                      );
+
+                      return (
+                        <div
+                          data-meal-surface="soft"
+                          key={meal.key}
+                          className="rounded px-3 py-3"
+                          style={{
+                            ...softSurfaceStyle,
+                            padding: "0.75rem",
+                            borderRadius: "16px",
+                          }}
+                        >
+                          <div className="mb-2 flex items-center justify-between gap-3">
+                            <p
+                              className="font-body"
+                              style={{
+                                fontSize: "0.8rem",
+                                fontWeight: 600,
+                                color: "var(--color-charcoal)",
+                              }}
+                            >
+                              {meal.label}
+                            </p>
+                            {plannerState.today.completedMeals.includes(
+                              meal.key
+                            ) ? (
+                              <CheckCircle2
+                                size={15}
+                                style={{ color: "var(--color-rose)" }}
+                              />
+                            ) : null}
+                          </div>
+                          <p
+                            className="font-body"
+                            style={{
+                              fontSize: "0.74rem",
+                              color: "var(--color-warm-gray)",
+                              lineHeight: 1.55,
+                            }}
+                          >
+                            {resolved.mode === "variant" &&
+                            resolved.activeVariant
+                              ? resolved.activeVariant.label
+                              : "Base com suas trocas"}
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section
+              data-meal-section="flat"
+              className="page-card mb-6"
+              style={sectionCardStyle}
+            >
+              <MealSectionEyebrow>Escolha sua refeição</MealSectionEyebrow>
+              <h2 className="font-display mb-2" style={sectionTitleStyle}>
+                Escolha sua refeição
+              </h2>
+              <p
+                className="font-body mb-6"
+                style={{
+                  ...sectionLeadStyle,
+                  maxWidth: "38rem",
+                }}
+              >
+                Escolha a base ou uma opção pronta, faça trocas simples e marque
+                quando terminar.
+              </p>
+
+              {filteredMeals.length === 0 ? (
                 <div
                   data-meal-surface="soft"
                   className="inner-card"
@@ -1606,8 +2267,146 @@ export default function MealPlanPage({
                       lineHeight: 1.7,
                     }}
                   >
-                    Quando uma escolha funcionar bem, toque em salvar esta opção
-                    na própria refeição.
+                    Nenhuma refeição apareceu com esse atalho. Troque o atalho
+                    ou salve uma opção para ver algo aqui.
+                  </p>
+                </div>
+              ) : (
+                <div
+                  className="grid gap-4"
+                  style={{
+                    gridTemplateColumns:
+                      "repeat(auto-fit, minmax(min(310px, 100%), 1fr))",
+                  }}
+                >
+                  {filteredMeals.map(meal => {
+                    const favoriteCandidate = getFavoriteCandidate(meal);
+                    const completed =
+                      plannerState.today.completedMeals.includes(meal.key);
+                    const resolved = getResolvedMealSelection(
+                      meal,
+                      plannerState.profile,
+                      plannerState.today
+                    );
+                    const activeModeLabel =
+                      resolved.mode === "variant" && resolved.activeVariant
+                        ? resolved.activeVariant.label
+                        : "Base do plano com as trocas que você escolheu";
+
+                    return (
+                      <MealCard
+                        key={meal.key}
+                        meal={meal}
+                        plannerState={plannerState}
+                        profile={plannerState.profile}
+                        disabled={!plannerState.profile}
+                        completed={completed}
+                        isFavorited={isMealFavorited(meal)}
+                        activeModeLabel={activeModeLabel}
+                        onOpenCustomization={() =>
+                          setActiveSwapMapMealKey(meal.key)
+                        }
+                        onToggleFavorite={() =>
+                          setPlannerState(current =>
+                            toggleFavoriteComposition(
+                              current,
+                              favoriteCandidate
+                            )
+                          )
+                        }
+                        onToggleCompleted={() =>
+                          setPlannerState(current => ({
+                            ...current,
+                            today: {
+                              ...current.today,
+                              completedMeals:
+                                current.today.completedMeals.includes(meal.key)
+                                  ? current.today.completedMeals.filter(
+                                      currentMeal => currentMeal !== meal.key
+                                    )
+                                  : [...current.today.completedMeals, meal.key],
+                            },
+                          }))
+                        }
+                      />
+                    );
+                  })}
+                </div>
+              )}
+            </section>
+
+            <section
+              data-meal-section="flat"
+              className="page-card mb-6"
+              style={sectionCardStyle}
+            >
+              <MealSectionEyebrow tone="sage">Seu ritmo</MealSectionEyebrow>
+              <div className="mb-5 overflow-hidden rounded border border-[rgba(181,169,154,0.4)]">
+                <EditorialVisual
+                  visual={mealPlanData.sectionVisuals.weeklySummary}
+                />
+              </div>
+              <h2 className="font-display mb-2" style={sectionTitleStyle}>
+                Seu ritmo na semana
+              </h2>
+              <p
+                className="font-body mb-6"
+                style={{
+                  ...sectionLeadStyle,
+                  maxWidth: "34rem",
+                }}
+              >
+                Um resumo leve do que foi acontecendo, sem pressão.
+              </p>
+
+              <div
+                className="mb-5 grid gap-3 md:grid-cols-4"
+                style={{
+                  gridTemplateColumns:
+                    "repeat(auto-fit, minmax(min(180px, 100%), 1fr))",
+                }}
+              >
+                <StatCard
+                  label="Média"
+                  value={`${weeklySummary.averageCompletionPct}%`}
+                  note="Média do que você conseguiu fazer entre hoje e os últimos dias salvos."
+                />
+                <StatCard
+                  label="Água total"
+                  value={formatMlToLiters(weeklySummary.totalWaterMl)}
+                  note="Soma de água registrada no período visível."
+                />
+                <StatCard
+                  label="Sequência"
+                  value={`${weeklySummary.streakDays} dias`}
+                  note="Dias seguidos com algum progresso alimentar registrado."
+                />
+                <StatCard
+                  label="Melhor dia"
+                  value={`${weeklySummary.bestDayCompletionPct}%`}
+                  note="Pico de aderência no recorte semanal atual."
+                />
+              </div>
+
+              {plannerState.history.length === 0 ? (
+                <div
+                  data-meal-surface="soft"
+                  className="inner-card"
+                  style={{
+                    padding: "1rem 1.15rem",
+                    ...softSurfaceStyle,
+                  }}
+                >
+                  <p
+                    className="font-body"
+                    style={{
+                      fontSize: "0.82rem",
+                      color: "var(--color-warm-gray)",
+                      lineHeight: 1.7,
+                    }}
+                  >
+                    Quando o dia virar, o app guarda um resumo simples com
+                    refeições feitas e água consumida.
                   </p>
                 </div>
               ) : (
@@ -1615,799 +2414,56 @@ export default function MealPlanPage({
                   className="grid gap-3"
                   style={{
                     gridTemplateColumns:
-                      "repeat(auto-fit, minmax(min(240px, 100%), 1fr))",
+                      "repeat(auto-fit, minmax(min(180px, 100%), 1fr))",
                   }}
                 >
-                  {favoriteMeals.map(({ favorite, meal }) => (
+                  {plannerState.history.map(entry => (
                     <article
-                      data-meal-surface="elevated"
-                      key={favorite.id}
+                      data-meal-surface="soft"
+                      key={entry.dateKey}
                       className="inner-card"
                       style={{
                         padding: "1rem",
-                        ...elevatedSurfaceStyle,
+                        ...softSurfaceStyle,
                       }}
                     >
-                      <div className="mb-3 flex items-center justify-between gap-3">
-                        <div className="flex items-center gap-2">
-                          <Star
-                            size={15}
-                            style={{ color: "var(--color-rose)" }}
-                          />
-                          <p
-                            className="font-body"
-                            style={{
-                              fontSize: "0.76rem",
-                              fontWeight: 600,
-                              letterSpacing: "0.08em",
-                              textTransform: "uppercase",
-                              color: "var(--color-rose)",
-                            }}
-                          >
-                            {meal.label}
-                          </p>
-                        </div>
-                        <Button
-                          type="button"
-                          variant="outline"
-                          size="sm"
-                          onClick={() =>
-                            setPlannerState(current =>
-                              toggleFavoriteComposition(current, favorite)
-                            )
-                          }
-                        >
-                          Tirar
-                        </Button>
-                      </div>
+                      <p
+                        className="font-body mb-2"
+                        style={{
+                          fontSize: "0.68rem",
+                          fontWeight: 600,
+                          letterSpacing: "0.08em",
+                          textTransform: "uppercase",
+                          color: "var(--color-rose)",
+                        }}
+                      >
+                        {formatHistoryDate(entry.dateKey)}
+                      </p>
                       <p
                         className="font-display mb-2"
                         style={{
-                          fontSize: "1.05rem",
+                          fontSize: "1.35rem",
                           color: "var(--color-charcoal)",
-                          fontWeight: 500,
+                          lineHeight: 1.05,
                         }}
                       >
-                        {favorite.label}
+                        {entry.completionPct}%
                       </p>
                       <p
-                        className="font-body mb-4"
+                        className="font-body"
                         style={{
-                          fontSize: "0.76rem",
+                          fontSize: "0.78rem",
                           color: "var(--color-warm-gray)",
-                          lineHeight: 1.6,
+                          lineHeight: 1.65,
                         }}
                       >
-                        Aplica essa escolha na refeição de hoje.
+                        {entry.completedMealCount} refeições ·{" "}
+                        {formatMlToLiters(entry.waterMl)}
                       </p>
-                      <Button
-                        type="button"
-                        onClick={() =>
-                          setPlannerState(current => ({
-                            ...current,
-                            today: {
-                              ...current.today,
-                              activeVariantByMeal: {
-                                ...current.today.activeVariantByMeal,
-                                [favorite.mealKey]:
-                                  favorite.sourceMode === "variant" &&
-                                  favorite.variantId
-                                    ? favorite.variantId
-                                    : "base",
-                              },
-                              selectedSubstitutionsByMeal: {
-                                ...current.today.selectedSubstitutionsByMeal,
-                                [favorite.mealKey]:
-                                  favorite.sourceMode === "base"
-                                    ? favorite.substitutionSelections
-                                    : {},
-                              },
-                            },
-                          }))
-                        }
-                        style={{
-                          backgroundColor: "var(--color-rose)",
-                          color: "white",
-                          borderColor: "var(--color-rose)",
-                        }}
-                      >
-                        Usar esta opção
-                      </Button>
                     </article>
                   ))}
                 </div>
               )}
-
-              <div
-                data-meal-surface="soft"
-                className="inner-card"
-                style={{
-                  padding: "1rem",
-                  ...softSurfaceStyle,
-                }}
-              >
-                <div className="mb-4 overflow-hidden rounded border border-[rgba(181,169,154,0.35)]">
-                  <EditorialVisual
-                    visual={mealPlanData.sectionVisuals.filters}
-                  />
-                </div>
-                <div className="mb-3 flex items-center gap-2">
-                  <SlidersHorizontal
-                    size={15}
-                    style={{ color: "var(--color-teal)" }}
-                  />
-                  <p
-                    className="font-body"
-                    style={{
-                      fontSize: "0.76rem",
-                      fontWeight: 600,
-                      letterSpacing: "0.08em",
-                      textTransform: "uppercase",
-                      color: "var(--color-teal)",
-                    }}
-                  >
-                    Atalhos
-                  </p>
-                </div>
-                <p
-                  className="font-body mb-3"
-                  style={{
-                    fontSize: "0.78rem",
-                    color: "var(--color-warm-gray)",
-                    lineHeight: 1.65,
-                  }}
-                >
-                  Use os atalhos quando quiser enxugar a tela e rever só o que
-                  faz sentido agora.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {(
-                    Object.keys(mealPlannerFilterLabels) as MealFilterKey[]
-                  ).map(filterKey => (
-                    <PlannerChoiceButton
-                      key={filterKey}
-                      compact
-                      label={mealPlannerFilterLabels[filterKey]}
-                      hint="Filtro da visualização"
-                      active={plannerState.ui.activeMealFilter === filterKey}
-                      onClick={() =>
-                        setPlannerState(current => ({
-                          ...current,
-                          ui: {
-                            ...current.ui,
-                            activeMealFilter: filterKey,
-                          },
-                        }))
-                      }
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-            </section>
-
-            <section
-              data-meal-section="flat"
-              className="page-card mb-6"
-              style={sectionCardStyle}
-            >
-          <MealSectionEyebrow tone="sage">
-            Como montar o prato
-          </MealSectionEyebrow>
-          <h2 className="font-display mb-2" style={sectionTitleStyle}>
-            Como montar o prato
-          </h2>
-          <p
-            className="font-body mb-6"
-            style={{
-              ...sectionLeadStyle,
-              maxWidth: "34rem",
-            }}
-          >
-            {activePlateMethod.description}
-          </p>
-          <div
-            className="grid gap-4 md:grid-cols-3"
-            style={{
-              gridTemplateColumns:
-                "repeat(auto-fit, minmax(min(220px, 100%), 1fr))",
-            }}
-          >
-            {activePlateMethod.segments.map(segment => (
-              <article
-                data-meal-surface={
-                  segment.accent === "teal"
-                    ? "accent-teal"
-                    : segment.accent === "rose"
-                      ? "accent-rose"
-                      : "soft"
-                }
-                key={segment.title}
-                className="inner-card h-full"
-                style={{
-                  padding: "1.15rem",
-                  ...(segment.accent === "teal"
-                    ? tealSurfaceStyle
-                    : segment.accent === "rose"
-                      ? roseSurfaceStyle
-                      : softSurfaceStyle),
-                }}
-              >
-                <div
-                  className="mb-4 inline-flex items-center gap-2 rounded-full px-3 py-1"
-                  style={{
-                    backgroundColor:
-                      segment.accent === "teal"
-                        ? "var(--color-teal-muted)"
-                        : segment.accent === "rose"
-                          ? "var(--color-rose-muted)"
-                          : "var(--color-ivory-dark)",
-                    border: `1px solid ${
-                      segment.accent === "teal"
-                        ? "var(--color-teal-light)"
-                        : segment.accent === "rose"
-                          ? "var(--color-rose-light)"
-                          : "var(--color-taupe-light)"
-                    }`,
-                    ...noWrapPillStyle,
-                  }}
-                >
-                  <span
-                    className="font-body"
-                    style={{
-                      fontSize: "0.8rem",
-                      fontWeight: 700,
-                      color:
-                        segment.accent === "teal"
-                          ? "var(--color-teal)"
-                          : segment.accent === "rose"
-                            ? "var(--color-rose)"
-                            : "var(--color-taupe)",
-                    }}
-                  >
-                    {segment.percentage}
-                  </span>
-                </div>
-                <p
-                  className="font-body mb-2"
-                  style={{
-                    fontSize: "0.9rem",
-                    fontWeight: 600,
-                    color: "var(--color-charcoal)",
-                  }}
-                >
-                  {segment.title}
-                </p>
-                <p
-                  className="font-body"
-                  style={{
-                    fontSize: "0.8rem",
-                    color: "var(--color-warm-gray)",
-                    lineHeight: 1.7,
-                  }}
-                >
-                  {segment.description}
-                </p>
-              </article>
-            ))}
-          </div>
-            </section>
-
-            <section
-              data-meal-section="flat"
-              className="page-card mb-6"
-              style={sectionCardStyle}
-            >
-          <MealSectionEyebrow>Hoje</MealSectionEyebrow>
-          <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="space-y-4">
-              <h2 className="font-display" style={sectionTitleStyle}>
-                Hoje
-              </h2>
-              <p
-                className="font-body"
-                style={{
-                  ...sectionLeadStyle,
-                  maxWidth: "34rem",
-                }}
-              >
-                Veja só o que importa agora: refeições feitas, água do dia e a
-                escolha atual de cada refeição.
-              </p>
-
-              <div className="grid gap-3 sm:grid-cols-2">
-                <StatCard
-                  label="Refeições feitas"
-                  value={`${completionCount} de ${mealPlanData.meals.length} refeições feitas`}
-                  note="O que você concluir hoje entra no histórico automaticamente no próximo dia."
-                />
-                <StatCard
-                  label="Água"
-                  value={
-                    profile
-                      ? `${formatMlToLiters(plannerState.today.waterMl)} / ${formatMlToLiters(
-                          waterTargetMl
-                        )}`
-                      : formatMlToLiters(plannerState.today.waterMl)
-                  }
-                  note={
-                    profile
-                      ? "Meta ideal calculada pelo peso que você salvou no perfil."
-                      : "Finalize o começo do plano para personalizar a meta hídrica."
-                  }
-                />
-              </div>
-
-              <div
-                data-meal-surface="accent-teal"
-                className="inner-card"
-                style={{
-                  padding: "1rem",
-                  ...tealSurfaceStyle,
-                }}
-              >
-                <div className="mb-3 flex items-center gap-2">
-                  <Droplets size={15} style={{ color: "var(--color-teal)" }} />
-                  <p
-                    className="font-body"
-                    style={{
-                      fontSize: "0.76rem",
-                      fontWeight: 600,
-                      letterSpacing: "0.08em",
-                      textTransform: "uppercase",
-                      color: "var(--color-teal)",
-                    }}
-                  >
-                    Hidratação
-                  </p>
-                </div>
-                <Progress
-                  value={waterPct}
-                  className="mb-3 h-2.5 bg-[rgba(91,138,139,0.18)] [&_[data-slot=progress-indicator]]:bg-[var(--color-teal)]"
-                />
-                <div className="mb-3 flex flex-wrap gap-2">
-                  {[250, 500, 750].map(amount => (
-                    <Button
-                      key={amount}
-                      type="button"
-                      variant="outline"
-                      size="sm"
-                      onClick={() =>
-                        setPlannerState(current => ({
-                          ...current,
-                          today: {
-                            ...current.today,
-                            waterMl: current.today.waterMl + amount,
-                          },
-                        }))
-                      }
-                      disabled={!profile}
-                    >
-                      +{amount} ml
-                    </Button>
-                  ))}
-                </div>
-                <label
-                  htmlFor="water-manual-input"
-                  className="font-body mb-2 block"
-                  style={{
-                    fontSize: "0.74rem",
-                    color: "var(--color-charcoal-light)",
-                  }}
-                >
-                  Ajuste manual em ml
-                </label>
-                <Input
-                  id="water-manual-input"
-                  inputMode="numeric"
-                  value={String(plannerState.today.waterMl || "")}
-                  onChange={event => {
-                    const nextValue = Number(event.target.value);
-                    setPlannerState(current => ({
-                      ...current,
-                      today: {
-                        ...current.today,
-                        waterMl:
-                          Number.isFinite(nextValue) && nextValue > 0
-                            ? Math.round(nextValue)
-                            : 0,
-                      },
-                    }));
-                  }}
-                  disabled={!profile}
-                  style={{
-                    backgroundColor: "rgba(255,250,243,0.96)",
-                    borderColor: "rgba(47,93,89,0.26)",
-                    color: "var(--color-charcoal)",
-                  }}
-                />
-                <div className="mt-4 border-t border-[rgba(47,93,89,0.18)] pt-3">
-                  <button
-                    type="button"
-                    className="font-body"
-                    onClick={() =>
-                      setShowHydrationLearnMore(current => !current)
-                    }
-                    style={{
-                      fontSize: "0.78rem",
-                      color: "var(--color-teal)",
-                      fontWeight: 700,
-                      textDecoration: "underline",
-                      textUnderlineOffset: "2px",
-                    }}
-                  >
-                    {showHydrationLearnMore
-                      ? "Ocultar detalhes de hidratação"
-                      : mealPlanData.hydration.learnMoreTitle}
-                  </button>
-                  {showHydrationLearnMore ? (
-                    <ul
-                      className="mt-2 space-y-2"
-                      style={{
-                        paddingLeft: "1rem",
-                      }}
-                    >
-                      {mealPlanData.hydration.learnMorePoints.map(point => (
-                        <li
-                          key={point}
-                          className="font-body"
-                          style={{
-                            fontSize: "0.76rem",
-                            color: "var(--color-charcoal-light)",
-                            lineHeight: 1.6,
-                          }}
-                        >
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : null}
-                </div>
-              </div>
-            </div>
-
-            <div
-              data-meal-surface="elevated"
-              className="inner-card"
-              style={{
-                padding: "1rem 1rem 1.15rem",
-                ...elevatedSurfaceStyle,
-              }}
-            >
-              <div className="mb-3 flex items-center gap-2">
-                <ClipboardList
-                  size={15}
-                  style={{ color: "var(--color-rose)" }}
-                />
-                <p
-                  className="font-body"
-                  style={{
-                    fontSize: "0.76rem",
-                    fontWeight: 600,
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    color: "var(--color-rose)",
-                  }}
-                >
-                  Hoje
-                </p>
-              </div>
-              <p
-                className="font-display mb-2"
-                style={{
-                  fontSize: "1.3rem",
-                  color: "var(--color-charcoal)",
-                  fontWeight: 500,
-                }}
-              >
-                {completionCount} de {mealPlanData.meals.length} refeições
-                feitas
-              </p>
-              <p
-                className="font-body mb-4"
-                style={{
-                  fontSize: "0.8rem",
-                  color: "var(--color-warm-gray)",
-                  lineHeight: 1.65,
-                }}
-              >
-                O progresso do dia entra no histórico automaticamente quando a
-                data muda.
-              </p>
-              <Progress
-                value={completionPct}
-                className="mb-4 h-2.5 bg-[rgba(139,74,82,0.16)] [&_[data-slot=progress-indicator]]:bg-[var(--color-rose)]"
-              />
-              <div className="grid gap-3 sm:grid-cols-2">
-                {mealPlanData.meals.map(meal => {
-                  const resolved = getResolvedMealSelection(
-                    meal,
-                    profile,
-                    plannerState.today
-                  );
-
-                  return (
-                    <div
-                      data-meal-surface="soft"
-                      key={meal.key}
-                      className="rounded px-3 py-3"
-                      style={{
-                        ...softSurfaceStyle,
-                        padding: "0.75rem",
-                        borderRadius: "16px",
-                      }}
-                    >
-                      <div className="mb-2 flex items-center justify-between gap-3">
-                        <p
-                          className="font-body"
-                          style={{
-                            fontSize: "0.8rem",
-                            fontWeight: 600,
-                            color: "var(--color-charcoal)",
-                          }}
-                        >
-                          {meal.label}
-                        </p>
-                        {plannerState.today.completedMeals.includes(
-                          meal.key
-                        ) ? (
-                          <CheckCircle2
-                            size={15}
-                            style={{ color: "var(--color-rose)" }}
-                          />
-                        ) : null}
-                      </div>
-                      <p
-                        className="font-body"
-                        style={{
-                          fontSize: "0.74rem",
-                          color: "var(--color-warm-gray)",
-                          lineHeight: 1.55,
-                        }}
-                      >
-                        {resolved.mode === "variant" && resolved.activeVariant
-                          ? resolved.activeVariant.label
-                          : "Base com suas trocas"}
-                      </p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-            </section>
-
-            <section
-              data-meal-section="flat"
-              className="page-card mb-6"
-              style={sectionCardStyle}
-            >
-          <MealSectionEyebrow>Escolha sua refeição</MealSectionEyebrow>
-          <h2 className="font-display mb-2" style={sectionTitleStyle}>
-            Escolha sua refeição
-          </h2>
-          <p
-            className="font-body mb-6"
-            style={{
-              ...sectionLeadStyle,
-              maxWidth: "38rem",
-            }}
-          >
-            Escolha a base ou uma opção pronta, faça trocas simples e marque
-            quando terminar.
-          </p>
-
-          {filteredMeals.length === 0 ? (
-            <div
-              data-meal-surface="soft"
-              className="inner-card"
-              style={{
-                padding: "1rem 1.15rem",
-                ...softSurfaceStyle,
-              }}
-            >
-              <p
-                className="font-body"
-                style={{
-                  fontSize: "0.82rem",
-                  color: "var(--color-warm-gray)",
-                  lineHeight: 1.7,
-                }}
-              >
-                Nenhuma refeição apareceu com esse atalho. Troque o atalho ou
-                salve uma opção para ver algo aqui.
-              </p>
-            </div>
-          ) : (
-            <div
-              className="grid gap-4"
-              style={{
-                gridTemplateColumns:
-                  "repeat(auto-fit, minmax(min(310px, 100%), 1fr))",
-              }}
-            >
-              {filteredMeals.map(meal => {
-                const favoriteCandidate = getFavoriteCandidate(meal);
-                const completed = plannerState.today.completedMeals.includes(
-                  meal.key
-                );
-                const resolved = getResolvedMealSelection(
-                  meal,
-                  plannerState.profile,
-                  plannerState.today
-                );
-                const activeModeLabel =
-                  resolved.mode === "variant" && resolved.activeVariant
-                    ? resolved.activeVariant.label
-                    : "Base do plano com as trocas que você escolheu";
-
-                return (
-                  <MealCard
-                    key={meal.key}
-                    meal={meal}
-                    plannerState={plannerState}
-                    profile={plannerState.profile}
-                    disabled={!plannerState.profile}
-                    completed={completed}
-                    isFavorited={isMealFavorited(meal)}
-                    activeModeLabel={activeModeLabel}
-                    onToggleFavorite={() =>
-                      setPlannerState(current =>
-                        toggleFavoriteComposition(current, favoriteCandidate)
-                      )
-                    }
-                    onToggleCompleted={() =>
-                      setPlannerState(current => ({
-                        ...current,
-                        today: {
-                          ...current.today,
-                          completedMeals: current.today.completedMeals.includes(
-                            meal.key
-                          )
-                            ? current.today.completedMeals.filter(
-                                currentMeal => currentMeal !== meal.key
-                          )
-                            : [...current.today.completedMeals, meal.key],
-                        },
-                      }))
-                    }
-                  />
-                );
-              })}
-            </div>
-          )}
-        </section>
-
-        <section
-          data-meal-section="flat"
-          className="page-card mb-6"
-          style={sectionCardStyle}
-        >
-          <MealSectionEyebrow tone="sage">Seu ritmo</MealSectionEyebrow>
-          <div className="mb-5 overflow-hidden rounded border border-[rgba(181,169,154,0.4)]">
-            <EditorialVisual
-              visual={mealPlanData.sectionVisuals.weeklySummary}
-            />
-          </div>
-          <h2 className="font-display mb-2" style={sectionTitleStyle}>
-            Seu ritmo na semana
-          </h2>
-          <p
-            className="font-body mb-6"
-            style={{
-              ...sectionLeadStyle,
-              maxWidth: "34rem",
-            }}
-          >
-            Um resumo leve do que foi acontecendo, sem pressão.
-          </p>
-
-          <div
-            className="mb-5 grid gap-3 md:grid-cols-4"
-            style={{
-              gridTemplateColumns:
-                "repeat(auto-fit, minmax(min(180px, 100%), 1fr))",
-            }}
-          >
-            <StatCard
-              label="Média"
-              value={`${weeklySummary.averageCompletionPct}%`}
-              note="Média do que você conseguiu fazer entre hoje e os últimos dias salvos."
-            />
-            <StatCard
-              label="Água total"
-              value={formatMlToLiters(weeklySummary.totalWaterMl)}
-              note="Soma de água registrada no período visível."
-            />
-            <StatCard
-              label="Sequência"
-              value={`${weeklySummary.streakDays} dias`}
-              note="Dias seguidos com algum progresso alimentar registrado."
-            />
-            <StatCard
-              label="Melhor dia"
-              value={`${weeklySummary.bestDayCompletionPct}%`}
-              note="Pico de aderência no recorte semanal atual."
-            />
-          </div>
-
-          {plannerState.history.length === 0 ? (
-            <div
-              data-meal-surface="soft"
-              className="inner-card"
-              style={{
-                padding: "1rem 1.15rem",
-                ...softSurfaceStyle,
-              }}
-            >
-              <p
-                className="font-body"
-                style={{
-                  fontSize: "0.82rem",
-                  color: "var(--color-warm-gray)",
-                  lineHeight: 1.7,
-                }}
-              >
-                Quando o dia virar, o app guarda um resumo simples com refeições
-                feitas e água consumida.
-              </p>
-            </div>
-          ) : (
-            <div
-              className="grid gap-3"
-              style={{
-                gridTemplateColumns:
-                  "repeat(auto-fit, minmax(min(180px, 100%), 1fr))",
-              }}
-            >
-              {plannerState.history.map(entry => (
-                <article
-                  data-meal-surface="soft"
-                  key={entry.dateKey}
-                  className="inner-card"
-                  style={{
-                    padding: "1rem",
-                    ...softSurfaceStyle,
-                  }}
-                >
-                  <p
-                    className="font-body mb-2"
-                    style={{
-                      fontSize: "0.68rem",
-                      fontWeight: 600,
-                      letterSpacing: "0.08em",
-                      textTransform: "uppercase",
-                      color: "var(--color-rose)",
-                    }}
-                  >
-                    {formatHistoryDate(entry.dateKey)}
-                  </p>
-                  <p
-                    className="font-display mb-2"
-                    style={{
-                      fontSize: "1.35rem",
-                      color: "var(--color-charcoal)",
-                      lineHeight: 1.05,
-                    }}
-                  >
-                    {entry.completionPct}%
-                  </p>
-                  <p
-                    className="font-body"
-                    style={{
-                      fontSize: "0.78rem",
-                      color: "var(--color-warm-gray)",
-                      lineHeight: 1.65,
-                    }}
-                  >
-                    {entry.completedMealCount} refeições ·{" "}
-                    {formatMlToLiters(entry.waterMl)}
-                  </p>
-                </article>
-              ))}
-            </div>
-          )}
             </section>
 
             <section
@@ -2415,668 +2471,689 @@ export default function MealPlanPage({
               className="page-card mb-8"
               style={sectionCardStyle}
             >
-          <MealSectionEyebrow tone="sage">Mapa de trocas</MealSectionEyebrow>
-          <h2 className="font-display mb-2" style={sectionTitleStyle}>
-            Mapa de trocas
-          </h2>
-          <p
-            className="font-body mb-6"
-            style={{
-              ...sectionLeadStyle,
-              maxWidth: "40rem",
-            }}
-          >
-            Escolha a refeição que você quer ajustar. O clique aqui cai no mesmo
-            lugar usado em <strong>Se quiser trocar</strong> e já influencia
-            <strong> O que comprar</strong>.
-          </p>
-
-          <div
-            data-meal-surface="accent-teal"
-            className="mb-4 rounded px-4 py-4"
-            style={{
-              ...tealSurfaceStyle,
-              borderRadius: "20px",
-              borderLeft: "4px solid var(--color-teal)",
-            }}
-          >
-            <p
-              className="font-body mb-1"
-              style={{
-                fontSize: "0.72rem",
-                fontWeight: 700,
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                color: "var(--color-teal)",
-              }}
-            >
-              Aplicável agora
-            </p>
-            <p
-              className="font-body"
-              style={{
-                fontSize: "0.82rem",
-                color: "var(--color-charcoal-light)",
-                lineHeight: 1.7,
-              }}
-            >
-              As escolhas desta faixa mudam a refeição selecionada e entram na
-              lógica de compra da semana.
-            </p>
-          </div>
-
-          <div
-            data-meal-surface="soft"
-            className="mb-5 rounded px-4 py-4"
-            style={{
-              ...softSurfaceStyle,
-              borderRadius: "20px",
-            }}
-          >
-            <div className="mb-3 flex items-center gap-2">
-              <Star size={15} style={{ color: "var(--color-rose)" }} />
+              <MealSectionEyebrow tone="sage">
+                Mapa de trocas
+              </MealSectionEyebrow>
+              <h2 className="font-display mb-2" style={sectionTitleStyle}>
+                Mapa de trocas
+              </h2>
               <p
-                className="font-body"
+                className="font-body mb-6"
                 style={{
-                  fontSize: "0.72rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.08em",
-                  textTransform: "uppercase",
-                  color: "var(--color-rose)",
+                  ...sectionLeadStyle,
+                  maxWidth: "40rem",
                 }}
               >
-                Trocas ativas agora
+                Escolha a refeição que você quer ajustar. O clique aqui cai no
+                mesmo lugar usado em <strong>Se quiser trocar</strong> e já
+                influencia
+                <strong> O que comprar</strong>.
               </p>
-            </div>
-            {activeSwapSummaryEntries.length === 0 ? (
-              <p
-                className="font-body"
+
+              <div
+                data-meal-surface="accent-teal"
+                className="mb-4 rounded px-4 py-4"
                 style={{
-                  fontSize: "0.82rem",
-                  color: "var(--color-charcoal-light)",
-                  lineHeight: 1.7,
-                }}
-              >
-                Nenhuma troca ativa por enquanto. Quando você escolher uma
-                troca, ela aparece aqui e a lista da semana acompanha.
-              </p>
-            ) : (
-              <div className="grid gap-3 md:grid-cols-2">
-                {activeSwapSummaryEntries.map(entry => (
-                  <div
-                    key={`${entry.mealKey}-${entry.slotId}`}
-                    className="rounded px-3 py-3"
-                    style={{
-                      backgroundColor: "rgba(255,250,243,0.9)",
-                      border: "1px solid rgba(95,86,75,0.12)",
-                      borderRadius: "16px",
-                    }}
-                  >
-                    <p
-                      className="font-body"
-                      style={{
-                        fontSize: "0.7rem",
-                        fontWeight: 700,
-                        letterSpacing: "0.08em",
-                        textTransform: "uppercase",
-                        color: "var(--color-teal)",
-                        ...noWrapPillStyle,
-                      }}
-                    >
-                      {entry.mealLabel}
-                    </p>
-                    <p
-                      className="font-body"
-                      style={{
-                        fontSize: "0.8rem",
-                        color: "var(--color-charcoal)",
-                        lineHeight: 1.6,
-                        marginTop: "0.35rem",
-                      }}
-                    >
-                      {entry.from} → {entry.selectedOptionName}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <div className="mb-4">
-            <p
-              className="font-body mb-2"
-              style={{
-                fontSize: "0.78rem",
-                color: "var(--color-charcoal-light)",
-                lineHeight: 1.6,
-              }}
-            >
-              Escolha a refeição e toque para ajustar agora.
-            </p>
-            <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-4">
-              {swapMapMeals.map(meal => {
-                const activeCount = getActiveSwapCountByMeal(
-                  mealPlanData,
-                  plannerState,
-                  meal.key
-                );
-
-                return (
-                  <PlannerChoiceButton
-                    key={meal.key}
-                    interactiveKind="swap-map"
-                    label={meal.label}
-                    hint={
-                      activeCount > 0
-                        ? `${activeCount} trocas ativas`
-                        : "Toque para ajustar agora"
-                    }
-                    active={activeSwapMeal?.key === meal.key}
-                    onClick={() => setActiveSwapMapMealKey(meal.key)}
-                  />
-                );
-              })}
-            </div>
-          </div>
-
-          <div
-            data-meal-surface="soft"
-            className="mb-6 rounded px-4 py-4"
-            style={{
-              ...softSurfaceStyle,
-              borderRadius: "18px",
-            }}
-          >
-            <p
-              className="font-body"
-              style={{
-                fontSize: "0.82rem",
-                color: "var(--color-charcoal-light)",
-                lineHeight: 1.7,
-              }}
-            >
-              {activeSwapMeal
-                ? `Você está ajustando ${activeSwapMeal.label.toLowerCase()}. Se a refeição estiver em uma variação, tocar numa troca aqui traz essa refeição de volta para a base e mantém a lista da semana coerente.`
-                : "Escolha uma refeição para ver trocas rápidas."}
-            </p>
-            {activeSwapMeal && activeSwapCountForMeal > 0 ? (
-              <div className="mt-3">
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  onClick={() =>
-                    setPlannerState(current =>
-                      clearMealSubstitutionSelections(
-                        current,
-                        activeSwapMeal.key
-                      )
-                    )
-                  }
-                >
-                  Limpar trocas desta refeição
-                </Button>
-              </div>
-            ) : null}
-          </div>
-
-          {activeSwapMeal ? (
-            <div
-              className="grid gap-4"
-              style={{
-                gridTemplateColumns:
-                  "repeat(auto-fit, minmax(min(280px, 100%), 1fr))",
-              }}
-            >
-              {interactiveSwapGroups.map(group => (
-                <article
-                  data-meal-surface="elevated"
-                  key={group.slotId}
-                  className="inner-card h-full"
-                  style={{
-                    ...elevatedSurfaceStyle,
-                    padding: "1rem",
-                  }}
-                >
-                  {(() => {
-                    const activeOption =
-                      group.options.find(option => option.active) ?? null;
-                    const category =
-                      activeOption?.category ?? group.options[0]?.category;
-                    const visual = getSwapCategoryVisual(category);
-                    const Icon = visual.Icon;
-
-                    return (
-                      <>
-                        <div className="mb-3 flex items-start justify-between gap-3">
-                          <div className="flex items-start gap-3">
-                            <span
-                              className="inline-flex h-9 w-9 items-center justify-center rounded-full"
-                              style={{
-                                backgroundColor: visual.background,
-                                color: visual.color,
-                                flexShrink: 0,
-                              }}
-                            >
-                              <Icon size={16} />
-                            </span>
-                            <div>
-                              <p
-                                className="font-body"
-                                style={{
-                                  fontSize: "0.72rem",
-                                  fontWeight: 700,
-                                  letterSpacing: "0.08em",
-                                  textTransform: "uppercase",
-                                  color: visual.color,
-                                }}
-                              >
-                                {group.title}
-                              </p>
-                              <p
-                                className="font-body"
-                                style={{
-                                  fontSize: "0.78rem",
-                                  color: "var(--color-charcoal-light)",
-                                  lineHeight: 1.6,
-                                  marginTop: "0.25rem",
-                                }}
-                              >
-                                Agora:{" "}
-                                {activeOption ? activeOption.name : "Original"}
-                              </p>
-                            </div>
-                          </div>
-                          {activeOption ? (
-                            <span
-                              className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 font-body"
-                              style={{
-                                ...noWrapPillStyle,
-                                fontSize: "0.66rem",
-                                fontWeight: 700,
-                                letterSpacing: "0.08em",
-                                textTransform: "uppercase",
-                                color: "var(--color-rose)",
-                                backgroundColor: "var(--color-rose-muted)",
-                                border: "1px solid rgba(114,55,69,0.14)",
-                              }}
-                            >
-                              <CheckCircle2 size={12} />
-                              Ativa
-                            </span>
-                          ) : null}
-                        </div>
-                        <div className="flex flex-col gap-2">
-                          <PlannerChoiceButton
-                            interactiveKind="swap-map"
-                            label="Manter original"
-                            hint="Volta para o item base"
-                            active={!group.selectedOptionId}
-                            disabled={!plannerState.profile}
-                            onClick={() =>
-                              setPlannerState(current =>
-                                applyMealSubstitutionSelection(
-                                  current,
-                                  activeSwapMeal.key,
-                                  group.slotId,
-                                  null
-                                )
-                              )
-                            }
-                          />
-                          {group.options.map(option => (
-                            <PlannerChoiceButton
-                              key={option.id}
-                              interactiveKind="swap-map"
-                              label={option.name}
-                              hint={option.portion}
-                              active={option.active}
-                              disabled={!plannerState.profile}
-                              onClick={() =>
-                                setPlannerState(current =>
-                                  applyMealSubstitutionSelection(
-                                    current,
-                                    activeSwapMeal.key,
-                                    group.slotId,
-                                    option.id
-                                  )
-                                )
-                              }
-                            />
-                          ))}
-                        </div>
-                      </>
-                    );
-                  })()}
-                </article>
-              ))}
-            </div>
-          ) : null}
-
-          <div
-            data-meal-surface="accent-rose"
-            className="mt-6 rounded px-4 py-4"
-            style={{
-              ...roseSurfaceStyle,
-              borderRadius: "20px",
-              borderLeft: "4px solid var(--color-rose)",
-            }}
-          >
-            <div className="mb-2 flex items-center gap-2">
-              <ClipboardList size={15} style={{ color: "var(--color-rose)" }} />
-              <p
-                className="font-body"
-                style={{
-                  fontSize: "0.72rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.08em",
-                  textTransform: "uppercase",
-                  color: "var(--color-rose)",
-                }}
-              >
-                Consulta ampliada
-              </p>
-            </div>
-            <p
-              className="font-body"
-              style={{
-                fontSize: "0.82rem",
-                color: "var(--color-charcoal-light)",
-                lineHeight: 1.7,
-              }}
-            >
-              Lista completa para consulta. Aqui ficam as referências amplas do
-              plano original para repertório, mesmo quando a troca rápida do
-              topo estiver limitada à refeição escolhida.
-            </p>
-          </div>
-
-          <div
-            className="mt-4 grid gap-4"
-            style={{
-              gridTemplateColumns:
-                "repeat(auto-fit, minmax(min(280px, 100%), 1fr))",
-            }}
-          >
-            {mealPlanData.swapGroups.map(group => (
-              <article
-                data-meal-surface="elevated"
-                key={`reference-${group.key}`}
-                className="inner-card h-full"
-                style={{
-                  ...elevatedSurfaceStyle,
-                  padding: "1rem",
+                  ...tealSurfaceStyle,
+                  borderRadius: "20px",
+                  borderLeft: "4px solid var(--color-teal)",
                 }}
               >
                 <p
-                  className="font-body mb-2"
+                  className="font-body mb-1"
                   style={{
                     fontSize: "0.72rem",
                     fontWeight: 700,
                     letterSpacing: "0.08em",
                     textTransform: "uppercase",
-                    color: "var(--color-rose)",
+                    color: "var(--color-teal)",
                   }}
                 >
-                  {group.title}
+                  Aplicável agora
                 </p>
                 <p
-                  className="font-body mb-3"
+                  className="font-body"
                   style={{
-                    fontSize: "0.78rem",
-                    color: "var(--color-warm-gray)",
-                    lineHeight: 1.6,
+                    fontSize: "0.82rem",
+                    color: "var(--color-charcoal-light)",
+                    lineHeight: 1.7,
                   }}
                 >
-                  {group.description}
+                  As escolhas desta faixa mudam a refeição selecionada e entram
+                  na lógica de compra da semana.
                 </p>
-                <div className="space-y-2">
-                  {group.items.map(item => (
-                    <div
-                      data-meal-surface="soft"
-                      key={`reference-${group.key}-${item.shoppingKey ?? item.name}`}
-                      className="rounded px-3 py-2"
-                      style={{
-                        ...softSurfaceStyle,
-                        borderRadius: "14px",
-                        padding: "0.6rem 0.75rem",
-                      }}
-                    >
-                      <p
-                        className="font-body"
-                        style={{
-                          fontSize: "0.78rem",
-                          fontWeight: 600,
-                          color: "var(--color-charcoal)",
-                        }}
-                      >
-                        {item.name}
-                      </p>
-                      <p
-                        className="font-body"
-                        style={{
-                          fontSize: "0.72rem",
-                          color: "var(--color-warm-gray)",
-                          marginTop: "0.2rem",
-                        }}
-                      >
-                        {item.portion}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
+              </div>
 
-        <section
-          data-meal-section="flat"
-          className="page-card mb-8"
-          style={sectionCardStyle}
-        >
-          <MealSectionEyebrow>Lista da semana</MealSectionEyebrow>
-          <div className="mb-5 overflow-hidden rounded border border-[rgba(181,169,154,0.4)]">
-            <EditorialVisual visual={mealPlanData.sectionVisuals.shopping} />
-          </div>
-          <h2 className="font-display mb-2" style={sectionTitleStyle}>
-            O que comprar
-          </h2>
-          <p
-            className="font-body mb-6"
-            style={{
-              ...sectionLeadStyle,
-              maxWidth: "40rem",
-            }}
-          >
-            A lista acompanha o que está valendo hoje e já organiza a semana de
-            forma aproximada.
-          </p>
-
-          <div
-            className="mb-5 grid gap-3 md:grid-cols-3"
-            style={{
-              gridTemplateColumns:
-                "repeat(auto-fit, minmax(min(220px, 100%), 1fr))",
-            }}
-          >
-            <div
-              data-meal-surface="accent-rose"
-              className="rounded px-4 py-4"
-              style={{
-                ...roseSurfaceStyle,
-                borderLeft: "3px solid var(--color-rose)",
-                borderRadius: "18px",
-              }}
-            >
-              <p
-                className="font-body"
+              <div
+                data-meal-surface="soft"
+                className="mb-5 rounded px-4 py-4"
                 style={{
-                  fontSize: "0.8rem",
-                  color: "var(--color-charcoal-light)",
-                  lineHeight: 1.6,
-                }}
-              >
-                Uma lista aproximada para facilitar a semana, sem virar
-                planilha.
-              </p>
-            </div>
-            <div
-              data-meal-surface="accent-teal"
-              className="rounded px-4 py-4"
-              style={{
-                ...tealSurfaceStyle,
-                borderLeft: "3px solid var(--color-teal)",
-                borderRadius: "18px",
-              }}
-            >
-              <p
-                className="font-body"
-                style={{
-                  fontSize: "0.8rem",
-                  color: "var(--color-charcoal-light)",
-                  lineHeight: 1.6,
-                }}
-              >
-                Se você mudar uma refeição, a lista muda junto.
-              </p>
-            </div>
-            <div
-              data-meal-surface="soft"
-              className="rounded px-4 py-4"
-              style={{
-                ...softSurfaceStyle,
-                borderLeft: "3px solid var(--color-taupe)",
-                borderRadius: "18px",
-              }}
-            >
-              <p
-                className="font-body"
-                style={{
-                  fontSize: "0.8rem",
-                  color: "var(--color-charcoal-light)",
-                  lineHeight: 1.6,
-                }}
-              >
-                Use como base rápida de compra, não como regra rígida.
-              </p>
-            </div>
-          </div>
-
-          <div
-            className="grid gap-4"
-            style={{
-              gridTemplateColumns:
-                "repeat(auto-fit, minmax(min(250px, 100%), 1fr))",
-            }}
-          >
-            {shoppingGroups.map(group => (
-              <article
-                data-meal-surface="elevated"
-                key={group.key}
-                className="inner-card h-full"
-                style={{
-                  padding: "1rem 1.05rem",
-                  ...elevatedSurfaceStyle,
+                  ...softSurfaceStyle,
+                  borderRadius: "20px",
                 }}
               >
                 <div className="mb-3 flex items-center gap-2">
-                  <ShoppingBasket
+                  <Star size={15} style={{ color: "var(--color-rose)" }} />
+                  <p
+                    className="font-body"
+                    style={{
+                      fontSize: "0.72rem",
+                      fontWeight: 700,
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      color: "var(--color-rose)",
+                    }}
+                  >
+                    Trocas ativas agora
+                  </p>
+                </div>
+                {activeSwapSummaryEntries.length === 0 ? (
+                  <p
+                    className="font-body"
+                    style={{
+                      fontSize: "0.82rem",
+                      color: "var(--color-charcoal-light)",
+                      lineHeight: 1.7,
+                    }}
+                  >
+                    Nenhuma troca ativa por enquanto. Quando você escolher uma
+                    troca, ela aparece aqui e a lista da semana acompanha.
+                  </p>
+                ) : (
+                  <div className="grid gap-3 md:grid-cols-2">
+                    {activeSwapSummaryEntries.map(entry => (
+                      <div
+                        key={`${entry.mealKey}-${entry.slotId}`}
+                        className="rounded px-3 py-3"
+                        style={{
+                          backgroundColor: "rgba(255,250,243,0.9)",
+                          border: "1px solid rgba(95,86,75,0.12)",
+                          borderRadius: "16px",
+                        }}
+                      >
+                        <p
+                          className="font-body"
+                          style={{
+                            fontSize: "0.7rem",
+                            fontWeight: 700,
+                            letterSpacing: "0.08em",
+                            textTransform: "uppercase",
+                            color: "var(--color-teal)",
+                            ...noWrapPillStyle,
+                          }}
+                        >
+                          {entry.mealLabel}
+                        </p>
+                        <p
+                          className="font-body"
+                          style={{
+                            fontSize: "0.8rem",
+                            color: "var(--color-charcoal)",
+                            lineHeight: 1.6,
+                            marginTop: "0.35rem",
+                          }}
+                        >
+                          {entry.from} → {entry.selectedOptionName}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <div className="mb-4">
+                <p
+                  className="font-body mb-2"
+                  style={{
+                    fontSize: "0.78rem",
+                    color: "var(--color-charcoal-light)",
+                    lineHeight: 1.6,
+                  }}
+                >
+                  Escolha a refeição e toque para ajustar agora.
+                </p>
+                <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-4">
+                  {swapMapMeals.map(meal => {
+                    const activeCount = getActiveSwapCountByMeal(
+                      mealPlanData,
+                      plannerState,
+                      meal.key
+                    );
+
+                    return (
+                      <PlannerChoiceButton
+                        key={meal.key}
+                        interactiveKind="swap-map"
+                        label={meal.label}
+                        hint={
+                          activeCount > 0
+                            ? `${activeCount} trocas ativas`
+                            : "Toque para ajustar agora"
+                        }
+                        active={activeSwapMeal?.key === meal.key}
+                        onClick={() => setActiveSwapMapMealKey(meal.key)}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div
+                data-meal-surface="soft"
+                className="mb-6 rounded px-4 py-4"
+                style={{
+                  ...softSurfaceStyle,
+                  borderRadius: "18px",
+                }}
+              >
+                <p
+                  className="font-body"
+                  style={{
+                    fontSize: "0.82rem",
+                    color: "var(--color-charcoal-light)",
+                    lineHeight: 1.7,
+                  }}
+                >
+                  {activeSwapMeal
+                    ? `Você está ajustando ${activeSwapMeal.label.toLowerCase()}. Se a refeição estiver em uma variação, tocar numa troca aqui traz essa refeição de volta para a base e mantém a lista da semana coerente.`
+                    : "Escolha uma refeição para ver trocas rápidas."}
+                </p>
+                {activeSwapMeal && activeSwapCountForMeal > 0 ? (
+                  <div className="mt-3">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={() =>
+                        setPlannerState(current =>
+                          clearMealSubstitutionSelections(
+                            current,
+                            activeSwapMeal.key
+                          )
+                        )
+                      }
+                    >
+                      Limpar trocas desta refeição
+                    </Button>
+                  </div>
+                ) : null}
+              </div>
+
+              {activeSwapMeal ? (
+                <div
+                  className="grid gap-4"
+                  style={{
+                    gridTemplateColumns:
+                      "repeat(auto-fit, minmax(min(280px, 100%), 1fr))",
+                  }}
+                >
+                  {interactiveSwapGroups.map(group => (
+                    <article
+                      data-meal-surface="elevated"
+                      key={group.slotId}
+                      className="inner-card h-full"
+                      style={{
+                        ...elevatedSurfaceStyle,
+                        padding: "1rem",
+                      }}
+                    >
+                      {(() => {
+                        const activeOption =
+                          group.options.find(option => option.active) ?? null;
+                        const category =
+                          activeOption?.category ?? group.options[0]?.category;
+                        const visual = getSwapCategoryVisual(category);
+                        const Icon = visual.Icon;
+
+                        return (
+                          <>
+                            <div className="mb-3 flex items-start justify-between gap-3">
+                              <div className="flex items-start gap-3">
+                                <span
+                                  className="inline-flex h-9 w-9 items-center justify-center rounded-full"
+                                  style={{
+                                    backgroundColor: visual.background,
+                                    color: visual.color,
+                                    flexShrink: 0,
+                                  }}
+                                >
+                                  <Icon size={16} />
+                                </span>
+                                <div>
+                                  <p
+                                    className="font-body"
+                                    style={{
+                                      fontSize: "0.72rem",
+                                      fontWeight: 700,
+                                      letterSpacing: "0.08em",
+                                      textTransform: "uppercase",
+                                      color: visual.color,
+                                    }}
+                                  >
+                                    {group.title}
+                                  </p>
+                                  <p
+                                    className="font-body"
+                                    style={{
+                                      fontSize: "0.7rem",
+                                      color: "var(--color-warm-gray)",
+                                      lineHeight: 1.5,
+                                      marginTop: "0.2rem",
+                                    }}
+                                  >
+                                    {group.swapMapLabel}
+                                  </p>
+                                  <p
+                                    className="font-body"
+                                    style={{
+                                      fontSize: "0.78rem",
+                                      color: "var(--color-charcoal-light)",
+                                      lineHeight: 1.6,
+                                      marginTop: "0.25rem",
+                                    }}
+                                  >
+                                    Agora:{" "}
+                                    {activeOption
+                                      ? activeOption.name
+                                      : "Original"}
+                                  </p>
+                                </div>
+                              </div>
+                              {activeOption ? (
+                                <span
+                                  className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 font-body"
+                                  style={{
+                                    ...noWrapPillStyle,
+                                    fontSize: "0.66rem",
+                                    fontWeight: 700,
+                                    letterSpacing: "0.08em",
+                                    textTransform: "uppercase",
+                                    color: "var(--color-rose)",
+                                    backgroundColor: "var(--color-rose-muted)",
+                                    border: "1px solid rgba(114,55,69,0.14)",
+                                  }}
+                                >
+                                  <CheckCircle2 size={12} />
+                                  Ativa
+                                </span>
+                              ) : null}
+                            </div>
+                            <div className="flex flex-col gap-2">
+                              <PlannerChoiceButton
+                                interactiveKind="swap-map"
+                                label="Manter original"
+                                hint="Volta para o item base"
+                                active={!group.selectedOptionId}
+                                disabled={!plannerState.profile}
+                                onClick={() =>
+                                  setPlannerState(current =>
+                                    applyMealSubstitutionSelection(
+                                      current,
+                                      activeSwapMeal.key,
+                                      group.slotId,
+                                      null
+                                    )
+                                  )
+                                }
+                              />
+                              {group.options.map(option => (
+                                <PlannerChoiceButton
+                                  key={option.id}
+                                  interactiveKind="swap-map"
+                                  label={option.name}
+                                  hint={option.portion}
+                                  active={option.active}
+                                  disabled={!plannerState.profile}
+                                  onClick={() =>
+                                    setPlannerState(current =>
+                                      applyMealSubstitutionSelection(
+                                        current,
+                                        activeSwapMeal.key,
+                                        group.slotId,
+                                        option.id
+                                      )
+                                    )
+                                  }
+                                />
+                              ))}
+                            </div>
+                          </>
+                        );
+                      })()}
+                    </article>
+                  ))}
+                </div>
+              ) : null}
+
+              <div
+                data-meal-surface="accent-rose"
+                className="mt-6 rounded px-4 py-4"
+                style={{
+                  ...roseSurfaceStyle,
+                  borderRadius: "20px",
+                  borderLeft: "4px solid var(--color-rose)",
+                }}
+              >
+                <div className="mb-2 flex items-center gap-2">
+                  <ClipboardList
                     size={15}
                     style={{ color: "var(--color-rose)" }}
                   />
                   <p
                     className="font-body"
                     style={{
-                      fontSize: "0.76rem",
-                      fontWeight: 600,
+                      fontSize: "0.72rem",
+                      fontWeight: 700,
                       letterSpacing: "0.08em",
                       textTransform: "uppercase",
                       color: "var(--color-rose)",
                     }}
                   >
-                    {group.title}
-                  </p>
-                </div>
-                <div className="space-y-2">
-                  {group.items.map(item => (
-                    <div
-                      data-meal-surface="soft"
-                      key={item.key}
-                      className="rounded px-3 py-3"
-                      style={{
-                        ...softSurfaceStyle,
-                        padding: "0.75rem",
-                        borderRadius: "16px",
-                      }}
-                    >
-                      <p
-                        className="font-body"
-                        style={{
-                          fontSize: "0.8rem",
-                          fontWeight: 600,
-                          color: "var(--color-charcoal)",
-                        }}
-                      >
-                        {item.name}
-                      </p>
-                      <p
-                        className="font-body"
-                        style={{
-                          fontSize: "0.74rem",
-                          color: "var(--color-warm-gray)",
-                          marginTop: "0.25rem",
-                        }}
-                      >
-                        {item.weeklyPortion}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-5 grid gap-3 md:grid-cols-3">
-            {mealPlanData.globalNotes.map(note => (
-              <div
-                data-meal-surface="soft"
-                key={note}
-                className="rounded px-4 py-4"
-                style={{
-                  ...softSurfaceStyle,
-                  padding: "1rem",
-                  borderRadius: "18px",
-                }}
-              >
-                <div className="mb-2 flex items-center gap-2">
-                  <Leaf size={14} style={{ color: "var(--color-teal)" }} />
-                  <p
-                    className="font-body"
-                    style={{
-                      fontSize: "0.72rem",
-                      fontWeight: 600,
-                      letterSpacing: "0.08em",
-                      textTransform: "uppercase",
-                      color: "var(--color-teal)",
-                    }}
-                  >
-                    Nota do plano
+                    Consulta ampliada
                   </p>
                 </div>
                 <p
                   className="font-body"
                   style={{
-                    fontSize: "0.8rem",
+                    fontSize: "0.82rem",
                     color: "var(--color-charcoal-light)",
-                    lineHeight: 1.65,
+                    lineHeight: 1.7,
                   }}
                 >
-                  {note}
+                  Lista completa para consulta. Aqui ficam as referências amplas
+                  do plano original para repertório, mesmo quando a troca rápida
+                  do topo estiver limitada à refeição escolhida.
                 </p>
               </div>
-            ))}
-          </div>
+
+              <div
+                className="mt-4 grid gap-4"
+                style={{
+                  gridTemplateColumns:
+                    "repeat(auto-fit, minmax(min(280px, 100%), 1fr))",
+                }}
+              >
+                {mealPlanData.swapGroups.map(group => (
+                  <article
+                    data-meal-surface="elevated"
+                    key={`reference-${group.key}`}
+                    className="inner-card h-full"
+                    style={{
+                      ...elevatedSurfaceStyle,
+                      padding: "1rem",
+                    }}
+                  >
+                    <p
+                      className="font-body mb-2"
+                      style={{
+                        fontSize: "0.72rem",
+                        fontWeight: 700,
+                        letterSpacing: "0.08em",
+                        textTransform: "uppercase",
+                        color: "var(--color-rose)",
+                      }}
+                    >
+                      {group.title}
+                    </p>
+                    <p
+                      className="font-body mb-3"
+                      style={{
+                        fontSize: "0.78rem",
+                        color: "var(--color-warm-gray)",
+                        lineHeight: 1.6,
+                      }}
+                    >
+                      {group.description}
+                    </p>
+                    <div className="space-y-2">
+                      {group.items.map(item => (
+                        <div
+                          data-meal-surface="soft"
+                          key={`reference-${group.key}-${item.shoppingKey ?? item.name}`}
+                          className="rounded px-3 py-2"
+                          style={{
+                            ...softSurfaceStyle,
+                            borderRadius: "14px",
+                            padding: "0.6rem 0.75rem",
+                          }}
+                        >
+                          <p
+                            className="font-body"
+                            style={{
+                              fontSize: "0.78rem",
+                              fontWeight: 600,
+                              color: "var(--color-charcoal)",
+                            }}
+                          >
+                            {item.name}
+                          </p>
+                          <p
+                            className="font-body"
+                            style={{
+                              fontSize: "0.72rem",
+                              color: "var(--color-warm-gray)",
+                              marginTop: "0.2rem",
+                            }}
+                          >
+                            {item.portion}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section
+              data-meal-section="flat"
+              className="page-card mb-8"
+              style={sectionCardStyle}
+            >
+              <MealSectionEyebrow>Lista da semana</MealSectionEyebrow>
+              <div className="mb-5 overflow-hidden rounded border border-[rgba(181,169,154,0.4)]">
+                <EditorialVisual
+                  visual={mealPlanData.sectionVisuals.shopping}
+                />
+              </div>
+              <h2 className="font-display mb-2" style={sectionTitleStyle}>
+                O que comprar
+              </h2>
+              <p
+                className="font-body mb-6"
+                style={{
+                  ...sectionLeadStyle,
+                  maxWidth: "40rem",
+                }}
+              >
+                A lista acompanha o que está valendo hoje e já organiza a semana
+                de forma aproximada.
+              </p>
+
+              <div
+                className="mb-5 grid gap-3 md:grid-cols-3"
+                style={{
+                  gridTemplateColumns:
+                    "repeat(auto-fit, minmax(min(220px, 100%), 1fr))",
+                }}
+              >
+                <div
+                  data-meal-surface="accent-rose"
+                  className="rounded px-4 py-4"
+                  style={{
+                    ...roseSurfaceStyle,
+                    borderLeft: "3px solid var(--color-rose)",
+                    borderRadius: "18px",
+                  }}
+                >
+                  <p
+                    className="font-body"
+                    style={{
+                      fontSize: "0.8rem",
+                      color: "var(--color-charcoal-light)",
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    Uma lista aproximada para facilitar a semana, sem virar
+                    planilha.
+                  </p>
+                </div>
+                <div
+                  data-meal-surface="accent-teal"
+                  className="rounded px-4 py-4"
+                  style={{
+                    ...tealSurfaceStyle,
+                    borderLeft: "3px solid var(--color-teal)",
+                    borderRadius: "18px",
+                  }}
+                >
+                  <p
+                    className="font-body"
+                    style={{
+                      fontSize: "0.8rem",
+                      color: "var(--color-charcoal-light)",
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    Se você mudar uma refeição, a lista muda junto.
+                  </p>
+                </div>
+                <div
+                  data-meal-surface="soft"
+                  className="rounded px-4 py-4"
+                  style={{
+                    ...softSurfaceStyle,
+                    borderLeft: "3px solid var(--color-taupe)",
+                    borderRadius: "18px",
+                  }}
+                >
+                  <p
+                    className="font-body"
+                    style={{
+                      fontSize: "0.8rem",
+                      color: "var(--color-charcoal-light)",
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    Use como base rápida de compra, não como regra rígida.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                className="grid gap-4"
+                style={{
+                  gridTemplateColumns:
+                    "repeat(auto-fit, minmax(min(250px, 100%), 1fr))",
+                }}
+              >
+                {shoppingGroups.map(group => (
+                  <article
+                    data-meal-surface="elevated"
+                    key={group.key}
+                    className="inner-card h-full"
+                    style={{
+                      padding: "1rem 1.05rem",
+                      ...elevatedSurfaceStyle,
+                    }}
+                  >
+                    <div className="mb-3 flex items-center gap-2">
+                      <ShoppingBasket
+                        size={15}
+                        style={{ color: "var(--color-rose)" }}
+                      />
+                      <p
+                        className="font-body"
+                        style={{
+                          fontSize: "0.76rem",
+                          fontWeight: 600,
+                          letterSpacing: "0.08em",
+                          textTransform: "uppercase",
+                          color: "var(--color-rose)",
+                        }}
+                      >
+                        {group.title}
+                      </p>
+                    </div>
+                    <div className="space-y-2">
+                      {group.items.map(item => (
+                        <div
+                          data-meal-surface="soft"
+                          key={item.key}
+                          className="rounded px-3 py-3"
+                          style={{
+                            ...softSurfaceStyle,
+                            padding: "0.75rem",
+                            borderRadius: "16px",
+                          }}
+                        >
+                          <p
+                            className="font-body"
+                            style={{
+                              fontSize: "0.8rem",
+                              fontWeight: 600,
+                              color: "var(--color-charcoal)",
+                            }}
+                          >
+                            {item.name}
+                          </p>
+                          <p
+                            className="font-body"
+                            style={{
+                              fontSize: "0.74rem",
+                              color: "var(--color-warm-gray)",
+                              marginTop: "0.25rem",
+                            }}
+                          >
+                            {item.weeklyPortion}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </article>
+                ))}
+              </div>
+
+              <div className="mt-5 grid gap-3 md:grid-cols-3">
+                {mealPlanData.globalNotes.map(note => (
+                  <div
+                    data-meal-surface="soft"
+                    key={note}
+                    className="rounded px-4 py-4"
+                    style={{
+                      ...softSurfaceStyle,
+                      padding: "1rem",
+                      borderRadius: "18px",
+                    }}
+                  >
+                    <div className="mb-2 flex items-center gap-2">
+                      <Leaf size={14} style={{ color: "var(--color-teal)" }} />
+                      <p
+                        className="font-body"
+                        style={{
+                          fontSize: "0.72rem",
+                          fontWeight: 600,
+                          letterSpacing: "0.08em",
+                          textTransform: "uppercase",
+                          color: "var(--color-teal)",
+                        }}
+                      >
+                        Nota do plano
+                      </p>
+                    </div>
+                    <p
+                      className="font-body"
+                      style={{
+                        fontSize: "0.8rem",
+                        color: "var(--color-charcoal-light)",
+                        lineHeight: 1.65,
+                      }}
+                    >
+                      {note}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </section>
           </>
         ) : (

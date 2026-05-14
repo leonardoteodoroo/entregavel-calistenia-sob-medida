@@ -1,4 +1,4 @@
-import { isValidElement, type ReactNode } from "react";
+import { isValidElement, type ReactElement, type ReactNode } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -74,13 +74,15 @@ function getNodeText(node: ReactNode): string {
     return "";
   }
 
-  return getNodeText(node.props.children);
+  return getNodeText(
+    (node as ReactElement<{ children?: ReactNode }>).props.children
+  );
 }
 
 function findElementByText(
   node: ReactNode,
   text: string
-): React.ReactElement | null {
+): ReactElement<{ children?: ReactNode; onClick?: () => void }> | null {
   if (!isValidElement(node)) {
     if (Array.isArray(node)) {
       for (const child of node) {
@@ -92,14 +94,19 @@ function findElementByText(
     return null;
   }
 
-  if (typeof node.props.onClick === "function") {
-    const nodeText = getNodeText(node.props.children);
+  const element = node as ReactElement<{
+    children?: ReactNode;
+    onClick?: () => void;
+  }>;
+
+  if (typeof element.props.onClick === "function") {
+    const nodeText = getNodeText(element.props.children);
     if (nodeText.includes(text)) {
-      return node;
+      return element;
     }
   }
 
-  return findElementByText(node.props.children, text);
+  return findElementByText(element.props.children, text);
 }
 
 describe("MealPlanPage", () => {
@@ -135,7 +142,9 @@ describe("MealPlanPage", () => {
     expect(markup).toContain("Comece por aqui");
     expect(markup).toContain("Passo 1 de 3");
     expect(markup).toContain("Seu peso");
-    expect(markup).toContain("Complete os 3 passos para abrir o restante do plano");
+    expect(markup).toContain(
+      "Complete os 3 passos para abrir o restante do plano"
+    );
     expect(markup).toContain("Hoje você vê só o essencial do começo");
     expect(markup).toContain("Voltar ao Passo 1 de 3");
     expect(markup).not.toContain("V3 premium local");
@@ -249,7 +258,9 @@ describe("MealPlanPage", () => {
     expect(markup).toContain("flex-shrink:0");
     expect(markup).not.toContain("width:min(1200px,100%)");
     expect(markup).not.toContain("Comece por aqui");
-    expect(markup).not.toContain("Complete os 3 passos para abrir o restante do plano");
+    expect(markup).not.toContain(
+      "Complete os 3 passos para abrir o restante do plano"
+    );
     expect(markup).toContain("Editar perfil");
     expect(markup).toContain("Como usar seu plano");
     expect(markup).toContain("Hoje");
@@ -324,7 +335,7 @@ describe("MealPlanPage", () => {
     );
 
     expect(cta).not.toBeNull();
-    cta?.props.onClick();
+    cta?.props.onClick?.();
 
     expect(onOpenCustomization).toHaveBeenCalledWith(meal);
   });

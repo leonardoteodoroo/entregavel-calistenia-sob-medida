@@ -108,6 +108,7 @@ export interface InteractiveSwapMapGroup {
   slotId: string;
   title: string;
   from: string;
+  swapMapLabel: string;
   selectedOptionId: string | null;
   options: Array<MealSubstitutionOption & { active: boolean }>;
 }
@@ -795,6 +796,7 @@ export function getInteractiveSwapMapGroups(
     slotId: slot.slotId,
     title: `Troque ${slot.from}`,
     from: slot.from,
+    swapMapLabel: slot.swapMapLabel,
     selectedOptionId: selectedSlots[slot.slotId] ?? null,
     options: slot.options.map(option => ({
       ...option,

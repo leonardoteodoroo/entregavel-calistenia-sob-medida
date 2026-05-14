@@ -839,7 +839,8 @@ export default function Home() {
                             }}
                           >
                             Você poderá calcular calorias do seu prato apenas
-                            enviando uma foto e a IA fará o resto.
+                            enviando uma foto e a IA fará o resto. (16 dias,
+                            estou levantando os recursos.)
                           </p>
 
                           <div

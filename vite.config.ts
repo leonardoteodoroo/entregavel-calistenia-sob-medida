@@ -1,4 +1,6 @@
 import { jsxLocPlugin } from "@builder.io/vite-plugin-jsx-loc";
+import { partytownSnippet } from "@qwik.dev/partytown/integration";
+import { partytownVite } from "@qwik.dev/partytown/utils";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import type { IncomingMessage, ServerResponse } from "node:http";
@@ -78,11 +80,33 @@ function createSlashRedirectPlugin(): Plugin {
   };
 }
 
+function createPartytownSnippetPlugin(): Plugin {
+  const snippet = partytownSnippet();
+
+  return {
+    name: "partytown-inline-snippet",
+    transformIndexHtml(html) {
+      if (!html.includes("window.partytown")) {
+        return html;
+      }
+
+      return html.replace(
+        "</head>",
+        `    <script>${snippet}</script>\n  </head>`
+      );
+    },
+  };
+}
+
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
     jsxLocPlugin(),
+    partytownVite({
+      dest: path.resolve(import.meta.dirname, "dist/public/~partytown"),
+    }),
+    createPartytownSnippetPlugin(),
     createSlashRedirectPlugin(),
   ],
   appType: "mpa",
