@@ -12,6 +12,7 @@
     "preview": "vite preview --host",
     "check": "tsc --noEmit",
     "lint": "npm run check",
+    "predeploy": "pd-enforce",
     "deploy": "npm run build:pages && npx gh-pages -d dist/public",
     "format": "prettier --write .",
     "sync:exercise-media": "tsx scripts/sync-exercise-media.ts",

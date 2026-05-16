@@ -788,7 +788,7 @@ export default function ExerciseLibrarySection() {
                         fontWeight: 500,
                       }}
                     >
-                      Observação para o público-alvo
+                      ANTES DE COMEÇAR, OLHA SÓ
                     </p>
                     <p
                       className="font-body"
